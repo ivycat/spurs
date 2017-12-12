@@ -1,0 +1,98 @@
+# -----------------------------------------------------------------
+# .gitignore for WordPress                             ver 20161009
+# -----------------------------------------------------------------
+#
+# This file:
+# • is for WordPress sites using the default file/folder structure,
+# • specifies which files are tracked/untracked by git.
+#
+# .gitignore docs:
+# https://git-scm.com/docs/gitignore
+#
+# To ignore uncommitted changes in a tracked file,
+# use `git update-index --assume-unchanged`.
+#
+# To stop tracking a file,
+# use `git rm --cached`
+#
+# Forked from Bare Minimum Git:
+# https://ironcodestudio.com/bare-minimum-git/
+#
+# Change Log:
+# 20161009 Cosmetic and docs changes
+# 20160927 Initial fork from Bare Minimum Git repo
+#
+# -----------------------------------------------------------------
+
+
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+!.jscsrc
+!.jshintignore
+!.travis.yml
+
+# track .editorconfig file (i.e. do NOT ignore it)
+!.editorconfig
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!readme.md
+
+# ignore all files that start with ~
+~*
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+*.idea
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+error_log
+php_errorlog
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+# ignore node/grunt dependency directories
+bower_components/
+node_modules/
+vendor/
+
+.sass-cache
+
+
+
+
+dist
+
+dist-product
+
+
+
+
