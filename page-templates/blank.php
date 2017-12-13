@@ -7,9 +7,6 @@
  * @package spurs
  */
 
-?>
-<?php while ( have_posts() ) : the_post(); ?>
-
-	<?php get_template_part( 'loop-templates/content', 'blank' ); ?>
-
-<?php endwhile; // end of the loop. ?>
+while ( have_posts() ) : the_post();
+	get_template_part( 'loop-templates/content', 'blank' );
+endwhile; // end of the loop.
