@@ -88,5 +88,23 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
             <div class="row">
 
-                <!-- Do the left sidebar check -->
+                <!-- Do the left sidebar check
+                Currently, the left sidebar check simply checks to see if the default understrap
+                sidebar position is left or both and if true, loads the sidebar-left.php file.
+
+                It also sets the classes for the #primary div depending on the active sidebars
+
+                The sidebar-left.php also sets the class on the sidebar div depending on number
+                of columns.
+
+                Would like to consolidate and create a function for the left sidebar and right
+                sidebar. Potentially, do a separate function for the main body class.
+
+                I just want to make sure it's clean and logical.
+
+                Seems like it would make sense to write a function or two that can be used
+                in place of the get_template_part()
+
+                The function could incorporate a check to see if it's being loaded from a page template -->
+
 				<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
