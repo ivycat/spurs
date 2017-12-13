@@ -2,7 +2,7 @@
 /**
  * Boostrap 4 pagination
  *
- * @package understrap
+ * @package spurs
  */
 
 /**

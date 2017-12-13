@@ -2,7 +2,7 @@
 /**
  * Declaring widgets
  *
- * @package understrap
+ * @package spurs
  */
 
 /**

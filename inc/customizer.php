@@ -2,7 +2,7 @@
 /**
  * Understrap Theme Customizer
  *
- * @package understrap
+ * @package spurs
  */
 
 /**

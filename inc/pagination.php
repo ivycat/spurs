@@ -2,7 +2,7 @@
 /**
  * Pagination layout.
  *
- * @package understrap
+ * @package spurs
  */
 
 /**

@@ -2,13 +2,18 @@
 /**
  * Understrap functions and definitions
  *
- * @package understrap
+ * @package spurs
  */
 
 /**
  * Initialize theme default settings
  */
 require get_template_directory() . '/inc/theme-settings.php';
+
+/**
+ * Load theme wrapper
+ */
+require get_template_directory() . '/inc/theme-wrapper.php';
 
 /**
  * Theme setup and custom theme supports.

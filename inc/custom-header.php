@@ -2,7 +2,7 @@
 /**
  * Custom header setup.
  *
- * @package understrap
+ * @package spurs
  */
 
 function understrap_custom_header_setup() {

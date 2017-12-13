@@ -3,7 +3,7 @@
  * Adapted from Edward McIntyre's wp_bootstrap_navwalker class.
  * Removed support for glyphicon and added support for Font Awesome.
  *
- * @package understrap
+ * @package spurs
  */
 
 // Exit if accessed directly.

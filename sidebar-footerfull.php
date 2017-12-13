@@ -2,7 +2,7 @@
 /**
  * Sidebar setup for footer full.
  *
- * @package understrap
+ * @package spurs
  */
 
 $container   = get_theme_mod( 'understrap_container_type' );

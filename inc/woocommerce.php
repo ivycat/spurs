@@ -2,7 +2,7 @@
 /**
  * Add WooCommerce support
  *
- * @package understrap
+ * @package spurs
  */
 add_action( 'after_setup_theme', 'understrap_woocommerce_support' );
 if ( ! function_exists( 'understrap_woocommerce_support' ) ) {

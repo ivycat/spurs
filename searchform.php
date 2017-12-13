@@ -2,7 +2,7 @@
 /**
  * The template for displaying search forms in Underscores.me
  *
- * @package understrap
+ * @package spurs
  */
 
 ?>

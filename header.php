@@ -4,10 +4,11 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package understrap
+ * @package spurs
  */
 
-$container = get_theme_mod( 'understrap_container_type' );
+$container   = get_theme_mod( 'understrap_container_type' );
+$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -80,3 +81,12 @@ $container = get_theme_mod( 'understrap_container_type' );
 		</nav><!-- .site-navigation -->
 
 	</div><!-- .wrapper-navbar end -->
+
+    <div class="wrapper" id="page-wrapper"><!-- @todo create wrapper ID function -->
+
+        <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+
+            <div class="row">
+
+                <!-- Do the left sidebar check -->
+				<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>

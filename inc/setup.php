@@ -2,7 +2,7 @@
 /**
  * Theme basic setup.
  *
- * @package understrap
+ * @package spurs
  */
 
 

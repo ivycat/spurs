@@ -2,7 +2,7 @@
 /**
  * The right sidebar containing the main widget area.
  *
- * @package understrap
+ * @package spurs
  */
 
 if ( ! is_active_sidebar( 'right-sidebar' ) ) {
