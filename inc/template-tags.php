@@ -109,3 +109,107 @@ function understrap_category_transient_flusher() {
 add_action( 'edit_category', 'understrap_category_transient_flusher' );
 add_action( 'save_post',     'understrap_category_transient_flusher' );
 
+/**
+ * Left sidebar loading logic
+ */
+if ( ! function_exists( 'spurs_left_sidebar' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function spurs_left_sidebar() {
+		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+
+		if ( 'left' === $sidebar_pos || 'both' === $sidebar_pos ) :
+			get_sidebar( 'left' );
+		endif;
+	}
+endif;
+
+/**
+ * Content area loading logic
+ */
+if ( ! function_exists( 'spurs_content_area' ) ) :
+	/**
+	 * Prints classes for content area div depending on active sidebars.
+	 * @todo simplify and return the class only; not the markup too.
+	 */
+	function spurs_content_area() {
+		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+
+		$html = '';
+		if ( 'right' === $sidebar_pos || 'left' === $sidebar_pos ) {
+			$html = '<div class="';
+			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
+				$html .= 'col-md-8 content-area" id="primary">';
+			} else {
+				$html .= 'col-md-12 content-area" id="primary">';
+			}
+			echo $html; // WPCS: XSS OK.
+		} elseif ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
+			$html = '<div class="';
+			if ( 'both' === $sidebar_pos ) {
+				$html .= 'col-md-6 content-area" id="primary">';
+			} else {
+				$html .= 'col-md-12 content-area" id="primary">';
+			}
+			echo $html; // WPCS: XSS OK.
+		} else {
+			echo '<div class="col-md-12 content-area" id="primary">';
+		}
+	}
+endif;
+
+/**
+ * Content area loading logic
+ */
+if ( ! function_exists( 'spurs_content_classes' ) ) :
+	/**
+	 * Prints classes for content area div depending on active sidebars.
+	 *
+	 * Usage add this function between the class quotes like so
+	 *      <div class="<?php spurs_content_classes(); ?>" id="primary">
+	 */
+	function spurs_content_classes() {
+		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+
+		$html = '';
+		if ( 'right' === $sidebar_pos || 'left' === $sidebar_pos ) {
+
+			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
+				$html .= 'col-md-8 content-area';
+			} else {
+				$html .= 'col-md-12 content-area';
+			}
+			echo $html; // WPCS: XSS OK.
+		} elseif ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
+			$html = '';
+			if ( 'both' === $sidebar_pos ) {
+				$html .= 'col-md-6 content-area';
+			} else {
+				$html .= 'col-md-12 content-area';
+			}
+			echo $html; // WPCS: XSS OK.
+		} else {
+			echo 'ssoucol-md-12 content-area';
+		}
+	}
+endif;
+
+/**
+ * Right sidebar loading logic
+ */
+if ( ! function_exists( 'spurs_right_sidebar' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function spurs_right_sidebar() {
+		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+
+        if ( 'right' === $sidebar_pos || 'both' === $sidebar_pos ) :
+	        get_sidebar( 'right' );
+        endif;
+
+		get_sidebar( spurs_template_base() );
+
+	}
+endif;
