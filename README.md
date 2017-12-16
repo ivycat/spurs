@@ -25,11 +25,8 @@ to keep our code warm and DRY.
 2. add some handy functions to make our jobs easier and the WordPress Admin more integrated with the theme.
 
 ## Licenses
-Spurs WordPress Theme, Copyright 2017 Eric Amundson
-UnderStrap WordPress Theme, Copyright 2013-2017 Holger Koenemann
-Spurs and UnderStrap are distributed under the terms of the GNU GPL version 2
-
-http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+- Spurs WordPress Theme, *Copyright 2017 Eric Amundson*, [GNU GPLv3](http://www.gnu.org/licenses/gpl.html)
+- UnderStrap WordPress Theme, *Copyright 2013-2017 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Changelog
 See [changelog](CHANGELOG.md)
