@@ -9,30 +9,12 @@
 
 $the_theme = wp_get_theme();
 $container = get_theme_mod( 'understrap_container_type' );
-$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
             </div><!-- #primary -->
 
-        <!-- Do the right sidebar check
-        Currently, the right sidebar check checks to see if the default understrap
-        sidebar position is right or both and if true, loads the sidebar-right.php file.
-
-        It also sets the classes for the #primary div depending on the active sidebars
-
-        The sidebar-right.php also sets the class on the sidebar div depending on number
-        of columns.
-
-        Would like to consolidate and create a function for the right sidebar.
-
-        Seems like it would make sense to write a function or two that can be used
-        in place of the get_template_part() -->
-
-        <?php if ( 'right' === $sidebar_pos || 'both' === $sidebar_pos ) : ?>
-
-            <?php get_sidebar( 'right' ); ?>
-
-        <?php endif; ?>
+        <?php spurs_right_sidebar(); ?>
 
         </div><!-- .row -->
 

@@ -8,16 +8,16 @@
 ?>
 
 <?php
-$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
-<?php if ( 'left' === $sidebar_pos || 'both' === $sidebar_pos ) : ?>
+<?php if ( 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) : ?>
 	<?php get_sidebar( 'left' ); ?>
 <?php endif; ?>
 
 <?php
 $html = '';
-if ( 'right' === $sidebar_pos || 'left' === $sidebar_pos ) {
+if ( 'right' === $default_sidebar_position || 'left' === $default_sidebar_position ) {
 	$html = '<div class="';
 	if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
 		$html .= 'col-md-8 content-area" id="primary">';
@@ -27,7 +27,7 @@ if ( 'right' === $sidebar_pos || 'left' === $sidebar_pos ) {
 	echo $html; // WPCS: XSS OK.
 } elseif ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
 	$html = '<div class="';
-	if ( 'both' === $sidebar_pos ) {
+	if ( 'both' === $default_sidebar_position ) {
 		$html .= 'col-md-6 content-area" id="primary">';
 	} else {
 		$html .= 'col-md-12 content-area" id="primary">';
