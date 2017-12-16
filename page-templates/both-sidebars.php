@@ -8,7 +8,7 @@
  */
 
 get_header();
-$container = get_theme_mod( 'understrap_container_type' );
+$container = get_theme_mod( 'spurs_container_type' );
 ?>
 
 <div class="wrapper" id="page-wrapper">

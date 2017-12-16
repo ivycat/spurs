@@ -777,7 +777,7 @@ msgstr ""
 "trenger for grunnleggende nettsteder. VIKTIG: Alle utvikleravhengigheter er "
 "ikke buntet sammen med denne installasjonsfilen. Bare last ned .zip-filen, "
 "pakk den ut og kjør \"npm install\" og \"gulp copy-assets\" inne i utpakket /"
-"understrap-mappe."
+"spurs-mappe."
 
 #. Theme URI of the theme
 msgid "http://understrap.com"

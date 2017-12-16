@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$page_title = ( 'billing' === $load_address ) ? __( 'Billing address', 'understrap' ) : __( 'Shipping address', 'understrap' );
+$page_title = ( 'billing' === $load_address ) ? __( 'Billing address', 'spurs' ) : __( 'Shipping address', 'spurs' );
 
 do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
@@ -49,7 +49,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
 			<p>
-				<input type="submit" class="btn btn-outline-primary" name="save_address" value="<?php esc_attr_e( 'Save address', 'understrap' ); ?>" />
+				<input type="submit" class="btn btn-outline-primary" name="save_address" value="<?php esc_attr_e( 'Save address', 'spurs' ); ?>" />
 				<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
 				<input type="hidden" name="action" value="edit_address" />
 			</p>

@@ -78,7 +78,7 @@ It is composed of five different SCSS sets and one variable file loaded through 
 
 ### Classic install
 - Download the understrap folder from GitHub or from [https://understrap.com](https://understrap.com)
-- IMPORTANT: If you download it from GitHub make sure you rename the "understrap-master.zip" file just to "understrap.zip" or you might have problems using child themes !!
+- IMPORTANT: If you download it from GitHub make sure you rename the "spurs-master.zip" file just to "understrap.zip" or you might have problems using child themes !!
 - Upload it into your WordPress installation subfolder here: `/wp-content/themes/`
 - Login to your WordPress backend
 - Go to Appearance → Themes

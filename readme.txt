@@ -13,8 +13,6 @@ At the moment, UnderStrap is in a very early stage. But if you want, feel free t
 
 Website: [http://understrap.com](http://understrap.com)
 
-Child Theme Project: [https://github.com/holger1411/understrap-child](https://github.com/holger1411/understrap-child)
-
 ## License
 UnderStrap WordPress Theme, Copyright 2013-2017 Holger Koenemann
 UnderStrap is distributed under the terms of the GNU GPL version 2
@@ -148,7 +146,6 @@ http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 - Comes with extra slider script by [Owl Carousel](http://www.owlcarousel.owlgraphic.com/) (v2.1.4)
 - Jetpack ready.
 - WooCommerce support.
-- [Child Theme](https://github.com/holger1411/understrap-child) ready.
 - Translation ready.
 
 ## Starter Theme + HTML Framework = WordPress Theme Framework
@@ -176,7 +173,7 @@ Some basics about the Sass and CSS files that come with UnderStrap:
 ## Installation
 
 - Download the understrap folder from GitHub or from understrap.com
-- IMPORTANT: If you download it from GitHub make sure you rename the "understrap-master.zip" file just to "understrap.zip" or you might have problems using child themes !!
+- IMPORTANT: If you download it from GitHub make sure you rename the "spurs-master.zip" file just to "understrap.zip" or you might have problems using child themes !!
 - Upload it into your WordPress installation subfolder here: `/wp-content/themes/`
 - Login to your WordPress backend
 - Go to Appearance → Themes

@@ -17,7 +17,7 @@
 
 			<div class="entry-meta">
 
-				<?php understrap_posted_on(); ?>
+				<?php spurs_posted_on(); ?>
 
 			</div><!-- .entry-meta -->
 
@@ -33,7 +33,7 @@
 
 	<footer class="entry-footer">
 
-		<?php understrap_entry_footer(); ?>
+		<?php spurs_entry_footer(); ?>
 
 	</footer><!-- .entry-footer -->
 

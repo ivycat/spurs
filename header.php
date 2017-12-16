@@ -7,8 +7,8 @@
  * @package spurs
  */
 
-$container   = get_theme_mod( 'understrap_container_type' );
-$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
+$container   = get_theme_mod( 'spurs_container_type' );
+$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -32,7 +32,7 @@ $default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
 	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
-		'understrap' ); ?></a>
+		'spurs' ); ?></a>
 
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -71,7 +71,7 @@ $default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
 						'menu_class'      => 'navbar-nav',
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
-						'walker'          => new understrap_WP_Bootstrap_Navwalker(),
+						'walker'          => new spurs_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
 			<?php if ( 'container' == $container ) : ?>

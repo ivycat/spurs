@@ -2,7 +2,7 @@
 
 	<?php get_template_part( 'loop-templates/content', 'single' ); ?>
 
-	<?php understrap_post_nav(); ?>
+	<?php spurs_post_nav(); ?>
 
 	<?php
 	// If comments are open or we have at least one comment, load up the comment template.

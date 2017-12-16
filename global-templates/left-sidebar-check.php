@@ -8,7 +8,7 @@
 ?>
 
 <?php
-$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
+$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
 <?php if ( 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) : ?>

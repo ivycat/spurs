@@ -9,7 +9,7 @@ if ( ! is_active_sidebar( 'right-sidebar' ) ) {
 	return;
 }
 
-$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
+$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 // when both sidebars turned on reduce col size is 3, otherwise it is 4.
 if ( ( is_page_template( 'page-templates/both-sidebars.php' ) || ( 'both' === $default_sidebar_position ) ) && is_active_sidebar( 'right-sidebar' ) ) { ?>
