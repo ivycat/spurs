@@ -40,19 +40,19 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 			'priority'    => 160,
 		) );
 
-		 //select sanitization function
-        function spurs_theme_slug_sanitize_select( $input, $setting ){
-         
-            //input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
-            $input = sanitize_key($input);
- 
-            //get the list of possible select options 
-            $choices = $setting->manager->get_control( $setting->id )->choices;
-                             
-            //return input if valid or return default option
-            return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
-             
-        }
+		//select sanitization function
+		function spurs_theme_slug_sanitize_select( $input, $setting ) {
+
+			//input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
+			$input = sanitize_key( $input );
+
+			//get the list of possible select options
+			$choices = $setting->manager->get_control( $setting->id )->choices;
+
+			//return input if valid or return default option
+			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+
+		}
 
 		$wp_customize->add_setting( 'spurs_container_type', array(
 			'default'           => 'container',
@@ -64,15 +64,15 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'container_type', array(
+				'spurs_container_type', array(
 					'label'       => __( 'Container Width', 'spurs' ),
-					'description' => __( "Choose between Bootstrap's container and container-fluid", 'spurs' ),
+					'description' => __( "Use Bootstrap fixed or fluid container?", 'spurs' ),
 					'section'     => 'spurs_theme_layout_options',
 					'settings'    => 'spurs_container_type',
 					'type'        => 'select',
 					'choices'     => array(
-						'container'       => __( 'Fixed width container', 'spurs' ),
-						'container-fluid' => __( 'Full width container', 'spurs' ),
+						'container'       => __( 'Fixed-width container', 'spurs' ),
+						'container-fluid' => __( 'Full-width container', 'spurs' ),
 					),
 					'priority'    => '10',
 				)
@@ -89,20 +89,22 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 			new WP_Customize_Control(
 				$wp_customize,
 				'spurs_sidebar_position', array(
-					'label'       => __( 'Sidebar Positioning', 'spurs' ),
-					'description' => __( "Set sidebar's default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages.",
-					'spurs' ),
-					'section'     => 'spurs_theme_layout_options',
-					'settings'    => 'spurs_sidebar_position',
-					'type'        => 'select',
+					'label'             => __( 'Default Sidebar Position', 'spurs' ),
+					'description'       => __( "<b>Applies to all pages and posts.</b> <br />
+												<b>Select:</b> right, left, both, or none. <br />
+												<b>Note:</b> you can override on individual pages.",
+						'spurs' ),
+					'section'           => 'spurs_theme_layout_options',
+					'settings'          => 'spurs_sidebar_position',
+					'type'              => 'select',
 					'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
-					'choices'     => array(
+					'choices'           => array(
 						'right' => __( 'Right sidebar', 'spurs' ),
 						'left'  => __( 'Left sidebar', 'spurs' ),
 						'both'  => __( 'Left & Right sidebars', 'spurs' ),
 						'none'  => __( 'No sidebar', 'spurs' ),
 					),
-					'priority'    => '20',
+					'priority'          => '20',
 				)
 			) );
 	}
