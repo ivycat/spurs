@@ -9,7 +9,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 ?>
 
-<?php if ( is_active_sidebar( 'statichero' ) ) : ?>
+<?php if ( is_active_sidebar( 'static-hero' ) ) : ?>
 
 	<!-- ******************* The Hero Widget Area ******************* -->
 
@@ -19,7 +19,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 				<div class="row">
 
-					<?php dynamic_sidebar( 'statichero' ); ?>
+					<?php dynamic_sidebar( 'static-hero' ); ?>
 
 				</div>
 

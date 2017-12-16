@@ -9,7 +9,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 ?>
 
-<?php if ( is_active_sidebar( 'footerfull' ) ) : ?>
+<?php if ( is_active_sidebar( 'footer-full' ) ) : ?>
 
 	<!-- ******************* The Footer Full-width Widget Area ******************* -->
 
@@ -19,7 +19,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 			<div class="row">
 
-				<?php dynamic_sidebar( 'footerfull' ); ?>
+				<?php dynamic_sidebar( 'footer-full' ); ?>
 
 			</div>
 
