@@ -119,7 +119,7 @@
 
 
             - ** Release 0.5.4 Jan. 25th 2017 **
-               - Fixing problems with dynamic sidebars (footerfull and statichero) - Thx @NayeemNipun
+               - Fixing problems with dynamic sidebars (footer-full and static-hero) - Thx @NayeemNipun
                - Removes Owl Carousel slider and replace it with the BS4 carousel
                - Fixing "both sidebars" problem - Thx @ZXCVLuke
                - SEO improvements - Thx @raisonon

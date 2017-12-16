@@ -82,9 +82,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar( array(
 			'name'          => __( 'Hero Static', 'understrap' ),
-			'id'            => 'statichero',
+			'id'            => 'static-hero',
 			'description'   => 'Static Hero widget. no slider functionallity',
-			'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s ' . understrap_slbd_count_widgets( 'statichero' ) . '">',
+			'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s ' . understrap_slbd_count_widgets( 'static-hero' ) . '">',
 			'after_widget'  => '</div><!-- .static-hero-widget -->',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
@@ -92,9 +92,9 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar( array(
 			'name'          => __( 'Footer Full', 'understrap' ),
-			'id'            => 'footerfull',
+			'id'            => 'footer-full',
 			'description'   => 'Widget area below main content and above footer',
-			'before_widget' => '<div id="%1$s" class="footer-widget %2$s ' . understrap_slbd_count_widgets( 'footerfull' ) . '">',
+			'before_widget' => '<div id="%1$s" class="footer-widget %2$s ' . understrap_slbd_count_widgets( 'footer-full' ) . '">',
 			'after_widget'  => '</div><!-- .footer-widget -->',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',

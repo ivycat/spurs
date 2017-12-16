@@ -7,57 +7,57 @@
  * @package spurs
  */
 
-$the_theme = wp_get_theme();
-$container = get_theme_mod( 'understrap_container_type' );
+$the_theme                = wp_get_theme();
+$container                = get_theme_mod( 'understrap_container_type' );
 $default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
-            </div><!-- #primary -->
+</div><!-- #primary -->
 
-        <?php spurs_right_sidebar(); ?>
+<?php spurs_right_sidebar(); ?>
 
-        </div><!-- .row -->
+</div><!-- .row -->
 
-    </div><!-- Container end -->
+</div><!-- Container end -->
 
 </div><!-- Wrapper end -->
 
 
-<?php get_sidebar( 'footerfull' ); ?>
+<?php get_sidebar( 'footer-full' );?>
 
 <div class="wrapper" id="wrapper-footer">
 
-	<div class="<?php echo esc_attr( $container ); ?>">
+    <div class="<?php echo esc_attr( $container ); ?>">
 
-		<div class="row">
+        <div class="row">
 
-			<div class="col-md-12">
+            <div class="col-md-12">
 
-				<footer class="site-footer" id="colophon">
+                <footer class="site-footer" id="colophon">
 
-					<div class="site-info">
+                    <div class="site-info">
 
-							<a href="<?php  echo esc_url( __( 'http://wordpress.org/','understrap' ) ); ?>"><?php printf( 
+                        <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'understrap' ) ); ?>"><?php printf(
 							/* translators:*/
-							esc_html__( 'Proudly powered by %s', 'understrap' ),'WordPress' ); ?></a>
-								<span class="sep"> | </span>
-					
-							<?php printf( // WPCS: XSS ok.
-							/* translators:*/
-								esc_html__( 'Theme: %1$s by %2$s.', 'understrap' ), $the_theme->get( 'Name' ),  '<a href="'.esc_url( __('http://understrap.com', 'understrap')).'">understrap.com</a>' ); ?> 
-				
-							(<?php printf( // WPCS: XSS ok.
-							/* translators:*/
-								esc_html__( 'Version: %1$s', 'understrap' ), $the_theme->get( 'Version' ) ); ?>)
-					</div><!-- .site-info -->
+							esc_html__( 'Proudly powered by %s', 'understrap' ), 'WordPress' ); ?></a>
+                        <span class="sep"> | </span>
 
-				</footer><!-- #colophon -->
+						<?php printf( // WPCS: XSS ok.
+						/* translators:*/
+							esc_html__( 'Theme: %1$s by %2$s.', 'understrap' ), $the_theme->get( 'Name' ), '<a href="' . esc_url( __( 'http://understrap.com', 'understrap' ) ) . '">understrap.com</a>' ); ?>
 
-			</div><!--col end -->
+                        (<?php printf( // WPCS: XSS ok.
+						/* translators:*/
+							esc_html__( 'Version: %1$s', 'understrap' ), $the_theme->get( 'Version' ) ); ?>)
+                    </div><!-- .site-info -->
 
-		</div><!-- row end -->
+                </footer><!-- #colophon -->
 
-	</div><!-- container end -->
+            </div><!--col end -->
+
+        </div><!-- row end -->
+
+    </div><!-- container end -->
 
 </div><!-- wrapper end -->
 
