@@ -1,8 +1,8 @@
 {
-    "name": "holger1411/understrap",
-    "description": "Combines Automattic´s Underscores Starter Theme and Bootstrap 4",
+    "name": "sewmyheadon/spurs",
+    "description": "Combines Understrap, Underscores Starter Theme, and Bootstrap 4, with helpful build tools",
     "type": "library",
-    "license": "GPL-2.0",
+    "license": "GPL-3.0",
     "minimum-stability": "stable",
     "require": {},
     "keywords": ["wordpress","theme","bootstrap"],
