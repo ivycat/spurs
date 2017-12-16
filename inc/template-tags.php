@@ -8,65 +8,65 @@
  */
 
 if ( ! function_exists( 'understrap_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function understrap_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> (%4$s) </time>';
+	/**
+	 * Prints HTML with meta information for the current post-date/time and author.
+	 */
+	function understrap_posted_on() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> (%4$s) </time>';
+		}
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+		$posted_on   = sprintf(
+			esc_html_x( 'Posted on %s', 'post date', 'understrap' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);
+		$byline      = sprintf(
+			esc_html_x( 'by %s', 'post author', 'understrap' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		);
+		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 	}
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'understrap' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'understrap' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-}
 endif;
 
 if ( ! function_exists( 'understrap_entry_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function understrap_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'understrap' ) );
-		if ( $categories_list && understrap_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'understrap' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function understrap_entry_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'understrap' ) );
+			if ( $categories_list && understrap_categorized_blog() ) {
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'understrap' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			}
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'understrap' ) );
+			if ( $tags_list ) {
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'understrap' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			}
 		}
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'understrap' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'understrap' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link( esc_html__( 'Leave a comment', 'understrap' ), esc_html__( '1 Comment', 'understrap' ), esc_html__( '% Comments', 'understrap' ) );
+			echo '</span>';
 		}
-	}
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'understrap' ), esc_html__( '1 Comment', 'understrap' ), esc_html__( '% Comments', 'understrap' ) );
-		echo '</span>';
-	}
-	edit_post_link(
-		sprintf(
+		edit_post_link(
+			sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'understrap' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
-}
+				esc_html__( 'Edit %s', 'understrap' ),
+				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+			),
+			'<span class="edit-link">',
+			'</span>'
+		);
+	}
 endif;
 
 /**
@@ -106,110 +106,95 @@ function understrap_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'understrap_categories' );
 }
+
 add_action( 'edit_category', 'understrap_category_transient_flusher' );
-add_action( 'save_post',     'understrap_category_transient_flusher' );
+add_action( 'save_post', 'understrap_category_transient_flusher' );
+
+
 
 /**
  * Left sidebar loading logic
  */
-if ( ! function_exists( 'spurs_left_sidebar' ) ) :
+if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function spurs_left_sidebar() {
-		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
-
-		if ( 'left' === $sidebar_pos || 'both' === $sidebar_pos ) :
+		$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
+// @todo simplify below logic
+		if ( is_page_template( 'page-templates/left-sidebar.php' ) ) {
 			get_sidebar( 'left' );
-		endif;
-	}
-endif;
-
-/**
- * Content area loading logic
- */
-if ( ! function_exists( 'spurs_content_area' ) ) :
-	/**
-	 * Prints classes for content area div depending on active sidebars.
-	 * @todo simplify and return the class only; not the markup too.
-	 */
-	function spurs_content_area() {
-		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
-
-		$html = '';
-		if ( 'right' === $sidebar_pos || 'left' === $sidebar_pos ) {
-			$html = '<div class="';
-			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
-				$html .= 'col-md-8 content-area" id="primary">';
-			} else {
-				$html .= 'col-md-12 content-area" id="primary">';
-			}
-			echo $html; // WPCS: XSS OK.
-		} elseif ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
-			$html = '<div class="';
-			if ( 'both' === $sidebar_pos ) {
-				$html .= 'col-md-6 content-area" id="primary">';
-			} else {
-				$html .= 'col-md-12 content-area" id="primary">';
-			}
-			echo $html; // WPCS: XSS OK.
-		} else {
-			echo '<div class="col-md-12 content-area" id="primary">';
+		} elseif ( 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+			get_sidebar( 'left' );
 		}
 	}
-endif;
+}
 
 /**
  * Content area loading logic
  */
-if ( ! function_exists( 'spurs_content_classes' ) ) :
+if ( ! function_exists( 'spurs_content_classes_IMPROVED' ) ) {
 	/**
 	 * Prints classes for content area div depending on active sidebars.
 	 *
 	 * Usage add this function between the class quotes like so
-	 *      <div class="<?php spurs_content_classes(); ?>" id="primary">
+	 *      <div class="<?php spurs_content_classes_IMPROVED(); ?>" id="primary">
 	 */
-	function spurs_content_classes() {
-		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
+	function spurs_content_classes_IMPROVED() {
+		$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
+		$html                     = '';
 
-		$html = '';
-		if ( 'right' === $sidebar_pos || 'left' === $sidebar_pos ) {
+		if ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
+			$html .= 'left-sidebar-template col-md-8 content-area';
+			echo $html; // WPCS: XSS OK.
+
+		} elseif ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$html .= 'right-sidebar-template col-md-8 content-area';
+			echo $html; // WPCS: XSS OK.
+
+		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$html .= 'both-sidebar-template col-md-6 content-area';
+			echo $html; // WPCS: XSS OK.
+
+		} elseif ( 'right' === $default_sidebar_position || 'left' === $default_sidebar_position ) {
 
 			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
 				$html .= 'col-md-8 content-area';
 			} else {
-				$html .= 'col-md-12 content-area';
+				$html .= 'testing-DEFAULT-OR col-md-12 content-area';
 			}
 			echo $html; // WPCS: XSS OK.
+
 		} elseif ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
 			$html = '';
-			if ( 'both' === $sidebar_pos ) {
+			if ( 'both' === $default_sidebar_position ) {
 				$html .= 'col-md-6 content-area';
 			} else {
-				$html .= 'col-md-12 content-area';
+				$html .= 'testing-DEFAULT-AND col-md-12 content-area';
 			}
 			echo $html; // WPCS: XSS OK.
+
 		} else {
-			echo 'ssoucol-md-12 content-area';
+			echo 'testing-ELSE col-md-12 content-area';
 		}
 	}
-endif;
+}
+
 
 /**
  * Right sidebar loading logic
  */
-if ( ! function_exists( 'spurs_right_sidebar' ) ) :
+if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function spurs_right_sidebar() {
-		$sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
-
-        if ( 'right' === $sidebar_pos || 'both' === $sidebar_pos ) :
-	        get_sidebar( 'right' );
-        endif;
-
-		get_sidebar( spurs_template_base() );
-
+		$default_sidebar_position = get_theme_mod( 'understrap_sidebar_position' );
+// @todo simplify below logic
+		if ( is_page_template( 'page-templates/right-sidebar.php' ) ) {
+			get_sidebar( 'right' );
+		} elseif ( 'right' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+			get_sidebar( 'right' );
+		}
 	}
-endif;
+}
