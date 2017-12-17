@@ -85,4 +85,4 @@ $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 	            <?php spurs_left_sidebar(); ?>
 
-                <div class="<?php spurs_content_classes_IMPROVED(); ?>" id="primary">
+                <div class="<?php spurs_content_classes(); ?>" id="primary">

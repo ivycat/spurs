@@ -121,10 +121,8 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 	 */
 	function spurs_left_sidebar() {
 		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-// @todo simplify below logic
-		if ( is_page_template( 'page-templates/left-sidebar.php' ) ) {
-			get_sidebar( 'left' );
-		} elseif ( 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+
+		if ( is_page_template( 'page-templates/left-sidebar.php' ) || 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
 			get_sidebar( 'left' );
 		}
 	}
@@ -133,14 +131,14 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 /**
  * Content area loading logic
  */
-if ( ! function_exists( 'spurs_content_classes_IMPROVED' ) ) {
+if ( ! function_exists( 'spurs_content_classes' ) ) {
 	/**
 	 * Prints classes for content area div depending on active sidebars.
 	 *
 	 * Usage add this function between the class quotes like so
-	 *      <div class="<?php spurs_content_classes_IMPROVED(); ?>" id="primary">
+	 *      <div class="<?php spurs_content_classes(); ?>" id="primary">
 	 */
-	function spurs_content_classes_IMPROVED() {
+	function spurs_content_classes() {
 		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		$html                     = '';
 
@@ -161,7 +159,7 @@ if ( ! function_exists( 'spurs_content_classes_IMPROVED' ) ) {
 			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
 				$html .= 'col-md-8 content-area';
 			} else {
-				$html .= 'testing-DEFAULT-OR col-md-12 content-area';
+				$html .= 'col-md-12 content-area';
 			}
 			echo $html; // WPCS: XSS OK.
 
@@ -170,12 +168,40 @@ if ( ! function_exists( 'spurs_content_classes_IMPROVED' ) ) {
 			if ( 'both' === $default_sidebar_position ) {
 				$html .= 'col-md-6 content-area';
 			} else {
-				$html .= 'testing-DEFAULT-AND col-md-12 content-area';
+				$html .= 'col-md-12 content-area';
 			}
 			echo $html; // WPCS: XSS OK.
 
 		} else {
-			echo 'testing-ELSE col-md-12 content-area';
+			echo 'col-md-12 content-area';
+		}
+	}
+}
+
+
+/**
+ * Sidebar classes
+ */
+if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
+	/**
+	 * Prints classes for sidebars area div depending on active sidebars.
+	 *
+	 * Usage add this function between the class quotes like so
+	 *      <div class="<?php spurs_sidebar_classes(); ?>">
+	 */
+	function spurs_sidebar_classes() {
+		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$html                     = '';
+
+		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
+			$html .= 'col-md-3 widget-area';
+			echo $html; // WPCS: XSS OK.
+		} elseif ( ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) ||
+		           ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) ) {
+			$html .= 'col-md-4 widget-area';
+			echo $html; // WPCS: XSS OK.
+		} else {
+			return;
 		}
 	}
 }
