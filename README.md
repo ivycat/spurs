@@ -1,10 +1,4 @@
-Travis build: [![Build Status](https://travis-ci.org/holger1411/understrap.svg?branch=master)](https://travis-ci.org/holger1411/understrap) | Start talking: [![Gitter](https://img.shields.io/gitter/room/holger1411/understrap.svg?maxAge=2592000?style=flat-square)](https://gitter.im/holger1411/understrap)
-
-#### See: [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
-
 # Spurs WordPress Theme Framework
-
-Website: [https://ivycat.com/wordpress/](https://ivycat.com/wordpress/)
 
 While you can easily make a child theme for Spurs, we recommend using Spurs to create your next spiffy new theme. Much
 like [Underscores](http://underscores.me/) or [Sage](https://roots.io/sage/), Spurs isn't meant to be a child theme.
@@ -20,7 +14,8 @@ Like [Holger](https://github.com/holger1411), creator of [Understrap](https://un
 Bootstrap, Sass, npm, and Gulp.
 
 Spurs is a fork of [Understrap](https://understrap.com) with the goals of:
-1. created and implement some more radical theme changes such as introducing a [theme wrapper](http://scribu.net/wordpress/theme-wrappers.html) 
+1. my education and enrichment
+2. create and implement more radical theme changes like a [theme wrapper](http://scribu.net/wordpress/theme-wrappers.html) 
 to keep our code warm and DRY.
 2. add some handy functions to make our jobs easier and the WordPress Admin more integrated with the theme.
 
