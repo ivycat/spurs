@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $downloads     = WC()->customer->get_downloadable_products();
-$has_downloads = (bool) $downloads;
+$has_downloads = ( bool ) $downloads;
 
 do_action( 'woocommerce_before_account_downloads', $has_downloads ); ?>
 
