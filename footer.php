@@ -9,7 +9,7 @@
 
 $the_theme                = wp_get_theme();
 $container                = get_theme_mod( 'spurs_container_type' );
-$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
         </div><!-- .row -->
