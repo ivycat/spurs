@@ -66,7 +66,7 @@ function spurs_pagination() {
 
 	// Link to current page, plus 2 pages in either direction if necessary.
 	sort( $links );
-	foreach ( (array) $links as $link ) {
+	foreach ( ( array ) $links as $link ) {
 		$class = $paged == $link ? ' class="active page-item"' : ' class="page-item"';
 		printf( // WPCS: XSS OK.
 			'<li %s><a href="%s" class="page-link">%s</a></li>' . "\n",

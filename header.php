@@ -7,7 +7,7 @@
  * @package spurs
  */
 
-$container   = get_theme_mod( 'spurs_container_type' );
+$container = get_theme_mod( 'spurs_container_type' );
 $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 <!DOCTYPE html>
