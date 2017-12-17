@@ -1,3 +1,18 @@
+**Post-fork Spurs releases**
+
+            - ** Spurs initial release 0.5.0 December 17th 2017 ** 
+              - Incorporate theme wrapper and try to make code DRY
+              - Create example blank template, illustrating wrapper
+              - Changes to customizer setting labels
+              - Fixing customizer settings
+              - Code cleanup and reformatting
+              - Change name and namespace to Spurs
+              - Create style class helper functions for sidebar and content
+              - Changed licensing to GPLv3 
+              - Update docs   
+
+**Pre-fork UnderStrap releases**
+
             - ** Release 0.6.11 December 11th 2017 ** 
               - Fixing WooCommerce functions
               - Fixing sanitizing, escaping and prefix´s issues
