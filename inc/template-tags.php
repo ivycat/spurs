@@ -111,23 +111,6 @@ add_action( 'edit_category', 'spurs_category_transient_flusher' );
 add_action( 'save_post', 'spurs_category_transient_flusher' );
 
 
-
-/**
- * Left sidebar loading logic
- */
-if ( ! function_exists( 'spurs_left_sidebar' ) ) {
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function spurs_left_sidebar() {
-		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( is_page_template( 'page-templates/left-sidebar.php' ) || 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
-			get_sidebar( 'left' );
-		}
-	}
-}
-
 /**
  * Content area loading logic
  */
@@ -154,6 +137,10 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 			$html .= 'both-sidebar-template col-md-6 content-area';
 			echo $html; // WPCS: XSS OK.
 
+		} elseif ( is_page_template( 'page-templates/full-width.php' ) ) {
+			$html .= 'full-width-template col-md-12 content-area';
+			echo $html; // WPCS: XSS OK.
+
 		} elseif ( 'right' === $default_sidebar_position || 'left' === $default_sidebar_position ) {
 
 			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
@@ -178,6 +165,40 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 	}
 }
 
+/**
+ * Left sidebar loading logic
+ */
+if ( ! function_exists( 'spurs_left_sidebar' ) ) {
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function spurs_left_sidebar() {
+		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+
+		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
+			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+				get_sidebar( 'left' );
+			}
+		}
+	}
+}
+/**
+ * Right sidebar loading logic
+ */
+if ( ! function_exists( 'spurs_right_sidebar' ) ) {
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function spurs_right_sidebar() {
+		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+
+		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
+			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'right' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+				get_sidebar( 'right' );
+			}
+		}
+	}
+}
 
 /**
  * Sidebar classes
@@ -207,20 +228,3 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 }
 
 
-/**
- * Right sidebar loading logic
- */
-if ( ! function_exists( 'spurs_right_sidebar' ) ) {
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function spurs_right_sidebar() {
-		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-// @todo simplify below logic
-		if ( is_page_template( 'page-templates/right-sidebar.php' ) ) {
-			get_sidebar( 'right' );
-		} elseif ( 'right' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
-			get_sidebar( 'right' );
-		}
-	}
-}

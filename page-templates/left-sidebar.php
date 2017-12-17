@@ -15,5 +15,3 @@ while ( have_posts() ) : the_post();
 		comments_template();
 	endif;
 endwhile; // end of the loop.
-
-
