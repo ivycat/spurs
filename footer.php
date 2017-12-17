@@ -12,10 +12,6 @@ $container                = get_theme_mod( 'spurs_container_type' );
 $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
-            </div><!-- #primary -->
-
-            <?php spurs_right_sidebar(); ?>
-
         </div><!-- .row -->
 
     </div><!-- Container end -->

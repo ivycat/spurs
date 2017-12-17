@@ -82,7 +82,3 @@ $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
         <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
             <div class="row">
-
-	            <?php spurs_left_sidebar(); ?>
-
-                <div class="<?php spurs_content_classes(); ?>" id="primary">
