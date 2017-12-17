@@ -150,4 +150,4 @@ and of course
 - Bootstrap Gallery Script based on Roots Sage Gallery: https://github.com/roots/sage/blob/5b9786b8ceecfe717db55666efe5bcf0c9e1801c/lib/gallery.php
 - jQuery: https://jquery.org | (Code licensed under MIT)
 
-[![Analytics](https://ga-beacon.appspot.com/UA-111251480-1/welcome-page?flat)](https://github.com/sewmyheadon/spurs)
+[![Analytics](https://ga-beacon.appspot.com/UA-111251480-1/welcome-page?flat)](https://github.com/sewmyheadon/spurs) | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sewmyheadon/spurs/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/sewmyheadon/spurs/?branch=development) | [![Build Status](https://scrutinizer-ci.com/g/sewmyheadon/spurs/badges/build.png?b=development)](https://scrutinizer-ci.com/g/sewmyheadon/spurs/build-status/development)
