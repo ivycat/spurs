@@ -66,7 +66,7 @@ $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 						'menu_class'      => 'navbar-nav',
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
-						'walker'          => new spurs_WP_Bootstrap_Navwalker(),
+						'walker'          => new Spurs_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
 			<?php if ( 'container' == $container ) : ?>
