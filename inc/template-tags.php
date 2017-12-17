@@ -110,11 +110,45 @@ function spurs_category_transient_flusher() {
 add_action( 'edit_category', 'spurs_category_transient_flusher' );
 add_action( 'save_post', 'spurs_category_transient_flusher' );
 
+/**
+ * Left sidebar loading logic
+ */
+if ( ! function_exists( 'spurs_left_sidebar' ) ) {
+
+	function spurs_left_sidebar() {
+		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+
+		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
+			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+				get_sidebar( 'left' );
+			}
+		}
+	}
+
+}
 
 /**
- * Content area loading logic
+ * Right sidebar loading logic
+ */
+if ( ! function_exists( 'spurs_right_sidebar' ) ) {
+
+	function spurs_right_sidebar() {
+		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+
+		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
+			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'right' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
+				get_sidebar( 'right' );
+			}
+		}
+	}
+
+}
+
+/**
+ * Content classes loading logic
  */
 if ( ! function_exists( 'spurs_content_classes' ) ) {
+
 	/**
 	 * Prints classes for content area div depending on active sidebars.
 	 *
@@ -163,56 +197,23 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 			echo 'col-md-12 content-area';
 		}
 	}
-}
 
-/**
- * Left sidebar loading logic
- */
-if ( ! function_exists( 'spurs_left_sidebar' ) ) {
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function spurs_left_sidebar() {
-		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
-			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
-				get_sidebar( 'left' );
-			}
-		}
-	}
-}
-/**
- * Right sidebar loading logic
- */
-if ( ! function_exists( 'spurs_right_sidebar' ) ) {
-	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
-	 */
-	function spurs_right_sidebar() {
-		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
-			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'right' === $default_sidebar_position || 'both' === $default_sidebar_position ) {
-				get_sidebar( 'right' );
-			}
-		}
-	}
 }
 
 /**
  * Sidebar classes
  */
 if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
+
 	/**
 	 * Prints classes for sidebars area div depending on active sidebars.
 	 *
-	 * Usage add this function between the class quotes like so
+	 * Add this function between the class quotes like so
 	 *      <div class="<?php spurs_sidebar_classes(); ?>">
 	 */
 	function spurs_sidebar_classes() {
-		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		$html                     = '';
+//		$default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$html = '';
 
 		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$html .= 'col-md-3 widget-area';
@@ -222,9 +223,11 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 			$html .= 'col-md-4 widget-area';
 			echo $html; // WPCS: XSS OK.
 		} else {
-			return;
+			$html .= 'col-md-4 widget-area';
+			echo $html; // WPCS: XSS OK.
 		}
 	}
+
 }
 
 

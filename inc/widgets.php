@@ -83,7 +83,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 		register_sidebar( array(
 			'name'          => __( 'Hero Static', 'spurs' ),
 			'id'            => 'static-hero',
-			'description'   => 'Static Hero widget. no slider functionallity',
+			'description'   => 'Static Hero widget. no slider functionality',
 			'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s ' . spurs_slbd_count_widgets( 'static-hero' ) . '">',
 			'after_widget'  => '</div><!-- .static-hero-widget -->',
 			'before_title'  => '<h3 class="widget-title">',

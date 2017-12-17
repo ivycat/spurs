@@ -8,7 +8,7 @@
  */
 ?>
 
-</div><!-- Wrapper end -->
+    </div><!-- Wrapper end -->
 
 </div><!-- #page we need this extra closing tag here -->
 
