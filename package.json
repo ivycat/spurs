@@ -1,6 +1,6 @@
 {
-  "name": "understrap",
-  "version": "0.6.11",
+  "name": "spurs",
+  "version": "0.5.1",
   "description": "WordPress Theme framework",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "spurshttps://github.com/sewmyheadon/spurs.git"
+    "url": "https://github.com/sewmyheadon/spurs.git"
   },
   "keywords": [
     "wordpress",
@@ -20,12 +20,12 @@
     "bootstrap",
     "underscores"
   ],
-  "author": "Holger Koenemann",
-  "license": "GPL-2.0",
+  "author": "Eric Amundson",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "spurshttps://github.com/sewmyheadon/spurs/issues"
+    "url": "https://github.com/sewmyheadon/spurs/issues"
   },
-  "homepage": "https://understrap.com",
+  "homepage": "https://github.com/sewmyheadon/spurs",
   "dependencies": {
     "bootstrap": "4.0.0-beta.2",
     "browser-sync": "^2.18.13",

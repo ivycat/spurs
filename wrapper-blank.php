@@ -20,5 +20,4 @@ get_header( spurs_template_base() ); ?>
     </main><!-- #main -->
 
 <?php
-//get_sidebar( spurs_template_base() );
 get_footer( spurs_template_base() );

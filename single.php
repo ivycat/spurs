@@ -1,14 +1,10 @@
-<?php while ( have_posts() ) : the_post(); ?>
+<?php while ( have_posts() ) : the_post();
+	get_template_part( 'loop-templates/content', 'single' );
+	spurs_post_nav();
 
-	<?php get_template_part( 'loop-templates/content', 'single' ); ?>
-
-	<?php spurs_post_nav(); ?>
-
-	<?php
 	// If comments are open or we have at least one comment, load up the comment template.
 	if ( comments_open() || get_comments_number() ) :
 		comments_template();
 	endif;
-	?>
 
-<?php endwhile; // end of the loop. ?>
+endwhile; // end of the loop.

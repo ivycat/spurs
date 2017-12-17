@@ -8,7 +8,7 @@
 $container   = get_theme_mod( 'spurs_container_type' );
 
 /**
- * The full-width Footer widget area
+ * The full-width footer widget area
  */
 if ( is_active_sidebar( 'footer-full' ) ) : ?>
 

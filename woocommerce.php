@@ -9,9 +9,7 @@
  *
  * @package spurs
  */
-?>
 
-<?php
 $template_name = '\archive-product.php';
 $args          = array();
 $template_path = '';
@@ -21,11 +19,11 @@ if ( is_singular( 'product' ) ) {
 
 	woocommerce_content();
 
-	//For ANY product archive, Product taxonomy, product search or /shop landing page etc Fetch the template override;
+	// Fetch the template override for ANY product archive, product taxonomy, product search, or /shop landing page
 } elseif ( file_exists( $default_path . $template_name ) ) {
 	wc_get_template( $template_name, $args, $template_path, $default_path );
 
-	//If no archive-product.php template exists, default to catchall;
+	// If no archive-product.php template exists, default to catch-all
 } else {
 	woocommerce_content();
 }; ?>

@@ -9,6 +9,9 @@
  *
  * @package spurs
  */
+if ( is_front_page() ) :
+	get_template_part( 'global-templates/hero' );
+endif;
 
 while ( have_posts() ) : the_post();
 	get_template_part( 'loop-templates/content', 'page' );
@@ -17,5 +20,4 @@ while ( have_posts() ) : the_post();
 	if ( comments_open() || get_comments_number() ) :
 		comments_template();
 	endif;
-
 endwhile; // end of the loop.
