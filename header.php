@@ -44,16 +44,11 @@ $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 					<?php if ( ! has_custom_logo() ) { ?>
 
 						<?php if ( is_front_page() && is_home() ) : ?>
-
 							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-							
 						<?php else : ?>
-
 							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						
 						<?php endif; ?>
-						
-					
+
 					<?php } else {
 						the_custom_logo();
 					} ?><!-- end custom logo -->
@@ -88,7 +83,6 @@ $default_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
             <div class="row">
 
-				<?php //get_template_part( 'global-templates/left-sidebar-check' ); ?>
 	            <?php spurs_left_sidebar(); ?>
 
                 <div class="<?php spurs_content_classes_IMPROVED(); ?>" id="primary">
