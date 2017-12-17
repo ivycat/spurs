@@ -10,14 +10,15 @@ If you'd like to get email notifications of new updates, please subscribe to our
 
 ## About
 
-Like [Holger](https://github.com/holger1411), creator of [Understrap](https://understrap.com), I'm a fan of Underscores, 
+Like [Holger Könemann](https://github.com/holger1411), creator of [Understrap](https://understrap.com), I'm a fan of Underscores, 
 Bootstrap, Sass, npm, and Gulp.
 
 Spurs is a fork of [Understrap](https://understrap.com) with the goals of:
 1. my education and enrichment
-2. create and implement more radical theme changes like a [theme wrapper](http://scribu.net/wordpress/theme-wrappers.html) 
-to keep our code warm and DRY.
-2. add some handy functions to make our jobs easier and the WordPress Admin more integrated with the theme.
+1. implement helpful structural theme changes like a [theme wrapper](http://scribu.net/wordpress/theme-wrappers.html) 
+to keep code warm and DRY.
+1. add some handy functions to make our jobs easier and the WordPress Admin more integrated with the theme.
+1. Have a good starter theme to use on new projects.
 
 ## Licenses
 - Spurs WordPress Theme, *Copyright 2017 Eric Amundson*, [GNU GPLv3](http://www.gnu.org/licenses/gpl.html)
@@ -29,15 +30,16 @@ See [changelog](CHANGELOG.md)
 ## Basic Features
 
 - Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
-- Comes with Bootstrap (v4) Sass source files and additional .scss files. Nicely sorted and ready to add your own 
-variables and customize the Bootstrap variables
+- Comes with Bootstrap (v4) Sass source files and additional .scss files. 
+
+  Nicely sorted and ready to add your own variables and customize the Bootstrap variables
 - Use npm to install build tools like Gulp for compiling, linting, and BrowserSync.
 - Uses a single and minified CSS file for all the basic stuff
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/) integration (v4.7.0)
 - Jetpack ready
 - WooCommerce support
 - Contact Form 7 support
-- Gravity Forms support _(coming soon)_
+- ~~Gravity Forms support~~ _(coming soon)_
 - Translation ready
 
 ## Starter Theme + HTML Framework = WordPress Theme Framework
@@ -51,7 +53,7 @@ Font Awesome provides the default icons.
 
 You can easily load custom fonts using either Google Fonts or Typekit.
 
-## Confused by All the CSS and Sass Files?
+## How styles are organized
 
 Some basics about the Sass and CSS files that come with UnderStrap:
 - The theme uses the `/style.css` file to identify the theme inside of WordPress. The file is not loaded by the theme 
@@ -61,29 +63,29 @@ It is composed of five different SCSS sets and one variable file loaded through 
 
 1. `theme/theme_variables` <----- Your custom variables plus those needed to overwrite Bootstrap or Spurs variables
 2. `../src/bootstrap-sass/assets/stylesheets/bootstrap`  <----- Bootstrap vendor stuff **DON'T EDIT!**
-3. `understrap/understrap` <----- Basic WordPress styles combining Boostrap and Underscores
+3. `spurs/spurs` <----- Basic WordPress styles combining Boostrap and Underscores
 4. `../src/fontawesome/scss/font-awesome` <----- Font Awesome Icon styles **DON'T EDIT!**
 5. `theme/theme`  <----- Add your styles into this file
 
-- Don’t edit or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
+* Don’t edit or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
 - Your design goes into: `/sass/theme`. Add your styles to the `/sass/theme/_theme.scss` file and your variables to the 
 `/sass/theme/_theme_variables.scss`. Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
 
 ## Installation
 
 ### Classic install
-- Download the understrap folder from GitHub or from [https://understrap.com](https://understrap.com)
-- IMPORTANT: If you download it from GitHub make sure you rename the "spurs-master.zip" file just to "understrap.zip" or you might have problems using child themes !!
-- Upload it into your WordPress installation subfolder here: `/wp-content/themes/`
-- Login to your WordPress backend
+- Download the spurs folder from GitHub
+- IMPORTANT: If you download it from GitHub make sure you rename the "spurs-master.zip" file just to "spurs.zip"
+- Upload it into your WordPress installation sub-folder here: `/wp-content/themes/`
+- Login to your WordPress Admin
 - Go to Appearance → Themes
-- Activate the UnderStrap theme
+- Activate the Spurs theme
 
-## Developing With npm, Gulp and SASS and [Browser Sync][1]
+## Developing with npm, Gulp and SASS and [Browser Sync][1]
 
 ### Installing Dependencies
-- Make sure you have installed Node.js and Browser-Sync* (* optional, if you wanna use it) on your computer globally
-- Then open your terminal and browse to the location of your UnderStrap copy
+- Make sure you have installed Node.js with npm and Browser-Sync* (* optional, if you wanna use it) on your computer globally
+- Then open your terminal and browse to the location of your Spurs copy
 - Run: `$ npm install`
 
 ### Running
@@ -102,7 +104,7 @@ var browserSyncOptions = {
 ```
 then run: `$ gulp watch-bs`
 
-## How to Use the Build-In Widget Slider
+## How to use the built-in widget slider
 
 The front-page slider is widget driven. Simply add more than one widget to widget position “Hero”.
 - Click on Appearance → Widgets.
@@ -125,7 +127,13 @@ The `empty.php` template displays a header and a footer only. A good starting po
 
 ### Full Width Template
 
-The `fullwidthpage.php` template has full width layout without a sidebar.
+The `full-width.php` template has full width layout without a sidebar.
+
+### Sidebar Templates
+
+- `left-sidebar.php` - layout with a sidebar `(col-4)` on the left of the content `(col-8)`
+- `right-sidebar.php` - layout with a sidebar `(col-4)` on the right of the content `(col-8)`
+- `both-sidebars.php` - layout with two slim sidebars `(col-3)` on left and right of main content `(col-6)`
 
 [1] Visit [http://browsersync.io](http://browsersync.io) for more information on Browser Sync
 
