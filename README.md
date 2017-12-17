@@ -81,19 +81,22 @@ It is composed of five different SCSS sets and one variable file loaded through 
 - Go to Appearance → Themes
 - Activate the Spurs theme
 
-## Developing with npm, Gulp and SASS and [Browser Sync][1]
+## Developing with npm, Gulp and SASS and Browsersync
 
 ### Installing Dependencies
-- Make sure you have installed Node.js with npm and Browser-Sync* (* optional, if you wanna use it) on your computer globally
-- Then open your terminal and browse to the location of your Spurs copy
-- Run: `$ npm install`
+Make sure you have installed:
+- [Node.js](https://nodejs.org) with npm 
+- [Gulp](https://gulpjs.com/) `npm install -g gulp-cli`
+- [Browsersync](http://browsersync.io) `npm install -g browser-sync`
+
+Then open your terminal and browse to the location of your Spurs copy and run: `$ npm install` to install theme dependencies.
 
 ### Running
 To work and compile your Sass files on the fly start:
 
 `$ gulp watch`
 
-Or, to run with Browser-Sync:
+Or, to run with Browsersync:
 
 - First change the browser-sync options to reflect your environment in the file `/gulpfile.js` in the beginning of the file:
 ```javascript
@@ -103,6 +106,8 @@ var browserSyncOptions = {
 };
 ```
 then run: `$ gulp watch-bs`
+
+Check out the `gulpfile.js` file to see the other available Gulp commands.
 
 ## How to use the built-in widget slider
 
@@ -134,8 +139,6 @@ The `full-width.php` template has full width layout without a sidebar.
 - `left-sidebar.php` - layout with a sidebar `(col-4)` on the left of the content `(col-8)`
 - `right-sidebar.php` - layout with a sidebar `(col-4)` on the right of the content `(col-8)`
 - `both-sidebars.php` - layout with two slim sidebars `(col-3)` on left and right of main content `(col-6)`
-
-[1] Visit [http://browsersync.io](http://browsersync.io) for more information on Browser Sync
 
 Licenses and Credits
 =
