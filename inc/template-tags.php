@@ -22,11 +22,11 @@ if ( ! function_exists( 'spurs_posted_on' ) ) :
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-		$posted_on = sprintf(
+		$posted_on   = sprintf(
 			esc_html_x( 'Posted on %s', 'post date', 'spurs' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
-		$byline = sprintf(
+		$byline      = sprintf(
 			esc_html_x( 'by %s', 'post author', 'spurs' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
@@ -157,7 +157,7 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 	 */
 	function spurs_content_classes() {
 		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		$html                     = '';
+		$html             = '';
 
 		if ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
 			$html .= 'left-sidebar-template col-md-8 content-area';
