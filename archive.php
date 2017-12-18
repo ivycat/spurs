@@ -7,7 +7,7 @@
  * @package spurs
  */
 
-if ( have_posts() ) : ?>
+if ( have_posts() ) { ?>
 
     <header class="page-header">
 		<?php
@@ -26,9 +26,6 @@ if ( have_posts() ) : ?>
 		get_template_part( 'loop-templates/content', get_post_format() );
 	endwhile;
 
-else {
-	:
+} else {
 	get_template_part( 'loop-templates/content', 'none' );
 }
-
-endif;

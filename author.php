@@ -31,7 +31,7 @@
 
 <ul>
     <!-- The Loop -->
-	<?php if ( have_posts() ) :
+	<?php if ( have_posts() ) {
 		while ( have_posts() ) : the_post(); ?>
             <li>
                 <a rel="bookmark" href="<?php the_permalink() ?>"
@@ -41,9 +41,9 @@
 					'spurs' ); ?> <?php the_category( '&' ); ?>
             </li>
 		<?php endwhile;
-	else :
+	} else {
 		get_template_part( 'loop-templates/content', 'none' );
-	endif; ?>
+	} ?>
     <!-- End Loop -->
 </ul>
 

@@ -6,7 +6,7 @@
  */
 ?>
 
-<?php if ( have_posts() ) : ?>
+<?php if ( have_posts() ) { ?>
 
     <header class="page-header">
         <h1 class="page-title"><?php printf(
@@ -25,6 +25,6 @@
 		get_template_part( 'loop-templates/content', 'search' );
 
 	endwhile;
-else :
+} else {
 	get_template_part( 'loop-templates/content', 'none' );
-endif;
+}

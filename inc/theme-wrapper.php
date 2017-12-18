@@ -35,14 +35,15 @@
 
 			self::$base = substr( basename( self::$main_template ), 0, -4 );
 
-			if ( 'index' == self::$base )
+			if ( 'index' == self::$base ) {
 				self::$base = false;
+			}
 
 			$templates = array( 'wrapper.php' );
 
-			if ( self::$base )
+			if ( self::$base ) {
 				array_unshift( $templates, sprintf( 'wrapper-%s.php', self::$base ) );
-
+			}
 			return locate_template( $templates );
 		}
 	}

@@ -36,11 +36,11 @@ add_action( 'after_setup_theme', 'spurs_components_jetpack_setup' );
 function spurs_components_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
-		if ( is_search() ) :
+		if ( is_search() ) {
 			get_template_part( 'loop-templates/content', 'search' );
-		else :
+		} else {
 			get_template_part( 'loop-templates/content', get_post_format() );
-		endif;
+		}
 	}
 }
 

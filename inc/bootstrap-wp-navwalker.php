@@ -71,7 +71,7 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) :
 				$output .= $indent . '<li class="disabled" role="presentation"><a href="#">' . esc_html( $item->title ) . '</a>';
 			} else {
 				$class_names = $value = '';
-				$classes     = empty( $item->classes ) ? array() : ( array ) $item->classes;
+				$classes     = empty( $item->classes ) ? array() : (array) $item->classes;
 				$classes[]   = 'nav-item menu-item-' . $item->ID;
 				$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 				/*
@@ -91,15 +91,15 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) :
 				// the menu item
 				if ( in_array( 'fa', $classes ) ) {
 					$key         = array_search( 'fa', $classes );
-					$icon        = $classes[$key + 1];
-					$class_names = str_replace( $classes[$key + 1], '', $class_names );
-					$class_names = str_replace( $classes[$key], '', $class_names );
+					$icon        = $classes[ $key + 1 ];
+					$class_names = str_replace( $classes[ $key + 1 ], '', $class_names );
+					$class_names = str_replace( $classes[ $key ], '', $class_names );
 				}
 
 				$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 				$id          = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args );
 				$id          = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-				$output .= $indent . '<li' . $id . $value . $class_names . '>';
+				$output      .= $indent . '<li' . $id . $value . $class_names . '>';
 				$atts        = array();
 				if ( empty( $item->attr_title ) ) {
 					$atts['title'] = ! empty( $item->title ) ? strip_tags( $item->title ) : '';
@@ -122,7 +122,7 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) :
 				$attributes = '';
 				foreach ( $atts as $attr => $value ) {
 					if ( ! empty( $value ) ) {
-						$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+						$value      = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
 						$attributes .= ' ' . $attr . '="' . $value . '"';
 					}
 				}
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) :
 			$id_field = $this->db_fields['id'];
 			// Display this element.
 			if ( is_object( $args[0] ) ) {
-				$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
+				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 			}
 			parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
 		}

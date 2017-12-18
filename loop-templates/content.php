@@ -13,11 +13,11 @@
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
 			'</a></h2>' ); ?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
+		<?php if ( 'post' == get_post_type() ) { ?>
             <div class="entry-meta">
 				<?php spurs_posted_on(); ?>
             </div><!-- .entry-meta -->
-		<?php endif; ?>
+		<?php } ?>
     </header><!-- .entry-header -->
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
