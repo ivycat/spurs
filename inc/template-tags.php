@@ -219,7 +219,7 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 			$html .= 'col-md-3 widget-area';
 			echo $html; // WPCS: XSS OK.
 		} elseif ( ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) ||
-		           ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) ) {
+				   ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) ) {
 			$html .= 'col-md-4 widget-area';
 			echo $html; // WPCS: XSS OK.
 		} else {
