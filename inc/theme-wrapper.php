@@ -41,7 +41,7 @@
 
 			$templates = array( 'wrapper.php' );
 
-			if ( self::$base ) {
+			if ( self::$base !== false ) {
 				array_unshift( $templates, sprintf( 'wrapper-%s.php', self::$base ) );
 			}
 			return locate_template( $templates );

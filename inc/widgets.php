@@ -17,11 +17,11 @@ if ( ! function_exists( 'spurs_slbd_count_widgets' ) ) {
 		if ( empty( $_wp_sidebars_widgets ) ) {
 			$_wp_sidebars_widgets = get_option( 'sidebars_widgets', array() );
 		}
-		$sidebars_widgets_count = $_wp_sidebars_widgets;
+		$sidebar_widget_count = $_wp_sidebars_widgets;
 
-		if ( isset( $sidebars_widgets_count[$sidebar_id] ) ) {
-			$widget_count   = count( $sidebars_widgets_count[$sidebar_id] );
-			$widget_classes = 'widget-count-' . count( $sidebars_widgets_count[$sidebar_id] );
+		if ( isset( $sidebar_widget_count[$sidebar_id] ) ) {
+			$widget_count   = count( $sidebar_widget_count[$sidebar_id] );
+			$widget_classes = 'widget-count-' . count( $sidebar_widget_count[$sidebar_id] );
 
 			if ( 0 == $widget_count % 4 || $widget_count > 6 ) {
 				// Four widgets per row if there are exactly four or more than six

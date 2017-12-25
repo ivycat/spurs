@@ -26,4 +26,4 @@ if ( is_singular( 'product' ) ) {
 	// If no archive-product.php template exists, default to catch-all
 } else {
 	woocommerce_content();
-}; ?>
+};

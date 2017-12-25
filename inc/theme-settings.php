@@ -13,15 +13,15 @@ if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) :
 		// Caution: DO NOT check existence using === always check with == .
 
 		// Latest blog posts style.
-		$spurs_posts_index_style = get_theme_mod( 'spurs_posts_index_style' );
-		if ( '' == $spurs_posts_index_style ) {
-			set_theme_mod( 'spurs_posts_index_style', 'default' );
+		$spurs_now_posts_look = get_theme_mod( 'spurs_now_posts_look' );
+		if ( '' == $spurs_now_posts_look ) {
+			set_theme_mod( 'spurs_now_posts_look', 'default' );
 		}
 
 		// Sidebar position.
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		if ( '' == $spurs_sidebar_position ) {
-			set_theme_mod( 'spurs_sidebar_position', 'right' );
+		$spurs_sb_position = get_theme_mod( 'spurs_sb_position' );
+		if ( '' == $spurs_sb_position ) {
+			set_theme_mod( 'spurs_sb_position', 'right' );
 		}
 
 		// Container width.
