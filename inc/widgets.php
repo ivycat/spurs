@@ -9,8 +9,8 @@
  * Count number of widgets in a sidebar
  * Used to add classes to widget areas so widgets can be displayed one, two, three or four per row
  */
-if ( ! function_exists( 'spurs_slbd_count_widgets' ) ) {
-	function spurs_slbd_count_widgets( $sidebar_id ) {
+if ( ! function_exists( 'spurs_count_widgets' ) ) {
+	function spurs_count_widgets( $sidebar_id ) {
 		// If loading from front page, consult $_wp_sidebars_widgets rather than options
 		// to see if wp_convert_widget_settings() has made manipulations in memory.
 		global $_wp_sidebars_widgets;
@@ -84,7 +84,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'name'          => __( 'Hero Static', 'spurs' ),
 			'id'            => 'static-hero',
 			'description'   => 'Static Hero widget. no slider functionality',
-			'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s ' . spurs_slbd_count_widgets( 'static-hero' ) . '">',
+			'before_widget' => '<div id="%1$s" class="static-hero-widget %2$s ' . spurs_count_widgets( 'static-hero' ) . '">',
 			'after_widget'  => '</div><!-- .static-hero-widget -->',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
@@ -94,7 +94,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'name'          => __( 'Footer Full', 'spurs' ),
 			'id'            => 'footer-full',
 			'description'   => 'Widget area below main content and above footer',
-			'before_widget' => '<div id="%1$s" class="footer-widget %2$s ' . spurs_slbd_count_widgets( 'footer-full' ) . '">',
+			'before_widget' => '<div id="%1$s" class="footer-widget %2$s ' . spurs_count_widgets( 'footer-full' ) . '">',
 			'after_widget'  => '</div><!-- .footer-widget -->',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
