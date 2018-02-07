@@ -13,7 +13,7 @@
  * @see        https://docs.woocommerce.com/document/template-structure/
  * @author        WooThemes
  * @package    WooCommerce/Templates
- * @version     1.6.4
+ * @version     3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // load container setting
-$container = get_theme_mod( 'spurs_container_type' );
+$container = get_theme_mod( 'pettibon_container_type' );
 
 // if we use container-fluid add some margin
 if ( 'container-fluid' === $container ) {

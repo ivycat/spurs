@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.1.0
+ * @version 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,13 +32,13 @@ if ( empty( WC()->cart->applied_coupons ) ) {
 
 <form class="checkout_coupon" method="post" style="display:none">
 
-	<p class="form-row form-row-first">
-		<input type="text" name="coupon_code" class="form-control" placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" id="coupon_code" value="" />
-	</p>
+    <p class="form-row form-row-first">
+        <input type="text" name="coupon_code" class="form-control" placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" id="coupon_code" value=""/>
+    </p>
 
-	<p class="form-row form-row-last">
-		<input type="submit" class="btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e( 'Apply Coupon', 'spurs' ); ?>" />
-	</p>
+    <p class="form-row form-row-last">
+        <button type="submit" class="btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_html_e( 'Apply coupon', 'spurs' ); ?></button>
+    </p>
 
-	<div class="clear"></div>
+    <div class="clear"></div>
 </form>

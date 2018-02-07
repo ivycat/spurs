@@ -43,7 +43,7 @@ $col    = 1;
 </p>
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
-	echo '<div class="u-columns woocommerce-Addresses col2-set addresses">';
+    echo '<div class="u-columns woocommerce-Addresses col2-set addresses">';
 } ?>
 
 <?php foreach ( $get_addresses as $name => $title ) : ?>
@@ -80,5 +80,5 @@ $col    = 1;
 <?php endforeach; ?>
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
-	echo '</div>';
+    echo '</div>';
 } ?>

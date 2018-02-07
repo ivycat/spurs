@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.1.0
+ * @version 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -32,10 +32,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<tr>
 				<th class="product-remove">&nbsp;</th>
 				<th class="product-thumbnail">&nbsp;</th>
-				<th class="product-name"><?php _e( 'Product', 'spurs' ); ?></th>
-				<th class="product-price"><?php _e( 'Price', 'spurs' ); ?></th>
-				<th class="product-quantity"><?php _e( 'Quantity', 'spurs' ); ?></th>
-				<th class="product-subtotal"><?php _e( 'Total', 'spurs' ); ?></th>
+				<th class="product-name"><?php esc_html_e( 'Product', 'spurs' ); ?></th>
+				<th class="product-price"><?php esc_html_e( 'Price', 'spurs' ); ?></th>
+				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'spurs' ); ?></th>
+				<th class="product-subtotal"><?php esc_html_e( 'Total', 'spurs' ); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -55,8 +55,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 									'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-									esc_url( WC()->cart->get_remove_url( $cart_item_key ) ),
-									esc_attr__( 'Remove this item', 'spurs' ),
+									esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+									__( 'Remove this item', 'spurs' ),
 									esc_attr( $product_id ),
 									esc_attr( $_product->get_sku() )
 								), $cart_item_key );
@@ -84,7 +84,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								}
 
 								// Meta data
-								echo WC()->cart->get_item_data( $cart_item );
+							    echo wc_get_formatted_cart_item_data( $cart_item );
 
 								// Backorder notification
 								if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
@@ -109,6 +109,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 										'input_value' => $cart_item['quantity'],
 										'max_value'   => $_product->get_max_purchase_quantity(),
 										'min_value'   => '0',
+										'product_name'  => $_product->get_name(),
 									), $_product, false );
 								}
 
@@ -134,12 +135,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<label for="coupon_code"><?php _e( 'Coupon:', 'spurs' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" /> <input type="submit" class="btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>" />
+							<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'spurs' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" /> <input type="submit" class="btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>" />
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
 
-				<input type="submit" class="btn btn-outline-primary"  name="update_cart" value="<?php esc_attr_e( 'Update Cart', 'spurs' ); ?>" />
+                    <button type="submit" class="btn btn-outline-primary" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'spurs' ); ?>"><?php esc_html_e( 'Update cart', 'spurs' ); ?></button>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 

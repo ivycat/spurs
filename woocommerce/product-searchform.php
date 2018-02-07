@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.1.0
+ * @version 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,11 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<div class="input-group">
-
-		<input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field field form-control" placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'spurs' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-		<input type="hidden" name="post_type" value="product" />
-		<span class="input-group-btn">
-			<input class="submit btn btn-primary" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'spurs' ); ?>" />
-			</span>
+        <label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'spurs' ); ?></label>
+        <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field field form-control" placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'spurs' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+        <button type="submit" class="submit btn btn-primary" value="<?php echo esc_attr_x( 'Search', 'submit button', 'spurs' ); ?>"><?php echo esc_html_x( 'Search', 'submit button', 'spurs' ); ?></button>
+        <span class="input-group-btn">
+            <input type="hidden" name="post_type" value="product" />
+        </span>
 	</div>
 </form>
