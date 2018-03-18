@@ -25,7 +25,8 @@ spurs_left_sidebar(); ?>
 
     </div><!-- #primary -->
 
-<?php spurs_right_sidebar();
+<?php
+spurs_right_sidebar();
 
 //get_sidebar( spurs_template_base() );
 get_footer( spurs_template_base() );
