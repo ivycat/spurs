@@ -212,22 +212,28 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 	 *      <div class="<?php spurs_sidebar_classes(); ?>">
 	 */
 	function spurs_sidebar_classes() {
-//		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+
+		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		$html = '';
 
 		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$html .= 'col-md-3 widget-area';
 			echo $html; // WPCS: XSS OK.
 		} elseif ( ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) ||
-				   ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) ) {
+		           ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) ) {
 			$html .= 'col-md-4 widget-area';
 			echo $html; // WPCS: XSS OK.
+		} elseif ( ( 'right' === $sidebar_position || 'left' === $sidebar_position ) && ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) ) {
+			$html .= 'col-md-4 content-area';
+			echo $html; // WPCS: XSS OK.
+		} elseif ( ( 'both' === $sidebar_position ) && ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) ) {
+			$html .= 'col-md-3 content-area';
+			echo $html; // WPCS: XSS OK.
 		} else {
-			$html .= 'col-md-4 widget-area';
+			$html .= 'col-12 widget-area';
 			echo $html; // WPCS: XSS OK.
 		}
 	}
-
 }
 
 
