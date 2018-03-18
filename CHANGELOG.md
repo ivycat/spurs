@@ -1,5 +1,9 @@
 **Post-fork Spurs releases**
 
+            - ** Spurs initial release 0.6.0 March 18th 2018 ** 
+              - Fix sidebar functions so default theme customizer and page template override choices work
+              - Update docs   
+
             - ** Spurs initial release 0.5.0 December 17th 2017 ** 
               - Incorporate theme wrapper and try to make code DRY
               - Create example blank template, illustrating wrapper
@@ -10,7 +14,6 @@
               - Create style class helper functions for sidebar and content
               - Changed licensing to GPLv3 
               - Update docs   
-
 **Pre-fork UnderStrap releases**
 
             - ** Release 0.6.11 December 11th 2017 ** 
