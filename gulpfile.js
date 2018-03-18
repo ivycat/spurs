@@ -18,7 +18,7 @@ var browserSyncWatchFiles = [
 // browser-sync options
 // see: https://www.browsersync.io/docs/options/
 var browserSyncOptions = {
-	proxy: "mytestbed.kbox.site",
+	proxy: "https://mytestbed.kbox.site/",
 	notify: false,
 	reloadDelay: 2500,
 	// Open the site in Chrome & Firefox
