@@ -83,16 +83,9 @@ php_errorlog
 bower_components/
 node_modules/
 vendor/
-
 .sass-cache
-
-
-
-
 dist
-
 dist-product
-
 
 
 
