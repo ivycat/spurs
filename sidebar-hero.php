@@ -8,7 +8,7 @@
 /**
  * The Hero widget area
  */
-if ( is_active_sidebar( 'hero' ) ) : ?>
+if ( is_active_sidebar( 'hero' ) ) { ?>
 
     <!-- *******************  ******************* -->
 
@@ -34,4 +34,4 @@ if ( is_active_sidebar( 'hero' ) ) : ?>
 		jQuery(".carousel-item").first().addClass("active");
     </script>
 
-<?php endif; ?>
+<?php } ?>
