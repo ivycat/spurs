@@ -121,7 +121,7 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 	function spurs_left_sidebar() {
 		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
-		if ( ! is_page_template( 'page-templates/full-width.php'  ||  ! is_page_template( 'page-templates/right-sidebar.php' ) )) {
+		if ( ! is_page_template( 'page-templates/full-width.php' ) && ! is_page_template( 'page-templates/right-sidebar.php' ) ) {
 			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $sidebar_position || 'both' === $sidebar_position ) {
 				get_sidebar( 'left' );
 			}
@@ -138,8 +138,10 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 	function spurs_right_sidebar() {
 		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
-		if ( ! is_page_template( 'page-templates/full-width.php' ) ) {
-			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'right' === $sidebar_position || 'both' === $sidebar_position ) {
+		if ( ! is_page_template( 'page-templates/full-width.php' ) || ! is_page_template( 'page-templates/left-sidebar.php' ) ) {
+			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) ) {
+				get_sidebar( 'right' );
+			} elseif ( is_page_template( 'default' ) && ( 'right' === $sidebar_position || 'both' === $sidebar_position ) ) {
 				get_sidebar( 'right' );
 			}
 		}
