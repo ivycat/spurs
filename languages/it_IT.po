@@ -1,7 +1,7 @@
 # Loco Gettext template
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: spurs\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2015-09-01 21:23+0200\n"
 "POT-Revision-Date: Mon Jul 04 2016 09:13:18 GMT+0200 (CEST)\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: footer.php\n"
 "X-Poedit-SearchPath-1: header.php\n"
 "X-Poedit-SearchPath-2: index.php\n"
-"X-Poedit-SearchPath-3: static-hero.php\n"
+"X-Poedit-SearchPath-3: statichero.php\n"
 "X-Poedit-SearchPath-4: 404.php\n"
 "X-Poedit-SearchPath-5: archive.php\n"
 "X-Poedit-SearchPath-6: search.php\n"
@@ -284,12 +284,12 @@ msgid "Edit"
 msgstr "Modifica"
 
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "Spurs"
+msgstr "Spurs"
 
 #. Theme URI of the theme
-msgid "http://understrap.com"
-msgstr "http://understrap.com"
+msgid "https://github.com/sewmyheadon/spurs"
+msgstr "https://github.com/sewmyheadon/spurs"
 
 #. Description of the theme
 msgid ""
@@ -302,9 +302,9 @@ msgstr ""
 "WordPress. Da usare come tema iniziale o tema genitore. Decidi tu."
 
 #. Author of the theme
-msgid "Holger Koenemann"
-msgstr "Holger Koenemann"
+msgid "Eric Amundson"
+msgstr "Eric Amundson"
 
 #. Author URI of the theme
-msgid "http://www.holgerkoenemann.de"
-msgstr "http://www.holgerkoenemann.de"
+msgid "https://ivycat.com"
+msgstr "https://ivycat.com"

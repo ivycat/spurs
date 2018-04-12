@@ -2,24 +2,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: spurs\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
-"POT-Creation-Date: 2017-05-04 12:38+0200\n"
+"POT-Creation-Date: 2016-12-20 05:10+0000\n"
 "POT-Revision-Date: Mon Jul 04 2016 09:13:18 GMT+0200 (CEST)\n"
-"PO-Revision-Date: 2017-05-04 21:09+0200\n"
-"Language-Team: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"PO-Revision-Date: 2018-04-02 19:11+0100\n"
+"Last-Translator: Mirosław Zalewski <mz@miroslaw-zalewski.eu>\n"
+"Language-Team: Polish\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
+" || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.0.1\n"
-"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
-"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
-"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
-"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:"
+"1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1"
+",2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;e"
+"sc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;comments"
+"_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Poedit-Basepath: ..\n"
-"Last-Translator: \n"
-"Language: nn_NO\n"
 "X-Poedit-SearchPath-0: footer.php\n"
 "X-Poedit-SearchPath-1: header.php\n"
 "X-Poedit-SearchPath-2: index.php\n"
@@ -41,82 +42,82 @@ msgstr ""
 "X-Poedit-SearchPath-18: page.php\n"
 "X-Poedit-SearchPath-19: functions.php\n"
 "X-Poedit-SearchPath-20: page-templates\n"
-"X-Poedit-SearchPath-21: inc\n"
 
 #: search.php:29
 #, php-format
 msgid "Search Results for: %s"
-msgstr "Søkeresultater for: %s"
+msgstr "Wyniki wyszukiwania dla frazy: %s"
 
 #: header.php:34
 msgid "Skip to content"
-msgstr "Hopp til innhald"
+msgstr "Przejdź do treści"
 
 #: 404.php:24
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Uffda! Den siden blei ikkje funne."
+msgstr "Ups! Strona nie została znaleziona."
 
 #: 404.php:31
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
-"Det ser ikkje ut til at det finst noko her. Kanskje prøv ein av koblingene "
-"nedenfor eller eit søk?"
+"Wygląda na to, że nic tutaj nie znaleziono. Może spróbuj wyszukiwania lub"
+"kliknij jeden z odnośników poniżej?"
 
 #: 404.php:42
 msgid "Most Used Categories"
-msgstr "Mest brukte kategorier"
+msgstr "Najczęściej używane kategorie"
 
 #. translators: %1$s: smiley
 #: 404.php:62
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
-msgstr "Prøv å sjå i dei månedlige arkivene. %1$s"
+msgstr "Sprawdź w archiwum %1$s"
 
 #: author.php:34
 msgid "About:"
-msgstr "Om:"
+msgstr "Autor:"
 
 #: author.php:42 inc/custom-comments.php:30
 msgid "Website"
-msgstr "Nettstad"
+msgstr "Strona internetowa"
 
 #: author.php:49
 msgid "Profile"
-msgstr "Profil"
+msgstr "O autorze"
 
 #: author.php:54
 msgid "Posts by"
-msgstr "Innlegg av"
+msgstr "Artykuły"
 
 #: author.php:68
 msgid "in"
-msgstr "i"
+msgstr "w"
 
 #: comments.php:28
 #, php-format
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "Én tanke om &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s tanker om &ldquo;%2$s&rdquo;"
+msgstr[0] "Jedna opinia na temat „%2$s”"
+msgstr[1] "%1$s opinie na temat „%2$s”"
+msgstr[2] "%1$s opinii na temat „%2$s”"
 
 #: comments.php:36 comments.php:59
 msgid "Comment navigation"
-msgstr "Kommentar navigasjon"
+msgstr "Nawigacja po komentarzach"
 
 #: comments.php:38 comments.php:61
 msgid "&larr; Older Comments"
-msgstr "&larr; Eldre kommentarer"
+msgstr "&larr; Starsze komentarze"
 
 #: comments.php:42 comments.php:65
 msgid "Newer Comments &rarr;"
-msgstr "Nyere kommentarer &rarr;"
+msgstr "Nowsze komentarze &rarr;"
 
 #: comments.php:78
 msgid "Comments are closed."
-msgstr "Kommentarer er stengt."
+msgstr "Komentarze są zamknięte"
 
 #: footer.php:27
 msgid "http://wordpress.org/"
@@ -125,141 +126,141 @@ msgstr "http://wordpress.org/"
 #: footer.php:28
 #, php-format
 msgid "Proudly powered by %s"
-msgstr "Stolt drevet av %s"
+msgstr "Dumnie wspierany przez %s"
 
 #: footer.php:31
 #, php-format
 msgid "Theme: %1$s by %2$s."
-msgstr "Tema: %1$s av %2$s."
+msgstr "Motyw: %1$s od %2$s."
 
 #: footer.php:33
 #, php-format
 msgid "Version: %1$s"
-msgstr "Versjon: %1$s"
+msgstr "Wersja: %1$s"
 
 #: searchform.php:10 searchform.php:16
 msgid "Search"
-msgstr "Søk"
+msgstr "Szukaj"
 
 #: searchform.php:13
 msgid "Search &hellip;"
-msgstr "Søk &hellip;"
+msgstr "Szukaj &hellip;"
 
 #: loop-templates/content-card.php:43 loop-templates/content-page.php:25
 #: loop-templates/content.php:37 loop-templates/content-single.php:31
 #: loop-templates/content-verticalpage.php:28
 msgid "Pages:"
-msgstr "Sider:"
+msgstr "Strony:"
 
 #: loop-templates/content-page.php:34
 #: loop-templates/content-verticalpage.php:37
 msgid "Edit"
-msgstr "Redigere"
+msgstr "Edytuj"
 
 #: loop-templates/content-none.php:15
 msgid "Nothing Found"
-msgstr "Ingenting funne"
+msgstr "Nic nie znaleziono"
 
 #: loop-templates/content-none.php:23
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"Klar til å publisere ditt første innlegg? <a href=\"%1$s\">Kom i gang her</"
-"a>."
+"Gotów do opublikowania pierwszego postu? <a href=\"%1$s\">Zacznij tutaj</a>."
 
 #: loop-templates/content-none.php:28
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Beklager, men ingenting samsvarer med søkeordene dine. Vennligst prøv igjen "
-"med nokre andre søkeord."
+"Niestety, nie znaleziono niczego, co pasowałoby do Twoich kryteriów "
+"wyszukiwania. Spróbuj ponownie używając innych słów kluczowych."
 
 #: loop-templates/content-none.php:34
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Det virker som om vi ikkje finner det du leter etter. Kanskje søk kan hjelpe."
+"Wygląda na to, że nie mogliśmy znaleźć tej strony. Może skorzystaj z"
+" wyszukiwarki?"
 
 #. Name of the template
 msgid "Blank Page Template"
-msgstr "Blank sidemal"
+msgstr "Czysta strona"
 
 #. Name of the template
 msgid "Left and Right Sidebar Layout"
-msgstr "Venstre og høgre sidekolonne-oppsett"
+msgstr "Lewy i prawy panel boczny"
 
 #. Name of the template
 msgid "Empty Page Template"
-msgstr "Tom sidemal"
+msgstr "Pusta strona"
 
 #. Name of the template
 msgid "Full Width Page"
-msgstr "Full bredde side"
+msgstr "Pełna szerokość"
 
 #. Name of the template
 msgid "Left Sidebar Layout"
-msgstr "Venstre sidekolonne-oppsett"
+msgstr "Lewy panel boczny"
 
 #. Name of the template
 msgid "Vertical One Page"
-msgstr "Vertikal ein side"
+msgstr ""
 
 #: inc/template-tags.php:18
 #, php-format
 msgid " Edited %4$s"
-msgstr " Redigert %4$s"
+msgstr " Zmiana %4$s"
 
 #: inc/template-tags.php:29
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr "Publisert %s"
+msgstr "Opublikowano"
 
 #: inc/template-tags.php:34
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr "av %s"
+msgstr "przez"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:51 inc/template-tags.php:57
 msgid ", "
-msgstr ", "
+msgstr ","
 
 #: inc/template-tags.php:53
 #, php-format
 msgid "Posted in %1$s"
-msgstr "Publisert i %1$s"
+msgstr "Opublikowano w %1$s"
 
 #: inc/template-tags.php:59
 #, php-format
 msgid "Tagged %1$s"
-msgstr "Tagget %1$s"
+msgstr "Tagi: %1$s"
 
 #: inc/template-tags.php:65
 msgid "Leave a comment"
-msgstr "Legg igjen ein kommentar"
+msgstr "Napisz komentarz"
 
 #: inc/template-tags.php:65
 msgid "1 Comment"
-msgstr "1 kommentar"
+msgstr "Komentarzy: 1"
 
 #: inc/template-tags.php:65
 msgid "% Comments"
-msgstr "% kommentarer"
+msgstr "Komentarzy: %"
 
 #. translators: %s: Name of current post
 #: inc/template-tags.php:72
 #, php-format
 msgid "Edit %s"
-msgstr "Rediger %s"
+msgstr "Edytuj %s"
 
 #: inc/template-tags.php:143
 msgid "Post navigation"
-msgstr "Innlegg navigasjon"
+msgstr "Nawigacja po artykułach"
 
 #: inc/template-tags.php:148
 msgctxt "Previous post link"
@@ -273,170 +274,171 @@ msgstr "%title&nbsp;<i class=\"fa fa-angle-right\"></i>"
 
 #: inc/setup.php:51
 msgid "Primary Menu"
-msgstr "Hovedmeny"
+msgstr "Menu główne"
 
 #: inc/setup.php:122
 msgid "Read More..."
-msgstr "Les meir..."
+msgstr "Czytaj dalej…"
 
 #: inc/widgets.php:14
 msgid "Right Sidebar"
-msgstr "Høgre sidekolonne"
+msgstr "Prawy panel boczny"
 
 #: inc/widgets.php:24
 msgid "Left Sidebar"
-msgstr "Venstre sidekolonne"
+msgstr "Lewy panel boczny"
 
 #: inc/widgets.php:34
 msgid "Hero Slider"
-msgstr "Hero Slider"
+msgstr "Slider Hero"
 
 #: inc/widgets.php:44
 msgid "Hero Static"
-msgstr "Hero Static"
+msgstr "Nieruchomy Hero"
 
 #: inc/widgets.php:54
 msgid "Footer Full"
-msgstr "Bunntekst full"
+msgstr "Pełna stopka"
 
 #: inc/custom-comments.php:24
 msgid "Name"
-msgstr "Navn"
+msgstr "Imię"
 
 #: inc/custom-comments.php:27
 msgid "Email"
-msgstr "E-post"
+msgstr "Email"
 
 #: inc/custom-comments.php:49
 msgctxt "noun"
 msgid "Comment"
-msgstr "Kommenter"
+msgstr "Komentarz"
 
 #: inc/customizer.php:36
 msgid "Slider Settings"
-msgstr "Innskyvingsinnstillinger"
+msgstr "Ustawienia slidera"
 
 #: inc/customizer.php:45
 msgid "Number of slides displaying at once"
-msgstr "Antall lysbilder som vises samtidig"
+msgstr "Liczba jednocześnie wyświetlanych slajdów"
 
 #: inc/customizer.php:57
 msgid "Slider Time (in ms)"
-msgstr "Innskyvingstid (i ms)"
+msgstr "Długość wyświetlania slajdu (w ms)"
 
 #: inc/customizer.php:69
 msgid "Loop Slider Content"
-msgstr "Sløyfe innskyvingsinnhald"
+msgstr "Zapętlenie"
 
 #: inc/customizer.php:81
 msgid "Theme Layout Settings"
-msgstr "Temaoppsettinnstillinger"
+msgstr "Ustawienia układu szablonu"
 
 #: inc/customizer.php:83
 msgid "Container width and sidebar defaults"
-msgstr "Container-bredde og sidekolonne-standardinnstillinger"
+msgstr "Domyślne ustawienia szerokości strony oraz panelu bocznego"
 
 #: inc/customizer.php:98
 msgid "Container Width"
-msgstr "Container Bredde"
+msgstr "Szerokość strony"
 
 #: inc/customizer.php:99
 msgid "Choose between Bootstrap's container and container-fluid"
-msgstr "Velg mellom Bootstraps container og container-fluid"
+msgstr "Wybierz pomiędzy klasami Bootstrapa: container oraz container-fluid"
 
 #: inc/customizer.php:104
 msgid "Fixed width container"
-msgstr "Fast bredde container"
+msgstr "Stała"
 
 #: inc/customizer.php:105
 msgid "Full width container"
-msgstr "Full bredde container"
+msgstr "Zmienna (wypełnia całą dostępną przestrzeń)"
 
 #: inc/customizer.php:122
 msgid "Sidebar Positioning"
-msgstr "Sidekolonne-posisjonering"
+msgstr "Umiejscowienie panelu bocznego"
 
 #: inc/customizer.php:123
 msgid "Set sidebar's position. Can either be: right, left, both or none"
 msgstr ""
-"Sett sidekolonnens posisjon. Kan enten vere: høgre, venstre, begge eller "
-"ingen"
+"Umiejscowienie panelu bocznego. Może znajdować się po prawej stronie, po"
+" lewej stronie, "
+"po obu stronach lub może w ogóle go nie być"
 
 #: inc/customizer.php:129
 msgid "Right sidebar"
-msgstr "Høyre sidekolonne"
+msgstr "Panel boczny po prawej"
 
 #: inc/customizer.php:130
 msgid "Left sidebar"
-msgstr "Venstre sidekolonne"
+msgstr "Panel boczny po lewej"
 
 #: inc/customizer.php:131
 msgid "Left & Right sidebars"
-msgstr "Venstre og høgre sidekolonner"
+msgstr "Panel boczny po lewej i po prawej"
 
 #: inc/customizer.php:132
 msgid "No sidebar"
-msgstr "Ingen sidekolonne"
+msgstr "Brak panelu bocznego"
 
 #: inc/customizer.php:150
 msgid "Posts Index Style"
-msgstr "Innlegg indeks-stil"
+msgstr ""
 
 #: inc/customizer.php:151
 msgid "Choose how to display latest posts"
-msgstr "Velg korleis du viser dei nyeste innleggene"
+msgstr ""
 
 #: inc/customizer.php:156
 msgid "Default"
-msgstr "Standard"
+msgstr ""
 
 #: inc/customizer.php:157
 msgid "Masonry"
-msgstr "Masonry"
+msgstr ""
 
 #: inc/customizer.php:158
 msgid "Grid"
-msgstr "Rutenett"
+msgstr ""
 
 #: inc/customizer.php:187
 msgid "Grid Post Columns"
-msgstr "Rutenett Innlegg Kolonner"
+msgstr ""
 
 #: inc/customizer.php:188
 msgid "Choose how many columns to use"
-msgstr "Velg hvor mange kolonner du vil bruke"
+msgstr ""
 
 #: woocommerce/cart/proceed-to-checkout-button.php:27
 msgid "Proceed to Checkout"
-msgstr "Fortsett til utsjekking"
+msgstr "Przejdź do kasy"
 
 #: woocommerce/cart/mini-cart.php:49 woocommerce/cart/cart.php:60
 msgid "Remove this item"
-msgstr "Fjern dette elementet"
+msgstr "Usuń ten przedmiot"
 
 #: woocommerce/cart/mini-cart.php:72
 msgid "No products in the cart."
-msgstr "Ingen produkter i handlekorgen."
+msgstr "Koszyk jest pusty"
 
 #: woocommerce/cart/mini-cart.php:80
 msgid "Subtotal"
-msgstr "Delsum"
+msgstr "Suma częściowa"
 
 #: woocommerce/cart/mini-cart.php:85
 msgid "View Cart"
-msgstr "Se handlekorg"
+msgstr "Zobacz koszyk"
 
 #: woocommerce/cart/mini-cart.php:86
 msgid "Checkout"
-msgstr "Sjekk ut"
+msgstr "Kasa"
 
 #: woocommerce/cart/cart-empty.php:28
 msgid "Your cart is currently empty."
-msgstr "Din handlevogn er tom."
+msgstr "Twój koszyk jest pusty"
 
 #: woocommerce/cart/cart-empty.php:36
 msgid "Return To Shop"
-msgstr "Gå tilbake til butikk"
+msgstr "Wróć do sklepu"
 
 #: woocommerce/cart/cart.php:36 woocommerce/cart/cart.php:79
 #: woocommerce/checkout/form-pay.php:29
@@ -445,36 +447,36 @@ msgstr "Produkt"
 
 #: woocommerce/cart/cart.php:37 woocommerce/cart/cart.php:97
 msgid "Price"
-msgstr "Pris"
+msgstr "Cena"
 
 #: woocommerce/cart/cart.php:38 woocommerce/cart/cart.php:103
 msgid "Quantity"
-msgstr "Mengde"
+msgstr "Liczba sztuk"
 
 #: woocommerce/cart/cart.php:39 woocommerce/cart/cart.php:120
 #: woocommerce/myaccount/my-orders.php:16
 msgid "Total"
-msgstr "Total"
+msgstr "Suma"
 
 #: woocommerce/cart/cart.php:92
 msgid "Available on backorder"
-msgstr "Tilgjengelig som restordre"
+msgstr "Dostępny na zamówienie"
 
 #: woocommerce/cart/cart.php:138
 msgid "Coupon:"
-msgstr "Kupong:"
+msgstr "Kupon:"
 
 #: woocommerce/cart/cart.php:138 woocommerce/checkout/form-coupon.php:36
 msgid "Coupon code"
-msgstr "Kupongkode"
+msgstr "Kod kuponu"
 
 #: woocommerce/cart/cart.php:138 woocommerce/checkout/form-coupon.php:40
 msgid "Apply Coupon"
-msgstr "Bruk kupong"
+msgstr "Zastosuj kupon"
 
 #: woocommerce/cart/cart.php:144
 msgid "Update Cart"
-msgstr "Oppdater handlevogn"
+msgstr "Zaktualizuj koszyk"
 
 #: woocommerce/checkout/payment.php:35
 msgid ""
@@ -482,38 +484,36 @@ msgid ""
 "Please contact us if you require assistance or wish to make alternate "
 "arrangements."
 msgstr ""
-"Beklager, det ser ut til at det ikkje finst nokre tilgjengelige "
-"betalingsmåter. Ta kontakt med oss dersom du trenger hjelp."
+"Przykro nam, ale dla Twojego regionu nie jest udostępniona żadna metoda"
+" płatności. Prosimy skontaktuj się z nami, jeśli potrzebujesz wyjaśnień lub"
+" chcesz omówić alternatywne sposoby płatności."
 
 #: woocommerce/checkout/payment.php:35
 msgid "Please fill in your details above to see available payment methods."
-msgstr ""
-"Vennligst fyll ut informasjonen ovenfor for å sjå tilgjengelige "
-"betalingsmåter."
+msgstr "Wypełnij powyższe szczegóły aby zobaczyć dostępne metody płatności."
 
 #: woocommerce/checkout/payment.php:42
 msgid ""
 "Since your browser does not support JavaScript, or it is disabled, please "
-"ensure you click the <em>Update Totals</em> button before placing your "
-"order. You may be charged more than the amount stated above if you fail to "
-"do so."
+"ensure you click the <em>Update Totals</em> button before placing your order."
+" You may be charged more than the amount stated above if you fail to do so."
 msgstr ""
-"Siden nettleseren din ikkje støtter JavaScript, eller det er deaktivert, må "
-"du sørge for at du klikkjer på <em>Oppdater totalsummer</em>-knappen før du "
-"legger inn bestillingen. Du kan bli belastet meir enn beløpet angitt ovenfor "
-"hvis du ikkje gjer det."
+"Ponieważ Twoja przeglądarka nie wspiera JavaScriptu lub jest on wyłączony,"
+" upewnij się, że klikniesz przycisk <em>Zaktualizuj koszyk</em> przed"
+" złożeniem zamówienia. Możesz zapłacić więcej niż jest podane powyżej, jeśli"
+" tego nie zrobisz."
 
 #: woocommerce/checkout/payment.php:43
 msgid "Update totals"
-msgstr "Oppdater totalsummer"
+msgstr "Zaktualizuj koszyk"
 
 #: woocommerce/checkout/form-pay.php:30
 msgid "Qty"
-msgstr "Antall"
+msgstr "Szt."
 
 #: woocommerce/checkout/form-pay.php:31
 msgid "Totals"
-msgstr "Total"
+msgstr "Łącznie"
 
 #: woocommerce/checkout/form-pay.php:79
 msgid ""
@@ -521,115 +521,117 @@ msgid ""
 "location. Please contact us if you require assistance or wish to make "
 "alternate arrangements."
 msgstr ""
-"Beklager, det ser ut til at det ikkje finst nokre tilgjengelige "
-"betalingsmåter for din plassering. Ta kontakt med oss dersom du trenger "
-"hjelp."
+"Przykro nam, ale dla Twojej lokalizacji nie jest udostępniona żadna metoda"
+" płatności. Prosimy skontaktuj się z nami, jeśli potrzebujesz wyjaśnień lub"
+" chcesz omówić alternatywne sposoby płatności."
 
 #: woocommerce/checkout/form-coupon.php:28
 msgid "Have a coupon?"
-msgstr "Har du ein kupong?"
+msgstr "Masz kupon?"
 
 #: woocommerce/checkout/form-coupon.php:28
 msgid "Click here to enter your code"
-msgstr "Klikk her for å skrive inn koden din"
+msgstr "Kliknij tutaj, aby dodać kod"
 
 #: woocommerce/global/form-login.php:35
 #: woocommerce/myaccount/form-lost-password.php:30
 msgid "Username or email"
-msgstr "Brukernamn eller e-post"
+msgstr "Użytkownik lub e-mail"
 
-#: woocommerce/global/form-login.php:39 woocommerce/myaccount/form-login.php:48
+#: woocommerce/global/form-login.php:39
+#: woocommerce/myaccount/form-login.php:48
 #: woocommerce/myaccount/form-login.php:98
 msgid "Password"
-msgstr "Passord"
+msgstr "Hasło"
 
-#: woocommerce/global/form-login.php:48 woocommerce/myaccount/form-login.php:37
+#: woocommerce/global/form-login.php:48
+#: woocommerce/myaccount/form-login.php:37
 #: woocommerce/myaccount/form-login.php:56
 msgid "Login"
-msgstr "Logg Inn"
+msgstr "Zaloguj się"
 
 #: woocommerce/global/form-login.php:51 woocommerce/myaccount/form-login.php:58
 msgid "Remember me"
-msgstr "Husk meg"
+msgstr "Zapamiętaj mnie"
 
 #: woocommerce/global/form-login.php:55 woocommerce/myaccount/form-login.php:62
 msgid "Lost your password?"
-msgstr "Mistet passordet ditt?"
+msgstr "Nie pamiętasz hasła?"
 
 #: woocommerce/global/quantity-input.php:24
 msgctxt "Product quantity input tooltip"
 msgid "Qty"
-msgstr "Antall"
+msgstr "Szt."
 
 #: woocommerce/myaccount/form-lost-password.php:27
 msgid ""
 "Lost your password? Please enter your username or email address. You will "
 "receive a link to create a new password via email."
 msgstr ""
-"Mistet passordet ditt? Vennligst skriv inn brukernamnet eller e-postadressen "
-"din. Du vil motta ein lenke for å opprette eit nytt passord via e-post."
+"Zapomniałeś hasła? Wpisz swoją nazwę użytkownika lub adres e-mail. Dostaniesz"
+" link do stworzenia nowego hasła mailem."
 
 #: woocommerce/myaccount/form-lost-password.php:40
 msgid "Reset Password"
-msgstr "Tilbakestille passord"
+msgstr "Resetuj hasło"
 
 #: woocommerce/myaccount/form-login.php:44
 msgid "Username or email address"
-msgstr "Brukernamn eller e-post"
+msgstr "Użytkownik lub e-mail"
 
 #: woocommerce/myaccount/form-login.php:75
 #: woocommerce/myaccount/form-login.php:112
 msgid "Register"
-msgstr "Registrere"
+msgstr "Zarejestruj się"
 
 #: woocommerce/myaccount/form-login.php:84
 msgid "Username"
-msgstr "Brukernamn"
+msgstr "Nazwa użytkownika"
 
 #: woocommerce/myaccount/form-login.php:91
 #: woocommerce/myaccount/form-edit-account.php:40
 msgid "Email address"
-msgstr "E-post"
+msgstr "E-mail"
 
 #: woocommerce/myaccount/form-login.php:105
 msgid "Anti-spam"
-msgstr "Anti-spam"
+msgstr "Antyspam"
 
 #: woocommerce/myaccount/form-edit-account.php:30
 msgid "First name"
-msgstr "Fornamn"
+msgstr "Imię"
 
 #: woocommerce/myaccount/form-edit-account.php:34
 msgid "Last name"
-msgstr "Etternamn"
+msgstr "Nazwisko"
 
 #: woocommerce/myaccount/form-edit-account.php:45
 msgid "Password Change"
-msgstr "Passord-endring"
+msgstr "Zmiana hasła"
 
 #: woocommerce/myaccount/form-edit-account.php:48
 msgid "Current Password (leave blank to leave unchanged)"
-msgstr "Nåverende passord (la vere tomt for å ikkje endre)"
+msgstr "Aktualne hasło (pozostaw puste, aby nie zmieniać)"
 
 #: woocommerce/myaccount/form-edit-account.php:52
 msgid "New Password (leave blank to leave unchanged)"
-msgstr "Nytt passord (la vere tomt for å ikkje endre)"
+msgstr "Nowe hasło (pozostaw puste, aby nie zmieniać)"
 
 #: woocommerce/myaccount/form-edit-account.php:56
 msgid "Confirm New Password"
-msgstr "Bekrefte nytt passord"
+msgstr "Potwierdź nowe hasło"
 
 #: woocommerce/myaccount/form-edit-account.php:66
 msgid "Save changes"
-msgstr "Lagre endringer"
+msgstr "Zapisz zmiany"
 
 #: woocommerce/myaccount/my-orders.php:13
 msgid "Order"
-msgstr "Ordre"
+msgstr "Zamówienie"
 
 #: woocommerce/myaccount/my-orders.php:14
 msgid "Date"
-msgstr "Dato"
+msgstr "Data"
 
 #: woocommerce/myaccount/my-orders.php:15
 msgid "Status"
@@ -637,7 +639,7 @@ msgstr "Status"
 
 #: woocommerce/myaccount/my-orders.php:30
 msgid "Recent Orders"
-msgstr "Nylige ordre"
+msgstr "Ostatnie zamówienia"
 
 #: woocommerce/myaccount/my-orders.php:55 woocommerce/myaccount/orders.php:51
 msgctxt "hash before order number"
@@ -648,64 +650,65 @@ msgstr "#"
 #, php-format
 msgid "%s for %s item"
 msgid_plural "%s for %s items"
-msgstr[0] "%s for %s element"
-msgstr[1] "%s for %s elementer"
+msgstr[0] "%s za %s pozycję"
+msgstr[1] "%s za %s pozycje"
+msgstr[2] "%s za %s pozycji"
 
 #: woocommerce/myaccount/my-orders.php:72 woocommerce/myaccount/orders.php:68
 msgid "Pay"
-msgstr "Betale"
+msgstr "Zapłać"
 
 #: woocommerce/myaccount/my-orders.php:76 woocommerce/myaccount/orders.php:72
 msgid "View"
-msgstr "Vis"
+msgstr "Zobacz"
 
 #: woocommerce/myaccount/my-orders.php:80 woocommerce/myaccount/orders.php:76
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Anuluj"
 
 #: woocommerce/myaccount/orders.php:107
 msgid "Previous"
-msgstr "Forrige"
+msgstr "Poprzednie"
 
 #: woocommerce/myaccount/orders.php:111
 msgid "Next"
-msgstr "Neste"
+msgstr "Następne"
 
 #: woocommerce/myaccount/orders.php:119 woocommerce/myaccount/downloads.php:98
 msgid "Go Shop"
-msgstr "Gå til butikkjen"
+msgstr "Przejdź do sklepu"
 
 #: woocommerce/myaccount/orders.php:121
 msgid "No order has been made yet."
-msgstr "Ingen ordre er gjort ennå."
+msgstr "Żadne zamówienia nie zostały jeszcze złożone."
 
 #: woocommerce/myaccount/form-edit-address.php:23
 msgid "Billing Address"
-msgstr "Fakturaadresse"
+msgstr "Adres rozliczeniowy."
 
 #: woocommerce/myaccount/form-edit-address.php:23
 msgid "Shipping Address"
-msgstr "Sendingsadresse"
+msgstr "Adres wysyłki."
 
 #: woocommerce/myaccount/form-edit-address.php:46
 msgid "Save Address"
-msgstr "Lagre adresse"
+msgstr "Zapisz adres"
 
 #: woocommerce/myaccount/form-reset-password.php:27
 msgid "Enter a new password below."
-msgstr "Skriv inn eit nytt passord nedenfor."
+msgstr "Wpisz nowe hasło poniżej."
 
 #: woocommerce/myaccount/form-reset-password.php:30
 msgid "New password"
-msgstr "Nytt passord"
+msgstr "Nowe hasło"
 
 #: woocommerce/myaccount/form-reset-password.php:34
 msgid "Re-enter new password"
-msgstr "Skriv inn nytt passord på nytt"
+msgstr "Powtórz nowe hasło"
 
 #: woocommerce/myaccount/form-reset-password.php:47
 msgid "Save"
-msgstr "Lagre"
+msgstr "Zapisz"
 
 #: woocommerce/myaccount/downloads.php:59
 msgid "&infin;"
@@ -713,48 +716,50 @@ msgstr "&infin;"
 
 #: woocommerce/myaccount/downloads.php:67
 msgid "Never"
-msgstr "Aldri"
+msgstr "Nigdy"
 
 #: woocommerce/myaccount/downloads.php:75
 msgid "Download"
-msgstr "Last ned"
+msgstr "Pobieranie"
 
 #: woocommerce/myaccount/downloads.php:100
 msgid "No downloads available yet."
-msgstr "Ingen nedlastinger tilgjengelig ennå."
+msgstr "Pliki do pobrania nie są jeszcze dostępne."
 
 #: woocommerce/single-product/review-rating.php:28
 #, php-format
 msgid "Rated %d out of 5"
-msgstr "Vurdert %d av 5"
+msgstr "Oceniony %s na 5."
 
 #: woocommerce/single-product/review-rating.php:29
 msgid "out of 5"
-msgstr "av 5"
+msgstr "z 5"
 
 #: woocommerce/single-product/rating.php:36
 #, php-format
 msgid "Rated %s out of 5"
-msgstr "Vurdert %s av 5"
+msgstr "Oceniony %s na 5."
 
 #: woocommerce/single-product/rating.php:38
 #, php-format
 msgid "out of %s5%s"
-msgstr "av %s5%s"
+msgstr "z %s5%s"
 
 #: woocommerce/single-product/rating.php:39
 #, php-format
 msgid "based on %s customer rating"
 msgid_plural "based on %s customer ratings"
-msgstr[0] "basert på %s kundevurdering"
-msgstr[1] "basert på %s kundevurderinger"
+msgstr[0] "na podstawie %s oceny klienta"
+msgstr[1] "na podstawie %s ocen klientów"
+msgstr[2] "na podstawie %s ocen klientów"
 
 #: woocommerce/single-product/rating.php:42
 #, php-format
 msgid "%s customer review"
 msgid_plural "%s customer reviews"
-msgstr[0] "%s anmeldelse"
-msgstr[1] "%s anmeldelser"
+msgstr[0] "%s opinia klienta"
+msgstr[1] "%s opinie klienta"
+msgstr[2] "%s opinii klienta"
 
 #. Name of the theme
 msgid "Spurs"
@@ -766,18 +771,18 @@ msgid ""
 "starting point for your next theme project and WordPress website. Use it as "
 "starter theme or as a parent theme. It is up to you. Including Font Awesome "
 "support, built-in widget slider and much more you need for basic websites. "
-"IMPORTANT: All developer dependencies are not bundled with this install "
-"file. Just download the .zip, extract it and run \"npm install\" and \"gulp "
-"copy-assets\" inside the extracted /spurs folder."
+"IMPORTANT: All developer dependencies are not bundled with this install file."
+" Just download the .zip, extract it and run \"npm install\" and \"gulp copy-"
+"assets\" inside the extracted /spurs folder."
 msgstr ""
-"Kombinasjon av Automattic's _s tema og Bootstrap 4. Laget som eit solid "
-"utgangspunkt for ditt neste tema-prosjekt og WordPress-nettstad. Bruk det "
-"som utgangspunkt eller som eit overordnet tema. Det er opp til deg. "
-"Inkludert Font Awesome-støtte, innebygget widget for skyvekontroll og mye "
-"meir du trenger for grunnleggende nettstader. VIKTIG: Alle "
-"utvikleravhengigheter er ikkje buntet sammen med denne installasjonsfilen. "
-"Bare last ned .zip-filen, pakk den ut og kjør \"npm install\" og \"gulp copy-"
-"assets\" inne i utpakket /spurs-mappe."
+"Połączenie motywu _s od Automattic oraz Bootstrapa 4. Stworzony jako solidna "
+"podstawa dla Twojego następnego motywu lub strony opartej na WordPressie. "
+"Wykorzystaj go jako motyw startowy lub motyw nadrzędny. Jak chcesz. "
+"Zawiera obsługę Font Awesome, wbudowany widżet slidera i wiele innych. "
+"WAŻNE: Zależności nie są dołączone do tego pliku instalacyjnego. Po prostu "
+"pobierz plik .zip, rozpakuj go, wejdź do katalogu /spurs i uruchom"
+" polecenia "
+"\"npm install\" i \"gulp copy-assets\"."
 
 #. Theme URI of the theme
 msgid "https://github.com/sewmyheadon/spurs"
@@ -790,3 +795,5 @@ msgstr "Eric Amundson"
 #. Author URI of the theme
 msgid "https://ivycat.com"
 msgstr "https://ivycat.com"
+
+

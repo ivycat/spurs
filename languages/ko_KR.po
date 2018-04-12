@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: spurs\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2015-09-01 21:23+0200\n"
 "POT-Revision-Date: Mon Jul 04 2016 09:13:18 GMT+0200 (CEST)\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: footer.php\n"
 "X-Poedit-SearchPath-1: header.php\n"
 "X-Poedit-SearchPath-2: index.php\n"
-"X-Poedit-SearchPath-3: static-hero.php\n"
+"X-Poedit-SearchPath-3: statichero.php\n"
 "X-Poedit-SearchPath-4: 404.php\n"
 "X-Poedit-SearchPath-5: archive.php\n"
 "X-Poedit-SearchPath-6: search.php\n"
@@ -175,12 +175,12 @@ msgid ""
 msgstr "원하시는 것을 찾을 수가 없습니다. 검색이 도움이 될 수도 있습니다."
 
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "Spurs"
+msgstr "Spurs"
 
 #. Theme URI of the theme
-msgid "http://understrap.com"
-msgstr "http://understrap.com"
+msgid "https://github.com/sewmyheadon/spurs"
+msgstr "https://github.com/sewmyheadon/spurs"
 
 #. Description of the theme
 msgid ""
@@ -192,12 +192,12 @@ msgstr ""
 "제작되었습니다. 스타터 테마나 부모 테마로 사용하세요."
 
 #. Author of the theme
-msgid "Holger Koenemann"
-msgstr "Holger Koenemann"
+msgid "Eric Amundson"
+msgstr "Eric Amundson"
 
 #. Author URI of the theme
-msgid "http://www.holgerkoenemann.de"
-msgstr "http://www.holgerkoenemann.de"
+msgid "https://ivycat.com"
+msgstr "https://ivycat.com"
 
 #: ../comments.php:37 ../comments.php:58
 msgid "&larr; Older Comments"

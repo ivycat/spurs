@@ -1,7 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: spurs\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2016-12-20 05:10+0000\n"
 "POT-Revision-Date: Mon Jul 04 2016 09:13:18 GMT+0200 (CEST)\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: footer.php\n"
 "X-Poedit-SearchPath-1: header.php\n"
 "X-Poedit-SearchPath-2: index.php\n"
-"X-Poedit-SearchPath-3: static-hero.php\n"
+"X-Poedit-SearchPath-3: statichero.php\n"
 "X-Poedit-SearchPath-4: 404.php\n"
 "X-Poedit-SearchPath-5: archive.php\n"
 "X-Poedit-SearchPath-6: search.php\n"
@@ -737,7 +737,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. Name of the theme
-msgid "UnderStrap"
+msgid "Spurs"
 msgstr ""
 
 #. Description of the theme
@@ -748,17 +748,17 @@ msgid ""
 "support, built-in widget slider and much more you need for basic websites. "
 "IMPORTANT: All developer dependencies are not bundled with this install file."
 " Just download the .zip, extract it and run \"npm install\" and \"gulp copy-"
-"assets\" inside the extracted /understrap folder."
+"assets\" inside the extracted /spurs folder."
 msgstr ""
 
 #. Theme URI of the theme
-msgid "http://understrap.com"
+msgid "https://github.com/sewmyheadon/spurs"
 msgstr ""
 
 #. Author of the theme
-msgid "Holger Koenemann"
+msgid "Eric Amundson"
 msgstr ""
 
 #. Author URI of the theme
-msgid "http://www.holgerkoenemann.de"
+msgid "https://ivycat.com"
 msgstr ""

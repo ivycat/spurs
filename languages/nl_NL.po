@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: spurs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-23 08:05+0000\n"
 "PO-Revision-Date: 2016-11-23 20:11+0000\n"
@@ -249,13 +249,13 @@ msgstr "Bewerk"
 
 #. Name of the theme
 #: loco:58356fd352e1a1670d8b459b
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "Spurs"
+msgstr "Spurs"
 
 #. Theme URI of the theme
 #: loco:58356fd352e1a1670d8b459c
-msgid "http://understrap.com"
-msgstr "http://understrap.com"
+msgid "https://github.com/sewmyheadon/spurs"
+msgstr "https://github.com/sewmyheadon/spurs"
 
 #. Description of the theme
 #: loco:58356fd352e1a1670d8b459d
@@ -270,10 +270,10 @@ msgstr ""
 
 #. Author of the theme
 #: loco:58356fd352e1a1670d8b459e
-msgid "Holger Koenemann"
-msgstr "Holger Koenemann"
+msgid "Eric Amundson"
+msgstr "Eric Amundson"
 
 #. Author URI of the theme
 #: loco:58356fd352e1a1670d8b459f
-msgid "http://www.holgerkoenemann.de"
-msgstr "http://www.holgerkoenemann.de"
+msgid "https://ivycat.com"
+msgstr "https://ivycat.com"

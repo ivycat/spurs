@@ -1,7 +1,7 @@
 # Loco Gettext template
 msgid ""
 msgstr ""
-"Project-Id-Version: understrap\n"
+"Project-Id-Version: spurs\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/_s\n"
 "POT-Creation-Date: 2016-12-20 18:54+0200\n"
 "PO-Revision-Date: 2016-12-20 19:47+0200\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: footer.php\n"
 "X-Poedit-SearchPath-1: header.php\n"
 "X-Poedit-SearchPath-2: index.php\n"
-"X-Poedit-SearchPath-3: static-hero.php\n"
+"X-Poedit-SearchPath-3: statichero.php\n"
 "X-Poedit-SearchPath-4: 404.php\n"
 "X-Poedit-SearchPath-5: archive.php\n"
 "X-Poedit-SearchPath-6: search.php\n"
@@ -762,8 +762,8 @@ msgstr[0] "%s κριτική πελάτη"
 msgstr[1] "%s κριτικές πελατών"
 
 #. Name of the theme
-msgid "UnderStrap"
-msgstr "UnderStrap"
+msgid "Spurs"
+msgstr "Spurs"
 
 #. Description of the theme
 msgid ""
@@ -773,7 +773,7 @@ msgid ""
 "support, built-in widget slider and much more you need for basic websites. "
 "IMPORTANT: All developer dependencies are not bundled with this install "
 "file. Just download the .zip, extract it and run \"npm install\" and \"gulp "
-"copy-assets\" inside the extracted /understrap folder."
+"copy-assets\" inside the extracted /spurs folder."
 msgstr ""
 "Συνδυασμός του θέματος _s της Automatic και του Bootstrap 4. Δημιουργήθηκε "
 "ώς βοήθημα για το επόμενο WordPress θέμα σας. Χρησιμοποιήστε το ως αρχικό ή "
@@ -782,19 +782,19 @@ msgstr ""
 "εξαρτήσεις που απαιτούνται για την κατασκευή, δεν συμπεριλαμβάνονται σε αυτό "
 "το αρχείο. Θα πρέπει εφόσον εγκαταστήσετε αυτό το αρχείο, να τρέξετε \"npm "
 "install\" και \"gulp copy-assets\" μέσα από τον φάκελο της εγκατάστασης του "
-"understrap."
+"spurs."
 
 #. Theme URI of the theme
-msgid "http://understrap.com"
-msgstr "http://understrap.com"
+msgid "https://github.com/sewmyheadon/spurs"
+msgstr "https://github.com/sewmyheadon/spurs"
 
 #. Author of the theme
-msgid "Holger Koenemann"
-msgstr "Holger Koenemann"
+msgid "Eric Amundson"
+msgstr "Eric Amundson"
 
 #. Author URI of the theme
-msgid "http://www.holgerkoenemann.de"
-msgstr "http://www.holgerkoenemann.de"
+msgid "https://ivycat.com"
+msgstr "https://ivycat.com"
 
 #~ msgid "Sidebar"
 #~ msgstr "Πλευρικό Μενου"
