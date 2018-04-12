@@ -49,7 +49,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "5.0.0",
     "merge2": "^1.2.1",
-    "popper.js": "^1.12.9",
+    "popper.js": "^1.14.3",
     "run-sequence": "^2.2.1",
     "undescores-for-npm": "^1.0.0",
     "gulp-autoprefixer": "^5.0.0"
