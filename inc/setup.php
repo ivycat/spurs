@@ -11,6 +11,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
+add_action( 'after_setup_theme', 'spurs_setup' );
 if ( ! function_exists( 'spurs_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -89,8 +90,8 @@ if ( ! function_exists( 'spurs_setup' ) ) :
 
 	}
 endif; // spurs_setup.
-add_action( 'after_setup_theme', 'spurs_setup' );
 
+add_filter( 'excerpt_more', 'spurs_custom_excerpt_more' );
 if ( ! function_exists( 'spurs_custom_excerpt_more' ) ) {
 	/**
 	 * Removes the ... from the excerpt read more link
@@ -103,8 +104,8 @@ if ( ! function_exists( 'spurs_custom_excerpt_more' ) ) {
 		return '';
 	}
 }
-add_filter( 'excerpt_more', 'spurs_custom_excerpt_more' );
 
+add_filter( 'wp_trim_excerpt', 'spurs_all_excerpts_get_more_link' );
 if ( ! function_exists( 'spurs_all_excerpts_get_more_link' ) ) {
 	/**
 	 * Adds a custom read more link to all excerpts, manually or automatically generated
@@ -119,4 +120,3 @@ if ( ! function_exists( 'spurs_all_excerpts_get_more_link' ) ) {
 		'spurs' ) . '</a></p>';
 	}
 }
-add_filter( 'wp_trim_excerpt', 'spurs_all_excerpts_get_more_link' );

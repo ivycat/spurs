@@ -6,7 +6,7 @@
  *
  */
 
-if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) :
+if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
 	function spurs_setup_theme_default_settings() {
 
 		// Check if settings are set, if not set defaults.
@@ -30,6 +30,6 @@ if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) :
 			set_theme_mod( 'spurs_container_type', 'container' );
 		}
 	}
-endif;
+}
 
 add_action( 'after_setup_theme', 'spurs_setup_theme_default_settings' );

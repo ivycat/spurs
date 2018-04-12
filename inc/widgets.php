@@ -19,9 +19,9 @@ if ( ! function_exists( 'spurs_count_widgets' ) ) {
 		}
 		$sidebar_widget_count = $_wp_sidebars_widgets;
 
-		if ( isset( $sidebar_widget_count[$sidebar_id] ) ) {
-			$widget_count   = count( $sidebar_widget_count[$sidebar_id] );
-			$widget_classes = 'widget-count-' . count( $sidebar_widget_count[$sidebar_id] );
+		if ( isset( $sidebar_widget_count[ $sidebar_id ] ) ) {
+			$widget_count   = count( $sidebar_widget_count[ $sidebar_id ] );
+			$widget_classes = 'widget-count-' . count( $sidebar_widget_count[ $sidebar_id ] );
 
 			if ( 0 == $widget_count % 4 || $widget_count > 6 ) {
 				// Four widgets per row if there are exactly four or more than six
@@ -45,6 +45,7 @@ if ( ! function_exists( 'spurs_count_widgets' ) ) {
 	}
 }
 
+add_action( 'widgets_init', 'spurs_widgets_init' );
 if ( ! function_exists( 'spurs_widgets_init' ) ) {
 	/**
 	 * Initializes themes widgets.
@@ -102,5 +103,5 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 
 	}
 } // endif function_exists( 'spurs_widgets_init' ).
-add_action( 'widgets_init', 'spurs_widgets_init' );
+
 

@@ -7,6 +7,8 @@
  * @package spurs
  */
 
+add_filter( 'body_class', 'spurs_body_classes' );
+
 if ( ! function_exists( 'spurs_body_classes' ) ) {
 	/**
 	 * Adds custom classes to the array of body classes.
@@ -28,7 +30,7 @@ if ( ! function_exists( 'spurs_body_classes' ) ) {
 		return $classes;
 	}
 }
-add_filter( 'body_class', 'spurs_body_classes' );
+
 
 // Removes tag class from the body_class array to avoid Bootstrap markup styling issues.
 add_filter( 'body_class', 'spurs_adjust_body_class' );
@@ -78,7 +80,7 @@ if ( ! function_exists( 'spurs_change_logo_class' ) ) {
 /**
  * Display navigation to next/previous post when applicable.
  */
-if ( ! function_exists( 'spurs_post_nav' ) ) :
+if ( ! function_exists( 'spurs_post_nav' ) ) {
 
 	function spurs_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
@@ -106,7 +108,7 @@ if ( ! function_exists( 'spurs_post_nav' ) ) :
 
 		<?php
 	}
-endif;
+}
 
 /**
  * Remove WordPress and WooCommerce Generator tags
