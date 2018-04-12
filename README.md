@@ -100,9 +100,12 @@ Or, to run with Browsersync:
 
 - First change the browser-sync options to reflect your environment in the file `/gulpfile.js` in the beginning of the file:
 ```javascript
-var browserSyncOptions = {
-    proxy: "localhost/theme_test/", <----- CHANGE HERE
-    notify: false
+{
+    "browserSyncOptions" : {
+        "proxy": "localhost/theme_test/", // <----- CHANGE HERE
+        "notify": false
+    },
+    ...
 };
 ```
 then run: `$ gulp watch-bs`
