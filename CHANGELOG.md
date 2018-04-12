@@ -1,5 +1,9 @@
 **Post-fork Spurs releases**
-
+            - ** Spurs initial release 0.8.2 April 11, 2018 ** 
+              - Incorporate relevant UnderStrap updates (up to v. 0.8.2)
+              - Incorporate relevant Underscores updates
+              - Add helper functions
+              
             - ** Spurs initial release 0.6.0 March 18th 2018 ** 
               - Fix sidebar functions so default theme customizer and page template override choices work
               - Update docs   
