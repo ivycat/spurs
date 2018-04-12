@@ -1,11 +1,11 @@
 {
-  "name": "understrap",
-  "version": "0.6.7",
-  "homepage": "http://understrap.com",
+  "name": "spurs",
+  "version": "0.8.2",
+  "homepage": "https://github.com/sewmyheadon/spurs",
   "authors": [
-    "Holger Koenemann <office@holgerkoenemann.de>"
+    "Eric Amundson <info@ivycat.com>"
   ],
-  "description": "UnderStrap is a Bootstrap and underscores based WordPress theme framework.",
+  "description": "Spurs is a fork of UnderStrap, a WordPress theme based on Bootstrap and Underscores.",
   "moduleType": "globals",
   "main": [
     "sass/theme.scss"
@@ -17,7 +17,7 @@
     "_s",
     "sass"
   ],
-  "license": "GPL-2.0",
+  "license": "GPL-3.0",
   "ignore": [
     "**/.*",
     "test",
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
   },
-  "_source": "https://github.com/holger1411/understrap.git",
-  "_target": "~0.6.2",
+  "_source": "https://github.com/sewmyheadon/spurs.git",
+  "_target": "~0.8.2",
   "_originalSource": "understrap"
 }
