@@ -24,6 +24,8 @@ spurs_left_sidebar(); ?>
         </main><!-- #main -->
 
     </div><!-- #primary -->
+    <!-- The pagination component -->
+<?php spurs_pagination(); ?>
 
 <?php
 spurs_right_sidebar();
