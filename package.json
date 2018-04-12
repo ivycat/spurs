@@ -1,7 +1,7 @@
 {
   "name": "spurs",
-  "version": "0.5.1",
-  "description": "WordPress Theme framework",
+  "version": "0.8.2",
+  "description": "WordPress theme framework",
   "main": "index.js",
   "scripts": {
     "postinstall": "gulp copy-assets"
@@ -21,35 +21,37 @@
     "underscores"
   ],
   "author": "Eric Amundson",
-  "license": "GPL-3.0",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/sewmyheadon/spurs/issues"
   },
   "homepage": "https://github.com/sewmyheadon/spurs",
   "dependencies": {
-    "bootstrap": "4.0.0-beta.2",
-    "browser-sync": "^2.18.13",
+    "bootstrap": "4.1.0",
+    "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "font-awesome": "^4.7.0",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.0",
-    "gulp-clone": "^1.0.0",
+    "gulp": "3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-clone": "2.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-ignore": "^2.0.2",
-    "gulp-imagemin": "^4.0.0",
+    "gulp-imagemin": "^4.1.0",
     "gulp-merge": "^0.1.1",
-    "gulp-plumber": "^1.1.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-rename": "^1.2.2",
-    "gulp-rimraf": "^0.2.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sequence": "^0.4.6",
-    "gulp-sourcemaps": "2.6.1",
+    "gulp-replace": "^0.6.1",
+    "gulp-rimraf": "^0.2.2",
+    "gulp-sass": "4.0.1",
+    "gulp-sequence": "1.0.0",
+    "gulp-sourcemaps": "2.6.4",
     "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^4.3.11",
-    "merge2": "^1.2.0",
-    "popper.js": "^1.12.6",
-    "run-sequence": "^2.2.0",
-    "undescores-for-npm": "^1.0.0"
+    "gulp-watch": "5.0.0",
+    "merge2": "^1.2.1",
+    "popper.js": "^1.12.9",
+    "run-sequence": "^2.2.1",
+    "undescores-for-npm": "^1.0.0",
+    "gulp-autoprefixer": "^5.0.0"
   }
 }
