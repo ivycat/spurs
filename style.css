@@ -5,10 +5,10 @@ Author: Eric Amundson
 Author URI: https://ivycat.com
 GitHub Theme URI: sewmyheadon/spurs
 Version: 0.8.2
-Spurs is distributed under the terms of the GNU GPL version 3
+Spurs is distributed under the terms of the GNU GPL version 2
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: spurs
-Tags: one-column, custom-menu, featured-images, theme-options, translation-ready
+Tags: one-column, custom-menu, featured-images, theme-options, translation-ready, bootstrap
 Description: Spurs combines Holger Koenemann's UnderStrap theme with a page wrapper and some other dev utilities.
 
 Spurs is based on UnderStrap, which combines the Underscores (_s) theme with Bootstrap 4.
@@ -23,12 +23,10 @@ IMPORTANT: All developer dependencies are not bundled with this install file. Ju
 "npm install" and "gulp copy-assets" inside the extracted /spurs folder.
 That downloads everything and moves it in place so that you can recompile your CSS and JS files;
 
-A developer version (with Gulp/node and Sass sources) is available on gitHub: https://github.com/sewmyheadon/spurs
-
 This theme, like WordPress, is licensed under the GPL.
 
 Resource Licenses:
-Spurs WordPress Theme, Copyright 20187 Eric Amundson
+Spurs WordPress Theme, Copyright 2018 Eric Amundson
 UnderStrap WordPress Theme, Copyright 2013-2018 Holger Koenemann
 Underscores http://underscores.me/, (C) 2012-2018 Automattic, Inc.
 Font Awesome: http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

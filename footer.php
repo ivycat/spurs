@@ -27,7 +27,7 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
             <div class="col-md-12">
                 <footer class="site-footer" id="colophon">
 
-                    <div class="site-info">
+                    <div class="site-info small">
 
                         <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'spurs' ) ); ?>"><?php printf(
 							/* translators:*/

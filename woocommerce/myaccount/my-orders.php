@@ -64,7 +64,7 @@ if ( $customer_orders ) : ?>
 							<?php elseif ( 'order-total' === $column_id ) : ?>
 								<?php
 								/* translators: 1: formatted order total 2: total order items */
-								printf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'understrap' ), $order->get_formatted_order_total(), $item_count );
+								printf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'spurs' ), $order->get_formatted_order_total(), $item_count );
 								?>
 
 							<?php elseif ( 'order-actions' === $column_id ) : ?>

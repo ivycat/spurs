@@ -1,5 +1,5 @@
 {
-  "name": "spurs",
+  "name": "Spurs",
   "version": "0.8.2",
   "homepage": "https://github.com/sewmyheadon/spurs",
   "authors": [
@@ -17,7 +17,7 @@
     "_s",
     "sass"
   ],
-  "license": "GPL-3.0",
+  "license": "GPL-2.0",
   "ignore": [
     "**/.*",
     "test",

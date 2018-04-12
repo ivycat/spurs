@@ -55,7 +55,7 @@ $col    = 1;
 		</header>
 		<address><?php
 			$address = wc_get_account_formatted_address( $name );
-			echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'understrap' );
+			echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'spurs' );
 		?></address>
 	</div>
 

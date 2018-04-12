@@ -1,7 +1,9 @@
 {
   "browserSyncOptions" : {
-    "proxy": "localhost/wordpress/",
-    "notify": false
+    "proxy": "https://mytestbed.kbox.site",
+    "notify": false,
+    "browser": ["google chrome", "firefox"],
+    "reloadDelay": 2500
   },
   "browserSyncWatchFiles" : [
     "./css/*.min.css",
@@ -12,7 +14,7 @@
     "js": "./js",
     "css": "./css",
     "img": "./img",
-		"imgsrc": "./src/img",
+    "imgsrc": "./src/img",
     "sass": "./sass",
     "node": "./node_modules/",
     "bower": "./bower_components/",
