@@ -74,7 +74,7 @@ It is composed of five different SCSS sets and one variable file loaded through 
 ## Installation
 
 ### Classic install
-- Download the spurs folder from GitHub
+- Download the spurs folder from [GitHub](https://github.com/sewmyheadon/spurs)
 - IMPORTANT: If you download it from GitHub make sure you rename the "spurs-master.zip" file just to "spurs.zip"
 - Upload it into your WordPress installation sub-folder here: `/wp-content/themes/`
 - Login to your WordPress Admin
