@@ -7,14 +7,14 @@
  * @package spurs
  */
 
-$the_theme                = wp_get_theme();
-$container                = get_theme_mod( 'spurs_container_type' );
+$the_theme        = wp_get_theme();
+$container        = get_theme_mod( 'spurs_container_type' );
 $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
-        </div><!-- .row -->
+</div><!-- .row -->
 
-    </div><!-- Container end -->
+</div><!-- Container end -->
 
 </div><!-- Wrapper end -->
 
@@ -31,7 +31,7 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
                         <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'spurs' ) ); ?>"><?php printf(
 							/* translators:*/
-							esc_html__( 'Proudly powered by %s', 'spurs' ), 'WordPress' ); ?></a>
+								esc_html__( 'Proudly powered by %s', 'spurs' ), 'WordPress' ); ?></a>
                         <span class="sep"> | </span>
 
 						<?php printf( // WPCS: XSS ok.
