@@ -116,6 +116,11 @@
   @include hover-focus {
     text-decoration: none;
   }
+
+  // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
 }
 
 // Keep as a separate element so folks can easily override it with another icon
@@ -157,14 +162,9 @@
             position: absolute;
           }
 
-          .dropdown-menu-right {
-            right: 0;
-            left: auto; // Reset the default from `.dropdown-menu`
-          }
-
           .nav-link {
-            padding-right: .5rem;
-            padding-left: .5rem;
+            padding-right: $navbar-nav-link-padding-x;
+            padding-left: $navbar-nav-link-padding-x;
           }
         }
 
@@ -183,13 +183,6 @@
 
         .navbar-toggler {
           display: none;
-        }
-
-        .dropup {
-          .dropdown-menu {
-            top: auto;
-            bottom: 100%;
-          }
         }
       }
     }
