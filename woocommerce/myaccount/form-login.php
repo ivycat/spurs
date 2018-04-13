@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         </form>
 
-		<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' )) { ?>
+		<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) { ?>
 
     </div>
 
