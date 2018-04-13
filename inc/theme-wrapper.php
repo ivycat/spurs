@@ -10,7 +10,7 @@
  */
 
 function spurs_template_path() {
-	return SpursWrapping::$MainTemplate;
+	return SpursWrapping::$mainTemplate;
 }
 
 function spurs_template_base() {
@@ -24,7 +24,7 @@ class SpursWrapping {
 	 * Stores the full path to the main template file
 	 * @return string
 	 */
-	static $MainTemplate;
+	static $mainTemplate;
 
 	/**
 	 * Stores the base name of the template file; e.g. 'page' for 'page.php' etc.
@@ -33,9 +33,9 @@ class SpursWrapping {
 	static $base;
 
 	static function wrap( $template ) {
-		self::$MainTemplate = $template;
+		self::$mainTemplate = $template;
 
-		self::$base = substr( basename( self::$MainTemplate ), 0, - 4 );
+		self::$base = substr( basename( self::$mainTemplate ), 0, - 4 );
 
 		if ( 'index' == self::$base ) {
 			self::$base = false;
