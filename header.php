@@ -74,9 +74,9 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 						'walker'          => new SpursWPBootstrapNavwalker(),
 					)
 				); ?>
-				<?php if ( 'container' == $container ) : ?>
+				<?php if ( 'container' == $container ) { ?>
             </div><!-- .container -->
-		<?php endif; ?>
+		<?php } ?>
 
         </nav><!-- .site-navigation -->
 
