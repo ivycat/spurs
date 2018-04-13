@@ -10,30 +10,32 @@
  */
 
 function spurs_template_path() {
-	return spurs_Wrapping::$main_template;
+	return Spurs_Wrapping::$Main_Template;
 }
 
 function spurs_template_base() {
-	return spurs_Wrapping::$base;
+	return Spurs_Wrapping::$base;
 }
 
 
-class spurs_Wrapping {
+class Spurs_Wrapping {
 
 	/**
 	 * Stores the full path to the main template file
+	 * @return string
 	 */
-	static $main_template;
+	static $Main_Template;
 
 	/**
 	 * Stores the base name of the template file; e.g. 'page' for 'page.php' etc.
+	 * @return string
 	 */
 	static $base;
 
 	static function wrap( $template ) {
-		self::$main_template = $template;
+		self::$Main_Template = $template;
 
-		self::$base = substr( basename( self::$main_template ), 0, - 4 );
+		self::$base = substr( basename( self::$Main_Template ), 0, - 4 );
 
 		if ( 'index' == self::$base ) {
 			self::$base = false;
@@ -49,4 +51,4 @@ class spurs_Wrapping {
 	}
 }
 
-add_filter( 'template_include', array( 'spurs_Wrapping', 'wrap' ), 99 );
+add_filter( 'template_include', array( 'Spurs_Wrapping', 'wrap' ), 99 );

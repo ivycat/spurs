@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_mini_cart' ); ?>
 
-<?php if ( ! WC()->cart->is_empty() ) : ?>
+<?php if ( ! WC()->cart->is_empty() ) { ?>
 
 	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">
 		<?php
@@ -75,10 +75,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
 
-<?php else : ?>
+<?php } else { ?>
 
 	<p class="woocommerce-mini-cart__empty-message"><?php _e( 'No products in the cart.', 'spurs' ); ?></p>
 
-<?php endif; ?>
+<?php } ?>
 
 <?php do_action( 'woocommerce_after_mini_cart' ); ?>

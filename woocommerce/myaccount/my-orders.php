@@ -25,7 +25,7 @@ $customer_orders = get_posts( apply_filters( 'woocommerce_my_account_my_orders_q
 	'post_status' => array_keys( wc_get_order_statuses() )
 ) ) );
 
-if ( $customer_orders ) : ?>
+if ( $customer_orders ) { ?>
 
 	<h2><?php echo apply_filters( 'woocommerce_my_account_my_orders_title', __( 'Recent Orders', 'spurs' ) ); ?></h2>
 
@@ -33,41 +33,41 @@ if ( $customer_orders ) : ?>
 
 		<thead>
 			<tr>
-				<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
+				<?php foreach ( $my_orders_columns as $column_id => $column_name ) { ?>
 					<th class="<?php echo esc_attr( $column_id ); ?>"><span class="nobr"><?php echo esc_html( $column_name ); ?></span></th>
-				<?php endforeach; ?>
+				<?php } ?>
 			</tr>
 		</thead>
 
 		<tbody>
-			<?php foreach ( $customer_orders as $customer_order ) :
+			<?php foreach ( $customer_orders as $customer_order ) {
 				$order      = wc_get_order( $customer_order );
 				$item_count = $order->get_item_count();
 				?>
 				<tr class="order">
-					<?php foreach ( $my_orders_columns as $column_id => $column_name ) : ?>
+					<?php foreach ( $my_orders_columns as $column_id => $column_name ) { ?>
 						<td class="<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
-							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
+							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) { ?>
 								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 
-							<?php elseif ( 'order-number' === $column_id ) : ?>
+							<?php } elseif ( 'order-number' === $column_id ) { ?>
 								<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
 									<?php echo _x( '#', 'hash before order number', 'spurs' ) . $order->get_order_number(); ?>
 								</a>
 
-							<?php elseif ( 'order-date' === $column_id ) : ?>
+							<?php } elseif ( 'order-date' === $column_id ) { ?>
 								<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
 
-							<?php elseif ( 'order-status' === $column_id ) : ?>
+							<?php } elseif ( 'order-status' === $column_id ) { ?>
 								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
 
-							<?php elseif ( 'order-total' === $column_id ) : ?>
+							<?php } elseif ( 'order-total' === $column_id ) { ?>
 								<?php
 								/* translators: 1: formatted order total 2: total order items */
 								printf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'spurs' ), $order->get_formatted_order_total(), $item_count );
 								?>
 
-							<?php elseif ( 'order-actions' === $column_id ) : ?>
+							<?php } elseif ( 'order-actions' === $column_id ) { ?>
 								<?php
 								$actions = wc_get_account_orders_actions( $order );
 								
@@ -77,11 +77,11 @@ if ( $customer_orders ) : ?>
 									}
 								}
 								?>
-							<?php endif; ?>
+							<?php } ?>
 						</td>
-					<?php endforeach; ?>
+					<?php } ?>
 				</tr>
-			<?php endforeach; ?>
+			<?php } ?>
 		</tbody>
 	</table>
-<?php endif; ?>
+<?php } ?>

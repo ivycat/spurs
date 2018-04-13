@@ -24,7 +24,7 @@ if ( ! is_ajax() ) {
 }
 ?>
     <div id="payment" class="woocommerce-checkout-payment">
-		<?php if ( WC()->cart->needs_payment() ) : ?>
+		<?php if ( WC()->cart->needs_payment() ) { ?>
             <ul class="wc_payment_methods payment_methods methods">
 				<?php
 				if ( ! empty( $available_gateways ) ) {
@@ -36,7 +36,7 @@ if ( ! is_ajax() ) {
 				}
 				?>
             </ul>
-		<?php endif; ?>
+		<?php } ?>
         <div class="form-row place-order">
             <noscript>
 				<?php esc_html_e( 'Since your browser does not support JavaScript, or it is disabled, please ensure you click the <em>Update Totals</em> button before placing your order. You may be charged more than the amount stated above if you fail to do so.', 'spurs' ); ?>

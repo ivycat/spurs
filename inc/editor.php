@@ -39,28 +39,28 @@ if ( ! function_exists( 'spurs_tiny_mce_before_init' ) ) {
 				'title'    => 'Lead Paragraph',
 				'selector' => 'p',
 				'classes'  => 'lead',
-				'wrapper'  => true
+				'wrapper'  => true,
 			),
 			array(
 				'title'  => 'Small',
-				'inline' => 'small'
+				'inline' => 'small',
 			),
 			array(
 				'title'   => 'Blockquote',
 				'block'   => 'blockquote',
 				'classes' => 'blockquote',
-				'wrapper' => true
+				'wrapper' => true,
 			),
 			array(
 				'title'   => 'Blockquote Footer',
 				'block'   => 'footer',
 				'classes' => 'blockquote-footer',
-				'wrapper' => true
+				'wrapper' => true,
 			),
 			array(
 				'title'  => 'Cite',
-				'inline' => 'cite'
-			)
+				'inline' => 'cite',
+			),
 		);
 
 		if ( isset( $settings['style_formats'] ) ) {
