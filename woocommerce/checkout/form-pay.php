@@ -32,8 +32,8 @@ if ( ! defined( 'ABSPATH' ) ) {
         </tr>
         </thead>
         <tbody>
-		<?php if ( count( $order->get_items() ) > 0 ) : ?>
-			<?php foreach ( $order->get_items() as $item_id => $item ) : ?>
+		<?php if ( count( $order->get_items() ) > 0 ) { ?>
+			<?php foreach ( $order->get_items() as $item_id => $item ) { ?>
 				<?php
 				if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 					continue;
@@ -54,23 +54,23 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <td class="product-quantity"><?php echo apply_filters( 'woocommerce_order_item_quantity_html', ' <strong class="product-quantity">' . sprintf( '&times; %s', esc_html( $item->get_quantity() ) ) . '</strong>', $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
                     <td class="product-subtotal"><?php echo $order->get_formatted_line_subtotal( $item ); ?></td><?php // @codingStandardsIgnoreLine ?>
                 </tr>
-			<?php endforeach; ?>
-		<?php endif; ?>
+			<?php } ?>
+		<?php } ?>
         </tbody>
         <tfoot>
-		<?php if ( $totals = $order->get_order_item_totals() ) : ?>
-			<?php foreach ( $totals as $total ) : ?>
+		<?php if ( $totals = $order->get_order_item_totals() ) { ?>
+			<?php foreach ( $totals as $total ) { ?>
                 <tr>
                     <th scope="row" colspan="2"><?php echo $total['label']; ?></th><?php // @codingStandardsIgnoreLine ?>
                     <td class="product-total"><?php echo $total['value']; ?></td><?php // @codingStandardsIgnoreLine ?>
                 </tr>
-			<?php endforeach; ?>
-		<?php endif; ?>
+			<?php } ?>
+		<?php } ?>
         </tfoot>
     </table>
 
     <div id="payment">
-		<?php if ( $order->needs_payment() ) : ?>
+		<?php if ( $order->needs_payment() ) { ?>
             <ul class="wc_payment_methods payment_methods methods">
 				<?php
 				if ( ! empty( $available_gateways ) ) {
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				}
 				?>
             </ul>
-		<?php endif; ?>
+		<?php } ?>
         <div class="form-row">
             <input type="hidden" name="woocommerce_pay" value="1"/>
 

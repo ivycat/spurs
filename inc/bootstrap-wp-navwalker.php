@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) :
+if ( ! class_exists( 'SpursWPBootstrapNavwalker' ) ) :
 
 	/**
 	 * Class WP_Bootstrap_Navwalker
@@ -23,7 +23,7 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) :
 	 * License: GPL-2.0+
 	 * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 	 */
-	class Spurs_WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+	class SpursWPBootstrapNavwalker extends Walker_Nav_Menu {
 		/**
 		 * The starting level of the menu.
 		 *

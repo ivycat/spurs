@@ -36,7 +36,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 <form name="checkout" method="post" class="checkout woocommerce-checkout"
       action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
-	<?php if ( $checkout->get_checkout_fields() ) : ?>
+	<?php if ( $checkout->get_checkout_fields() ) { ?>
 
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
@@ -52,7 +52,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
-	<?php endif; ?>
+	<?php } ?>
 
     <h3 id="order_review_heading"><?php _e( 'Your order', 'spurs' ); ?></h3>
 

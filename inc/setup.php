@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 }
 
 add_action( 'after_setup_theme', 'spurs_setup' );
-if ( ! function_exists( 'spurs_setup' ) ) :
+if ( ! function_exists( 'spurs_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -89,7 +89,7 @@ if ( ! function_exists( 'spurs_setup' ) ) :
 		add_theme_support( 'custom-logo' );
 
 	}
-endif; // spurs_setup.
+} // spurs_setup.
 
 add_filter( 'excerpt_more', 'spurs_custom_excerpt_more' );
 if ( ! function_exists( 'spurs_custom_excerpt_more' ) ) {

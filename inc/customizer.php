@@ -69,7 +69,7 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 				$wp_customize,
 				'spurs_container_type', array(
 					'label'       => __( 'Container Width', 'spurs' ),
-					'description' => __( "Use Bootstrap fixed or fluid container?", 'spurs' ),
+					'description' => __( 'Use Bootstrap fixed or fluid container?', 'spurs' ),
 					'section'     => 'spurs_theme_layout_options',
 					'settings'    => 'spurs_container_type',
 					'type'        => 'select',
@@ -93,9 +93,9 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 				$wp_customize,
 				'spurs_sidebar_position', array(
 					'label'             => __( 'Default Sidebar Position', 'spurs' ),
-					'description'       => __( "<b>Applies to all pages and posts.</b> <br />
+					'description'       => __( '<b>Applies to all pages and posts.</b> <br />
 												<b>Select:</b> right, left, both, or none. <br />
-												<b>Note:</b> you can override on individual pages.",
+												<b>Note:</b> you can override on individual pages.',
 						'spurs' ),
 					'section'           => 'spurs_theme_layout_options',
 					'settings'          => 'spurs_sidebar_position',

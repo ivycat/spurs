@@ -7,7 +7,7 @@
 
 $container = get_theme_mod( 'spurs_container_type' );
 
- if ( is_active_sidebar( 'static-hero' ) ) :
+ if ( is_active_sidebar( 'static-hero' ) ) {
 	 /**
 	  * The Hero widget area
 	  */ ?>
@@ -20,4 +20,4 @@ $container = get_theme_mod( 'spurs_container_type' );
 			</div>
 	</div><!-- #wrapper-static-hero -->
 
-<?php endif; ?>
+<?php } ?>

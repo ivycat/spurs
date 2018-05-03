@@ -1,6 +1,6 @@
 {
   "name": "spurs",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "WordPress theme framework",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "theme",
     "framework",
     "bootstrap",
-    "underscores"
+    "underscores",
+    "understrap"
   ],
   "author": "Eric Amundson",
   "license": "GPL-2.0",
@@ -27,15 +28,15 @@
   },
   "homepage": "https://github.com/sewmyheadon/spurs",
   "dependencies": {
-    "bootstrap": "4.1.0",
-    "browser-sync": "^2.23.6",
+    "bootstrap": "4.1.1",
+    "browser-sync": "^2.24.4",
     "del": "^3.0.0",
     "font-awesome": "^4.7.0",
     "gulp": "3.9.1",
-    "gulp-clean-css": "^3.9.2",
+    "gulp-clean-css": "^3.9.4",
     "gulp-clone": "2.0.1",
     "gulp-concat": "^2.6.1",
-    "gulp-cssnano": "^2.1.2",
+    "gulp-cssnano": "^2.1.3",
     "gulp-ignore": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-merge": "^0.1.1",

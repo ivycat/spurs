@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_mini_cart' ); ?>
 
-<?php if ( ! WC()->cart->is_empty() ) : ?>
+<?php if ( ! WC()->cart->is_empty() ) { ?>
 
 	<ul class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr( $args['list_class'] ); ?>">
 		<?php
@@ -50,13 +50,13 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 							esc_attr( $_product->get_sku() )
 						), $cart_item_key );
 						?>
-						<?php if ( ! $_product->is_visible() ) : ?>
+						<?php if ( ! $_product->is_visible() ) { ?>
 							<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
-						<?php else : ?>
+						<?php } else { ?>
 							<a href="<?php echo esc_url( $product_permalink ); ?>">
 								<?php echo str_replace( array( 'http:', 'https:' ), '', $thumbnail ) . $product_name . '&nbsp;'; ?>
 							</a>
-						<?php endif; ?>
+						<?php } ?>
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
 
 						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
@@ -75,10 +75,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
 
-<?php else : ?>
+<?php } else { ?>
 
 	<p class="woocommerce-mini-cart__empty-message"><?php _e( 'No products in the cart.', 'spurs' ); ?></p>
 
-<?php endif; ?>
+<?php } ?>
 
 <?php do_action( 'woocommerce_after_mini_cart' ); ?>
