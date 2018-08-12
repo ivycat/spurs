@@ -116,7 +116,6 @@ if ( ! function_exists( 'spurs_all_excerpts_get_more_link' ) ) {
 	 */
 	function spurs_all_excerpts_get_more_link( $post_excerpt ) {
 
-		return $post_excerpt . ' [...]<p><a class="btn btn-secondary spurs-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
-				'spurs' ) . '</a></p>';
+		return $post_excerpt . ' [...]<p><a class="btn btn-secondary spurs-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...', 'spurs' ) . '</a></p>';
 	}
 }
