@@ -1,6 +1,5 @@
 **Post-fork Spurs releases**
 
-
             - ** Spurs update release 0.8.8 August 11, 2018 ** 
               - Update to Bootstrap 4.1.3, Gulp 4
 
@@ -25,8 +24,8 @@
               - Code cleanup and reformatting
               - Change name and namespace to Spurs
               - Create style class helper functions for sidebar and content
-              - Changed licensing to GPLv3 
               - Update docs   
+              
 **Pre-fork UnderStrap releases**
 
             - ** Release 0.6.11 December 11th 2017 ** 

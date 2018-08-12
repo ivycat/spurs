@@ -21,7 +21,7 @@ to keep code warm and DRY.
 1. Have a good starter theme to use on new projects.
 
 ## Licenses
-- Spurs WordPress Theme, *Copyright 2018 Eric Amundson*, [GNU GPLv3](http://www.gnu.org/licenses/gpl.html)
+- Spurs WordPress Theme, *Copyright 2018 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
 - UnderStrap WordPress Theme, *Copyright 2013-2018 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Changelog
