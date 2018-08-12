@@ -55,7 +55,7 @@ You can easily load custom fonts using either Google Fonts or Typekit.
 
 ## How styles are organized
 
-Some basics about the Sass and CSS files that come with UnderStrap:
+Some basics about the Sass and CSS files that come with Spurs:
 - The theme uses the `/style.css` file to identify the theme inside of WordPress. The file is not loaded by the theme 
 and does not include any styles.
 - The `/css/theme.css` file and its minified little brother `/css/theme.min.css` provide all styles. 

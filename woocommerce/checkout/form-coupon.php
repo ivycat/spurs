@@ -10,37 +10,33 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
+ * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.3.0
+ * @version 3.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
-if ( ! wc_coupons_enabled() ) {
+if ( ! wc_coupons_enabled() || ! empty( WC()->cart->applied_coupons ) ) { // @codingStandardsIgnoreLine.
 	return;
 }
 
-if ( empty( WC()->cart->applied_coupons ) ) {
-	$info_message = apply_filters( 'woocommerce_checkout_coupon_message', __( 'Have a coupon?', 'spurs' ) . ' <a href="#" class="showcoupon">' . __( 'Click here to enter your code', 'spurs' ) . '</a>' );
-	wc_print_notice( $info_message, 'notice' );
-}
 ?>
+<div class="woocommerce-form-coupon-toggle">
+	<?php wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', __( 'Have a coupon?', 'spurs' ) . ' <a href="#" class="showcoupon">' . __( 'Click here to enter your code', 'spurs' ) . '</a>' ), 'notice' ); ?>
+</div>
 
-<form class="checkout_coupon" method="post" style="display:none">
+<form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
 
-    <p class="form-row form-row-first">
-        <input type="text" name="coupon_code" class="form-control"
-               placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" id="coupon_code" value=""/>
-    </p>
+	<p><?php esc_html_e( 'If you have a coupon code, please apply it below.', 'spurs' ); ?></p>
 
-    <p class="form-row form-row-last">
-        <button type="submit" class="btn btn-outline-primary" name="apply_coupon"
-                value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_html_e( 'Apply coupon', 'spurs' ); ?></button>
-    </p>
+	<p class="form-row form-row-first">
+		<input type="text" name="coupon_code" class="form-control" placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" id="coupon_code" value="" />
+	</p>
 
-    <div class="clear"></div>
+	<p class="form-row form-row-last">
+		<button type="submit" class="btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_html_e( 'Apply coupon', 'spurs' ); ?></button>
+	</p>
+
+	<div class="clear"></div>
 </form>

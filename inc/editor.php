@@ -1,6 +1,6 @@
 <?php
 /**
- * Understrap modify editor
+ * Spurs modify editor
  *
  * @package spurs
  */

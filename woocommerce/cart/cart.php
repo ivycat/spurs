@@ -11,14 +11,11 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.3.0
+ * @version 3.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 wc_print_notices();
 
@@ -53,6 +50,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
                     <td class="product-remove">
 						<?php
+						// @codingStandardsIgnoreLine
 						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 							'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
 							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
@@ -68,9 +66,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
 						if ( ! $product_permalink ) {
-							echo $thumbnail;
+							echo wp_kses_post( $thumbnail );
 						} else {
-							printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail );
+							printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), wp_kses_post( $thumbnail ) );
 						}
 						?>
                     </td>
@@ -78,24 +76,26 @@ do_action( 'woocommerce_before_cart' ); ?>
                     <td class="product-name" data-title="<?php esc_attr_e( 'Product', 'spurs' ); ?>">
 						<?php
 						if ( ! $product_permalink ) {
-							echo apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;';
+							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
 						} else {
-							echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key );
+							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 						}
 
-						// Meta data
-                        echo wc_get_formatted_cart_item_data( $cart_item );
+						do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
-						// Backorder notification
+						// Meta data.
+						echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
+
+						// Backorder notification.
 						if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
-							echo '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'spurs' ) . '</p>';
+							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'spurs' ) . '</p>' ) );
 						}
 						?>
                     </td>
 
                     <td class="product-price" data-title="<?php esc_attr_e( 'Price', 'spurs' ); ?>">
 						<?php
-						echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+						echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 						?>
                     </td>
 
@@ -113,13 +113,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 							), $_product, false );
 						}
 
-						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item );
+						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
 						?>
                     </td>
 
                     <td class="product-subtotal" data-title="<?php esc_attr_e( 'Total', 'spurs' ); ?>">
 						<?php
-						echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
+						echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 						?>
                     </td>
                 </tr>
@@ -137,12 +137,12 @@ do_action( 'woocommerce_before_cart' ); ?>
                     <div class="coupon">
                         <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'spurs' ); ?></label> <input type="text"
                                                                                                            name="coupon_code"
-                                                                                                           class="input-text"
+                                                                                                           class="input-text form-control"
                                                                                                            id="coupon_code"
                                                                                                            value=""
                                                                                                            placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>"/>
-                        <input type="submit" class="btn btn-outline-primary" name="apply_coupon"
-                               value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"/>
+                        <button type="submit" class="btn btn-outline-primary" name="apply_coupon"
+                                value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_attr_e( 'Apply coupon', 'spurs' ); ?></button>
 						<?php do_action( 'woocommerce_cart_coupon' ); ?>
                     </div>
 				<?php } ?>
@@ -152,7 +152,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 				<?php do_action( 'woocommerce_cart_actions' ); ?>
 
-				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+				<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
             </td>
         </tr>
 
@@ -165,7 +165,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 <div class="cart-collaterals">
 	<?php
 	/**
-	 * woocommerce_cart_collaterals hook.
+	 * Cart collaterals hook.
 	 *
 	 * @hooked woocommerce_cross_sell_display
 	 * @hooked woocommerce_cart_totals - 10
