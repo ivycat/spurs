@@ -1,6 +1,6 @@
 {
   "name": "spurs",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "description": "WordPress theme framework",
   "main": "index.js",
   "scripts": {
