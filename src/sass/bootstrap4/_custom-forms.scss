@@ -10,7 +10,7 @@
 .custom-control {
   position: relative;
   display: block;
-  min-height: ($font-size-base * $line-height-base);
+  min-height: (1rem * $line-height-base);
   padding-left: $custom-control-gutter;
 }
 
@@ -63,7 +63,7 @@
   // Background-color and (when enabled) gradient
   &::before {
     position: absolute;
-    top: (($font-size-base * $line-height-base - $custom-control-indicator-size) / 2);
+    top: (($line-height-base - $custom-control-indicator-size) / 2);
     left: -$custom-control-gutter;
     display: block;
     width: $custom-control-indicator-size;
@@ -78,7 +78,7 @@
   // Foreground (icon)
   &::after {
     position: absolute;
-    top: (($font-size-base * $line-height-base - $custom-control-indicator-size) / 2);
+    top: (($line-height-base - $custom-control-indicator-size) / 2);
     left: -$custom-control-gutter;
     display: block;
     width: $custom-control-indicator-size;
@@ -177,17 +177,12 @@
   } @else {
     border-radius: 0;
   }
-  @include box-shadow($custom-select-box-shadow);
   appearance: none;
 
   &:focus {
     border-color: $custom-select-focus-border-color;
     outline: 0;
-    @if $enable-shadows {
-      box-shadow: $custom-select-box-shadow, $custom-select-focus-box-shadow;
-    } @else {
-      box-shadow: $custom-select-focus-box-shadow;
-    }
+    box-shadow: $custom-select-focus-box-shadow;
 
     &::-ms-value {
       // For visual consistency with other platforms/browsers,
@@ -262,10 +257,6 @@
     }
   }
 
-  &:disabled ~ .custom-file-label {
-    background-color: $custom-file-disabled-bg;
-  }
-
   @each $lang, $value in $custom-file-text {
     &:lang(#{$lang}) ~ .custom-file-label::after {
       content: $value;
@@ -320,12 +311,6 @@
 
   &:focus {
     outline: none;
-
-    // Pseudo-elements must be split across multiple rulesets to have an affect.
-    // No box-shadow() mixin for focus accessibility.
-    &::-webkit-slider-thumb { box-shadow: $custom-range-thumb-focus-box-shadow; }
-    &::-moz-range-thumb     { box-shadow: $custom-range-thumb-focus-box-shadow; }
-    &::-ms-thumb            { box-shadow: $custom-range-thumb-focus-box-shadow; }
   }
 
   &::-moz-focus-outer {
@@ -335,13 +320,17 @@
   &::-webkit-slider-thumb {
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
-    margin-top: (($custom-range-track-height - $custom-range-thumb-height) / 2); // Webkit specific
+    margin-top: -($custom-range-thumb-width * .25); // Webkit specific?
     @include gradient-bg($custom-range-thumb-bg);
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
-    @include transition($custom-forms-transition);
     appearance: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: $custom-range-thumb-focus-box-shadow; // No mixin for focus accessibility
+    }
 
     &:active {
       @include gradient-bg($custom-range-thumb-active-bg);
@@ -366,8 +355,12 @@
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
-    @include transition($custom-forms-transition);
     appearance: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: $custom-range-thumb-focus-box-shadow; // No mixin for focus accessibility
+    }
 
     &:active {
       @include gradient-bg($custom-range-thumb-active-bg);
@@ -388,15 +381,16 @@
   &::-ms-thumb {
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
-    margin-top: 0; // Edge specific
-    margin-right: $custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
-    margin-left: $custom-range-thumb-focus-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
     @include gradient-bg($custom-range-thumb-bg);
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
-    @include transition($custom-forms-transition);
     appearance: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: $custom-range-thumb-focus-box-shadow; // No mixin for focus accessibility
+    }
 
     &:active {
       @include gradient-bg($custom-range-thumb-active-bg);
@@ -424,10 +418,4 @@
     background-color: $custom-range-track-bg;
     @include border-radius($custom-range-track-border-radius);
   }
-}
-
-.custom-control-label::before,
-.custom-file-label,
-.custom-select {
-  @include transition($custom-forms-transition);
 }
