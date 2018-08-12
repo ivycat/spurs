@@ -1,10 +1,18 @@
 {
-    "name": "sewmyheadon/spurs",
-    "description": "Combines Understrap, Underscores, and Bootstrap 4, with helpful build tools",
-    "type": "library",
-    "license": "GPL-3.0",
-    "minimum-stability": "stable",
-    "require": {},
-    "keywords": ["wordpress","theme","bootstrap","underscores","understrap"],
-    "homepage": "https://github.com/sewmyheadon/spurs"
+	"name": "sewmyheadon/spurs",
+	"description": "Combines Understrap, Underscores, and Bootstrap 4, with helpful build tools",
+	"type": "library",
+	"license": "GPL-2.0",
+	"minimum-stability": "stable",
+	"require": {
+		"composer/installers": "^1.5"
+	},
+	"keywords": [
+		"wordpress",
+		"theme",
+		"bootstrap",
+		"underscores",
+		"understrap"
+	],
+	"homepage": "https://github.com/sewmyheadon/spurs"
 }
