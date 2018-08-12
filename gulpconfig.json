@@ -1,6 +1,6 @@
 {
   "browserSyncOptions" : {
-    "proxy": "https://mytestbed.kbox.site",
+    "proxy": "https://mytestbed.lndo.site",
     "notify": false,
     "browser": ["google chrome", "firefox"],
     "reloadDelay": 2500

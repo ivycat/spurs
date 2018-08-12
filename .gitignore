@@ -46,6 +46,7 @@
 # ignore OS generated files
 ehthumbs.db
 Thumbs.db
+.DS_Store
 
 # ignore Editor files
 *.sublime-project

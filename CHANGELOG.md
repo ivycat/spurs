@@ -1,8 +1,11 @@
 **Post-fork Spurs releases**
 
-            - ** Spurs initial release 0.8.3 April 11, 2018 ** 
+
+            - ** Spurs update release 0.8.8 August 11, 2018 ** 
+              - Update to Bootstrap 4.1.3, Gulp 4
+
+            - ** Spurs update release 0.8.3 April 11, 2018 ** 
               - Incorporate relevant package.json updates (up to v. 0.8.2)
-       
               
             - ** Spurs update release 0.8.2 April 11, 2018 ** 
               - Incorporate relevant UnderStrap updates (up to v. 0.8.2)
