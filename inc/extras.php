@@ -45,10 +45,8 @@ if ( ! function_exists( 'spurs_adjust_body_class' ) ) {
 	 */
 	function spurs_adjust_body_class( $classes ) {
 
-		foreach ( $classes as $key => $value ) {
-			if ( 'tag' == $value ) {
-				unset( $classes[$key] );
-			}
+		if ( isset( $classes['tag'] ) ) {
+			unset( $classes['tag'] );
 		}
 
 		return $classes;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Understrap functions and definitions
+ * Spurs functions and definitions
  *
  * @package spurs
  */

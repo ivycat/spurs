@@ -1,5 +1,8 @@
 **Post-fork Spurs releases**
 
+            - ** Spurs update release 0.8.9 August 12, 2018 ** 
+              - Update WooCommerce Templates
+              
             - ** Spurs update release 0.8.8 August 11, 2018 ** 
               - Update to Bootstrap 4.1.3, Gulp 4
 

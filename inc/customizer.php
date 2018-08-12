@@ -1,6 +1,6 @@
 <?php
 /**
- * Understrap Theme Customizer
+ * Spurs Theme Customizer
  *
  * @package spurs
  */
