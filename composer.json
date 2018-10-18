@@ -1,7 +1,7 @@
 {
 	"name": "sewmyheadon/spurs",
 	"description": "Combines Understrap, Underscores, and Bootstrap 4, with helpful build tools",
-	"type": "library",
+	"type": "wordpress-theme",
 	"license": "GPL-2.0",
 	"minimum-stability": "stable",
 	"require": {
