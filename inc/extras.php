@@ -26,31 +26,11 @@ if ( ! function_exists( 'spurs_body_classes' ) ) {
 		if ( ! is_singular() ) {
 			$classes[] = 'hfeed';
 		}
-
-		return $classes;
-	}
-}
-
-
-// Removes tag class from the body_class array to avoid Bootstrap markup styling issues.
-add_filter( 'body_class', 'spurs_adjust_body_class' );
-
-if ( ! function_exists( 'spurs_adjust_body_class' ) ) {
-	/**
-	 * Setup body classes.
-	 *
-	 * @param string $classes CSS classes.
-	 *
-	 * @return mixed
-	 */
-	function spurs_adjust_body_class( $classes ) {
-
+		// Remove tag class
 		if ( isset( $classes['tag'] ) ) {
 			unset( $classes['tag'] );
 		}
-
 		return $classes;
-
 	}
 }
 
@@ -113,3 +93,104 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
  */
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'wc_generator_tag' );
+
+/**
+ * Search/replace string to make everything lower case and convert spaces and underscores to dashes.
+ *
+ * @param $string
+ *
+ * @return null|string|string[]
+ * @todo port to Spurs theme
+ */
+function spurs_tidy_url( $string ) {
+	// Convert everything to lower case
+	$string = strtolower( $string );
+
+	// Make everything alphanumeric (removes all other characters)
+	$string = preg_replace( "/[^a-z0-9_\s-]/", "", $string );
+
+	// Clean up multiple dashes or whitespace
+	$string = preg_replace( "/[\s-]+/", " ", $string );
+
+	// Convert whitespace and underscore to dash
+	$string = preg_replace( "/[\s_]/", "-", $string );
+
+	return $string;
+}
+
+/**
+ * Add Google Maps API Key for ACF
+ */
+add_action( 'acf/init', 'rcn_acf_init' );
+function rcn_acf_init() {
+	acf_update_setting( 'google_api_key', '' );
+}
+
+
+/**
+ * Output background image style
+ *
+ * @param array|string $img Image array or url
+ * @param string $size Image size to retrieve
+ * @param bool $echo Whether to output the the style tag or return it.
+ *
+ * @return string|void String when retrieving.
+ */
+function bg( $img, $size = '', $echo = true ) {
+
+	if ( ! $img ) {
+		return;
+	}
+
+	if ( is_array( $img ) ) {
+		$url = $size ? $img['sizes'][ $size ] : $img['url'];
+	} else {
+		$url = $img;
+	}
+
+	$string = 'style="background-image: url(' . $url . ')"';
+
+	if ( $echo ) {
+		echo $string;
+	} else {
+		return $string;
+	}
+}
+
+/**
+ * Output HTML markup of template with passed args
+ *
+ * @param string $file File name without extension (.php)
+ * @param array $args Array with args ($key=>$value)
+ * @param string $default_folder Requested file folder
+ *
+ * */
+function show_template( $file, $args = null, $default_folder = 'parts' ) {
+	echo return_template( $file, $args, $default_folder );
+}
+
+/**
+ * Return HTML markup of template with passed args
+ *
+ * @param string $file File name without extension (.php)
+ * @param array $args Array with args ($key=>$value)
+ * @param string $default_folder Requested file folder
+ *
+ * @return string template HTML
+ * */
+function return_template( $file, $args = null, $default_folder = 'parts' ) {
+	$file = $default_folder . '/' . $file . '.php';
+	if ( $args ) {
+		extract( $args );
+	}
+	if ( locate_template( $file ) ) {
+		ob_start();
+		include( locate_template( $file ) ); //Theme Check free. Child themes support.
+		$template_content = ob_get_clean();
+
+		return $template_content;
+	}
+
+	return '';
+}
+
