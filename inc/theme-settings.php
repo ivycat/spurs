@@ -6,8 +6,12 @@
  *
  */
 
-if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
-	function spurs_setup_theme_default_settings() {
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+if ( ! function_exists ( 'understrap_setup_theme_default_settings' ) ) {
+	function understrap_setup_theme_default_settings() {
 
 		// Check if settings are set, if not set defaults.
 		// Caution: DO NOT check existence using === always check with == .

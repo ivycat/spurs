@@ -7,6 +7,10 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Adds support for wp.com-specific theme functions.
  *
@@ -42,6 +46,6 @@ add_action( 'wp_enqueue_scripts', 'spurs_wpcom_styles' );
 
 if ( ! function_exists( 'spurs_wpcom_styles' ) ) {
 	function spurs_wpcom_styles() {
-		wp_enqueue_style( 'spurs-wpcom', get_template_directory_uri() . '/inc/style-wpcom.css', '20160411' );
+		wp_enqueue_style( 'spurs-wpcom', get_template_directory_uri() . '/inc/style-wpcom.css', array(), '20160411' );
 	}
 }

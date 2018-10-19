@@ -22,15 +22,23 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-		$posted_on = sprintf(
-			esc_html_x( 'Posted on %s', 'post date', 'spurs' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$posted_on   = apply_filters(
+			'spurs_posted_on', sprintf(
+				'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
+				esc_html_x( 'Posted on', 'post date', 'spurs' ),
+				esc_url( get_permalink() ),
+				apply_filters( 'spurs_posted_on_time', $time_string )
+			)
 		);
-		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'spurs' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		$byline      = apply_filters(
+			'spurs_posted_by', sprintf(
+				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
+				$posted_on ? esc_html_x( 'by', 'post author', 'spurs' ) : esc_html_x( 'Posted by', 'post author', 'spurs' ),
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_html( get_the_author() )
+			)
 		);
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo $posted_on . $byline; // WPCS: XSS OK.
 	}
 }
 

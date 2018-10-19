@@ -5,6 +5,11 @@
  * @package spurs
  */
 
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_action( 'after_setup_theme', 'spurs_custom_header_setup' );
 
 if ( ! function_exists( 'spurs_custom_header_setup' ) ) {

@@ -9,6 +9,9 @@
  *
  * @package spurs
  */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 if ( is_front_page() ) :
 	get_template_part( 'global-templates/hero' );
 endif;

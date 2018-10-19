@@ -7,6 +7,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 if ( have_posts() ) { ?>
 
     <header class="page-header">

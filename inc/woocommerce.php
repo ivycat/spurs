@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 add_action( 'after_setup_theme', 'spurs_woocommerce_support' );
 if ( ! function_exists( 'spurs_woocommerce_support' ) ) {

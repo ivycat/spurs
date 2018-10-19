@@ -1,3 +1,16 @@
+<?php
+/**
+ * The template for displaying the author pages.
+ *
+ * Learn more: https://codex.wordpress.org/Author_Templates
+ *
+ * @package spurs
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+} ?>
+
 <header class="page-header author-header">
 
 	<?php

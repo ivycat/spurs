@@ -7,6 +7,10 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 add_filter( 'body_class', 'spurs_body_classes' );
 
 if ( ! function_exists( 'spurs_body_classes' ) ) {
@@ -26,10 +30,30 @@ if ( ! function_exists( 'spurs_body_classes' ) ) {
 		if ( ! is_singular() ) {
 			$classes[] = 'hfeed';
 		}
-		// Remove tag class
-		if ( isset( $classes['tag'] ) ) {
-			unset( $classes['tag'] );
+
+		return $classes;
+	}
+}
+
+// Removes tag class from the body_class array to avoid Bootstrap markup styling issues.
+add_filter( 'body_class', 'understrap_adjust_body_class' );
+
+if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
+	/**
+	 * Setup body classes.
+	 *
+	 * @param string $classes CSS classes.
+	 *
+	 * @return mixed
+	 */
+	function understrap_adjust_body_class( $classes ) {
+
+		foreach ( $classes as $key => $value ) {
+			if ( 'tag' == $value ) {
+				unset( $classes[ $key ] );
+			}
 		}
+
 		return $classes;
 	}
 }
@@ -100,7 +124,6 @@ remove_action( 'wp_head', 'wc_generator_tag' );
  * @param $string
  *
  * @return null|string|string[]
- * @todo port to Spurs theme
  */
 function spurs_tidy_url( $string ) {
 	// Convert everything to lower case

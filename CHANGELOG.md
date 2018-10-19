@@ -1,5 +1,9 @@
 **Post-fork Spurs releases**
 
+            - ** Spurs update release 0.9.0 October 19, 2018 ** 
+              - Add helper functions to extras.php
+              - 
+
             - ** Spurs update release 0.8.9 August 12, 2018 ** 
               - Update WooCommerce Templates
               

@@ -30,7 +30,7 @@ characteristics above, including participants with disabilities.
 
 ### Reporting Issues
 
-If you experience or witness unacceptable behaviorâ€”or have any other concernsâ€”please report it by contacting us via [info@ivycat.com](mailto:info@ivycat.com). All reports will be handled with discretion. In your report please include:
+If you experience or witness unacceptable behaviorâ or have any other concernsâ please report it by contacting us via [info@ivycat.com](mailto:info@ivycat.com). All reports will be handled with discretion. In your report please include:
 
 - Your contact information.
 - Names (real, nicknames, or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well. Your account of what occurred, and if you believe the incident is ongoing. If there is a publicly available record (e.g. a mailing list archive or a public IRC logger), please include a link.

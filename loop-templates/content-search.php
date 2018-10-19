@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
