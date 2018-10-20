@@ -77,7 +77,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 
 		register_sidebar( array(
 			'name'          => __( 'Hero Slider', 'spurs' ),
-			'id'            => 'hero',
+			'id'            => 'slider-hero',
 			'description'   => 'Hero slider area. Place two or more widgets here and they will slide!',
 			'before_widget' => '<div class="carousel-item">',
 			'after_widget'  => '</div>',
