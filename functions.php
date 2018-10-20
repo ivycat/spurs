@@ -22,7 +22,7 @@ $spurs_includes = array(
 	'/customizer.php',                      // Customizer additions.
 	'/custom-comments.php',                 // Custom comments.
 	'/jetpack.php',                         // Jetpack compatibility.
-	'/class-wp-bootstrap-navwalker.php',    // custom WordPress nav walker.
+	'/bootstrap-wp-navwalker.php',          // custom WordPress nav walker.
 	'/woocommerce.php',                     // WooCommerce functions.
 	'/editor.php',                          // Editor functions.
 );
