@@ -36,9 +36,9 @@ if ( ! function_exists( 'spurs_body_classes' ) ) {
 }
 
 // Removes tag class from the body_class array to avoid Bootstrap markup styling issues.
-add_filter( 'body_class', 'understrap_adjust_body_class' );
+add_filter( 'body_class', 'spurs_adjust_body_class' );
 
-if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
+if ( ! function_exists( 'spurs_adjust_body_class' ) ) {
 	/**
 	 * Setup body classes.
 	 *
@@ -46,7 +46,7 @@ if ( ! function_exists( 'understrap_adjust_body_class' ) ) {
 	 *
 	 * @return mixed
 	 */
-	function understrap_adjust_body_class( $classes ) {
+	function spurs_adjust_body_class( $classes ) {
 
 		foreach ( $classes as $key => $value ) {
 			if ( 'tag' == $value ) {

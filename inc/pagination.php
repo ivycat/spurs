@@ -27,30 +27,30 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 			'current'            => max( 1, get_query_var( 'paged' ) ),
 		] );
 
-        $links = paginate_links($args);
+		$links = paginate_links( $args );
 
-        ?>
+		?>
 
         <nav aria-label="<?php echo $args['screen_reader_text']; ?>">
 
             <ul class="pagination">
 
-                <?php
+				<?php
 
-                    foreach ( $links as $key => $link ) { ?>
+				foreach ( $links as $key => $link ) { ?>
 
-                        <li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : '' ?>">
+                    <li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : '' ?>">
 
-                            <?php echo str_replace( 'page-numbers', 'page-link', $link ); ?>
+						<?php echo str_replace( 'page-numbers', 'page-link', $link ); ?>
 
-                        </li>
+                    </li>
 
-                <?php } ?>
+				<?php } ?>
 
             </ul>
 
         </nav>
 
-        <?php
-    }
+		<?php
+	}
 }

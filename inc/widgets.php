@@ -99,7 +99,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'name'          => __( 'Top Full', 'spurs' ),
 			'id'            => 'hero-static',
 			'description'   => __( 'Full top widget with dynamic grid', 'spurs' ),
-		    'before_widget'  => '<div id="%1$s" class="static-hero-widget %2$s '. spurs_slbd_count_widgets( 'statichero' ) .'">',
+		    'before_widget'  => '<div id="%1$s" class="static-hero-widget %2$s '. spurs_count_widgets( 'hero-static' ) .'">',
 		    'after_widget'   => '</div><!-- .static-hero-widget -->', 
 		    'before_title'   => '<h3 class="widget-title">', 
 		    'after_title'    => '</h3>',
