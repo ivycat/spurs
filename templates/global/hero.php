@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php if ( is_active_sidebar( 'slider-hero' ) || is_active_sidebar( 'static-hero' ) ) { ?>
 
     <div class="wrapper" id="wrapper-hero">
-	    <?php get_sidebar( 'hero' ); ?>
-		<?php get_sidebar( 'static-hero' ); ?>
+	    <?php get_template_part( 'templates/sidebar/hero' ); ?>
+	    <?php get_template_part( 'templates/sidebar/hero', 'static' ); ?>
     </div>
 
 <?php }

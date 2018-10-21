@@ -17,5 +17,5 @@ if ( is_front_page() ) :
 endif;
 
 while ( have_posts() ) : the_post();
-	get_template_part( 'loop-templates/content', 'page' );
+	get_template_part( 'templates/loop/content', 'page' );
 endwhile; // end of the loop.
