@@ -131,7 +131,7 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 
 		if ( ! is_page_template( 'page-templates/full-width.php' ) && ! is_page_template( 'page-templates/right-sidebar.php' ) ) {
 			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) {
-				get_sidebar( 'left' );
+				get_template_part( 'templates/sidebar/sidebar', 'left' );
 			}
 		}
 	}
@@ -147,9 +147,9 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 
 		if ( ! is_page_template( 'page-templates/full-width.php' ) || ! is_page_template( 'page-templates/left-sidebar.php' ) ) {
 			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) ) {
-				get_sidebar( 'right' );
+				get_template_part( 'templates/sidebar/sidebar', 'right' );
 			} elseif ( is_page_template( 'default' ) && ( 'right' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) ) {
-				get_sidebar( 'right' );
+				get_template_part( 'templates/sidebar/sidebar', 'right' );
 			}
 		}
 	}

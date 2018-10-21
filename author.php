@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </li>
 		<?php endwhile;
 	} else {
-		get_template_part( 'loop-templates/content', 'none' );
+		get_template_part( 'templates/loop/content', 'none' );
 	} ?>
     <!-- End Loop -->
 </ul>

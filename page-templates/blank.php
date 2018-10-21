@@ -11,5 +11,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 while ( have_posts() ) : the_post();
-	get_template_part( 'loop-templates/content', 'blank' );
+	get_template_part( 'templates/loop/content', 'blank' );
 endwhile; // end of the loop.

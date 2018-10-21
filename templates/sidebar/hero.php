@@ -8,14 +8,14 @@
 /**
  * The Hero widget area
  */
-if ( is_active_sidebar( 'hero' ) ) { ?>
+if ( is_active_sidebar( 'slider-hero' ) ) { ?>
 
     <!-- *******************  ******************* -->
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner" role="listbox">
-			<?php dynamic_sidebar( 'hero' ); ?>
+			<?php dynamic_sidebar( 'slider-hero' ); ?>
         </div>
 
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

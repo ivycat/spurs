@@ -23,7 +23,7 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 </div><!-- Wrapper end -->
 
 
-<?php get_sidebar( 'footer-full' ); ?>
+<?php get_template_part( 'templates/sidebar/footer', 'full' ); ?>
 
 <div class="wrapper" id="wrapper-footer">
     <div class="<?php echo esc_attr( $container ); ?>">
