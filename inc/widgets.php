@@ -77,7 +77,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 
 		register_sidebar( array(
 			'name'          => __( 'Hero Slider', 'spurs' ),
-			'id'            => 'slider-hero',
+			'id'            => 'hero-slider',
 			'description'   => 'Hero slider area. Place two or more widgets here and they will slide!',
 			'before_widget' => '<div class="carousel-item">',
 			'after_widget'  => '</div>',
@@ -99,8 +99,8 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'name'          => __( 'Top Full', 'spurs' ),
 			'id'            => 'hero-static',
 			'description'   => __( 'Full top widget with dynamic grid', 'spurs' ),
-		    'before_widget'  => '<div id="%1$s" class="static-hero-widget %2$s '. spurs_count_widgets( 'hero-static' ) .'">',
-		    'after_widget'   => '</div><!-- .static-hero-widget -->', 
+		    'before_widget'  => '<div id="%1$s" class="hero-static-widget %2$s '. spurs_count_widgets( 'hero-static' ) .'">',
+		    'after_widget'   => '</div><!-- .hero-static-widget -->',
 		    'before_title'   => '<h3 class="widget-title">', 
 		    'after_title'    => '</h3>',
 		) );

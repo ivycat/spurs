@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php if ( is_active_sidebar( 'slider-hero' ) || is_active_sidebar( 'static-hero' ) ) { ?>
+<?php if ( is_active_sidebar( 'hero-slider' ) || is_active_sidebar( 'hero-static' ) ) { ?>
 
     <div class="wrapper" id="wrapper-hero">
 	    <?php get_template_part( 'templates/sidebar/hero' ); ?>
