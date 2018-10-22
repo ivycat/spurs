@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 if ( is_front_page() ) :
-	get_template_part( 'templates/global/hero');
+	get_template_part( 'templates/global/hero' );
 endif;
 
 while ( have_posts() ) : the_post();
