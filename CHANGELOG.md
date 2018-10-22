@@ -1,11 +1,14 @@
 **Post-fork Spurs releases**
 
-            - ** Spurs update release 0.9.0 October 19, 2018 ** 
+            - ** Spurs update release 0.9.0 October 22, 2018 ** 
               - Add helper functions to extras.php
+              - Reorganize partials into /templates/ directory for loops, sidebars, and global templates
+              - Update WooCommerce templates
+              - Incorporate select changes from latest UnderStrap (v. 0.8.9)
               - 
-
+                
             - ** Spurs update release 0.8.9 August 12, 2018 ** 
-              - Update WooCommerce Templates
+              - Update WooCommerce templates
               
             - ** Spurs update release 0.8.8 August 11, 2018 ** 
               - Update to Bootstrap 4.1.3, Gulp 4

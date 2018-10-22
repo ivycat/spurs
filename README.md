@@ -3,10 +3,10 @@
 While you can easily make a child theme for Spurs, we recommend using Spurs to create your next spiffy new theme. Much
 like [Underscores](http://underscores.me/) or [Sage](https://roots.io/sage/), Spurs isn't meant to be a child theme.
 
-**Note:** We reserve the right to break backward compatibility at any point, in fact we expect it. Don't expect to 
-automatically update the main theme automatically when there are updates.
+**Note:** We reserve the right to break backward compatibility at any point, in fact we expect it. Don't expect to
+update the main theme automatically when there are updates.
 
-If you'd like to get email notifications of new updates, please subscribe to our themes mailing list.
+If you'd like to get email notifications of new updates, please []subscribe to our mailing list](https://mailchi.mp/ivycat/plugin-theme-updates).
 
 ## About
 
