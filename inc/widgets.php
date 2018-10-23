@@ -23,9 +23,9 @@ if ( ! function_exists( 'spurs_count_widgets' ) ) {
 		}
 		$sidebar_widget_count = $_wp_sidebars_widgets;
 
-		if ( isset( $sidebar_widget_count[$sidebar_id] ) ) {
-			$widget_count   = count( $sidebar_widget_count[$sidebar_id] );
-			$widget_classes = 'widget-count-' . count( $sidebar_widget_count[$sidebar_id] );
+		if ( isset( $sidebar_widget_count[ $sidebar_id ] ) ) {
+			$widget_count   = count( $sidebar_widget_count[ $sidebar_id ] );
+			$widget_classes = 'widget-count-' . count( $sidebar_widget_count[ $sidebar_id ] );
 
 			if ( 0 == $widget_count % 4 || $widget_count > 6 ) {
 				// Four widgets per row if there are exactly four or more than six
@@ -99,10 +99,10 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'name'          => __( 'Top Full', 'spurs' ),
 			'id'            => 'hero-static',
 			'description'   => __( 'Full top widget with dynamic grid', 'spurs' ),
-		    'before_widget'  => '<div id="%1$s" class="hero-static-widget %2$s '. spurs_count_widgets( 'hero-static' ) .'">',
-		    'after_widget'   => '</div>',
-		    'before_title'   => '<h3 class="widget-title">', 
-		    'after_title'    => '</h3>',
+			'before_widget' => '<div id="%1$s" class="hero-static-widget %2$s ' . spurs_count_widgets( 'hero-static' ) . '">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
 		) );
 
 		register_sidebar( array(
