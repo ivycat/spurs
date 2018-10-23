@@ -18,6 +18,6 @@ if ( is_active_sidebar( 'footer-full' ) ) { ?>
 				<?php dynamic_sidebar( 'footer-full' ); ?>
             </div>
         </div>
-    </div><!-- #wrapper-footer-full -->
+    </div>
 
 <?php } ?>

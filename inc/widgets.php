@@ -100,7 +100,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'id'            => 'hero-static',
 			'description'   => __( 'Full top widget with dynamic grid', 'spurs' ),
 		    'before_widget'  => '<div id="%1$s" class="hero-static-widget %2$s '. spurs_count_widgets( 'hero-static' ) .'">',
-		    'after_widget'   => '</div><!-- .hero-static-widget -->',
+		    'after_widget'   => '</div>',
 		    'before_title'   => '<h3 class="widget-title">', 
 		    'after_title'    => '</h3>',
 		) );
@@ -110,7 +110,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 			'id'            => 'footer-full',
 			'description'   => 'Widget area below main content and above footer',
 			'before_widget' => '<div id="%1$s" class="footer-widget %2$s ' . spurs_count_widgets( 'footer-full' ) . '">',
-			'after_widget'  => '</div><!-- .footer-widget -->',
+			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		) );

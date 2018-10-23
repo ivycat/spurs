@@ -10,8 +10,6 @@
  */
 if ( is_active_sidebar( 'hero-slider' ) ) { ?>
 
-    <!-- *******************  ******************* -->
-
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
         <div class="carousel-inner" role="listbox">
@@ -28,7 +26,7 @@ if ( is_active_sidebar( 'hero-slider' ) ) { ?>
             <span class="sr-only"><?php esc_html_e( 'Next', 'spurs' ); ?></span>
         </a>
 
-    </div><!-- .carousel -->
+    </div>
 
     <script>
 		jQuery(".carousel-item").first().addClass("active");

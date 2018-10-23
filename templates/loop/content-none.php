@@ -40,6 +40,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 			get_search_form();
 		} ?>
-    </div><!-- .page-content -->
+    </div>
 
-</section><!-- .no-results -->
+</section>

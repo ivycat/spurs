@@ -16,11 +16,11 @@ $container        = get_theme_mod( 'spurs_container_type' );
 $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
-</div><!-- .row -->
+</div><!-- / .row -->
 
-</div><!-- Container end -->
+</div><!-- / .container -->
 
-</div><!-- Wrapper end -->
+</div><!-- / .wrapper -->
 
 
 <?php get_template_part( 'templates/sidebar/footer', 'full' ); ?>
@@ -32,14 +32,14 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
                 <footer class="site-footer" id="colophon">
                     <div class="site-info small">
 						<?php spurs_site_info(); ?>
-                    </div><!-- .site-info -->
-                </footer><!-- #colophon -->
-            </div><!--col end -->
-        </div><!-- row end -->
-    </div><!-- container end -->
-</div><!-- wrapper end -->
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
 
-</div><!-- #page we need this extra closing tag here -->
+</div><!-- / #page -->
 
 <?php wp_footer(); ?>
 

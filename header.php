@@ -32,7 +32,6 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 <div class="hfeed site" id="page">
 
-    <!-- ******************* The Navbar Area ******************* -->
     <div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
         <a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
@@ -44,29 +43,26 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
             <div class="container">
 				<?php } ?>
 
-                <!-- Your site title as branding in the menu -->
-				<?php if ( ! has_custom_logo() ) { ?>
-
-			<?php if ( is_front_page() && is_home() ) { ?>
-                <h1 class="navbar-brand mb-0">
-                    <a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"
-                       title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-                </h1>
-			<?php } else { ?>
-                <a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"
-                   title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-				<?php }
+				<?php if ( ! has_custom_logo() ) { // Your site title as branding in the menu ?>
+					<?php if ( is_front_page() && is_home() ) { ?>
+                        <h1 class="navbar-brand mb-0">
+                            <a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"
+                               title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+                        </h1>
+					<?php } else { ?>
+                        <a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"
+                           title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+					<?php }
 				} else {
 					the_custom_logo();
-				} ?><!-- end custom logo -->
+				} // end custom logo ?>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
+				<?php wp_nav_menu( //The WordPress Menu goes here
 					array(
 						'theme_location'  => 'primary',
 						'container_class' => 'collapse navbar-collapse',
@@ -78,15 +74,13 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 					)
 				); ?>
 				<?php if ( 'container' == $container ) { ?>
-            </div><!-- .container -->
+            </div>
 		<?php } ?>
 
-        </nav><!-- .site-navigation -->
+        </nav>
 
-    </div><!-- .wrapper-navbar end -->
+    </div>
 
-    <div class="wrapper" id="page-wrapper"><!-- @todo create wrapper ID function -->
-
+    <div class="wrapper" id="page-wrapper">
         <div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-
             <div class="row">

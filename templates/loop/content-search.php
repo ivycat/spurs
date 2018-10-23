@@ -18,16 +18,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( 'post' == get_post_type() ) { ?>
             <div class="entry-meta">
 				<?php spurs_posted_on(); ?>
-            </div><!-- .entry-meta -->
+            </div>
 		<?php } ?>
-    </header><!-- .entry-header -->
+    </header>
 
     <div class="entry-summary">
 		<?php the_excerpt(); ?>
-    </div><!-- .entry-summary -->
+    </div>
 
     <footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>
-    </footer><!-- .entry-footer -->
+    </footer>
 
-</article><!-- #post-## -->
+</article>
