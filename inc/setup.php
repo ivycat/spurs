@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 // Set the content width based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) ) {
@@ -88,6 +91,9 @@ if ( ! function_exists( 'spurs_setup' ) ) {
 		// Set up the WordPress Theme logo feature.
 		add_theme_support( 'custom-logo' );
 
+		// Check and setup theme default settings.
+		spurs_setup_theme_default_settings();
+
 	}
 } // spurs_setup.
 
@@ -101,7 +107,10 @@ if ( ! function_exists( 'spurs_custom_excerpt_more' ) ) {
 	 * @return string
 	 */
 	function spurs_custom_excerpt_more( $more ) {
-		return '';
+		if ( ! is_admin() ) {
+			$more = '';
+		}
+		return $more;
 	}
 }
 
@@ -115,7 +124,10 @@ if ( ! function_exists( 'spurs_all_excerpts_get_more_link' ) ) {
 	 * @return string
 	 */
 	function spurs_all_excerpts_get_more_link( $post_excerpt ) {
-
-		return $post_excerpt . ' [...]<p><a class="btn btn-secondary spurs-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...', 'spurs' ) . '</a></p>';
+		if ( ! is_admin() ) {
+			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary spurs-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
+			'spurs' ) . '</a></p>';
+		}
+		return $post_excerpt;
 	}
 }

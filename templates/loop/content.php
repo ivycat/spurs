@@ -1,11 +1,15 @@
 <?php
 /**
- * Search results partial template.
+ * Post rendering content according to caller of get_template_part.
  *
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
+
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
     <header class="entry-header">
@@ -15,16 +19,24 @@
 		<?php if ( 'post' == get_post_type() ) { ?>
             <div class="entry-meta">
 				<?php spurs_posted_on(); ?>
-            </div><!-- .entry-meta -->
+            </div>
 		<?php } ?>
-    </header><!-- .entry-header -->
+    </header>
 
-    <div class="entry-summary">
-		<?php the_excerpt(); ?>
-    </div><!-- .entry-summary -->
+	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+
+    <div class="entry-content">
+		<?php the_excerpt();
+
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', 'spurs' ),
+			'after'  => '</div>',
+		) );
+		?>
+    </div>
 
     <footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>
-    </footer><!-- .entry-footer -->
+    </footer>
 
-</article><!-- #post-## -->
+</article>

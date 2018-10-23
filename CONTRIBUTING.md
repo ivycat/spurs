@@ -44,9 +44,7 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
 
 People *love* thorough bug reports. I'm not even kidding.
 
-## Use a Consistent Coding Style
-
-* 2 spaces for indentation rather than tabs
+## Use [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/)
 * Use ./.editorconfig if your editor supports it
 <!-- * You can try running `npm run lint` for style unification -->
 

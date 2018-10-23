@@ -1,6 +1,6 @@
 {
   "name": "Spurs",
-  "version": "0.8.9",
+  "version": "0.9.0",
   "homepage": "https://github.com/sewmyheadon/spurs",
   "authors": [
     "Eric Amundson <info@ivycat.com>"
@@ -26,6 +26,6 @@
   "dependencies": {
   },
   "_source": "https://github.com/sewmyheadon/spurs.git",
-  "_target": "~0.8.9",
-  "_originalSource": "understrap"
+  "_target": "~0.9.0",
+  "_originalSource": "spurs"
 }

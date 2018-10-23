@@ -33,7 +33,7 @@ if ( is_user_logged_in() ) {
 
     <p class="form-row form-row-first">
         <label for="username"><?php esc_html_e( 'Username or email', 'spurs' ); ?> <span class="required">*</span></label>
-        <input type="text" class="input-text" name="username" id="username" />
+        <input type="text" class="input-text form-control" name="username" id="username" autocomplete="username" />
     </p>
     <p class="form-row form-row-last">
         <label for="password"><?php esc_html_e( 'Password', 'spurs' ); ?> <span class="required">*</span></label>

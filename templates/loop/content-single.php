@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
@@ -12,8 +15,8 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
         <div class="entry-meta">
 			<?php spurs_posted_on(); ?>
-        </div><!-- .entry-meta -->
-    </header><!-- .entry-header -->
+        </div>
+    </header>
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
@@ -28,6 +31,6 @@
 
     <footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>
-    </footer><!-- .entry-footer -->
+    </footer>
 
-</article><!-- #post-## -->
+</article>

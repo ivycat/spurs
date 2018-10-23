@@ -9,6 +9,7 @@
              - Code cleanup - remove needless comments from theme, add functions to cleanup Yoast and MonsterInsights comments
              - Set default theme sidebar layout to *none*
              - Add new image and markup helper functions
+             - Update WooCommerce template files
 
             - ** Spurs update release 0.8.9 August 12, 2018 ** 
               - Update WooCommerce Templates

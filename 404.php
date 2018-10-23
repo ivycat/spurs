@@ -4,6 +4,10 @@
  *
  * @package spurs
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 
 <section class="error-404 not-found">

@@ -5,6 +5,10 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -41,8 +45,11 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		) );
 
 		/**
-		 * select sanitization function
-		 * @return string
+		 * Select sanitization function
+		 *
+		 * @param string               $input   Slug to sanitize.
+		 * @param WP_Customize_Setting $setting Setting instance.
+		 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 		 */
 		function spurs_theme_slug_sanitize_select( $input, $setting ) {
 
@@ -82,7 +89,7 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 			) );
 
 		$wp_customize->add_setting( 'spurs_sidebar_position', array(
-			'default'           => 'right',
+			'default'           => 'none',
 			'type'              => 'theme_mod',
 			'sanitize_callback' => 'sanitize_text_field',
 			'capability'        => 'edit_theme_options',

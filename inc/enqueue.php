@@ -5,6 +5,10 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! function_exists( 'spurs_scripts' ) ) {
 	/**
 	 * Load theme JS and CSS
@@ -18,7 +22,6 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 		wp_enqueue_style( 'spurs-styles', get_stylesheet_directory_uri() . '/css/theme.min.css', array(), $css_version );
 
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'popper-scripts', get_template_directory_uri() . '/js/popper.min.js', array(), $theme_version, true );
 
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
 		wp_enqueue_script( 'spurs-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );

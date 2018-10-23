@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 add_action( 'after_setup_theme', 'spurs_woocommerce_support' );
 if ( ! function_exists( 'spurs_woocommerce_support' ) ) {
@@ -48,8 +51,8 @@ if ( ! function_exists( 'spurs_woocommerce_wrapper_start' ) ) {
 }
 if ( ! function_exists( 'spurs_woocommerce_wrapper_end' ) ) {
 	function spurs_woocommerce_wrapper_end() {
-		echo '</main><!-- #main -->';
-		echo '</div><!-- #primary -->';
+		echo '</main>';
+		echo '</div>';
 		get_template_part( 'global-templates/right-sidebar-check' );
 		echo '</div><!-- .row -->';
 		echo '</div><!-- Container end -->';

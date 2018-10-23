@@ -6,6 +6,10 @@
  *
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
 	function spurs_setup_theme_default_settings() {
 
@@ -19,9 +23,9 @@ if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
 		}
 
 		// Sidebar position.
-		$spurs_sb_position = get_theme_mod( 'spurs_sb_position' );
-		if ( '' == $spurs_sb_position ) {
-			set_theme_mod( 'spurs_sb_position', 'right' );
+		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		if ( '' == $spurs_sidebar_position ) {
+			set_theme_mod( 'spurs_sidebar_position', 'right' );
 		}
 
 		// Container width.
@@ -31,5 +35,3 @@ if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
 		}
 	}
 }
-
-add_action( 'after_setup_theme', 'spurs_setup_theme_default_settings' );

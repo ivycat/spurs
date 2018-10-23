@@ -4,9 +4,11 @@
  *
  * @package spurs
  */
-?>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
-<?php if ( have_posts() ) { ?>
+if ( have_posts() ) { ?>
 
     <header class="page-header">
         <h1 class="page-title"><?php printf(
@@ -22,9 +24,9 @@
 		 * If you want to overload this in a child theme then include a file
 		 * called content-search.php and that will be used instead.
 		 */
-		get_template_part( 'loop-templates/content', 'search' );
+		get_template_part( 'templates/loop/content', 'search' );
 
 	endwhile;
 } else {
-	get_template_part( 'loop-templates/content', 'none' );
+	get_template_part( 'templates/loop/content', 'none' );
 }

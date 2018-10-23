@@ -22,15 +22,23 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-		$posted_on = sprintf(
-			esc_html_x( 'Posted on %s', 'post date', 'spurs' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$posted_on   = apply_filters(
+			'spurs_posted_on', sprintf(
+				'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
+				esc_html_x( 'Posted on', 'post date', 'spurs' ),
+				esc_url( get_permalink() ),
+				apply_filters( 'spurs_posted_on_time', $time_string )
+			)
 		);
-		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'spurs' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		$byline      = apply_filters(
+			'spurs_posted_by', sprintf(
+				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
+				$posted_on ? esc_html_x( 'by', 'post author', 'spurs' ) : esc_html_x( 'Posted by', 'post author', 'spurs' ),
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_html( get_the_author() )
+			)
 		);
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo $posted_on . $byline; // WPCS: XSS OK.
 	}
 }
 
@@ -119,15 +127,14 @@ function spurs_category_transient_flusher() {
 if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 
 	function spurs_left_sidebar() {
-		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 		if ( ! is_page_template( 'page-templates/full-width.php' ) && ! is_page_template( 'page-templates/right-sidebar.php' ) ) {
-			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $sidebar_position || 'both' === $sidebar_position ) {
-				get_sidebar( 'left' );
+			if ( is_page_template( 'page-templates/left-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) {
+				get_template_part( 'templates/sidebar/sidebar', 'left' );
 			}
 		}
 	}
-
 }
 
 /**
@@ -136,13 +143,13 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 
 	function spurs_right_sidebar() {
-		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 		if ( ! is_page_template( 'page-templates/full-width.php' ) || ! is_page_template( 'page-templates/left-sidebar.php' ) ) {
 			if ( is_page_template( 'page-templates/right-sidebar.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) ) {
-				get_sidebar( 'right' );
-			} elseif ( is_page_template( 'default' ) && ( 'right' === $sidebar_position || 'both' === $sidebar_position ) ) {
-				get_sidebar( 'right' );
+				get_template_part( 'templates/sidebar/sidebar', 'right' );
+			} elseif ( is_page_template( 'default' ) && ( 'right' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) ) {
+				get_template_part( 'templates/sidebar/sidebar', 'right' );
 			}
 		}
 	}
@@ -161,18 +168,18 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 	 *      <div class="<?php spurs_content_classes(); ?>" id="primary">
 	 */
 	function spurs_content_classes() {
-		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		$html             = '';
 
-		if ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
+		if ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'sidebar-left' ) ) {
 			$html .= 'left-sidebar-template col-md-8 content-area';
 			echo $html; // WPCS: XSS OK.
 
-		} elseif ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) {
+		} elseif ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'right-sidebar-template col-md-8 content-area';
 			echo $html; // WPCS: XSS OK.
 
-		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
+		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'both-sidebar-template col-md-6 content-area';
 			echo $html; // WPCS: XSS OK.
 
@@ -180,18 +187,18 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 			$html .= 'full-width-template col-md-12 content-area';
 			echo $html; // WPCS: XSS OK.
 
-		} elseif ( 'right' === $sidebar_position || 'left' === $sidebar_position ) {
+		} elseif ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) {
 
-			if ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) {
+			if ( is_active_sidebar( 'sidebar-right' ) || is_active_sidebar( 'sidebar-left' ) ) {
 				$html .= 'col-md-8 content-area';
 			} else {
 				$html .= 'col-md-12 content-area';
 			}
 			echo $html; // WPCS: XSS OK.
 
-		} elseif ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
+		} elseif ( is_active_sidebar( 'sidebar-right' ) && is_active_sidebar( 'sidebar-left' ) ) {
 			$html = '';
-			if ( 'both' === $sidebar_position ) {
+			if ( 'both' === $spurs_sidebar_position ) {
 				$html .= 'col-md-6 content-area';
 			} else {
 				$html .= 'col-md-12 content-area';
@@ -218,20 +225,20 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 	 */
 	function spurs_sidebar_classes() {
 
-		$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		$html             = '';
 
-		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
+		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'col-md-3 widget-area';
 			echo $html; // WPCS: XSS OK.
-		} elseif ( ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'left-sidebar' ) ) ||
-		           ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'right-sidebar' ) ) ) {
+		} elseif ( ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'sidebar-left' ) ) ||
+		           ( is_page_template( 'page-templates/right-sidebar.php' ) && is_active_sidebar( 'sidebar-right' ) ) ) {
 			$html .= 'col-md-4 widget-area';
 			echo $html; // WPCS: XSS OK.
-		} elseif ( ( 'right' === $sidebar_position || 'left' === $sidebar_position ) && ( is_active_sidebar( 'right-sidebar' ) || is_active_sidebar( 'left-sidebar' ) ) ) {
+		} elseif ( ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) || is_active_sidebar( 'sidebar-left' ) ) ) {
 			$html .= 'col-md-4 content-area';
 			echo $html; // WPCS: XSS OK.
-		} elseif ( ( 'both' === $sidebar_position ) && ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) ) {
+		} elseif ( ( 'both' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) && is_active_sidebar( 'sidebar-left' ) ) ) {
 			$html .= 'col-md-3 content-area';
 			echo $html; // WPCS: XSS OK.
 		} else {

@@ -1,3 +1,16 @@
+<?php
+/**
+ * The template for displaying the author pages.
+ *
+ * Learn more: https://codex.wordpress.org/Author_Templates
+ *
+ * @package spurs
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+} ?>
+
 <header class="page-header author-header">
 
 	<?php
@@ -42,7 +55,7 @@
             </li>
 		<?php endwhile;
 	} else {
-		get_template_part( 'loop-templates/content', 'none' );
+		get_template_part( 'templates/loop/content', 'none' );
 	} ?>
     <!-- End Loop -->
 </ul>

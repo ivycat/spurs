@@ -7,6 +7,9 @@
  * @package spurs
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 ?>
 
 <section class="no-results not-found">
@@ -37,6 +40,6 @@
 			<?php
 			get_search_form();
 		} ?>
-    </div><!-- .page-content -->
+    </div>
 
-</section><!-- .no-results -->
+</section>
