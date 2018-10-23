@@ -1,10 +1,20 @@
 **Post-fork Spurs releases**
 
+            - ** Spurs update release 0.9.0 October 23, 2018 ** 
+             - NOTE: do not upgrade an existing Spurs installation as this update contains breaking changes
+             - Updates to documentation
+             - Reorganize file structure to better manage theme partials in `templates/` folder
+             - Rename key files for better semantics and ease-of-use.
+             - Rename a few sidebar widgets
+             - Code cleanup - remove needless comments from theme, add functions to cleanup Yoast and MonsterInsights comments
+             - Set default theme sidebar layout to *none*
+             - Add new image and markup helper functions
+
             - ** Spurs update release 0.8.9 August 12, 2018 ** 
               - Update WooCommerce Templates
               
             - ** Spurs update release 0.8.8 August 11, 2018 ** 
-              - Update to Bootstrap 4.1.3, Gulp 4
+              - Update to Bootstrap 4.1.3
 
             - ** Spurs update release 0.8.3 April 11, 2018 ** 
               - Incorporate relevant package.json updates (up to v. 0.8.2)
