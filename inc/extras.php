@@ -113,12 +113,6 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 }
 
 /**
- * Remove WordPress and WooCommerce Generator tags
- */
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'wc_generator_tag' );
-
-/**
  * Search/replace string to make everything lower case and convert spaces and underscores to dashes.
  *
  * @param $string
@@ -142,7 +136,7 @@ function spurs_tidy_url( $string ) {
 }
 
 /**
- * Add Google Maps API Key for ACF
+ * Set Google Maps API Key for Advanced Custom Fields
  */
 add_action( 'acf/init', 'rcn_acf_init' );
 function rcn_acf_init() {
@@ -217,3 +211,10 @@ function return_template( $file, $args = null, $default_folder = 'parts' ) {
 	return '';
 }
 
+/**
+ * Code cleanup
+ * Remove WordPress and WooCommerce Generator tags from HTML markup.
+ */
+remove_action( 'wp_head', 'wp_generator' );     // WordPress
+remove_action( 'wp_head', 'wc_generator_tag' ); // WooCommerce
+    
