@@ -1,7 +1,7 @@
 # Travis CI configuration file.
 # @link https://travis-ci.org/
 
-# For use with the UnderStrap WordPress theme
+# For use with the Spurs WordPress theme
 # @link https://github.com/sewmyheadon/spurs.git
 
 # Declare project language and PHP versions to test against.
@@ -10,7 +10,8 @@ language: php
 
 # Declare versions of PHP to use. Use one decimal max.
 php:
-    - "7.2"
+    - "7.3"
+	- "7.2"
     - "7.0"
     - "5.6"
 
@@ -89,4 +90,4 @@ script:
     # -n flag: Do not print warnings (shortcut for --warning-severity=0)
     # --standard: Use WordPress as the standard.
     # --extensions: Only sniff PHP files.
-    - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php
+    - $WP_DEVELOP_DIR/php-codesniffer/scripts/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php --ignore=*/woocommerce/*,*/src/*
