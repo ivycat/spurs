@@ -1,4 +1,6 @@
 **Post-fork Spurs releases**
+            - ** Spurs update release 0.9.1 Dec 21, 2018 ** 
+             - Update WooCommerce template files
 
             - ** Spurs update release 0.9.0 October 23, 2018 ** 
              - NOTE: do not upgrade an existing Spurs installation as this update contains breaking changes
