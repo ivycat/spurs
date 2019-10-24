@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 // Set the content width based on the theme's design and stylesheet.
 if ( ! isset( $content_width ) ) {
@@ -90,6 +89,9 @@ if ( ! function_exists( 'spurs_setup' ) ) {
 
 		// Set up the WordPress Theme logo feature.
 		add_theme_support( 'custom-logo' );
+
+		// Add support for responsive embedded content.
+		add_theme_support( 'responsive-embeds' );
 
 		// Check and setup theme default settings.
 		spurs_setup_theme_default_settings();

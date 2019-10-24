@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Count number of widgets in a sidebar
@@ -34,7 +33,7 @@ if ( ! function_exists( 'spurs_count_widgets' ) ) {
 				// If two widgets are published
 				$widget_classes .= ' col-md-2';
 			} elseif ( $widget_count >= 3 ) {
-				// Three widgets per row if there's three or more widgets 
+				// Three widgets per row if there's three or more widgets
 				$widget_classes .= ' col-md-4';
 			} elseif ( 2 == $widget_count ) {
 				// If two widgets are published

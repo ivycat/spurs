@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
@@ -47,8 +46,9 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		/**
 		 * Select sanitization function
 		 *
-		 * @param string               $input   Slug to sanitize.
+		 * @param string $input Slug to sanitize.
 		 * @param WP_Customize_Setting $setting Setting instance.
+		 *
 		 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 		 */
 		function spurs_theme_slug_sanitize_select( $input, $setting ) {

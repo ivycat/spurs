@@ -7,10 +7,9 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
-if ( have_posts() ) { ?>
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+if ( have_posts() ) : ?>
 
     <header class="page-header">
 		<?php
@@ -30,6 +29,6 @@ if ( have_posts() ) { ?>
 		get_template_part( 'templates/loop/content', get_post_format() );
 	endwhile;
 
-} else {
+else :
 	get_template_part( 'templates/loop/content', 'none' );
-}
+endif;

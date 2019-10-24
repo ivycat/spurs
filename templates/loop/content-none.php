@@ -7,9 +7,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <section class="no-results not-found">

@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Registers an editor stylesheet for the theme.

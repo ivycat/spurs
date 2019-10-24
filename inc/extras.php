@@ -7,9 +7,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 add_filter( 'body_class', 'spurs_body_classes' );
 
@@ -93,9 +92,9 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 			return;
 		}
 		?>
-        <nav class="container navigation post-navigation">
-            <h2 class="sr-only"><?php _e( 'Post navigation', 'spurs' ); ?></h2>
-            <div class="row nav-links justify-content-between">
+		<nav class="container navigation post-navigation">
+			<h2 class="sr-only"><?php _e( 'Post navigation', 'spurs' ); ?></h2>
+			<div class="row nav-links justify-content-between">
 				<?php
 
 				if ( get_previous_post_link() ) {
@@ -105,12 +104,25 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 					next_post_link( '<span class="nav-next">%link</span>', _x( '%title&nbsp;<i class="fa fa-angle-right"></i>', 'Next post link', 'spurs' ) );
 				}
 				?>
-            </div><!-- .nav-links -->
-        </nav><!-- .navigation -->
+			</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
 
 		<?php
 	}
 }
+
+if ( ! function_exists( 'spurs_mobile_web_app_meta' ) ) {
+	/**
+	 * Add mobile-web-app meta.
+	 */
+	function spurs_mobile_web_app_meta() {
+		echo '<meta name="mobile-web-app-capable" content="yes">' . "\n";
+		echo '<meta name="apple-mobile-web-app-capable" content="yes">' . "\n";
+		echo '<meta name="apple-mobile-web-app-title" content="' . esc_attr( get_bloginfo( 'name' ) ) . ' - ' . esc_attr( get_bloginfo( 'description' ) ) . '">' . "\n";
+	}
+}
+add_action( 'wp_head', 'spurs_mobile_web_app_meta' );
+
 
 /**
  * Search/replace string to make everything lower case and convert spaces and underscores to dashes.

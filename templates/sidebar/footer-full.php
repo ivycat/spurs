@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 $container = get_theme_mod( 'spurs_container_type' );
 
 /**

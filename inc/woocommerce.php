@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 add_action( 'after_setup_theme', 'spurs_woocommerce_support' );
 if ( ! function_exists( 'spurs_woocommerce_support' ) ) {
@@ -141,7 +140,29 @@ if ( ! function_exists( 'spurs_wc_form_field_args' ) ) {
 		return $args;
 	}
 }
+if ( ! is_admin() && ! function_exists( 'wc_review_ratings_enabled' ) ) {
+	/**
+	 * Check if reviews are enabled.
+	 *
+	 * Function introduced in WooCommerce 3.6.0., include it for backward compatibility.
+	 *
+	 * @return bool
+	 */
+	function wc_reviews_enabled() {
+		return 'yes' === get_option( 'woocommerce_enable_reviews' );
+	}
 
+	/**
+	 * Check if reviews ratings are enabled.
+	 *
+	 * Function introduced in WooCommerce 3.6.0., include it for backward compatibility.
+	 *
+	 * @return bool
+	 */
+	function wc_review_ratings_enabled() {
+		return wc_reviews_enabled() && 'yes' === get_option( 'woocommerce_enable_review_rating' );
+	}
+}
 
 /**
  * Change loop add-to-cart button class to Bootstrap

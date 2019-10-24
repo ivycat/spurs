@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 $spurs_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
@@ -28,7 +27,7 @@ $spurs_includes = array(
 );
 
 foreach ( $spurs_includes as $file ) {
-	$filepath = locate_template( '/inc' . $file );
+	$filepath = locate_template( 'inc' . $file );
 	if ( ! $filepath ) {
 		trigger_error( sprintf( 'Error locating /inc%s for inclusion', $file ), E_USER_ERROR );
 	}

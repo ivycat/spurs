@@ -6,9 +6,8 @@
  */
 
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 add_action( 'after_setup_theme', 'spurs_custom_header_setup' );
 
@@ -17,8 +16,6 @@ if ( ! function_exists( 'spurs_custom_header_setup' ) ) {
 
 		/**
 		 * Filter spurs custom-header support arguments.
-		 *
-		 * @since UnderStrap 0.5.2
 		 *
 		 * @param array $args {
 		 *     An array of custom-header support arguments.

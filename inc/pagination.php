@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'spurs_pagination' ) ) {
 
@@ -31,25 +30,21 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 
 		?>
 
-        <nav aria-label="<?php echo $args['screen_reader_text']; ?>">
-
-            <ul class="pagination">
+		<nav aria-label="<?php echo $args['screen_reader_text']; ?>">
+			<ul class="pagination">
 
 				<?php
-
-				foreach ( $links as $key => $link ) { ?>
-
-                    <li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : '' ?>">
-
+				foreach ( $links as $key => $link ) {
+					?>
+					<li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : '' ?>">
 						<?php echo str_replace( 'page-numbers', 'page-link', $link ); ?>
+					</li>
+					<?php
+				}
+				?>
 
-                    </li>
-
-				<?php } ?>
-
-            </ul>
-
-        </nav>
+			</ul>
+		</nav>
 
 		<?php
 	}
