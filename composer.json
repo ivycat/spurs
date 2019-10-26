@@ -11,14 +11,14 @@
 		"underscores",
 		"understrap"
 	],
-	"homepage": "https://github.com/sewmyheadon/spurs"
+	"homepage": "https://github.com/sewmyheadon/spurs",
 	"require": {
-		"composer/installers": "^1.5"
+		"composer/installers": "^1.7"
 	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-		"wp-coding-standards/wpcs": "^2.1",
-		"phpcompatibility/php-compatibility": "^9.2"
+		"wp-coding-standards/wpcs": "^2.1.1",
+		"phpcompatibility/php-compatibility": "^9.3.2"
 	},
 	"scripts": {
 		"test": [
