@@ -17,11 +17,11 @@ get_header( spurs_template_base() );
 
 spurs_left_sidebar(); ?>
 
-    <div id="primary" class="<?php spurs_content_classes(); ?>">
-        <main class="site-main" id="main">
+	<div id="primary" class="<?php spurs_content_classes(); ?>">
+		<main class="site-main" id="main">
 			<?php include spurs_template_path(); ?>
-        </main>
-    </div>
+		</main>
+	</div>
 
 <?php
 spurs_pagination();
