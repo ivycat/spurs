@@ -141,7 +141,7 @@ Just add a new file to the themes root folder called rtl.css. Add all alignments
 
 
 ## Licenses
-- Spurs WordPress Theme, *Copyright 2018 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
+- Spurs WordPress Theme, *Copyright 2018-2019 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
 - UnderStrap WordPress Theme, *Copyright 2013-2018 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Changelog

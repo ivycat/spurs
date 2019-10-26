@@ -10,10 +10,10 @@ update the main theme automatically when there are updates.
 
 == About ==
 
-Like [Holger Könemann](https://github.com/holger1411), creator of [Understrap](https://understrap.com), I'm a fan of Underscores, 
+Like [Holger Könemann](https://github.com/holger1411), creator of [Understrap](https://understrap.com), I'm a fan of Underscores,
 Bootstrap, Sass, npm, and Gulp.
 
-The _s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme; it outputs 
+The _s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme; it outputs
 solid basic markup and WordPress functions without any layout or design.
 
 Bootstrap 4 provides a well known and supported layout framework providing a solid, clean and responsive foundation.
@@ -28,7 +28,7 @@ to keep code warm and DRY.
 = Basic Theme Features =
 
 - Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
-- Comes with Bootstrap (v4) Sass source files and additional .scss files. 
+- Comes with Bootstrap (v4) Sass source files and additional .scss files.
 - Nicely sorted and ready to add your own variables and customize the Bootstrap variables
 - Use npm to install build tools like Gulp for compiling, linting, and BrowserSync.
 - Uses a single and minified CSS file for all the basic stuff
@@ -45,9 +45,9 @@ to keep code warm and DRY.
 = CSS / SASS =
 
 Some basics about the Sass and CSS files that come with Spurs:
-- The theme uses the `/style.css` file to identify the theme inside of WordPress. The file is not loaded by the theme 
+- The theme uses the `/style.css` file to identify the theme inside of WordPress. The file is not loaded by the theme
 and does not include any styles.
-- The `/css/theme.css` file and its minified little brother `/css/theme.min.css` provide all styles. 
+- The `/css/theme.css` file and its minified little brother `/css/theme.min.css` provide all styles.
 It is composed of five different SCSS sets and one variable file loaded through `/sass/theme.scss`:
 
 1. `theme/theme_variables` <----- Your custom variables plus those needed to overwrite Bootstrap or Spurs variables
@@ -57,7 +57,7 @@ It is composed of five different SCSS sets and one variable file loaded through 
 5. `theme/theme`  <----- Add your styles into this file
 
 * Don’t edit or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
-- Your design goes into: `/sass/theme`. Add your styles to the `/sass/theme/_theme.scss` file and your variables to the 
+- Your design goes into: `/sass/theme`. Add your styles to the `/sass/theme/_theme.scss` file and your variables to the
 `/sass/theme/_theme_variables.scss`. Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
 
 = Page Templates =
@@ -67,15 +67,15 @@ Page templates are located in `spurs/page-templates/`.
 - Blank Template - The `blank.php` template is useful when working with various page builders and can be used as a starting blank canvas.
 - Empty Template - The `empty.php` template displays a header and a footer only. A good starting point for landing pages.
 - Full Width Template - The `full-width.php` template has full width layout without a sidebar.
-- Sidebar Templates - 
+- Sidebar Templates -
     - `left-sidebar.php` - layout with a sidebar `(col-4)` on the left of the content `(col-8)`
     - `right-sidebar.php` - layout with a sidebar `(col-4)` on the right of the content `(col-8)`
     - `both-sidebars.php` - layout with two slim sidebars `(col-3)` on left and right of main content `(col-6)`
 
 = Other templates
 - Global templates:     `spurs/templates/global/`
-- Loop templates:       `spurs/templates/loop/`   
-- Sidebar templates:    `spurs/templates/sidebar/`  
+- Loop templates:       `spurs/templates/loop/`
+- Sidebar templates:    `spurs/templates/sidebar/`
 
 
 == Installation ==
@@ -90,10 +90,10 @@ Page templates are located in `spurs/page-templates/`.
 
 == Developing with Spurs ==
 
-Spurs uses npm, Gulp, Sass, and Browsersync and automatically takes care of compiling, linting, compressing and other nifty 
+Spurs uses npm, Gulp, Sass, and Browsersync and automatically takes care of compiling, linting, compressing and other nifty
 = Installing Dependencies
 Make sure you have installed:
-- [Node.js](https://nodejs.org) with npm 
+- [Node.js](https://nodejs.org) with npm
 - [Gulp](https://gulpjs.com/) `npm install -g gulp-cli`
 - [Browsersync](http://browsersync.io) `npm install -g browser-sync`
 
@@ -129,7 +129,7 @@ The front-page slider is widget driven. Simply add more than one widget to widge
 Just add a new file to the themes root folder called rtl.css. Add all alignments to [these instructions](https://codex.wordpress.org/Right_to_Left_Language_Support).
 
 == Licenses ==
-- Spurs WordPress Theme, *Copyright 2018 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
+- Spurs WordPress Theme, *Copyright 2018-2019 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
 - UnderStrap WordPress Theme, *Copyright 2013-2018 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 == Changelog ==
