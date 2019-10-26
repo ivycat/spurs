@@ -54,7 +54,7 @@ if ( ! function_exists( 'spurs_entry_footer' ) ) {
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'sp' ) );
-			if ( $categories_list && sp_categorized_blog() ) {
+			if ( $categories_list && spurs_categorized_blog() ) {
 				/* translators: %s: Categories of current post */
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'sp' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
