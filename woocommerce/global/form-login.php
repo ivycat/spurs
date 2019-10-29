@@ -10,9 +10,8 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @package 	WooCommerce/Templates
-
+ * @see        https://docs.woocommerce.com/document/template-structure/
+ * @package    WooCommerce/Templates
  * @version     3.6.1
  */
 
@@ -24,31 +23,35 @@ if ( is_user_logged_in() ) {
 }
 
 ?>
-<form class="woocommerce-form woocommerce-form-login login" method="post" <?php echo ( $hidden ) ? 'style="display:none;"' : ''; ?>>
+<form class="woocommerce-form woocommerce-form-login login"
+      method="post" <?php echo ( $hidden ) ? 'style="display:none;"' : ''; ?>>
 
 	<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 	<?php echo ( $message ) ? wpautop( wptexturize( $message ) ) : ''; // @codingStandardsIgnoreLine ?>
 
-    <p class="form-row form-row-first">
-        <label for="username"><?php esc_html_e( 'Username or email', 'spurs' ); ?> <span class="required">*</span></label>
-        <input type="text" class="input-text form-control" name="username" id="username" autocomplete="username" />
-    </p>
-    <p class="form-row form-row-last">
-        <label for="password"><?php esc_html_e( 'Password', 'spurs' ); ?> <span class="required">*</span></label>
-        <input class="input-text form-control" type="password" name="password" id="password" />
-    </p>
-    <div class="clear"></div>
+	<p class="form-row form-row-first">
+		<label for="username"><?php esc_html_e( 'Username or email', 'spurs' ); ?> <span
+				class="required">*</span></label>
+		<input type="text" class="input-text form-control" name="username" id="username" autocomplete="username"/>
+	</p>
+	<p class="form-row form-row-last">
+		<label for="password"><?php esc_html_e( 'Password', 'spurs' ); ?> <span class="required">*</span></label>
+		<input class="input-text form-control" type="password" name="password" id="password"/>
+	</p>
+	<div class="clear"></div>
 
 	<?php do_action( 'woocommerce_login_form' ); ?>
 
 	<p class="form-row">
 		<label class="woocommerce-form__label woocommerce-form__label-for-checkbox">
-			<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Remember me', 'spurs' ); ?></span>
+			<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox"
+			       id="rememberme" value="forever"/> <span><?php esc_html_e( 'Remember me', 'spurs' ); ?></span>
 		</label>
 		<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-		<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />
-		<button type="submit" class="btn btn-outline-primary" name="login" value="<?php esc_attr_e( 'Login', 'spurs' ); ?>"><?php esc_html_e( 'Login', 'spurs' ); ?></button>
+		<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>"/>
+		<button type="submit" class="btn btn-outline-primary" name="login"
+		        value="<?php esc_attr_e( 'Login', 'spurs' ); ?>"><?php esc_html_e( 'Login', 'spurs' ); ?></button>
 
 	</p>
 	<p class="lost_password">
