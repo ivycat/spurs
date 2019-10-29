@@ -112,6 +112,7 @@ if ( ! function_exists( 'spurs_custom_excerpt_more' ) ) {
 		if ( ! is_admin() ) {
 			$more = '';
 		}
+
 		return $more;
 	}
 }
@@ -128,8 +129,9 @@ if ( ! function_exists( 'spurs_all_excerpts_get_more_link' ) ) {
 	function spurs_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
 			$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary spurs-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
-			'spurs' ) . '</a></p>';
+					'spurs' ) . '</a></p>';
 		}
+
 		return $post_excerpt;
 	}
 }
