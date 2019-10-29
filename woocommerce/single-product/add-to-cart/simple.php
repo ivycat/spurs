@@ -12,7 +12,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.6.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -51,4 +51,4 @@ if ( $product->is_in_stock() ) : ?>
 
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 
-<?php endif; ?>
+<?php endif;

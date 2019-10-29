@@ -5,27 +5,26 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-    <header class="entry-header">
+	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
 			'</a></h2>' ); ?>
 
 		<?php if ( 'post' == get_post_type() ) { ?>
-            <div class="entry-meta">
+			<div class="entry-meta">
 				<?php spurs_posted_on(); ?>
-            </div>
+			</div>
 		<?php } ?>
-    </header>
+	</header>
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
-    <div class="entry-content">
+	<div class="entry-content">
 		<?php the_excerpt();
 
 		wp_link_pages( array(
@@ -33,10 +32,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'after'  => '</div>',
 		) );
 		?>
-    </div>
+	</div>
 
-    <footer class="entry-footer">
+	<footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>
-    </footer>
+	</footer>
 
 </article>

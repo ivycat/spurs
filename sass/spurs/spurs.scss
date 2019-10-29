@@ -5,7 +5,7 @@
 
 // Reset hero wrapper padding to 0
 #wrapper-hero {
-	padding: 0px !important;
+	padding: 0 !important;
 }
 
 // Adding basic WordPress classes to pass the WordPress.org tests
@@ -52,7 +52,7 @@
 }
 
 .aligncenter {
-	margin: 0px auto;
+	margin: 0 auto;
 }
 
 // Post design
@@ -74,13 +74,13 @@ img,
 a.skip-link {
 	position: fixed;
 	z-index: 1000;
-	top: 0px;
-	right: 0px;
+	top: 0;
+	right: 0;
 }
 
 // Reset Jumbotron default margin
 .jumbotron {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 // Dropdown translation
@@ -135,6 +135,7 @@ a.skip-link {
 		color: $navbar-dark-active-color;
 	}
 }
+
 .carousel-inner .carousel-item img {
 	display: block;
 	border: 5px solid $primary;

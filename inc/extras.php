@@ -7,9 +7,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 add_filter( 'body_class', 'spurs_body_classes' );
 
@@ -93,9 +92,9 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 			return;
 		}
 		?>
-        <nav class="container navigation post-navigation">
-            <h2 class="sr-only"><?php _e( 'Post navigation', 'spurs' ); ?></h2>
-            <div class="row nav-links justify-content-between">
+		<nav class="container navigation post-navigation">
+			<h2 class="sr-only"><?php _e( 'Post navigation', 'spurs' ); ?></h2>
+			<div class="row nav-links justify-content-between">
 				<?php
 
 				if ( get_previous_post_link() ) {
@@ -105,12 +104,25 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 					next_post_link( '<span class="nav-next">%link</span>', _x( '%title&nbsp;<i class="fa fa-angle-right"></i>', 'Next post link', 'spurs' ) );
 				}
 				?>
-            </div><!-- .nav-links -->
-        </nav><!-- .navigation -->
+			</div><!-- .nav-links -->
+		</nav><!-- .navigation -->
 
 		<?php
 	}
 }
+
+if ( ! function_exists( 'spurs_mobile_web_app_meta' ) ) {
+	/**
+	 * Add mobile-web-app meta.
+	 */
+	function spurs_mobile_web_app_meta() {
+		echo '<meta name="mobile-web-app-capable" content="yes">' . "\n";
+		echo '<meta name="apple-mobile-web-app-capable" content="yes">' . "\n";
+		echo '<meta name="apple-mobile-web-app-title" content="' . esc_attr( get_bloginfo( 'name' ) ) . ' - ' . esc_attr( get_bloginfo( 'description' ) ) . '">' . "\n";
+	}
+}
+add_action( 'wp_head', 'spurs_mobile_web_app_meta' );
+
 
 /**
  * Search/replace string to make everything lower case and convert spaces and underscores to dashes.
@@ -219,43 +231,43 @@ remove_action( 'wp_head', 'wp_generator' );
 /**
  * Remove WooCommerce Generator HTML comments.
  */
-remove_action( 'wp_head', 'wc_generator_tag' ); // WooCommerce
+remove_action( 'wp_head', 'wc_generator_tag' );
+
 /**
  * Remove All in One SEO Pack HTML comments
  * @link //gist.github.com/llgruff/a7ab776167aa0ed307ec445df54e5fdb
  */
-if (defined('AIOSEOP_VERSION')) {
-	add_action('get_header', function() {
+if ( defined( 'AIOSEOP_VERSION' ) ) {
+	add_action( 'get_header', function () {
 		ob_start(
-			function($o) {
-				return preg_replace('/\n?<.*?One SEO Pack.*?>/mi','',$o);
+			function ( $o ) {
+				return preg_replace( '/\n?<.*?One SEO Pack.*?>/mi', '', $o );
 			}
 		);
-	});
-	add_action('wp_head', function() {
+	} );
+	add_action( 'wp_head', function () {
 		ob_end_flush();
-	}, 999);
+	}, 999 );
 }
 /**
  * Remove Yoast SEO HTML comments
  * @link //gist.github.com/llgruff/a7ab776167aa0ed307ec445df54e5fdb
  * @link //gist.github.com/paulcollett/4c81c4f6eb85334ba076
  */
-if (defined('WPSEO_VERSION')) {
-	add_action('get_header', function() {
+if ( defined( 'WPSEO_VERSION' ) ) {
+	add_action( 'get_header', function () {
 		ob_start(
-			function($o) {
-				return preg_replace('/\n?<.*?yoast.*?>/mi','',$o);
+			function ( $o ) {
+				return preg_replace( '/\n?<.*?yoast.*?>/mi', '', $o );
 			}
 		);
-	});
-	add_action('wp_head', function() {
+	} );
+	add_action( 'wp_head', function () {
 		ob_end_flush();
-	}, 999);
+	}, 999 );
 }
 /**
  * Remove Google Analytics by MonsterInsights HTML comments
- *
  * @link https://wordpress.org/plugins/remove-google-analytics-comments/
  */
 function isgabmi_active( $plugin ) {
@@ -280,3 +292,4 @@ if ( isgabmi_active( 'google-analytics-for-wordpress/googleanalytics.php' ) || i
 		ob_end_flush();
 	}, 999 );
 }
+

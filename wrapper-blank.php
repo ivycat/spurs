@@ -15,9 +15,9 @@
 
 get_header( spurs_template_base() ); ?>
 
-    <main class="site-main" id="main">
+	<main class="site-main" id="main">
 		<?php include spurs_template_path(); ?>
-    </main>
+	</main>
 
 <?php
 get_footer( spurs_template_base() );

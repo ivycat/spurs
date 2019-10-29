@@ -78,7 +78,7 @@ php_errorlog
 *.rar
 *.tar
 *.zip
-
+*.swp
 
 # ignore node/grunt dependency directories
 bower_components/

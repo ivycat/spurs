@@ -5,9 +5,8 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'spurs_site_info' ) ) {
 	/**
@@ -36,7 +35,7 @@ if ( ! function_exists( 'spurs_add_site_info' ) ) {
 			),
 			sprintf( // WPCS: XSS ok.
 			/* translators:*/
-				esc_html__( 'Theme: %1$s by %2$s.', 'spurs' ), $the_theme->get( 'Name' ), '<a href="' . esc_url( __( 'http://spurs.com', 'spurs' ) ) . '">spurs.com</a>'
+				esc_html__( 'Theme: %1$s by %2$s.', 'spurs' ), $the_theme->get( 'Name' ), '<a href="' . esc_url( __( 'http://ivycat.com', 'spurs' ) ) . '">ivycat</a>'
 			),
 			sprintf( // WPCS: XSS ok.
 			/* translators:*/

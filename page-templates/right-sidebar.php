@@ -7,6 +7,9 @@
  * @package spurs
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 while ( have_posts() ) : the_post();
 	get_template_part( 'templates/loop/content', 'page' );
 

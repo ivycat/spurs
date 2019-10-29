@@ -11,14 +11,13 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     3.3.0
+
+ * @version     3.6.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 if ( is_user_logged_in() ) {
 	return;
@@ -44,12 +43,13 @@ if ( is_user_logged_in() ) {
 	<?php do_action( 'woocommerce_login_form' ); ?>
 
 	<p class="form-row">
+		<label class="woocommerce-form__label woocommerce-form__label-for-checkbox">
+			<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Remember me', 'spurs' ); ?></span>
+		</label>
 		<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-        <button type="submit" class="btn btn-outline-primary" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>"><?php esc_html_e( 'Login', 'spurs' ); ?></button>
-        <input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />
-        <label for="rememberme" class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-            <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e( 'Remember me', 'spurs' ); ?></span>
-        </label>
+		<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />
+		<button type="submit" class="btn btn-outline-primary" name="login" value="<?php esc_attr_e( 'Login', 'spurs' ); ?>"><?php esc_html_e( 'Login', 'spurs' ); ?></button>
+
 	</p>
 	<p class="lost_password">
 		<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'spurs' ); ?></a>

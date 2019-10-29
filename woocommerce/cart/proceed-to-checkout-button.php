@@ -15,12 +15,11 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.4.0
+ * @version 3.6.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn btn-primary btn-lg btn-block">

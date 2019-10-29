@@ -5,6 +5,9 @@
  * @package spurs
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 if ( ! is_active_sidebar( 'sidebar-left' ) ) {
 	return;
 } ?>

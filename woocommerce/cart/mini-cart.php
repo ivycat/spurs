@@ -15,7 +15,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.3.0
+ * @version 3.6.1
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -51,10 +51,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						), $cart_item_key );
 						?>
 						<?php if ( empty( $product_permalink ) ) : ?>
-							<?php echo $thumbnail . $product_name . '&nbsp;'; ?>
+							<?php echo $thumbnail . $product_name; ?>
 						<?php else : ?>
 							<a href="<?php echo esc_url( $product_permalink ); ?>">
-								<?php echo $thumbnail . $product_name . '&nbsp;'; ?>
+								<?php echo $thumbnail . $product_name; ?>
 							</a>
 						<?php endif; ?>
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
@@ -81,4 +81,4 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_after_mini_cart' ); ?>
+<?php do_action( 'woocommerce_after_mini_cart' );

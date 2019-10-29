@@ -7,6 +7,9 @@
  * @package spurs
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
@@ -50,14 +53,16 @@ if ( ! function_exists( 'spurs_entry_footer' ) ) {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'spurs' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'sp' ) );
 			if ( $categories_list && spurs_categorized_blog() ) {
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'spurs' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				/* translators: %s: Categories of current post */
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'sp' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'spurs' ) );
 			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'spurs' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				/* translators: %s: Tags of current post */
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %s', 'sp' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -112,14 +117,15 @@ if ( ! function_exists( 'spurs_categorized_blog' ) ) {
  */
 add_action( 'edit_category', 'spurs_category_transient_flusher' );
 add_action( 'save_post', 'spurs_category_transient_flusher' );
-function spurs_category_transient_flusher() {
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return;
+if ( ! function_exists( 'spurs_category_transient_flusher' ) ) {
+	function spurs_category_transient_flusher() {
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+		// Like, beat it. Dig?
+		delete_transient( 'spurs_categories' );
 	}
-	// Like, beat it. Dig?
-	delete_transient( 'spurs_categories' );
 }
-
 
 /**
  * Left sidebar loading logic
@@ -169,7 +175,7 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 	 */
 	function spurs_content_classes() {
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		$html             = '';
+		$html                   = '';
 
 		if ( is_page_template( 'page-templates/left-sidebar.php' ) && is_active_sidebar( 'sidebar-left' ) ) {
 			$html .= 'left-sidebar-template col-md-8 content-area';
@@ -226,7 +232,7 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 	function spurs_sidebar_classes() {
 
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		$html             = '';
+		$html                   = '';
 
 		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'col-md-3 widget-area';

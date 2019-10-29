@@ -1,13 +1,12 @@
 <?php
 /**
- * The template for displaying search forms in Underscores.me
+ * The template for displaying search forms
  *
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
     <label class="assistive-text screen-reader-text" for="s"><?php esc_html_e( 'Search', 'spurs' ); ?></label>

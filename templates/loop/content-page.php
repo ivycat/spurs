@@ -5,19 +5,18 @@
  * @package spurs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-    <header class="entry-header">
+	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-    </header>
+	</header>
 
 	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
-    <div class="entry-content">
+	<div class="entry-content">
 		<?php the_content(); ?>
 
 		<?php
@@ -26,10 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'after'  => '</div>',
 		) );
 		?>
-    </div>
+	</div>
 
-    <footer class="entry-footer">
+	<footer class="entry-footer">
 		<?php edit_post_link( __( 'Edit', 'spurs' ), '<span class="edit-link">', '</span>' ); ?>
-    </footer>
+	</footer>
 
 </article>
