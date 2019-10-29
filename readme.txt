@@ -42,25 +42,36 @@ to keep code warm and DRY.
 
 == How files and styles are organized ==
 
-= CSS / SASS =
+= CSS / SCSS
+Here's how the Sass and CSS files that come with Spurs work:
+- The theme's `/style.css` file identifies the theme inside of WordPress but it isn't loaded by the theme and shouldn't include any styles.
+- The `/css/theme.css` file and its lighter weight little brother `/css/theme.min.css` provide _all_ of the theme's styles. Just one of these files is loaded in the WordPress theme, depending on your settings.
+- These theme files are composed of several different SCSS sets in `/spurs/sass/` loaded through `/spurs/sass/theme.scss`.
 
-Some basics about the Sass and CSS files that come with Spurs:
-- The theme uses the `/style.css` file to identify the theme inside of WordPress. The file is not loaded by the theme
-and does not include any styles.
-- The `/css/theme.css` file and its minified little brother `/css/theme.min.css` provide all styles.
-It is composed of five different SCSS sets and one variable file loaded through `/sass/theme.scss`:
+    ```// Core files
+       @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
+       @import "assets/bootstrap4";    // <--- Load Bootstrap 4 (Do not tweak)*
+       @import "spurs/spurs";          // <--- Loads Spurs defaults
+       
+       // Optional files - If you don't use the corresponding scripts/fonts comment them out
+       @import "spurs/woocommerce";    // <--- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+       @import "assets/font-awesome";  // <--- Font Awesome Icon font (Do not tweak)*
+       @import "assets/underscores";   // <--- _s media styles
+       @import "theme/contact-form7"; // <-- Contact Form 7 - Bootstrap 4 support
+       
+       // Theme-specific and other imports
+       @import "theme/theme"; // <------------ Your custom styles go here
+    ```
 
-1. `theme/theme_variables` <----- Your custom variables plus those needed to overwrite Bootstrap or Spurs variables
-2. `../src/bootstrap-sass/assets/stylesheets/bootstrap`  <----- Bootstrap vendor stuff **DON'T EDIT!**
-3. `spurs/spurs` <----- Basic WordPress styles combining Boostrap and Underscores
-4. `../src/fontawesome/scss/font-awesome` <----- Font Awesome Icon styles **DON'T EDIT!**
-5. `theme/theme`  <----- Add your styles into this file
+*Don’t edit or tweak these files or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
 
-* Don’t edit or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
-- Your design goes into: `/sass/theme`. Add your styles to the `/sass/theme/_theme.scss` file and your variables to the
-`/sass/theme/_theme_variables.scss`. Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
+Your design customizations go into: `/sass/theme`. 
+Add your styles to the `/sass/theme/_theme.scss` file and your variables to 
+`/sass/theme/_variables.scss`. 
 
-= Page Templates =
+You can remove or comment out files or SCSS sets you don't need. Or @import additional .scss files as needed into a file in `/sass/theme/`.
+
+= Page Templates
 
 Page templates are located in `spurs/page-templates/`.
 
@@ -144,6 +155,3 @@ and of course
 - WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker | GNU GPL
 - Bootstrap Gallery Script based on Roots Sage Gallery: https://github.com/roots/sage/blob/5b9786b8ceecfe717db55666efe5bcf0c9e1801c/lib/gallery.php
 - jQuery: https://jquery.org | (Code licensed under MIT)
-
-== Build Stats ==
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sewmyheadon/spurs/badges/quality-score.png?b=development)](https://scrutinizer-ci.com/g/sewmyheadon/spurs/?branch=development) [![Build Status](https://scrutinizer-ci.com/g/sewmyheadon/spurs/badges/build.png?b=development)](https://scrutinizer-ci.com/g/sewmyheadon/spurs/build-status/development) [![Analytics](https://ga-beacon.appspot.com/UA-111251480-1/welcome-page?flat)](https://github.com/sewmyheadon/spurs)
