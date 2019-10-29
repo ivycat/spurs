@@ -1,4 +1,10 @@
 **Post-fork Spurs releases**
+
+            - ** Spurs update release 0.9.4 Oct 29, 2019 ** 
+             - Update WooCommerce template files
+             - Add helpful functions
+             - Minor docs updates
+             
             - ** Spurs update release 0.9.1 Dec 21, 2018 ** 
              - Update WooCommerce template files
 
