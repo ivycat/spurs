@@ -13,13 +13,11 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.6.1
+ * @version 3.7.0
  */
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+
+defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_mini_cart' ); ?>
 
@@ -41,25 +39,28 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				?>
 				<li class="woocommerce-mini-cart-item <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
 					<?php
-					echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-						'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
-						esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-						__( 'Remove this item', 'spurs' ),
-						esc_attr( $product_id ),
-						esc_attr( $cart_item_key ),
-						esc_attr( $_product->get_sku() )
-					), $cart_item_key );
+					echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						'woocommerce_cart_item_remove_link',
+						sprintf(
+							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
+							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+							esc_html__( 'Remove this item', 'spurs' ),
+							esc_attr( $product_id ),
+							esc_attr( $cart_item_key ),
+							esc_attr( $_product->get_sku() )
+						),
+						$cart_item_key
+					);
 					?>
 					<?php if ( empty( $product_permalink ) ) : ?>
-						<?php echo $thumbnail . $product_name; ?>
+						<?php echo $thumbnail . $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php else : ?>
 						<a href="<?php echo esc_url( $product_permalink ); ?>">
-							<?php echo $thumbnail . $product_name; ?>
+							<?php echo $thumbnail . $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</a>
 					<?php endif; ?>
-					<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
-
-					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+					<?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</li>
 				<?php
 			}
@@ -69,16 +70,26 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 	</ul>
 
-	<p class="woocommerce-mini-cart__total total"><strong><?php _e( 'Subtotal', 'spurs' ); ?>
-			:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+	<p class="woocommerce-mini-cart__total total">
+		<?php
+		/**
+		 * Woocommerce_widget_shopping_cart_total hook.
+		 *
+		 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
+		 */
+		do_action( 'woocommerce_widget_shopping_cart_total' );
+		?>
+	</p>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
 	<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
 
+	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
+
 <?php else : ?>
 
-	<p class="woocommerce-mini-cart__empty-message"><?php _e( 'No products in the cart.', 'spurs' ); ?></p>
+	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'spurs' ); ?></p>
 
 <?php endif; ?>
 

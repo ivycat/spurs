@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.6.1
+ * @version 3.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -46,18 +46,21 @@ do_action( 'woocommerce_before_cart' ); ?>
 				?>
 				<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
-					<td class="product-remove">
-						<?php
-						// @codingStandardsIgnoreLine
-						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-							'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							__( 'Remove this item', 'spurs' ),
-							esc_attr( $product_id ),
-							esc_attr( $_product->get_sku() )
-						), $cart_item_key );
-						?>
-					</td>
+						<td class="product-remove">
+							<?php
+								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									'woocommerce_cart_item_remove_link',
+									sprintf(
+										'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+										esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+										esc_html__( 'Remove this item', 'woocommerce' ),
+										esc_attr( $product_id ),
+										esc_attr( $_product->get_sku() )
+									),
+									$cart_item_key
+								);
+							?>
+						</td>
 
 					<td class="product-thumbnail">
 						<?php
@@ -159,6 +162,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 	</table>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
+
+<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
 <div class="cart-collaterals">
 	<?php
