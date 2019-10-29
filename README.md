@@ -101,7 +101,8 @@ Page templates are located in `spurs/page-templates/`.
 
 ## Developing with Spurs
 
-Spurs uses npm, Gulp, Sass, and Browsersync and automatically takes care of compiling, linting, compressing and other nifty 
+Spurs uses npm, Gulp, Sass, and Browsersync and automatically takes care of compiling, linting, compressing and other nifty automation tasks.
+
 ### Installing Dependencies
 Make sure you have installed:
 - [Node.js](https://nodejs.org) with npm 
@@ -142,7 +143,7 @@ Just add a new file to the themes root folder called rtl.css. Add all alignments
 
 ## Licenses
 - Spurs WordPress Theme, *Copyright 2018-2019 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
-- UnderStrap WordPress Theme, *Copyright 2013-2018 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+- UnderStrap WordPress Theme, *Copyright 2013-2019 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Changelog
 See [changelog](CHANGELOG.md)

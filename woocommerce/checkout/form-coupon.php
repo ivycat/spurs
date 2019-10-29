@@ -31,11 +31,13 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 	<p><?php esc_html_e( 'If you have a coupon code, please apply it below.', 'spurs' ); ?></p>
 
 	<p class="form-row form-row-first">
-		<input type="text" name="coupon_code" class="form-control" placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" id="coupon_code" value="" />
+		<input type="text" name="coupon_code" class="form-control"
+		       placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>" id="coupon_code" value=""/>
 	</p>
 
 	<p class="form-row form-row-last">
-		<button type="submit" class="btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_html_e( 'Apply coupon', 'spurs' ); ?></button>
+		<button type="submit" class="btn btn-outline-primary" name="apply_coupon"
+		        value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_html_e( 'Apply coupon', 'spurs' ); ?></button>
 	</p>
 
 	<div class="clear"></div>
