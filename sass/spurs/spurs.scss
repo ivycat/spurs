@@ -136,6 +136,10 @@ a.skip-link {
 	}
 }
 
+.navbar h1 {
+	font-weight: $font-weight-normal;
+}
+
 .carousel-inner .carousel-item img {
 	display: block;
 	border: 5px solid $primary;

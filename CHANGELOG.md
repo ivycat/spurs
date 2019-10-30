@@ -1,5 +1,9 @@
 **Post-fork Spurs releases**
 
+            - ** Spurs update release 0.9.5 Oct 30, 2019 ** 
+             - Theme file cleanup - add/remove markup & comments
+             - Remove legacy files
+             
             - ** Spurs update release 0.9.4 Oct 29, 2019 ** 
              - Update WooCommerce template files
              - Add helpful functions

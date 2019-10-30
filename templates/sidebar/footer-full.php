@@ -13,7 +13,7 @@ $container = get_theme_mod( 'spurs_container_type' );
 /**
  * The full-width footer widget area
  */
-if ( is_active_sidebar( 'footer-full' ) ) { ?>
+if ( is_active_sidebar( 'footer-full' ) ) : ?>
 
 	<div class="wrapper" id="wrapper-footer-full">
 		<div class="<?php echo esc_attr( $container ); ?>" id="footer-full-content" tabindex="-1">
@@ -23,4 +23,4 @@ if ( is_active_sidebar( 'footer-full' ) ) { ?>
 		</div>
 	</div>
 
-<?php } ?>
+<?php endif;

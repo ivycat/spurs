@@ -21,12 +21,14 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="entry-content">
 		<?php the_content();
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'spurs' ),
-			'after'  => '</div>',
-		) );
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'spurs' ),
+				'after'  => '</div>',
+			)
+		);
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
 	<footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>

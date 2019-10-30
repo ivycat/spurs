@@ -16,7 +16,7 @@ add_filter( 'comment_form_default_fields', 'spurs_bootstrap_comment_form_fields'
  *
  * @param string $fields Form fields.
  *
- * @return array<string,string>
+ * @return array
  */
 
 if ( ! function_exists( 'spurs_bootstrap_comment_form_fields' ) ) {
@@ -62,7 +62,7 @@ if ( ! function_exists( 'spurs_bootstrap_comment_form' ) ) {
 	    <label for="comment">' . _x( 'Comment', 'noun', 'spurs' ) . ( ' <span class="required">*</span>' ) . '</label>
 	    <textarea class="form-control" id="comment" name="comment" aria-required="true" cols="45" rows="8"></textarea>
 	    </div>';
-		$args['class_submit'] = 'btn btn-secondary'; // since WP 4.1.
+		$args['class_submit']  = 'btn btn-secondary'; // since WP 4.1.
 
 		return $args;
 	}
