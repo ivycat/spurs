@@ -27,7 +27,8 @@ defined( 'ABSPATH' ) || exit;
 					),
 				) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
-		<?php } elseif ( is_search() ) { ?>
+		<?php
+		elseif ( is_search() ) : ?>
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'spurs' ); ?></p>
 			<?php
