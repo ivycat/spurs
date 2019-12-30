@@ -16,15 +16,17 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 			return;
 		}
 
-		$args = wp_parse_args( $args, [
-			'mid_size'           => 2,
-			'prev_next'          => true,
-			'prev_text'          => __( '&laquo;', 'spurs' ),
-			'next_text'          => __( '&raquo;', 'spurs' ),
-			'screen_reader_text' => __( 'Posts navigation', 'spurs' ),
-			'type'               => 'array',
-			'current'            => max( 1, get_query_var( 'paged' ) ),
-		] );
+		$args = wp_parse_args( $args,
+			array(
+				'mid_size'           => 2,
+				'prev_next'          => true,
+				'prev_text'          => __( '&laquo;', 'spurs' ),
+				'next_text'          => __( '&raquo;', 'spurs' ),
+				'screen_reader_text' => __( 'Posts navigation', 'spurs' ),
+				'type'               => 'array',
+				'current'            => max( 1, get_query_var( 'paged' ) ),
+			)
+		);
 
 		$links = paginate_links( $args );
 

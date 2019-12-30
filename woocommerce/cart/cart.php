@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.6.1
+ * @version 3.8.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -30,7 +30,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<th class="product-name"><?php esc_html_e( 'Product', 'spurs' ); ?></th>
 			<th class="product-price"><?php esc_html_e( 'Price', 'spurs' ); ?></th>
 			<th class="product-quantity"><?php esc_html_e( 'Quantity', 'spurs' ); ?></th>
-			<th class="product-subtotal"><?php esc_html_e( 'Total', 'spurs' ); ?></th>
+			<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'spurs' ); ?></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -48,14 +48,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-remove">
 						<?php
-						// @codingStandardsIgnoreLine
-						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-							'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
-							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							__( 'Remove this item', 'spurs' ),
-							esc_attr( $product_id ),
-							esc_attr( $_product->get_sku() )
-						), $cart_item_key );
+						echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							'woocommerce_cart_item_remove_link',
+							sprintf(
+								'<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+								esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+								esc_html__( 'Remove this item', 'woocommerce' ),
+								esc_attr( $product_id ),
+								esc_attr( $_product->get_sku() )
+							),
+							$cart_item_key
+						);
 						?>
 					</td>
 
@@ -115,7 +118,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-subtotal" data-title="<?php esc_attr_e( 'Total', 'spurs' ); ?>">
+					<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'spurs' ); ?>">
 						<?php
 						echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 						?>
@@ -159,6 +162,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 	</table>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
+
+<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
 <div class="cart-collaterals">
 	<?php

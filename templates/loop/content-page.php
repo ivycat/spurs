@@ -20,10 +20,12 @@ defined( 'ABSPATH' ) || exit;
 		<?php the_content(); ?>
 
 		<?php
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'spurs' ),
-			'after'  => '</div>',
-		) );
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'spurs' ),
+				'after'  => '</div>',
+			)
+		);
 		?>
 	</div>
 

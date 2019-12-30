@@ -36,12 +36,15 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 	function spurs_theme_customize_register( $wp_customize ) {
 
 		// Theme layout settings.
-		$wp_customize->add_section( 'spurs_theme_layout_options', array(
-			'title'       => __( 'Theme Layout Settings', 'spurs' ),
-			'capability'  => 'edit_theme_options',
-			'description' => __( 'Container width and sidebar defaults', 'spurs' ),
-			'priority'    => 160,
-		) );
+		$wp_customize->add_section(
+			'spurs_theme_layout_options',
+			array(
+				'title'       => __( 'Theme Layout Settings', 'spurs' ),
+				'capability'  => 'edit_theme_options',
+				'description' => __( 'Container width and sidebar defaults', 'spurs' ),
+				'priority'    => 160,
+			)
+		);
 
 		/**
 		 * Select sanitization function
@@ -64,12 +67,15 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 
 		}
 
-		$wp_customize->add_setting( 'spurs_container_type', array(
-			'default'           => 'container',
-			'type'              => 'theme_mod',
-			'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
-			'capability'        => 'edit_theme_options',
-		) );
+		$wp_customize->add_setting(
+			'spurs_container_type',
+			array(
+				'default'           => 'container',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
+				'capability'        => 'edit_theme_options',
+			)
+		);
 
 		$wp_customize->add_control(
 			new WP_Customize_Control(
@@ -88,12 +94,15 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 				)
 			) );
 
-		$wp_customize->add_setting( 'spurs_sidebar_position', array(
-			'default'           => 'none',
-			'type'              => 'theme_mod',
-			'sanitize_callback' => 'sanitize_text_field',
-			'capability'        => 'edit_theme_options',
-		) );
+		$wp_customize->add_setting(
+			'spurs_sidebar_position',
+			array(
+				'default'           => 'none',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'sanitize_text_field',
+				'capability'        => 'edit_theme_options',
+			)
+		);
 
 		$wp_customize->add_control(
 			new WP_Customize_Control(
@@ -129,8 +138,13 @@ if ( ! function_exists( 'spurs_customize_preview_js' ) ) {
 	 * Setup JS integration for live previewing.
 	 */
 	function spurs_customize_preview_js() {
-		wp_enqueue_script( 'spurs_customizer', get_template_directory_uri() . '/js/customizer.js',
-			array( 'customize-preview' ), '20130508', true );
+		wp_enqueue_script(
+			'spurs_customizer',
+			get_template_directory_uri() . '/js/customizer.js',
+			array( 'customize-preview' ),
+			'20130508',
+			true
+		);
 	}
 }
 add_action( 'customize_preview_init', 'spurs_customize_preview_js' );

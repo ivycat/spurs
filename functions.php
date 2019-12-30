@@ -24,6 +24,7 @@ $spurs_includes = array(
 	'/bootstrap-wp-navwalker.php',          // custom WordPress nav walker.
 	'/woocommerce.php',                     // WooCommerce functions.
 	'/editor.php',                          // Editor functions.
+	'/cleanup.php',                          // Editor functions.
 );
 
 foreach ( $spurs_includes as $file ) {

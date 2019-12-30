@@ -1,6 +1,6 @@
 {
   "name": "spurs",
-  "version": "0.9.4",
+  "version": "0.9.6",
   "description": "WordPress theme framework",
   "main": "index.js",
   "scripts": {
@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/sewmyheadon/spurs",
   "dependencies": {
-    "@babel/preset-env": "^7.4.5",
-    "bootstrap": "^4.3.1",
+    "@babel/preset-env": "^7.7.6",
+    "bootstrap": "^4.4.1",
     "browser-sync": "^2.26.7",
     "del": "^4.1.1",
     "font-awesome": "^4.7.0",
@@ -42,7 +42,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
-    "gulp-rimraf": "^0.2.2",
+    "gulp-rimraf": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sequence": "^1.0.0",
     "gulp-sourcemaps": "^2.6.5",
@@ -52,8 +52,8 @@
     "undescores-for-npm": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "autoprefixer": "^9.7.0",
+    "@babel/core": "^7.7.5",
+    "autoprefixer": "^9.7.3",
     "gulp-babel": "^8.0.0",
     "gulp-postcss": "^8.0.0"
   }

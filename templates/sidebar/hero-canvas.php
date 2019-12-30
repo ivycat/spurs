@@ -1,6 +1,6 @@
 <?php
 /**
- * Sidebar - Hero canvas setup.
+ * Sidebar - Hero canvas setup
  *
  * @package spurs
  */

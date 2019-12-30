@@ -1,6 +1,6 @@
 <?php
 /**
- * Sidebar - Hero setup.
+ * Sidebar - Hero setup
  *
  * @package spurs
  */
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * The Hero widget area
  */
-if ( is_active_sidebar( 'hero-slider' ) ) { ?>
+if ( is_active_sidebar( 'hero-slider' ) ) : ?>
 
 	<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
@@ -35,4 +35,4 @@ if ( is_active_sidebar( 'hero-slider' ) ) { ?>
         jQuery(".carousel-item").first().addClass("active");
 	</script>
 
-<?php }
+<?php endif;
