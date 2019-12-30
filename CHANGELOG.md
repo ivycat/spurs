@@ -1,18 +1,22 @@
 **Post-fork Spurs releases**
 
-            - ** Spurs update release 0.9.5 Oct 30, 2019 ** 
+            - ** Spurs update release 0.9.6 Dec 17, 2019 **
+             - Update Woo cart.php template
+             - Update version and npm and composer dependencies.
+
+            - ** Spurs update release 0.9.5 Oct 30, 2019 **
              - Theme file cleanup - add/remove markup & comments
              - Remove legacy files
-             
-            - ** Spurs update release 0.9.4 Oct 29, 2019 ** 
+
+            - ** Spurs update release 0.9.4 Oct 29, 2019 **
              - Update WooCommerce template files
              - Add helpful functions
              - Minor docs updates
-             
-            - ** Spurs update release 0.9.1 Dec 21, 2018 ** 
+
+            - ** Spurs update release 0.9.1 Dec 21, 2018 **
              - Update WooCommerce template files
 
-            - ** Spurs update release 0.9.0 October 23, 2018 ** 
+            - ** Spurs update release 0.9.0 October 23, 2018 **
              - NOTE: do not upgrade an existing Spurs installation as this update contains breaking changes
              - Updates to documentation
              - Reorganize file structure to better manage theme partials in `templates/` folder
@@ -23,26 +27,26 @@
              - Add new image and markup helper functions
              - Update WooCommerce template files
 
-            - ** Spurs update release 0.8.9 August 12, 2018 ** 
+            - ** Spurs update release 0.8.9 August 12, 2018 **
               - Update WooCommerce Templates
-              
-            - ** Spurs update release 0.8.8 August 11, 2018 ** 
+
+            - ** Spurs update release 0.8.8 August 11, 2018 **
               - Update to Bootstrap 4.1.3
 
-            - ** Spurs update release 0.8.3 April 11, 2018 ** 
+            - ** Spurs update release 0.8.3 April 11, 2018 **
               - Incorporate relevant package.json updates (up to v. 0.8.2)
-              
-            - ** Spurs update release 0.8.2 April 11, 2018 ** 
+
+            - ** Spurs update release 0.8.2 April 11, 2018 **
               - Incorporate relevant UnderStrap updates (up to v. 0.8.2)
               - Fix sidebar function logic
               - Add helper functions
               - Reconfigure gulp preferences
-           
-            - ** Spurs initial release 0.6.0 March 18th 2018 ** 
-              - Fix sidebar functions so default theme customizer and page template override choices work
-              - Update docs   
 
-            - ** Spurs initial release 0.5.0 December 17th 2017 ** 
+            - ** Spurs initial release 0.6.0 March 18th 2018 **
+              - Fix sidebar functions so default theme customizer and page template override choices work
+              - Update docs
+
+            - ** Spurs initial release 0.5.0 December 17th 2017 **
               - Incorporate theme wrapper and try to make code DRY
               - Create example blank template, illustrating wrapper
               - Changes to customizer setting labels
@@ -50,18 +54,18 @@
               - Code cleanup and reformatting
               - Change name and namespace to Spurs
               - Create style class helper functions for sidebar and content
-              - Update docs   
-              
+              - Update docs
+
 **Pre-fork UnderStrap releases**
 
-            - ** Release 0.6.11 December 11th 2017 ** 
+            - ** Release 0.6.11 December 11th 2017 **
               - Fixing WooCommerce functions
               - Fixing sanitizing, escaping and prefix´s issues
               - Fixing customizer settings
               - Removing duplicate code
               - Resort theme-settings.php
               - Cleaning functions.php
-              - Changing licensing infos        
+              - Changing licensing infos
 
             - ** Release 0.6.10 December 4th 2017 **
               - Hotfix release
@@ -79,7 +83,7 @@
 
             - ** Release 0.6.8 November 27th 2017 **
               - Theme check updates
-              - Bugfix release            
+              - Bugfix release
 
             - ** Release 0.6.7 November 24th 2017 **
               - Workaround for jQuery inconsistency problem between Bootstrap Beta 2 and WordPress in noConflict mode
@@ -87,20 +91,20 @@
               - Update page.php - thx @Vishal-Deshpande
               - Fixing colormap problem with beta 2
               - Making navwalker function pluggable  - Thx @bruceconlon
-              - Adding WordPress title attribute - Thx @JDVirtual and @Thomas-A-Reinert 
+              - Adding WordPress title attribute - Thx @JDVirtual and @Thomas-A-Reinert
               - Fixing comments in _theme_variable.scss - thx @ianwyllie
               - Adding spaces the separate "posted on" and "edited" timestamps  - Thx @bruceconlon
-              
+
 
             - ** Release 0.6.6 October 23h 2017 **
               - Update to Bootstrap 4 Beta 2
               - Moving hamburger icon to the right by default
-              - Fixing issue #392 
+              - Fixing issue #392
               - Gramma and typo fixes
               - Making inc/security.php hookable
               - Variable product ajax_add_to_cart fix
               - Update Woocommerce 3.2.1 compatibility
-              
+
 
             - ** Release 0.6.5 August 17h 2017 **
               - Hot fix release
@@ -153,20 +157,20 @@
             - ** Release 0.5.7  Feb. 13th 2017 **
                - Fixing WooCommerce base layout by reverting custom woocommerce integration and switch back to default integration
                - Adding /js/ folder to watcher task excluding theme.js and theme.min.js
-               - Removing duplicate DIV from "both-sidebars" page template - Thx @evandiamond 
+               - Removing duplicate DIV from "both-sidebars" page template - Thx @evandiamond
                - Fixing sidebar check
                - Remove customizer from theme.min.js
-               
+
 
             - ** Release 0.5.6 (skipping 0.5.5) Feb. 9th 2017 **
-               - Adding automated tests - thx @carl-alberto 
+               - Adding automated tests - thx @carl-alberto
                - Remove custom Bootstrap gellery completely
                - Fixing typos - thx to @catgofire
                - Checking for WP coding standards
                - Adding a "dist-product" gulp task
-               - Adding  WooCommerce form-checkout.php - thx @stef-k 
-               - Fixing bug #240 - thx @arpage 
-               - Adding AJAX classes to add-to-cart buttons - thx @typeplus 
+               - Adding  WooCommerce form-checkout.php - thx @stef-k
+               - Fixing bug #240 - thx @arpage
+               - Adding AJAX classes to add-to-cart buttons - thx @typeplus
                - Updating Jetpack integration
                - Fixing "missing" h1 on frontpage problem
                - Updating inc/template-tags.php from _s
@@ -240,7 +244,7 @@
                   - Fixing "Gulp dist" Task
                   - Adding masonry layout option to optimizer - Thx @stef-k
                   - Adding fluid/fixed conatiner option to optimizer
-                  
+
 
             - ** 0.4.9 Oct. 25th 2016 **
                   - Updating to Bootstrap 4 Alpha 5
