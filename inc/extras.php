@@ -169,7 +169,6 @@ function rcn_acf_init() {
 	acf_update_setting( 'google_api_key', '' );
 }
 
-
 /**
  * Output background image style
  *
@@ -179,24 +178,27 @@ function rcn_acf_init() {
  *
  * @return string|void String when retrieving.
  */
-function bg( $img, $size = '', $echo = true ) {
+if ( ! function_exists( 'bg' ) ) {
 
-	if ( ! $img ) {
-		return;
-	}
+	function bg( $img, $size = '', $echo = true ) {
 
-	if ( is_array( $img ) ) {
-		$url = $size ? $img['sizes'][ $size ] : $img['url'];
-	} else {
-		$url = $img;
-	}
+		if ( ! $img ) {
+			return;
+		}
 
-	$string = 'style="background-image: url(' . $url . ')"';
+		if ( is_array( $img ) ) {
+			$url = $size ? $img['sizes'][ $size ] : $img['url'];
+		} else {
+			$url = $img;
+		}
 
-	if ( $echo ) {
-		echo $string;
-	} else {
-		return $string;
+		$string = 'style="background-image: url(' . $url . ')"';
+
+		if ( $echo ) {
+			echo $string;
+		} else {
+			return $string;
+		}
 	}
 }
 
@@ -208,8 +210,10 @@ function bg( $img, $size = '', $echo = true ) {
  * @param string $default_folder Requested file folder
  *
  * */
-function show_template( $file, $args = null, $default_folder = 'parts' ) {
-	echo return_template( $file, $args, $default_folder );
+if ( ! function_exists( 'show_template' ) ) {
+	function show_template( $file, $args = null, $default_folder = 'parts' ) {
+		echo return_template( $file, $args, $default_folder );
+	}
 }
 
 /**
@@ -221,18 +225,21 @@ function show_template( $file, $args = null, $default_folder = 'parts' ) {
  *
  * @return string template HTML
  * */
-function return_template( $file, $args = null, $default_folder = 'parts' ) {
-	$file = $default_folder . '/' . $file . '.php';
-	if ( $args ) {
-		extract( $args );
-	}
-	if ( locate_template( $file ) ) {
-		ob_start();
-		include( locate_template( $file ) ); //Theme Check free. Child themes support.
-		$template_content = ob_get_clean();
+if ( ! function_exists( 'return_template' ) ) {
+	function return_template( $file, $args = null, $default_folder = 'parts' ) {
+		$file = $default_folder . '/' . $file . '.php';
+		if ( $args ) {
+			extract( $args );
+		}
+		if ( locate_template( $file ) ) {
+			ob_start();
+			include( locate_template( $file ) ); //Theme Check free. Child themes support.
+			$template_content = ob_get_clean();
 
-		return $template_content;
-	}
+			return $template_content;
+		}
 
-	return '';
+		return '';
+	}
 }
+
