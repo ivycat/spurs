@@ -44,7 +44,7 @@ if ( defined( 'WPSEO_VERSION' ) ) {
 	add_action( 'get_header', function () {
 		ob_start(
 			function ( $o ) {
-				return preg_replace( '/\n?<.*?yoast.*?>/mi', '', $o );
+				return preg_replace( '/^<!--.*?[Y]oast.*?-->$/mi', '', $o );
 			}
 		);
 	} );
