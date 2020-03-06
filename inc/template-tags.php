@@ -16,24 +16,41 @@ defined( 'ABSPATH' ) || exit;
 if ( ! function_exists( 'spurs_posted_on' ) ) {
 	function spurs_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s"> (%4$s) </time>';
-		}
+
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
+			esc_html( get_the_date() )
+		);
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$updated_time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		}
+		$updated_time_string = sprintf( $updated_time_string,
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
-		$posted_on   = apply_filters(
+
+
+		$posted_on = apply_filters(
 			'spurs_posted_on', sprintf(
-				'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
-				esc_html_x( 'Posted on', 'post date', 'spurs' ),
-				esc_url( get_permalink() ),
+				'<div class="posted-on">%1$s %2$s</a></div>',
+				esc_html_x( 'Posted', 'post date', 'spurs' ),
 				apply_filters( 'spurs_posted_on_time', $time_string )
 			)
 		);
-		$byline      = apply_filters(
+
+		$updated_on = apply_filters(
+			'spurs_posted_on', sprintf(
+				'<div class="updated-on text-muted small">%1$s %2$s%3$s</div>',
+				esc_html_x( ' (Updated ', 'post date', 'spurs' ),
+				apply_filters( 'spurs_posted_on_time', $updated_time_string ),
+				esc_html_x( ')', 'post date', 'spurs' )
+
+			)
+		);
+
+
+		$byline = apply_filters(
 			'spurs_posted_by', sprintf(
 				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'spurs' ) : esc_html_x( 'Posted by', 'post author', 'spurs' ),
@@ -41,7 +58,10 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 				esc_html( get_the_author() )
 			)
 		);
-		echo $posted_on . $byline; // WPCS: XSS OK.
+		echo $posted_on . $byline;
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			echo $updated_on;// WPCS: XSS OK.
+		}
 	}
 }
 
@@ -59,10 +79,10 @@ if ( ! function_exists( 'spurs_entry_footer' ) ) {
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'sp' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'spurs' ) );
+			$tags_list = get_the_tag_list( '<span class="badge badge-warning">', '</span> <span class="badge badge-warning">', '</span>' );
 			if ( $tags_list ) {
 				/* translators: %s: Tags of current post */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %s', 'sp' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links">' . esc_html__( 'Tagged %s', 'sp' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -70,15 +90,6 @@ if ( ! function_exists( 'spurs_entry_footer' ) ) {
 			comments_popup_link( esc_html__( 'Leave a comment', 'spurs' ), esc_html__( '1 Comment', 'spurs' ), esc_html__( '% Comments', 'spurs' ) );
 			echo '</span>';
 		}
-		edit_post_link(
-			sprintf(
-			/* translators: %s: Name of current post */
-				esc_html__( 'Edit %s', 'spurs' ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			),
-			'<span class="edit-link">',
-			'</span>'
-		);
 	}
 }
 
@@ -191,6 +202,18 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 
 		} elseif ( is_page_template( 'page-templates/full-width.php' ) ) {
 			$html .= 'full-width-template col-md-12 content-area';
+			echo $html; // WPCS: XSS OK.
+
+		} elseif ( is_page_template( array( 'page-templates/full-width-slim.php', 'page-templates/landing.php' ) ) ) {
+			$html .= 'full-width-slim-template col-md-8 offset-md-2 content-area';
+			echo $html; // WPCS: XSS OK.
+
+		} elseif ( is_singular('prs_bio' ) ) {
+			$html .= 'single-bio col-xl-12 content-area';
+			echo $html; // WPCS: XSS OK.
+
+		} elseif ( is_single() || is_search() || is_404() ) {
+			$html .= 'full-width-slim-template col-md-8 offset-md-2 content-area';
 			echo $html; // WPCS: XSS OK.
 
 		} elseif ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) {
