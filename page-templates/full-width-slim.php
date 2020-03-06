@@ -4,7 +4,7 @@
  *
  * Template for displaying a slim page without sidebar even if a sidebar widget is published.
  *
- * @package lairdnorton
+ * @package spurs
  */
 
 // Exit if accessed directly.
