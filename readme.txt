@@ -52,22 +52,22 @@ Here's how the Sass and CSS files that come with Spurs work:
        @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
        @import "assets/bootstrap4";    // <--- Load Bootstrap 4 (Do not tweak)*
        @import "spurs/spurs";          // <--- Loads Spurs defaults
-       
+
        // Optional files - If you don't use the corresponding scripts/fonts comment them out
        @import "spurs/woocommerce";    // <--- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
        @import "assets/font-awesome";  // <--- Font Awesome Icon font (Do not tweak)*
        @import "assets/underscores";   // <--- _s media styles
        @import "theme/contact-form7"; // <-- Contact Form 7 - Bootstrap 4 support
-       
+
        // Theme-specific and other imports
        @import "theme/theme"; // <------------ Your custom styles go here
     ```
 
 *Don’t edit or tweak these files or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
 
-Your design customizations go into: `/sass/theme`. 
-Add your styles to the `/sass/theme/_theme.scss` file and your variables to 
-`/sass/theme/_variables.scss`. 
+Your design customizations go into: `/sass/theme`.
+Add your styles to the `/sass/theme/_theme.scss` file and your variables to
+`/sass/theme/_variables.scss`.
 
 You can remove or comment out files or SCSS sets you don't need. Or @import additional .scss files as needed into a file in `/sass/theme/`.
 
@@ -140,8 +140,8 @@ The front-page slider is widget driven. Simply add more than one widget to widge
 Just add a new file to the themes root folder called rtl.css. Add all alignments to [these instructions](https://codex.wordpress.org/Right_to_Left_Language_Support).
 
 == Licenses ==
-- Spurs WordPress Theme, *Copyright 2018-2019 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
-- UnderStrap WordPress Theme, *Copyright 2013-2018 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+- Spurs WordPress Theme, *Copyright 2018-2020 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
+- UnderStrap WordPress Theme, *Copyright 2013-2020 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 == Changelog ==
 See [changelog](CHANGELOG.md)

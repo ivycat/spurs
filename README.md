@@ -10,10 +10,10 @@ update the main theme automatically when there are updates.
 
 ## About
 
-Like [Holger Könemann](https://github.com/holger1411), creator of [Understrap](https://understrap.com), I'm a fan of Underscores, 
+Like [Holger Könemann](https://github.com/holger1411), creator of [Understrap](https://understrap.com), I'm a fan of Underscores,
 Bootstrap, Sass, npm, and Gulp.
 
-The _s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme; it outputs 
+The _s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme; it outputs
 solid basic markup and WordPress functions without any layout or design.
 
 Bootstrap 4 provides a well known and supported layout framework providing a solid, clean and responsive foundation.
@@ -28,7 +28,7 @@ to keep code warm and DRY.
 ### Basic Theme Features
 
 - Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
-- Comes with Bootstrap (v4) Sass source files and additional .scss files. 
+- Comes with Bootstrap (v4) Sass source files and additional .scss files.
 - Nicely sorted and ready to add your own variables and customize the Bootstrap variables
 - Use npm to install build tools like Gulp for compiling, linting, and BrowserSync.
 - Uses a single and minified CSS file for all the basic stuff
@@ -52,22 +52,22 @@ Here's how the Sass and CSS files that come with Spurs work:
        @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
        @import "assets/bootstrap4";    // <--- Load Bootstrap 4 (Do not tweak)*
        @import "spurs/spurs";          // <--- Loads Spurs defaults
-       
+
        // Optional files - If you don't use the corresponding scripts/fonts comment them out
        @import "spurs/woocommerce";    // <--- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
        @import "assets/font-awesome";  // <--- Font Awesome Icon font (Do not tweak)*
        @import "assets/underscores";   // <--- _s media styles
        @import "theme/contact-form7"; // <-- Contact Form 7 - Bootstrap 4 support
-       
+
        // Theme-specific and other imports
        @import "theme/theme"; // <------------ Your custom styles go here
     ```
 
 *Don’t edit or tweak these files or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
 
-Your design customizations go into: `/sass/theme`. 
-Add your styles to the `/sass/theme/_theme.scss` file and your variables to 
-`/sass/theme/_variables.scss`. 
+Your design customizations go into: `/sass/theme`.
+Add your styles to the `/sass/theme/_theme.scss` file and your variables to
+`/sass/theme/_variables.scss`.
 
 You can remove or comment out files or SCSS sets you don't need. Or @import additional .scss files as needed into a file in `/sass/theme/`.
 
@@ -78,7 +78,7 @@ Page templates are located in `spurs/page-templates/`.
 - Blank Template - The `blank.php` template is useful when working with various page builders and can be used as a starting blank canvas.
 - Empty Template - The `empty.php` template displays a header and a footer only. A good starting point for landing pages.
 - Full Width Template - The `full-width.php` template has full width layout without a sidebar.
-- Sidebar Templates - 
+- Sidebar Templates -
     - `left-sidebar.php` - layout with a sidebar `(col-4)` on the left of the content `(col-8)`
     - `right-sidebar.php` - layout with a sidebar `(col-4)` on the right of the content `(col-8)`
     - `both-sidebars.php` - layout with two slim sidebars `(col-3)` on left and right of main content `(col-6)`
@@ -86,7 +86,7 @@ Page templates are located in `spurs/page-templates/`.
 ### Other templates
 - Global templates:     `spurs/templates/global/`
 - Loop templates:       `spurs/templates/loop/`
-- Sidebar templates:    `spurs/templates/sidebar/`  
+- Sidebar templates:    `spurs/templates/sidebar/`
 
 
 ## Installation
@@ -105,7 +105,7 @@ Spurs uses npm, Gulp, Sass, and Browsersync and automatically takes care of comp
 
 ### Installing Dependencies
 Make sure you have installed:
-- [Node.js](https://nodejs.org) with npm 
+- [Node.js](https://nodejs.org) with npm
 - [Gulp](https://gulpjs.com/) `npm install -g gulp-cli`
 - [Browsersync](http://browsersync.io) `npm install -g browser-sync`
 
@@ -142,8 +142,8 @@ Just add a new file to the themes root folder called rtl.css. Add all alignments
 
 
 ## Licenses
-- Spurs WordPress Theme, *Copyright 2018-2019 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
-- UnderStrap WordPress Theme, *Copyright 2013-2019 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+- Spurs WordPress Theme, *Copyright 2018-2020 Eric Amundson*, [GNU GPLv2](http://www.gnu.org/licenses/gpl.html)
+- UnderStrap WordPress Theme, *Copyright 2013-2020 Holger Koenemann*, [GNU GPLv2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Changelog
 See [changelog](CHANGELOG.md)
