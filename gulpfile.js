@@ -207,12 +207,12 @@ gulp.task('copy-assets', function(done) {
 
 	// Copy all Font Awesome Fonts
 	gulp
-		.src(`${paths.node}font-awesome/fonts/**/*.{ttf,woff,woff2,eot,svg}`)
-		.pipe(gulp.dest('./fonts'));
+		.src(`${paths.node}@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}`)
+		.pipe(gulp.dest('./fonts/fontawesome'));
 
 	// Copy all Font Awesome SCSS files
 	gulp
-		.src(`${paths.node}font-awesome/scss/*.scss`)
+		.src(`${paths.node}@fortawesome/fontawesome-free/scss/*.scss`)
 		.pipe(gulp.dest(`${paths.dev}/sass/fontawesome`));
 
 	// _s SCSS files

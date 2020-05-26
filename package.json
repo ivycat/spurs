@@ -29,10 +29,10 @@
   "homepage": "https://github.com/sewmyheadon/spurs",
   "dependencies": {
     "@babel/preset-env": "^7.7.6",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.4.1",
     "browser-sync": "^2.26.7",
     "del": "^4.1.1",
-    "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-clean-css": "^4.2.0",
