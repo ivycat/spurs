@@ -15,6 +15,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 var del = require('del');
 var cleanCSS = require('gulp-clean-css');
+const directoryExists = require('directory-exists');
 var gulpSequence = require('gulp-sequence');
 var replace = require('gulp-replace');
 var autoprefixer = require('autoprefixer');
@@ -42,7 +43,35 @@ gulp.task('sass', function() {
 		.pipe(postcss([autoprefixer()]))
 		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
 		.pipe(gulp.dest(paths.css));
+
+	gulp
+		.src(paths.sass + '/assets/fontawesome.scss')
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+					console.log(err);
+					this.emit('end');
+				}
+			})
+		)
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(sass({ errLogToConsole: true }))
+		.pipe(postcss([autoprefixer()]))
+		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+		.pipe(gulp.dest(paths.css));
+
 	return stream;
+});
+
+// Run:
+// gulp clean-fontawesome
+// Cloean FontAwesome files.
+gulp.task('clean-fa', function() {
+	return del([
+		`${paths.css}/fontawesome.*`,
+		`${paths.dev}/sass/fontawesome`,
+		'./webfonts',
+	]);
 });
 
 // Run:
@@ -107,6 +136,22 @@ gulp.task('cssnano', function() {
 });
 
 gulp.task('minifycss', function() {
+	gulp
+		.src(`${paths.css}/fontawesome.css`)
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(cleanCSS({ compatibility: '*' }))
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+					console.log(err);
+					this.emit('end');
+				}
+			})
+		)
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(paths.css));
+
 	return gulp
 		.src(`${paths.css}/theme.css`)
 		.pipe(sourcemaps.init({ loadMaps: true }))
@@ -189,8 +234,6 @@ gulp.task('watch-bs', gulp.parallel('browser-sync', 'watch'));
 // Run:
 // gulp copy-assets.
 // Copy all needed dependency assets files from bower_component assets to themes /js, /scss and /fonts folder. Run this task after bower install or bower update
-
-////////////////// All Bootstrap SASS  Assets /////////////////////////
 gulp.task('copy-assets', function(done) {
 	////////////////// All Bootstrap 4 Assets /////////////////////////
 	// Copy all JS files
@@ -205,15 +248,26 @@ gulp.task('copy-assets', function(done) {
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
-	// Copy all Font Awesome Fonts
-	gulp
-		.src(`${paths.node}@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}`)
-		.pipe(gulp.dest('./webfonts'));
+	// Check if FontAwesome pro package available.
+	var fa_dir = 'fontawesome-free';
+	var pro_dir = `${paths.node}@fortawesome/fontawesome-pro`;
 
-	// Copy all Font Awesome SCSS files
-	gulp
-		.src(`${paths.node}@fortawesome/fontawesome-free/scss/*.scss`)
-		.pipe(gulp.dest(`${paths.dev}/sass/fontawesome`));
+	(async function() {
+		const result = await directoryExists(pro_dir);
+		if ( result ) {
+			fa_dir = 'fontawesome-pro';
+		}
+
+		// Copy all Font Awesome Fonts
+		gulp
+			.src(`${paths.node}@fortawesome/${fa_dir}/webfonts/**/*.{ttf,woff,woff2,eot,svg}`)
+			.pipe(gulp.dest('./webfonts'));
+
+		// Copy all Font Awesome SCSS files
+		gulp
+			.src(`${paths.node}@fortawesome/${fa_dir}/scss/*.scss`)
+			.pipe(gulp.dest(`${paths.dev}/sass/fontawesome`));
+	})();
 
 	// _s SCSS files
 	gulp
