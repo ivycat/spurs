@@ -208,7 +208,7 @@ gulp.task('copy-assets', function(done) {
 	// Copy all Font Awesome Fonts
 	gulp
 		.src(`${paths.node}@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}`)
-		.pipe(gulp.dest('./fonts/fontawesome'));
+		.pipe(gulp.dest('./webfonts'));
 
 	// Copy all Font Awesome SCSS files
 	gulp
