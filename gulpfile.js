@@ -27,8 +27,8 @@ var paths = cfg.paths;
 // Run:
 // gulp sass
 // Compiles SCSS files in CSS
-gulp.task('sass', function() {
-	var stream = gulp
+gulp.task('sass', function(callback) {
+	gulp
 		.src(paths.sass + '/*.scss')
 		.pipe(
 			plumber({
@@ -43,9 +43,12 @@ gulp.task('sass', function() {
 		.pipe(postcss([autoprefixer()]))
 		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
 		.pipe(gulp.dest(paths.css));
+	callback();
+});
 
-	gulp
-		.src(paths.sass + '/assets/fontawesome.scss')
+gulp.task('sass-fa', function() {
+	return gulp
+		.src(`${paths.sass}/vendors/fontawesome/fontawesome.scss`)
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
@@ -59,19 +62,32 @@ gulp.task('sass', function() {
 		.pipe(postcss([autoprefixer()]))
 		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
 		.pipe(gulp.dest(paths.css));
-
-	return stream;
 });
 
+gulp.task('minify-fa', function() {
+	return gulp
+		.src(`${paths.css}/fontawesome.css`)
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(cleanCSS({ compatibility: '*' }))
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+					console.log(err);
+					this.emit('end');
+				}
+			})
+		)
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest(paths.css));
+});
+
+
 // Run:
-// gulp clean-fontawesome
-// Cloean FontAwesome files.
-gulp.task('clean-fa', function() {
-	return del([
-		`${paths.css}/fontawesome.*`,
-		`${paths.dev}/sass/fontawesome`,
-		'./webfonts',
-	]);
+// gulp build-fa
+// Build FontAwesome files for external (i.e. admin) use.
+gulp.task('build-fa', function(callback) {
+	gulp.series( 'sass-fa', 'minify-fa')(callback);
 });
 
 // Run:
@@ -136,22 +152,6 @@ gulp.task('cssnano', function() {
 });
 
 gulp.task('minifycss', function() {
-	gulp
-		.src(`${paths.css}/fontawesome.css`)
-		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(cleanCSS({ compatibility: '*' }))
-		.pipe(
-			plumber({
-				errorHandler: function(err) {
-					console.log(err);
-					this.emit('end');
-				}
-			})
-		)
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(paths.css));
-
 	return gulp
 		.src(`${paths.css}/theme.css`)
 		.pipe(sourcemaps.init({ loadMaps: true }))
@@ -177,7 +177,7 @@ gulp.task('cleancss', function() {
 });
 
 gulp.task('styles', function(callback) {
-	gulp.series('sass', 'minifycss')(callback);
+	gulp.series('sass', 'minifycss', 'build-fa')(callback);
 });
 
 // Run:
@@ -234,17 +234,17 @@ gulp.task('watch-bs', gulp.parallel('browser-sync', 'watch'));
 // Run:
 // gulp copy-assets.
 // Copy all needed dependency assets files from bower_component assets to themes /js, /scss and /fonts folder. Run this task after bower install or bower update
-gulp.task('copy-assets', function(done) {
+gulp.task('copy-assets', function(callback) {
 	////////////////// All Bootstrap 4 Assets /////////////////////////
 	// Copy all JS files
-	var stream = gulp
+	gulp
 		.src(`${paths.node}/bootstrap/dist/js/**/*.js`)
-		.pipe(gulp.dest(`${paths.dev}/js/bootstrap4`));
+		.pipe(gulp.dest(`${paths.sass}/vendors/bootstrap4`));
 
 	// Copy all Bootstrap SCSS files
 	gulp
 		.src(`${paths.node}/bootstrap/scss/**/*.scss`)
-		.pipe(gulp.dest(`${paths.dev}/sass/bootstrap4`));
+		.pipe(gulp.dest(`${paths.sass}/vendors/bootstrap4`));
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
@@ -266,34 +266,33 @@ gulp.task('copy-assets', function(done) {
 		// Copy all Font Awesome SCSS files
 		gulp
 			.src(`${paths.node}/@fortawesome/${fa_dir}/scss/*.scss`)
-			.pipe(gulp.dest(`${paths.dev}/sass/fontawesome`));
+			.pipe(gulp.dest(`${paths.sass}/vendors/fontawesome`));
 	})();
 
 	// _s SCSS files
 	gulp
 		.src(`${paths.node}/undescores-for-npm/sass/media/*.scss`)
-		.pipe(gulp.dest(`${paths.dev}/sass/underscores`));
+		.pipe(gulp.dest(`${paths.sass}/vendors/underscores`));
 
 	// _s JS files into /src/js
 	gulp
 		.src(`${paths.node}/undescores-for-npm/js/skip-link-focus-fix.js`)
 		.pipe(gulp.dest(`${paths.dev}/js`));
-
-	done();
+	callback();
 });
 
 // Deleting the files distributed by the copy-assets task
 gulp.task('clean-vendor-assets', function() {
 	return del([
+		`${paths.sass}/vendors/bootstrap4/**`,
+		`${paths.sass}/vendors/fontawesome/**`,
+		`${paths.sass}/vendors/underscores/**`,
 		`${paths.dev}/js/bootstrap4/**`,
-		`${paths.dev}/sass/bootstrap4/**`,
-		'./fonts/*wesome*.{ttf,woff,woff2,eot,svg}',
-		`${paths.dev}/sass/fontawesome/**`,
-		`${paths.dev}/sass/underscores/**`,
 		`${paths.dev}/js/skip-link-focus-fix.js`,
 		`${paths.js}/**/skip-link-focus-fix.js`,
 		`${paths.js}/**/popper.min.js`,
 		`${paths.js}/**/popper.js`,
+		'./webfonts/*wesome*.{ttf,woff,woff2,eot,svg}',
 		paths.vendor !== '' ? paths.js + paths.vendor + '/**' : ''
 	]);
 });
@@ -315,8 +314,8 @@ gulp.task(
 					'**/*',
 					`!${paths.bower}`,
 					`!${paths.bower}/**`,
-					`!${paths.node}/`,
-					`!${paths.node}//**`,
+					`!${paths.node}`,
+					`!${paths.node}/**`,
 					`!${paths.dev}`,
 					`!${paths.dev}/**`,
 					`!${paths.dist}`,
@@ -378,8 +377,8 @@ gulp.task(
 				'**/*',
 				`!${paths.bower}`,
 				`!${paths.bower}/**`,
-				`!${paths.node}/`,
-				`!${paths.node}//**`,
+				`!${paths.node}`,
+				`!${paths.node}/**`,
 				`!${paths.dist}`,
 				`!${paths.dist}/**`,
 				`!${paths.distprod}`,
