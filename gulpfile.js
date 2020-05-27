@@ -27,8 +27,8 @@ var paths = cfg.paths;
 // Run:
 // gulp sass
 // Compiles SCSS files in CSS
-gulp.task('sass', function(callback) {
-	gulp
+gulp.task('sass', function() {
+	return gulp
 		.src(paths.sass + '/*.scss')
 		.pipe(
 			plumber({
@@ -43,7 +43,6 @@ gulp.task('sass', function(callback) {
 		.pipe(postcss([autoprefixer()]))
 		.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
 		.pipe(gulp.dest(paths.css));
-	callback();
 });
 
 gulp.task('sass-fa', function() {
@@ -95,6 +94,7 @@ gulp.task('build-fa', function(callback) {
 // Starts watcher. Watcher runs gulp sass task on changes
 gulp.task('watch', function() {
 	gulp.watch(`${paths.sass}/**/*.scss`, gulp.series('styles'));
+	gulp.watch(`${paths.sass}/vendors/fontawesome/*.scss`, gulp.series('build-fa'));
 	gulp.watch(
 		[
 			`${paths.dev}/js/**/*.js`,
@@ -107,6 +107,13 @@ gulp.task('watch', function() {
 
 	//Inside the watch task.
 	gulp.watch(`${paths.imgsrc}/**`, gulp.series('imagemin-watch'));
+});
+
+// Run:
+// gulp watch-fa
+// Starts watcher. Watcher runs gulp sass task on FontAwesome file changes
+gulp.task('watch-fa', function() {
+	gulp.watch(`${paths.sass}/vendors/fontawesome/*.scss`, gulp.series('build-fa'));
 });
 
 // Run:
@@ -177,7 +184,7 @@ gulp.task('cleancss', function() {
 });
 
 gulp.task('styles', function(callback) {
-	gulp.series('sass', 'minifycss', 'build-fa')(callback);
+	gulp.series('sass', 'minifycss')(callback);
 });
 
 // Run:
@@ -278,7 +285,8 @@ gulp.task('copy-assets', function(callback) {
 	gulp
 		.src(`${paths.node}/undescores-for-npm/js/skip-link-focus-fix.js`)
 		.pipe(gulp.dest(`${paths.dev}/js`));
-	callback();
+
+	gulp.series('build-fa')(callback);
 });
 
 // Deleting the files distributed by the copy-assets task
@@ -392,7 +400,7 @@ gulp.task(
 // Run
 // gulp compile
 // Compiles the styles and scripts and runs the dist task
-gulp.task('compile', gulp.series('styles', 'scripts', 'dist'));
+gulp.task('compile', gulp.series('styles', 'watch-fa', 'scripts', 'dist'));
 
 // Run:
 // gulp
