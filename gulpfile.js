@@ -238,19 +238,19 @@ gulp.task('copy-assets', function(done) {
 	////////////////// All Bootstrap 4 Assets /////////////////////////
 	// Copy all JS files
 	var stream = gulp
-		.src(`${paths.node}bootstrap/dist/js/**/*.js`)
+		.src(`${paths.node}/bootstrap/dist/js/**/*.js`)
 		.pipe(gulp.dest(`${paths.dev}/js/bootstrap4`));
 
 	// Copy all Bootstrap SCSS files
 	gulp
-		.src(`${paths.node}bootstrap/scss/**/*.scss`)
+		.src(`${paths.node}/bootstrap/scss/**/*.scss`)
 		.pipe(gulp.dest(`${paths.dev}/sass/bootstrap4`));
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
 	// Check if FontAwesome pro package available.
 	var fa_dir = 'fontawesome-free';
-	var pro_dir = `${paths.node}@fortawesome/fontawesome-pro`;
+	var pro_dir = `${paths.node}/@fortawesome/fontawesome-pro`;
 
 	(async function() {
 		const result = await directoryExists(pro_dir);
@@ -260,23 +260,23 @@ gulp.task('copy-assets', function(done) {
 
 		// Copy all Font Awesome Fonts
 		gulp
-			.src(`${paths.node}@fortawesome/${fa_dir}/webfonts/**/*.{ttf,woff,woff2,eot,svg}`)
+			.src(`${paths.node}/@fortawesome/${fa_dir}/webfonts/**/*.{ttf,woff,woff2,eot,svg}`)
 			.pipe(gulp.dest('./webfonts'));
 
 		// Copy all Font Awesome SCSS files
 		gulp
-			.src(`${paths.node}@fortawesome/${fa_dir}/scss/*.scss`)
+			.src(`${paths.node}/@fortawesome/${fa_dir}/scss/*.scss`)
 			.pipe(gulp.dest(`${paths.dev}/sass/fontawesome`));
 	})();
 
 	// _s SCSS files
 	gulp
-		.src(`${paths.node}undescores-for-npm/sass/media/*.scss`)
+		.src(`${paths.node}/undescores-for-npm/sass/media/*.scss`)
 		.pipe(gulp.dest(`${paths.dev}/sass/underscores`));
 
 	// _s JS files into /src/js
 	gulp
-		.src(`${paths.node}undescores-for-npm/js/skip-link-focus-fix.js`)
+		.src(`${paths.node}/undescores-for-npm/js/skip-link-focus-fix.js`)
 		.pipe(gulp.dest(`${paths.dev}/js`));
 
 	done();
@@ -315,8 +315,8 @@ gulp.task(
 					'**/*',
 					`!${paths.bower}`,
 					`!${paths.bower}/**`,
-					`!${paths.node}`,
-					`!${paths.node}/**`,
+					`!${paths.node}/`,
+					`!${paths.node}//**`,
 					`!${paths.dev}`,
 					`!${paths.dev}/**`,
 					`!${paths.dist}`,
@@ -378,8 +378,8 @@ gulp.task(
 				'**/*',
 				`!${paths.bower}`,
 				`!${paths.bower}/**`,
-				`!${paths.node}`,
-				`!${paths.node}/**`,
+				`!${paths.node}/`,
+				`!${paths.node}//**`,
 				`!${paths.dist}`,
 				`!${paths.dist}/**`,
 				`!${paths.distprod}`,
