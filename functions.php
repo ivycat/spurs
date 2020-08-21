@@ -16,6 +16,7 @@ $spurs_includes = array(
 	'/enqueue.php',                         // Enqueue scripts and styles.
 	'/template-tags.php',                   // Custom template tags.
 	'/pagination.php',                      // Custom pagination.
+	'/load-more.php',                      // Custom Load More.
 	'/hooks.php',                           // Custom hooks.
 	'/extras.php',                          // Custom functions that act independently of the theme templates.
 	'/customizer.php',                      // Customizer additions.

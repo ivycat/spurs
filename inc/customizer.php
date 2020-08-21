@@ -126,6 +126,34 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 					'priority'          => '20',
 				)
 			) );
+
+		$wp_customize->add_setting(
+			'spurs_pagination',
+			array(
+				'default'           => 'pagination',
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
+				'capability'        => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'spurs_pagination', array(
+					'label'       => __( 'Pagination / Load More', 'spurs' ),
+					'description' => __( 'Pagination or Load More for post listing.', 'spurs' ),
+					'section'     => 'spurs_theme_layout_options',
+					'settings'    => 'spurs_pagination',
+					'type'        => 'select',
+					'choices'     => array(
+						'pagination'       => __( 'Pagination', 'spurs' ),
+						'loadmore' => __( 'Load More', 'spurs' ),
+					),
+					'priority'    => '30',
+				)
+			) 
+		);
 	}
 } // endif function_exists( 'spurs_theme_customize_register' ).
 add_action( 'customize_register', 'spurs_theme_customize_register' );

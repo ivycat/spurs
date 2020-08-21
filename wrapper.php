@@ -24,7 +24,11 @@ spurs_left_sidebar(); ?>
 	</div>
 
 <?php
-spurs_pagination();
+if( 'pagination' === get_theme_mod( 'spurs_pagination' ) ){
+	spurs_pagination();
+} else {
+	spurs_load_more();
+}
 
 spurs_right_sidebar();
 
