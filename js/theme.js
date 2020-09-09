@@ -7158,12 +7158,19 @@ $ = jQuery;
 jQuery(function ($) {
   // use jQuery code inside this to avoid "$ is not defined" error
   $('.spurs_loadmore').click(function () {
+    var search_page = false;
+
+    if ($('body').hasClass('search-results')) {
+      search_page = true;
+    }
+
     var button = $(this),
         data = {
       'action': 'loadmore',
       'query': spurs_loadmore_params.posts,
       // that's how we get params from wp_localize_script() function
-      'page': spurs_loadmore_params.current_page
+      'page': spurs_loadmore_params.current_page,
+      'search_page': search_page
     };
     $.ajax({
       // you can also use $.post here
