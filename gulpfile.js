@@ -9,6 +9,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var webp = require('gulp-webp');
 var ignore = require('gulp-ignore');
 var rimraf = require('gulp-rimraf');
 var sourcemaps = require('gulp-sourcemaps');
@@ -124,6 +125,28 @@ gulp.task('imagemin', function() {
 		.src(`${paths.imgsrc}/**`)
 		.pipe(imagemin())
 		.pipe(gulp.dest(paths.img));
+});
+
+// Run:
+// gulp webp
+// Converts jpeg/png to webp
+gulp.task('webp', function () {
+	return gulp.src([
+
+		/*`${paths.uploads}/!**!/!*.jpg`,
+		`${paths.uploads}/!**!/!*.jpeg`,
+		`${paths.uploads}/!**!/!*.png`,
+		`${paths.uploads}/!**!/!*.gif`,*/
+
+		`${paths.img}/**/*.jpg`,
+		`${paths.img}/**/*.jpeg`,
+		`${paths.img}/**/*.png`,
+		`${paths.img}/**/*.gif`,
+	])
+		.pipe(webp())
+		.pipe(gulp.dest(function (file) {
+			return file.base;
+		}))
 });
 
 /**

@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
+    <div class="page-content">
 	<header class="entry-header">
 		<?php
 		the_title(
@@ -32,5 +32,5 @@ defined( 'ABSPATH' ) || exit;
 	<footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>
 	</footer>
-
+    </div>
 </article>

@@ -118,10 +118,10 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 					'type'              => 'select',
 					'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
 					'choices'           => array(
-						'right' => __( 'Right sidebar', 'spurs' ),
+						'none'  => __( 'No sidebar', 'spurs' ),
 						'left'  => __( 'Left sidebar', 'spurs' ),
 						'both'  => __( 'Left & Right sidebars', 'spurs' ),
-						'none'  => __( 'No sidebar', 'spurs' ),
+						'right' => __( 'Right sidebar', 'spurs' ),
 					),
 					'priority'          => '20',
 				)

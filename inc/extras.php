@@ -180,8 +180,7 @@ function rcn_acf_init() {
  */
 if ( ! function_exists( 'bg' ) ) {
 
-	function bg( $img, $size = '', $echo = true ) {
-
+	function bg($img, $size = '', $echo = true, $additional_style = '') {
 		if ( ! $img ) {
 			return;
 		}
@@ -192,7 +191,24 @@ if ( ! function_exists( 'bg' ) ) {
 			$url = $img;
 		}
 
-		$string = 'style="background-image: url(' . $url . ')"';
+		/*if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+
+			$webp_suffix_url = $url . '.webp';
+			$headers = @get_headers($webp_suffix_url);
+
+			if (strpos($headers[0], '200') > -1) {
+				$url = $webp_suffix_url;
+			} else {
+				$webp_url = preg_replace('/(?:jpg|png|gif)$/i', 'webp', $url);
+				$headers = @get_headers($webp_url);
+
+				if (strpos($headers[0], '200') > -1) {
+					$url = $webp_url;
+				}
+			}
+		}*/
+
+		$string = 'style="background-image: url(' . $url . '); ' . $additional_style . '"';
 
 		if ( $echo ) {
 			echo $string;
@@ -243,3 +259,56 @@ if ( ! function_exists( 'return_template' ) ) {
 	}
 }
 
+/**
+ * Remove comment below in order to create CPTs and Taxonomies dynamically.
+ */
+
+//add_action( 'init', 'spurs_register_cpt_taxonomies');
+function spurs_register_cpt_taxonomies()
+{
+	spurs_register_cpts();
+	spurs_register_taxonomies();
+}
+
+function spurs_register_cpts(){
+
+    $cpts[] = array(
+		'name'  => 'report',
+		'names' => array(
+			'singular'      => 'report',
+			'plural'        => 'reports',
+			'uc_singular'   => 'Report',
+			'uc_plural'     => 'Reports',
+		),
+		'icon'  => 'analytics'
+	);
+
+	if ( count( $cpts ) > 0 ) {
+		foreach ( $cpts as $cpt ) {
+			$cpt_obj = new PCP_CPT_Creator();
+			$cpt_obj->register_cpt( $cpt['name'], $cpt['names'], $cpt['icon'] );
+		}
+	}
+}
+
+function spurs_register_taxonomies() {
+
+	$taxonomies[] = array(
+		'name'      => 'report-type',
+		'post_type' => 'report',
+		'names'     => array(
+			'singular'      => 'report-type',
+			'plural'        => 'report-types',
+			'uc_singular'   => 'Report Type',
+			'uc_plural'     => 'Report Types',
+		),
+		'hierarchical'  => true
+	);
+
+	if ( count( $taxonomies ) > 0 ) {
+		foreach ( $taxonomies as $tax ) {
+			$tax_obj = new PCP_CPT_Creator();
+			$tax_obj->register_taxonomy( $tax['name'], $tax['post_type'], $tax['names'], $tax['hierarchical'] );
+		}
+	}
+}

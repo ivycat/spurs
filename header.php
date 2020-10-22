@@ -71,11 +71,7 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 				<?php if ( 'container' == $container ) : ?>
 			</div>
 		<?php endif; ?>
-
 		</nav>
-
 	</div>
-	<?php get_search_form() ?>
+
 	<div class="wrapper" id="page-wrapper">
-		<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-			<div class="row">

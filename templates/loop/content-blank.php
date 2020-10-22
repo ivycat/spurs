@@ -7,5 +7,7 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
-the_content();
+?>
+<div class="entry-content">
+	<?php the_content(); ?>
+</div>
