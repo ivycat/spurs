@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $spurs_includes = array(
+	'/custom-cpt.php',                      // Initialize theme default settings.
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/theme-wrapper.php',                   // Load theme wrapper.
 	'/setup.php',                           // Theme setup and custom theme supports.

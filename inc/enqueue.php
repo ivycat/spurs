@@ -22,6 +22,8 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 
 		wp_enqueue_script( 'jquery' );
 
+		//wp_enqueue_script('google.maps.api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBzGRoIbHnQqqYWxOYuTpE58WYGx6RkAjo&v=3.exp', null, null, true);
+
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
 		wp_enqueue_script( 'spurs-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -41,3 +43,11 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 } // endif function_exists( 'spurs_scripts' ).
 
 add_action( 'wp_enqueue_scripts', 'spurs_scripts' );
+
+add_action('admin_head', 'spurs_admin_inline_styles');
+function spurs_admin_inline_styles() {
+	echo '<style>
+    .wp-block{max-width: 1070px}
+    .wp-block[data-align=wide]{max-width: 1250px}
+  </style>';
+}
