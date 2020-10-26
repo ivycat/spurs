@@ -31,17 +31,17 @@ if (!is_front_page() && function_exists('yoast_breadcrumb')) {
 
 		<main class="site-main <?php spurs_column_classes() ?>" id="main">
 			<?php include spurs_template_path(); ?>
+			<?php
+			
+				if( 'pagination' === get_theme_mod( 'spurs_pagination' ) ){
+					spurs_pagination();
+				} else {
+					spurs_load_more();
+				}
+
+			?>
 		</main>
 
-		<?php
-		
-			if( 'pagination' === get_theme_mod( 'spurs_pagination' ) ){
-				spurs_pagination();
-			} else {
-				spurs_load_more();
-			}
-
-		?>
 
 		<?php spurs_right_sidebar(); ?>
 

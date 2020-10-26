@@ -88,6 +88,9 @@
 }
 
 /* Wide */
+.right-sidebar-template .alignwide, .left-sidebar-template .alignwide{
+	width: 100%;
+}
 
 .alignwide {
 	max-width: $container-wide;
