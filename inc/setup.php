@@ -102,7 +102,7 @@ if ( ! function_exists( 'spurs_setup' ) ) {
 		// Check and setup theme default settings.
 		spurs_setup_theme_default_settings();
 
-		// Adds Pacific Coast Producers brand colors to Blocks color palette.
+		// Adds brand colors to Blocks color palette.
 		add_theme_support( 'editor-color-palette', array(
 			array(
 				'name'  => __( 'Green', 'spurs' ),

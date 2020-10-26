@@ -1,7 +1,7 @@
 <?php
 
-if ( ! class_exists('PCP_CPT_Creator') ) {
-	class PCP_CPT_Creator{
+if ( ! class_exists('Spurs_CPT_Creator') ) {
+	class Spurs_CPT_Creator{
 
 		public function register_cpt( $post_type, $names, $icon ) {
 

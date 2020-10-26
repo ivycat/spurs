@@ -33,6 +33,16 @@ if (!is_front_page() && function_exists('yoast_breadcrumb')) {
 			<?php include spurs_template_path(); ?>
 		</main>
 
+		<?php
+		
+			if( 'pagination' === get_theme_mod( 'spurs_pagination' ) ){
+				spurs_pagination();
+			} else {
+				spurs_load_more();
+			}
+
+		?>
+
 		<?php spurs_right_sidebar(); ?>
 
 		<?php if ( ( is_page_template( 'page-templates/sidebar-left.php' ) || is_page_template( 'page-templates/sidebar-right.php' ) ) && ( is_active_sidebar( 'sidebar-left' ) || is_active_sidebar( 'sidebar-right' ) )  ) {
@@ -42,10 +52,5 @@ if (!is_front_page() && function_exists('yoast_breadcrumb')) {
 	</div>
 
 <?php
-if( 'pagination' === get_theme_mod( 'spurs_pagination' ) ){
-	spurs_pagination();
-} else {
-	spurs_load_more();
-}
 
 get_footer( spurs_template_base() );

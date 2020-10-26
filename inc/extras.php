@@ -285,7 +285,7 @@ function spurs_register_cpts(){
 
 	if ( count( $cpts ) > 0 ) {
 		foreach ( $cpts as $cpt ) {
-			$cpt_obj = new PCP_CPT_Creator();
+			$cpt_obj = new Spurs_CPT_Creator();
 			$cpt_obj->register_cpt( $cpt['name'], $cpt['names'], $cpt['icon'] );
 		}
 	}
@@ -307,7 +307,7 @@ function spurs_register_taxonomies() {
 
 	if ( count( $taxonomies ) > 0 ) {
 		foreach ( $taxonomies as $tax ) {
-			$tax_obj = new PCP_CPT_Creator();
+			$tax_obj = new Spurs_CPT_Creator();
 			$tax_obj->register_taxonomy( $tax['name'], $tax['post_type'], $tax['names'], $tax['hierarchical'] );
 		}
 	}
