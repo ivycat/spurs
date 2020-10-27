@@ -33,7 +33,8 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 		?>
 
 		<nav aria-label="<?php echo $args['screen_reader_text']; ?>">
-			<ul class="pagination">
+            <div class="container">
+                <ul class="pagination justify-content-center mt-5">
 
 				<?php
 				foreach ( $links as $key => $link ) {
@@ -46,6 +47,7 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 				?>
 
 			</ul>
+            </div>
 		</nav>
 
 		<?php

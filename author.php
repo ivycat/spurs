@@ -44,27 +44,29 @@ defined( 'ABSPATH' ) || exit; ?>
 
 </header><!-- .page-header -->
 
-<ul>
-	<!-- The Loop -->
-	<?php if ( have_posts() ) :
-		while ( have_posts() ) : the_post(); ?>
-			<li>
-				<?php
-				printf(
-					'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
-					esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
-					esc_attr( __( 'Permanent Link:', 'spurs' ) ),
-					the_title( '', '', false )
-				);
-				spurs_posted_on();
-				esc_html_e( 'in', 'spurs' );
-				the_category( '&' );
-				?>
-			</li>
-		<?php endwhile;
-	else :
-		get_template_part( 'templates/loop/content', 'none' );
-	endif; ?>
-	<!-- End Loop -->
-</ul>
+<div class="page-content">
+    <ul>
+        <!-- The Loop -->
+        <?php if ( have_posts() ) :
+            while ( have_posts() ) : the_post(); ?>
+                <li>
+                    <?php
+                    printf(
+                        '<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
+                        esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
+                        esc_attr( __( 'Permanent Link:', 'spurs' ) ),
+                        the_title( '', '', false )
+                    );
+                    spurs_posted_on();
+                    esc_html_e( 'in', 'spurs' );
+                    the_category( '&' );
+                    ?>
+                </li>
+            <?php endwhile;
+        else :
+            get_template_part( 'templates/loop/content', 'none' );
+        endif; ?>
+        <!-- End Loop -->
+    </ul>
+</div>
 

@@ -4,4 +4,83 @@
  * just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
  */
 
-$primary: #563d7c; // Here's a sample of how to overwrite a Bootstrap variable.
+// CONTAINERS
+$container-wide: 1355px;
+$container: 1110px;
+$container-narrow: 860px;
+
+// FONT SIZES
+$font-80: 5rem;
+$font-56: 3.5rem;
+$font-48: 3rem;
+$font-40: 2.5rem;
+$font-30: 1.875rem;
+$font-24: 1.5rem;
+$font-18: 1.125rem;
+$font-16: 1rem;
+$font-14: .875rem;
+$font-12: .75rem;
+
+// THEME FONTS
+$title-font: 'Lora', serif;
+$content-font: 'Montserrat', sans-serif;
+
+// THEME COLORS
+$green: #6aaf08;
+$dark-green: #548a06;
+$blue: #007ac3;
+$gray: #2b2b2b;
+$light-gray: #9e9e9e;
+$black: #2b2b2b;
+$white: #FFFFFF;
+
+// ARRAY OF THEME COLORS
+$color-array: (
+				green: $green,
+				dark-green: $dark-green,
+				blue: $blue,
+				gray: $gray,
+				light-gray: $light-gray,
+				black: $black,
+				white: $white
+);
+
+// APPLY BACKGROUND-COLOR AND COLOR PER EDITOR SETTINGS
+@each $color, $code in $color-array {
+	:root {
+		.has-#{$color}-background-color {
+			background-color: $code;
+		}
+
+		.has-#{$color}-color {
+			color: $code;
+		}
+	}
+}
+
+// BOOTSTRAP VARIALBLES
+
+$font-family-base: $content-font;
+$font-family-second: $title-font;
+
+/*$pagination-active-color: $rc-coffee;
+$pagination-active-bg: $rc-coffee;
+$pagination-active-color: $white;*/
+
+$theme-colors: (
+				"primary": $green,
+				"secondary": $dark-green,
+				"blue": $blue,
+				"gray": $gray,
+				"light-gray": $light-gray,
+				"black": $black
+);
+
+$grid-breakpoints: (
+				xs: 0,
+				sm: 599px,
+				md: 768px,
+				lg: 992px,
+				xl: 1100px,
+				xxl: 1771px
+);

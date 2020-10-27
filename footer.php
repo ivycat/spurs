@@ -15,10 +15,6 @@ $container        = get_theme_mod( 'spurs_container_type' );
 $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
-</div><!-- / .row -->
-
-</div><!-- / .container -->
-
 </div><!-- / .wrapper -->
 
 

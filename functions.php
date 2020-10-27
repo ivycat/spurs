@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $spurs_includes = array(
+	'/custom-cpt.php',                      // Initialize theme default settings.
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/theme-wrapper.php',                   // Load theme wrapper.
 	'/setup.php',                           // Theme setup and custom theme supports.
@@ -16,6 +17,7 @@ $spurs_includes = array(
 	'/enqueue.php',                         // Enqueue scripts and styles.
 	'/template-tags.php',                   // Custom template tags.
 	'/pagination.php',                      // Custom pagination.
+	'/load-more.php',                      // Custom Load More.
 	'/hooks.php',                           // Custom hooks.
 	'/extras.php',                          // Custom functions that act independently of the theme templates.
 	'/customizer.php',                      // Customizer additions.

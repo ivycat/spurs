@@ -9,6 +9,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var webp = require('gulp-webp');
 var ignore = require('gulp-ignore');
 var rimraf = require('gulp-rimraf');
 var sourcemaps = require('gulp-sourcemaps');
@@ -126,6 +127,28 @@ gulp.task('imagemin', function() {
 		.pipe(gulp.dest(paths.img));
 });
 
+// Run:
+// gulp webp
+// Converts jpeg/png to webp
+gulp.task('webp', function () {
+	return gulp.src([
+
+		/*`${paths.uploads}/!**!/!*.jpg`,
+		`${paths.uploads}/!**!/!*.jpeg`,
+		`${paths.uploads}/!**!/!*.png`,
+		`${paths.uploads}/!**!/!*.gif`,*/
+
+		`${paths.img}/**/*.jpg`,
+		`${paths.img}/**/*.jpeg`,
+		`${paths.img}/**/*.png`,
+		`${paths.img}/**/*.gif`,
+	])
+		.pipe(webp())
+		.pipe(gulp.dest(function (file) {
+			return file.base;
+		}))
+});
+
 /**
  * Ensures the 'imagemin' task is complete before reloading browsers
  * @verbose
@@ -205,6 +228,7 @@ gulp.task('scripts', function() {
 		// End - All BS4 stuff
 
 		`${paths.dev}/js/skip-link-focus-fix.js`,
+		`${paths.dev}/js/loadmore.js`,
 
 		// Adding currently empty javascript file to add on for your own themes´ customizations
 		// Please add any customizations to this .js file only!
