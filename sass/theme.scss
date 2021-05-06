@@ -14,10 +14,12 @@
 // Optional files - If you don't use the corresponding scripts/fonts comment them out
 @import "spurs/woocommerce";    // <-------- Loads WooCommerce style fixes.
 @import "vendors/fontawesome/fontawesome";
+
 /* Add pro font styles (light, solid, etc.). */
-@import "vendors/fontawesome/light";
-@import "vendors/fontawesome/regular";
-@import "vendors/fontawesome/solid";
+//@import "vendors/fontawesome/light";
+//@import "vendors/fontawesome/regular";
+//@import "vendors/fontawesome/solid";
+
 //@import "vendors/underscores/galleries";
 
 //@import "theme/contact-form7"; // <---- Contact Form 7 - Bootstrap 4 support
