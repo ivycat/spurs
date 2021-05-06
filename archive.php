@@ -9,6 +9,11 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+
+if (!is_front_page() && function_exists('yoast_breadcrumb')) {
+	yoast_breadcrumb('<div id="breadcrumbs">', '</div>');
+}
+
 if ( have_posts() ) : ?>
 
     <header class="page-header">
@@ -17,7 +22,9 @@ if ( have_posts() ) : ?>
 		the_archive_description( '<div class="taxonomy-description">', '</div>' );
 		?>
     </header><!-- .page-header -->
-
+    <div class="page-content container">
+        <div class="latest-news-list">
+            <div class="card-group has-col-3">
 	<?php /* Start the Loop */
 	while ( have_posts() ) : the_post();
 
@@ -27,8 +34,11 @@ if ( have_posts() ) : ?>
 		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 		 */
 		get_template_part( 'templates/loop/content', get_post_format() );
-	endwhile;
-
+			    endwhile; ?>
+            </div>
+        </div>
+    </div>
+    <?php
 else :
 	get_template_part( 'templates/loop/content', 'none' );
 endif;

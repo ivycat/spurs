@@ -34,10 +34,11 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 
 add_action( 'wp_enqueue_scripts', 'spurs_scripts' );
 
-add_action('admin_head', 'spurs_admin_inline_styles');
-function spurs_admin_inline_styles() {
-	echo '<style>
-    .wp-block{max-width: 1070px}
-    .wp-block[data-align=wide]{max-width: 1250px}
-  </style>';
+
+/**
+ * Enqueue a script in the WordPress admin.
+ */
+function spurs_admin_styles() {
+	wp_enqueue_style( 'spurs-admin-styles', get_stylesheet_directory_uri() . '/css/custom-editor-style.css' );
 }
+add_action( 'admin_enqueue_scripts', 'spurs_admin_styles' );

@@ -46,3 +46,24 @@ if ( ! function_exists( 'spurs_add_site_info' ) ) {
 		echo apply_filters( 'spurs_site_info_content', $site_info ); // WPCS: XSS ok.
 	}
 }
+
+/**
+ * ACF Color Palette
+ *
+ * Add default color palatte to ACF color picker for branding
+ * Match these colors to colors in /functions.php & /assets/scss/partials/base/variables.scss
+ *
+ */
+add_action( 'acf/input/admin_footer', 'spurs_acf_color_palette' );
+function spurs_acf_color_palette() {
+	?>
+	<script type="text/javascript">
+			(function($) {
+				acf.add_filter('color_picker_args', function (args, field) {
+					args.palettes = [ '#1d1d1d', '#ecb600', '#002fbd', '#f9f9f9', '#FFFFFF' ];
+					return args;
+				});
+			})(jQuery);
+	</script>
+	<?php
+}

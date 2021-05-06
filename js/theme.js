@@ -284,9 +284,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Alert =
-  /*#__PURE__*/
-  function () {
+  var Alert = /*#__PURE__*/function () {
     function Alert(element) {
       this._element = element;
     } // Getters
@@ -453,9 +451,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Button =
-  /*#__PURE__*/
-  function () {
+  var Button = /*#__PURE__*/function () {
     function Button(element) {
       this._element = element;
     } // Getters
@@ -703,9 +699,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Carousel =
-  /*#__PURE__*/
-  function () {
+  var Carousel = /*#__PURE__*/function () {
     function Carousel(element, config) {
       this._items = null;
       this._interval = null;
@@ -1260,9 +1254,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Collapse =
-  /*#__PURE__*/
-  function () {
+  var Collapse = /*#__PURE__*/function () {
     function Collapse(element, config) {
       this._isTransitioning = false;
       this._element = element;
@@ -4270,9 +4262,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Dropdown =
-  /*#__PURE__*/
-  function () {
+  var Dropdown = /*#__PURE__*/function () {
     function Dropdown(element, config) {
       this._element = element;
       this._popper = null;
@@ -4780,9 +4770,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Modal =
-  /*#__PURE__*/
-  function () {
+  var Modal = /*#__PURE__*/function () {
     function Modal(element, config) {
       this._config = this._getConfig(config);
       this._element = element;
@@ -5534,9 +5522,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Tooltip =
-  /*#__PURE__*/
-  function () {
+  var Tooltip = /*#__PURE__*/function () {
     function Tooltip(element, config) {
       if (typeof Popper === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org/)');
@@ -6214,9 +6200,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Popover =
-  /*#__PURE__*/
-  function (_Tooltip) {
+  var Popover = /*#__PURE__*/function (_Tooltip) {
     _inheritsLoose(Popover, _Tooltip);
 
     function Popover() {
@@ -6401,9 +6385,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var ScrollSpy =
-  /*#__PURE__*/
-  function () {
+  var ScrollSpy = /*#__PURE__*/function () {
     function ScrollSpy(element, config) {
       var _this = this;
 
@@ -6694,9 +6676,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Tab =
-  /*#__PURE__*/
-  function () {
+  var Tab = /*#__PURE__*/function () {
     function Tab(element) {
       this._element = element;
     } // Getters
@@ -6929,9 +6909,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Toast =
-  /*#__PURE__*/
-  function () {
+  var Toast = /*#__PURE__*/function () {
     function Toast(element, config) {
       this._element = element;
       this._config = this._getConfig(config);
@@ -7195,5 +7173,104 @@ jQuery(function ($) {
         }
       }
     });
+  });
+});
+$ = jQuery;
+var window_width = $(window).outerWidth(),
+    navbar = $('header.main-header'),
+    announcement_bar = $('.announcement'),
+    admin_bar = $('#wpadminbar');
+$(document).ready(function () {
+  $('#back-to-top').on('click', function () {
+    $("html, body").animate({
+      scrollTop: 0
+    }, 1000);
+  }); // Search box toggle
+
+  $('.header-search a, .search-box .button-close').click(function () {
+    $('.search-box').toggleClass('active');
+    navbar.toggleClass('search-active');
+    adjust_search_box();
+  });
+  $(document).on('click', 'a[href^="#"]', function (event) {
+    var target = $(this.hash),
+        scroll_val = 15;
+
+    if (admin_bar.length > 0) {
+      scroll_val += admin_bar.outerHeight();
+    }
+
+    if (navbar.length > 0) {
+      scroll_val += navbar.outerHeight();
+    }
+
+    if ('' !== target && null !== target) {
+      event.preventDefault();
+      $('html, body').animate({
+        scrollTop: target.offset().top - scroll_val
+      }, 750);
+    }
+  });
+  $('.navbar-toggler').click(function () {
+    $('body').toggleClass('nav-active');
+  });
+  $(window).trigger('scroll');
+  $(window).trigger('resize'); // Adjust search bar position
+
+  adjust_search_box();
+  $(document).on('facetwp-loaded', function () {
+    $('html, body').animate({
+      scrollTop: $('#main').offset().top - 200
+    }, 1000);
+  });
+});
+$(window).on('scroll', function () {
+  var scroll_top = $(window).scrollTop();
+
+  if (scroll_top < 10) {
+    navbar.removeClass('sticky-nav');
+  } else {
+    navbar.addClass('sticky-nav');
+  }
+
+  adjust_search_box();
+});
+$(window).resize(function () {
+  adjust_search_box();
+});
+
+function adjust_search_box() {
+  let top = 0;
+
+  if (announcement_bar.length && announcement_bar.isInViewport()) {
+    top += announcement_bar.outerHeight();
+  }
+
+  if (admin_bar.length && admin_bar.isInViewport()) {
+    top += admin_bar.outerHeight();
+  }
+
+  if (navbar.length && navbar.isInViewport()) {
+    top += navbar.outerHeight();
+  }
+
+  $('.search-box').css('top', top);
+}
+
+$.fn.isInViewport = function (predefined_scroll = 0) {
+  var elementTop = $(this).offset().top + predefined_scroll;
+  var elementBottom = elementTop + $(this).outerHeight();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+jQuery(function ($) {
+  var submenu = $('li.mega-menu-item');
+  submenu.on('open_panel', function () {
+    navbar.addClass('parent-hovered');
+  });
+  submenu.on('close_panel', function () {
+    navbar.removeClass('parent-hovered');
   });
 });

@@ -145,3 +145,15 @@ a.skip-link {
 	border: 5px solid $primary;
 	margin: 0 auto;
 }
+
+ul, ol {
+	li {
+		margin-bottom: 10px;
+	}
+
+	&.list-without-spacing {
+		li {
+			margin-bottom: 0;
+		}
+	}
+}

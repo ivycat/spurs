@@ -24,7 +24,7 @@ if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
 		// Sidebar position.
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		if ( '' == $spurs_sidebar_position ) {
-			set_theme_mod( 'spurs_sidebar_position', 'right' );
+			set_theme_mod( 'spurs_sidebar_position', 'none' );
 		}
 
 		// Container width.

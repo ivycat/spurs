@@ -6,20 +6,22 @@
 // Font Files
 //@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap');
 
-// Vendors files
-@import "vendors/bootstrap4/bootstrap";
-@import "vendors/fontawesome/fontawesome";
-@import "vendors/underscores/galleries";
-
 @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
-@import "spurs/full-width"; 	// Gutenberg group block
+@import "vendors/bootstrap4/bootstrap";
 @import "spurs/spurs";          // <--- Loads Spurs defaults
+@import "spurs/full-width"; 	// Gutenberg group block
 
 // Optional files - If you don't use the corresponding scripts/fonts comment them out
 @import "spurs/woocommerce";    // <-------- Loads WooCommerce style fixes.
+@import "vendors/fontawesome/fontawesome";
+/* Add pro font styles (light, solid, etc.). */
+@import "vendors/fontawesome/light";
+@import "vendors/fontawesome/regular";
+@import "vendors/fontawesome/solid";
+//@import "vendors/underscores/galleries";
 
 //@import "theme/contact-form7"; // <---- Contact Form 7 - Bootstrap 4 support
 
 // Theme-specific and other imports
-@import "theme/theme"; // <------------ Your custom styles go here
+@import "theme/index"; // <------------ Your custom styles go here
 

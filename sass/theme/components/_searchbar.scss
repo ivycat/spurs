@@ -1,0 +1,90 @@
+.search-box {
+	position: fixed;
+	top: 106px;
+	display: none;
+	width: 100%;
+	z-index: 99;
+	background-color: $white;
+	color: $black;
+	box-shadow: 0 10px 25px -15px rgba(0, 0, 0, 0.15);
+
+	.search-form {
+		padding: 1rem 0 2rem;
+		position: relative;
+
+		.input-control {
+			position: relative;
+
+			&:before {
+				content: '\f002';
+				font-family: "Font Awesome 5 Pro", sans-serif;
+				font-size: 30px;
+				font-weight: 400;
+				position: absolute;
+				top: 10px;
+				color: $black;
+				transform: rotate(90deg);
+
+				@include media-breakpoint-down(lg) {
+					top: 12px;
+				}
+			}
+
+			.search-input {
+				border: 0;
+				border-bottom: 2px solid $black;
+				width: 100%;
+				padding: 1rem 1rem 1rem 3rem;
+				font-size: 24px;
+				background-color: transparent;
+				border-radius: 0;
+				color: $blue;
+				font-weight: 700;
+
+				&::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+					color: $blue;
+					opacity: 1; /* Firefox */
+				}
+
+				&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+					color: $blue;
+				}
+
+				&::-ms-input-placeholder { /* Microsoft Edge */
+					color: $blue;
+				}
+			}
+
+			.search-input ~ .focus-border {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background-color: $blue;
+				transition: 0.4s;
+			}
+
+			.search-input:focus ~ .focus-border {
+				width: 100%;
+				transition: 0.4s;
+			}
+		}
+	}
+
+	.button-close {
+		position: absolute;
+		right: 0;
+		top: 25px;
+		font-size: 25px;
+		cursor: pointer;
+
+		&:hover {
+			color: $blue;
+		}
+	}
+
+	&.active {
+		display: inline-block;
+	}
+}

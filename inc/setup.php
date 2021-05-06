@@ -133,7 +133,7 @@ if ( ! function_exists( 'spurs_setup' ) ) {
 		) );
 
 		// Hard cropped featured images
-		add_image_size( 'featured-rounded', 230, 230, true );
+		//add_image_size( 'featured-rounded', 230, 230, true );
 	}
 } // spurs_setup.
 
@@ -152,23 +152,6 @@ if ( ! function_exists( 'spurs_custom_excerpt_more' ) ) {
 		}
 
 		return $more;
-	}
-}
-
-add_filter( 'wp_trim_excerpt', 'spurs_all_excerpts_get_more_link' );
-if ( ! function_exists( 'spurs_all_excerpts_get_more_link' ) ) {
-	/**
-	 * Adds a custom read more link to all excerpts, manually or automatically generated
-	 *
-	 * @param string $post_excerpt Posts's excerpt.
-	 *
-	 * @return string
-	 */
-	function spurs_all_excerpts_get_more_link( $post_excerpt ) {
-		$post_excerpt = $post_excerpt . ' [...]<p><a class="btn btn-secondary spurs-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __( 'Read More...',
-					'spurs' ) . '</a></p>';
-
-		return $post_excerpt;
 	}
 }
 

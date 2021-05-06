@@ -1,10 +1,25 @@
+// CONTAINERS
+$container-wide: 1290px;
+$container: 1165px;
+$container-narrow: 960px;
+
 .container {
 	max-width: $container;
-	width: calc(100% - 30px);
+	width: calc(100% - 2rem);
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 0;
 	padding-right: 0;
+
+	&--wide {
+		@extend .container;
+		max-width: $container-wide;
+	}
+
+	&--narrow {
+		@extend .container;
+		max-width: $container-narrow;
+	}
 }
 
 .entry-header,
@@ -22,7 +37,7 @@
 
 	&:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 		max-width: $container !important;
-		width: calc(100% - 30px);
+		width: calc(100% - 2rem);
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -40,7 +55,7 @@
 
 [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 	max-width: $container;
-	width: calc(100% - 30px);
+	width: calc(100% - 2rem);
 }
 
 .wp-block-group {
@@ -66,7 +81,8 @@
 .alignleft,
 .alignright,
 .alignwide {
-	/*margin: 2.5rem auto;*/
+	margin-left: auto;
+	margin-right: auto;
 }
 
 [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
@@ -95,7 +111,7 @@
 .alignwide {
 	max-width: $container-wide;
 	position: relative;
-	width: calc(100% - 30px);
+	width: calc(100% - 2rem);
 }
 
 [class*="__inner-container"] > .alignwide {
@@ -128,20 +144,21 @@
 	}
 }
 
-/* Left and right */
-.alignleft,
-.alignright {
-	max-width: 50%;
+.wp-block-cover {
+	.wp-block-cover__inner-container {
+		> .wp-block-columns {
+			margin-bottom: 0;
+		}
+	}
 }
 
+/* Left and right */
 .alignleft {
 	float: left;
-	margin: 0.3rem 2rem 2rem 2rem;
 }
 
 .alignright {
 	float: right;
-	margin: 0.3rem 2rem 2rem 2rem;
 }
 
 [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > .alignleft,
@@ -166,8 +183,8 @@
 .alignfull > .wp-caption-text {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 58rem;
 	width: calc(100% - 4rem);
+	max-width: $container;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -181,7 +198,7 @@
 		}
 
 		> ul, blockquote {
-			padding-left: 20px !important;
+			padding-left: 40px !important;
 		}
 	}
 
@@ -234,3 +251,9 @@
 #breadcrumbs {
 	margin-bottom: 1rem;
 }
+
+/**[style^="font-size"] {
+	> * {
+		font-size: inherit;
+	}
+}*/
