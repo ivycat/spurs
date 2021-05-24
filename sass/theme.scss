@@ -8,6 +8,7 @@
 
 @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
 @import "vendors/bootstrap4/bootstrap";
+@import "vendors/bootstrap4/mixins/hover"; // Enqueue deprecated hover mixin - used in spurs.scss
 @import "spurs/spurs";          // <--- Loads Spurs defaults
 @import "spurs/full-width"; 	// Gutenberg group block
 
@@ -22,8 +23,8 @@
 
 //@import "vendors/underscores/galleries";
 
-//@import "theme/contact-form7"; // <---- Contact Form 7 - Bootstrap 4 support
+//@import "theme/contact-form7"; // Contact Form 7 - Bootstrap 4 support
 
 // Theme-specific and other imports
-@import "theme/index"; // <------------ Your custom styles go here
+@import "theme/index"; // Your custom styles goes here
 
