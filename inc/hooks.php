@@ -60,7 +60,7 @@ function spurs_acf_color_palette() {
 	<script type="text/javascript">
 			(function($) {
 				acf.add_filter('color_picker_args', function (args, field) {
-					args.palettes = [ '#1d1d1d', '#ecb600', '#002fbd', '#f9f9f9', '#FFFFFF' ];
+					args.palettes = [ '#000000', '#FFFFFF' ];
 					return args;
 				});
 			})(jQuery);

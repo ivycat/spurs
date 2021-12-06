@@ -101,39 +101,6 @@ if ( ! function_exists( 'spurs_setup' ) ) {
 
 		// Check and setup theme default settings.
 		spurs_setup_theme_default_settings();
-
-		// Adds brand colors to Blocks color palette.
-		add_theme_support( 'editor-color-palette', array(
-			array(
-				'name'  => __( 'Green', 'spurs' ),
-				'slug'  => 'green',
-				'color' => '#6aaf08',
-			),
-			array(
-				'name'  => __( 'Dark Green', 'spurs' ),
-				'slug'  => 'dark-green',
-				'color' => '#548a06',
-			),
-			array(
-				'name'  => __( 'Blue', 'spurs' ),
-				'slug'  => 'blue',
-				'color' => '#007ac3',
-			),
-			array(
-				'name'  => __( 'Black', 'spurs' ),
-				'slug'  => 'black',
-				'color' => '#2b2b2b',
-			),
-			array(
-				'name'  => __( 'White', 'spurs' ),
-				'slug'  => 'white',
-				'color' => '#FFFFFF',
-			),
-
-		) );
-
-		// Hard cropped featured images
-		//add_image_size( 'featured-rounded', 230, 230, true );
 	}
 } // spurs_setup.
 

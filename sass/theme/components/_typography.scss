@@ -1,96 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-	font-size: $font-20;
+  &.admin-bar {
+	.main-header {
+	  top: 32px;
 
-	&.admin-bar {
-		.main-header {
-			top: 32px;
-
-			@media screen and (max-width: 782px) {
-				top: 46px;
-			}
-		}
+	  @media screen and (max-width: 782px) {
+		top: 46px;
+	  }
 	}
+  }
 }
 
 a,
 button,
 input[type="submit"] {
-	transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-h1 {
-	font-size: $font-56;
-	line-height: 1.25;
-	font-weight: 700;
-}
-
-h2 {
-	font-size: $font-40;
-	line-height: 50px;
-	font-weight: 700;
-}
-
-h3 {
-	font-size: $font-35;
-	line-height: 48px;
-	font-weight: 700;
-}
-
-h4 {
-	margin-bottom: 1.5rem;
-	font-weight: 400;
+  &:hover {
+	text-decoration: none;
+  }
 }
 
 .btn {
-	font-size: 14px;
-	text-transform: uppercase;
-	font-weight: 700;
-	padding: 15px 45px;
-	border-radius: 0;
-	letter-spacing: 2px;
-	border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 15px 45px;
+  border-radius: 0;
+  letter-spacing: 2px;
+  border: none;
 }
 
 .bg-image {
-	display: block;
-	width: 100%;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	margin: auto;
+  display: block;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
 
-	@include media-breakpoint-down(sm) {
-		max-height: 275px;
-		background-position: center top;
+  @include media-breakpoint-down(sm) {
+	max-height: 275px;
+	background-position: center top;
+  }
+}
+
+.wp-block-button {
+  .wp-block-button__link {
+	@extend .btn;
+  }
+
+  &.is-secondary {
+	.wp-block-button__link {
+	  @extend .btn-secondary;
 	}
+  }
+
+  &.is-primary {
+	.wp-block-button__link {
+	  @extend .btn-primary;
+	}
+  }
 }
 
 :focus {
-	outline: none !important;
-	box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .wrapper {
-	&.remove-padding {
-		&--top {
-			padding-top: 127px;
-		}
-
-		&--bottom {
-			padding-bottom: 0;
-		}
-
-		&--both {
-			padding-top: 127px;
-			padding-bottom: 0;
-		}
+  &.remove-padding {
+	&--top {
+	  padding-top: 127px;
 	}
+
+	&--bottom {
+	  padding-bottom: 0;
+	}
+
+	&--both {
+	  padding-top: 127px;
+	  padding-bottom: 0;
+	}
+  }
 }
 
 iframe {
-	display: flex;
+  display: flex;
+}
+
+*[class*="has-text-color"] {
+  * {
+	color: inherit;
+  }
+}
+
+ul.list-unstyled {
+  list-style: none;
+  padding-left: 0;
 }

@@ -209,7 +209,7 @@ if ( ! function_exists( 'bg' ) ) {
 			}
 		}*/
 
-		$string = 'style="background-image: url(' . $url . '); ' . $additional_style . '"';
+		$string = 'style="background: transparent url(' . esc_url( $url ) . ') no-repeat center/cover; ' . $additional_style . '"';
 
 		if ( $echo ) {
 			echo $string;
@@ -327,6 +327,17 @@ function spurs_get_excerpt_by_post($id, $length = 70) {
 		return substr($content, 0, $length) . '[..]';
 	} else {
 		return $content;
+	}
+}
+
+if ( ! function_exists( 'spurs_featured_image' ) ) {
+	function spurs_featured_image( $img_url, $return_url = false ) {
+
+		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/perigee-placeholder-charcoal.svg';
+		if ( $return_url ) {
+		    return $img_url;
+        }
+		echo 'style="background-image: url('.$img_url.')"';
 	}
 }
 

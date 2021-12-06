@@ -4,12 +4,12 @@
  * just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
  */
 
+$spurs-black: var(--wp--preset--color--spurs-black);
+$spurs-white: var(--wp--preset--color--spurs-white);
+
 // FONT SIZES
-$font-80: 5rem;
-$font-56: 3.5rem;
 $font-48: 3rem;
-$font-40: 2.5rem;
-$font-35: 2.1875rem;
+$font-36: 2.25rem;
 $font-30: 1.875rem;
 $font-24: 1.5rem;
 $font-20: 1.25rem;
@@ -19,59 +19,35 @@ $font-14: .875rem;
 $font-12: .75rem;
 
 // THEME FONTS
-$primary-font: "neue-haas-unica",sans-serif;
-
-// THEME COLORS
-$black: #1D1D1D;
-$yellow: #EBB500;
-$blue: #0026C0;
-$light-gray: #f9f9f9;
-$white: #FFFFFF;
-
-// ARRAY OF THEME COLORS
-$color-array: (
-	black: $black,
-	yellow: $yellow,
-	blue: $blue,
-	light-gray: $light-gray,
-	white: $white,
-);
-
-// APPLY BACKGROUND-COLOR AND COLOR PER EDITOR SETTINGS
-@each $color, $code in $color-array {
-	:root {
-		.has-#{$color}-background-color {
-			background-color: $code;
-		}
-
-		.has-#{$color}-color {
-			color: $code;
-		}
-	}
-}
+$body-font: 'Lato', sans-serif;
 
 // BOOTSTRAP VARIABLES
-$link-color: $black;
-$font-family-base: $primary-font;
-$font-family-second: $primary-font;
-
-/*$pagination-active-color: $rc-coffee;
-$pagination-active-bg: $rc-coffee;
-$pagination-active-color: $white;*/
-
-$theme-colors: (
-	"primary": $black,
-	"secondary": $yellow,
-	"black": $black,
-	"blue": $blue,
-	"light-gray": $light-gray,
+//$link-color: #444444;
+//$pagination-active-bg: $deep-blue;
+//$pagination-active-border-color: $charcoal;
+$paragraph-margin-bottom: 1.5rem;
+$spacer: 1.25rem;
+$spacers: (
+        0: 0,
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
+        5: ($spacer * 2),
+        6: ($spacer * 2.5),
+        7: ($spacer * 3),
+		8: ($spacer * 4)
 );
 
 $grid-breakpoints: (
-	xs: 0,
-	sm: 599px,
-	md: 768px,
-	lg: 992px,
-	xl: 1100px,
-	xxl: 1771px
+        xxs: 0,
+        xs: 480px,
+        sm: 600px,
+        md: 782px,
+        lg: 992px,
+        xl: 1136px,
+        xxl: 1456px,
+        xxxl: 1936px
 );
+
+$default_transition: all 0.3s ease-out;
