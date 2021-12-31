@@ -15,40 +15,41 @@ defined( 'ABSPATH' ) || exit;
  */
 if ( ! function_exists( 'spurs_posted_on' ) ) {
 	function spurs_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
-		);
 
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$updated_time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		}
+
 		$updated_time_string = sprintf( $updated_time_string,
 			esc_attr( get_the_modified_date( 'c' ) ),
 			esc_html( get_the_modified_date() )
 		);
 
+			$posted_on = apply_filters(
+				'spurs_posted_on', sprintf(
+					'<div class="updated-on">%1$s %2$s%3$s</div>',
+					esc_html_x( ' Updated on', 'post date', 'spurs' ),
+					apply_filters( 'spurs_posted_on_time', $updated_time_string ),
+					esc_html_x( '', 'post date', 'spurs' )
+
+				)
+			);
+
+		} else {
+			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+			$time_string = sprintf( $time_string,
+				esc_attr( get_the_date( 'c' ) ),
+				esc_html( get_the_date() )
+			);
 
 		$posted_on = apply_filters(
 			'spurs_posted_on', sprintf(
 				'<div class="posted-on">%1$s %2$s</a></div>',
-				esc_html_x( 'Posted', 'post date', 'spurs' ),
+					esc_html_x( 'Posted on', 'post date', 'spurs' ),
 				apply_filters( 'spurs_posted_on_time', $time_string )
 			)
 		);
-
-		$updated_on = apply_filters(
-			'spurs_posted_on', sprintf(
-				'<div class="updated-on text-muted small">%1$s %2$s%3$s</div>',
-				esc_html_x( ' (Updated ', 'post date', 'spurs' ),
-				apply_filters( 'spurs_posted_on_time', $updated_time_string ),
-				esc_html_x( ')', 'post date', 'spurs' )
-
-			)
-		);
-
+		}
 
 		$byline = apply_filters(
 			'spurs_posted_by', sprintf(
@@ -59,9 +60,9 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 			)
 		);
 		echo $posted_on . $byline;
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		/*if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			echo $updated_on;// WPCS: XSS OK.
-		}
+		}*/
 	}
 }
 

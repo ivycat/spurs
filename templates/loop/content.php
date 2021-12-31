@@ -38,10 +38,10 @@ global $post;
 
         <a href="<?php echo get_the_permalink(); ?>">
 	        <h4><?php echo get_the_title(); ?></h4>
-			<?php if ( get_the_content() ) : ?>
-                <p><?php echo spurs_get_excerpt_by_post( $post->ID, 175 ) ?></p>
-			<?php endif; ?>
         </a>
+		<?php if ( get_the_content() ) : ?>
+			<p><?php echo spurs_get_excerpt_by_post( $post->ID, 175 ) ?></p>
+		<?php endif; ?>
     </div>
     <div class="card-footer">
         <a href="<?php echo get_the_permalink(); ?>">

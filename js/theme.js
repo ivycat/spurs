@@ -7162,7 +7162,7 @@ jQuery(function ($) {
       success: function (data) {
         if (data) {
           button.text('More posts');
-          $('.site-main').append(data); // insert new posts
+          $('.latest-news-list > .card-group').append(data); // insert new posts
 
           spurs_loadmore_params.current_page++;
           if (spurs_loadmore_params.current_page == spurs_loadmore_params.max_page) button.remove(); // if last page, remove the button
