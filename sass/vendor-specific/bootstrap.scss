@@ -1,0 +1,52 @@
+/*!
+ * Bootstrap v5.0.1 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// scss-docs-start import-stack
+// Configuration
+@import "../vendors/bootstrap4/functions";
+@import "../vendors/bootstrap4/variables";
+@import "../vendors/bootstrap4/mixins";
+@import "../vendors/bootstrap4/utilities";
+
+// Layout & components
+@import "../vendors/bootstrap4/root";
+@import "../vendors/bootstrap4/reboot";
+@import "../vendors/bootstrap4/type";
+@import "../vendors/bootstrap4/images";
+@import "../vendors/bootstrap4/containers";
+@import "../vendors/bootstrap4/grid";
+//@import "../vendors/bootstrap4/tables";
+//@import "../vendors/bootstrap4/forms";
+@import "../vendors/bootstrap4/buttons";
+//@import "../vendors/bootstrap4/transitions";
+@import "../vendors/bootstrap4/dropdown";
+@import "../vendors/bootstrap4/button-group";
+@import "../vendors/bootstrap4/nav";
+@import "../vendors/bootstrap4/navbar";
+@import "../vendors/bootstrap4/card";
+//@import "../vendors/bootstrap4/accordion";
+//@import "../vendors/bootstrap4/breadcrumb";
+@import "../vendors/bootstrap4/pagination";
+//@import "../vendors/bootstrap4/badge";
+//@import "../vendors/bootstrap4/alert";
+//@import "../vendors/bootstrap4/progress";
+//@import "../vendors/bootstrap4/list-group";
+//@import "../vendors/bootstrap4/close";
+//@import "../vendors/bootstrap4/toasts";
+@import "../vendors/bootstrap4/modal";
+//@import "../vendors/bootstrap4/tooltip";
+//@import "../vendors/bootstrap4/popover";
+//@import "../vendors/bootstrap4/carousel";
+//@import "../vendors/bootstrap4/spinners";
+//@import "../vendors/bootstrap4/offcanvas";
+
+// Helpers
+@import "../vendors/bootstrap4/helpers";
+
+// Utilities
+@import "../vendors/bootstrap4/utilities/api";
+// scss-docs-end import-stack

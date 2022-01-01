@@ -182,8 +182,9 @@ if ( ! function_exists( 'bg' ) ) {
 
 	function bg($img, $size = '', $echo = true, $additional_style = '') {
 		if ( ! $img ) {
-		    $uploads = wp_get_upload_dir();
-		    $url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image
+		    /*$uploads = wp_get_upload_dir();
+		    $url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image*/
+			$url = get_template_directory_uri() . '/images/placeholder.jpeg';
 		} else {
             if ( is_array( $img ) ) {
                 $url = $size ? $img['sizes'][ $size ] : $img['url'];
@@ -333,7 +334,7 @@ function spurs_get_excerpt_by_post($id, $length = 70) {
 if ( ! function_exists( 'spurs_featured_image' ) ) {
 	function spurs_featured_image( $img_url, $return_url = false ) {
 
-		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/perigee-placeholder-charcoal.svg';
+		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/placeholder.jpeg';
 		if ( $return_url ) {
 		    return $img_url;
         }

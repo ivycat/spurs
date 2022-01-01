@@ -17,6 +17,9 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 		$the_theme     = wp_get_theme();
 		$theme_version = $the_theme->get( 'Version' );
 
+		$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/fontawesome.min.css' );
+		wp_enqueue_style( 'fontawesome-styles', get_stylesheet_directory_uri() . '/css/fontawesome.min.css', array(), $css_version );
+
 		$css_version = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
 		wp_enqueue_style( 'spurs-styles', get_stylesheet_directory_uri() . '/css/theme.min.css', array(), $css_version );
 
