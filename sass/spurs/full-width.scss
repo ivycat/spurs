@@ -9,83 +9,73 @@ $container: 950px;
   padding-left: 0;
   padding-right: 0;
 
-  @include media-breakpoint-down(lg) {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  /*@include media-breakpoint-down(lg) {
+	padding-left: 2rem;
+	padding-right: 2rem;
+  }*/
 
   &--wide {
-    @extend .container;
-    max-width: $container-wide;
-    @include media-breakpoint-between(lg, xl) {
-      max-width: $container;
-    }
+	@extend .container;
+	max-width: $container-wide;
+	/*@include media-breakpoint-between(lg, xl) {
+	  max-width: $container;
+	}*/
   }
 }
 
 .entry-content {
   > * {
-    max-width: $container;
-    margin-left: auto !important;
-    margin-right: auto !important;
+	max-width: $container;
+	margin-left: auto !important;
+	margin-right: auto !important;
 
-    @include media-breakpoint-down(lg) {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+	/*@include media-breakpoint-down(lg) {
+	  padding-left: 2rem;
+	  padding-right: 2rem;
+	}*/
   }
 
   > .alignwide {
-    max-width: $container-wide;
+	max-width: $container-wide;
 
-    @include media-breakpoint-down(xl) {
-      max-width: $container;
-    }
-    @include media-breakpoint-down(lg) {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+	/*@include media-breakpoint-down(xl) {
+	  max-width: $container;
+	}
+	@include media-breakpoint-down(lg) {
+	  padding-left: 2rem;
+	  padding-right: 2rem;
+	}*/
   }
 
   > .alignfull {
-    max-width: none;
-    padding-left: 2rem;
-    padding-right: 2rem;
+	max-width: none;
+	padding-left: 2rem;
+	padding-right: 2rem;
 
-    @include media-breakpoint-up(xl) {
-      padding-left: 5rem;
-      padding-right: 5rem;
-    }
+	/*@include media-breakpoint-up(xl) {
+	  padding-left: 5rem;
+	  padding-right: 5rem;
+	}*/
 
-    @include media-breakpoint-down(xl) {
-      /*max-width: 100%;
-      padding-left: 2rem;
-      padding-right: 2rem;*/
+	.alignwide {
+	  max-width: $container-wide;
+	  margin-left: auto !important;
+	  margin-right: auto !important;
 
-      /*> * {
-        max-width: $container;
-      }*/
-    }
-
-    .alignwide {
-      max-width: $container-wide;
-      margin-left: auto !important;
-      margin-right: auto !important;
-
-      @include media-breakpoint-down(xl) {
-        max-width: $container;
-      }
-    }
+	  /*@include media-breakpoint-down(xl) {
+		max-width: $container;
+	  }*/
+	}
   }
 
   > .alignleft {
-    float: left;
-    margin-right: 2em;
+	float: left;
+	margin-right: 2em;
   }
 
   > .alignright {
-    float: right;
-    margin-right: 2em;
+	float: right;
+	margin-right: 2em;
   }
 }
 
@@ -104,9 +94,25 @@ $container: 950px;
   margin: 2.5rem auto 2rem;
 }
 
+.aligncenter {
+  margin: 0 auto;
+}
+
 .aligncenter,
 .aligncenter img {
   text-align: center;
+}
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
 }
 
 .wp-block-pullquote {
@@ -118,82 +124,42 @@ $container: 950px;
 
 .wp-block-gallery {
   &.aligncenter {
-    justify-content: center;
+	justify-content: center;
   }
 
   .blocks-gallery-item {
-    figure {
-      align-items: center;
-    }
+	figure {
+	  align-items: center;
+	}
   }
 }
 
 .wp-block-cover {
   .wp-block-cover__inner-container {
-    > .wp-block-columns {
-      margin: 0;
-      @include media-breakpoint-down(sm) {
-        // justify-content: center;
-        width: 100%;
-        flex-direction: column;
-      }
-    }
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-.page-template-full-width-slim,
-.full-width-slim-template {
-  .entry-content,
-  .page-content {
-    > ul {
-      padding-left: 40px;
-    }
-  }
-
-  .featured-media {
-    margin: 2rem auto 1rem;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-.left-sidebar-template,
-.right-sidebar-template,
-.both-sidebar-template {
-	.entry-header,
-	.entry-footer,
-	.page-header,
-	.page-footer,
-	#breadcrumbs,
-	.featured-media {
-		max-width: 100%;
+	> .wp-block-columns {
+	  margin: 0;
+	  /*@include media-breakpoint-down(sm) {
 		width: 100%;
+		flex-direction: column;
+	  }*/
 	}
-
-	.entry-content, .page-content {
-		> * {
-			&:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
-				max-width: 100%;
-				width: 100%;
-			}
-		}
-	}
+  }
 }
 
 .blog {
-	.page-header,
-	.blog-posts-wrap {
-		@extend .container;
-		max-width: $container;
-	}
+  .page-header,
+  .blog-posts-wrap {
+	@extend .container;
+	max-width: $container;
+  }
 }
 
 #breadcrumbs {
-	margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 *[style^="font-size"] {
   > * {
-    font-size: inherit;
+	font-size: inherit;
   }
 }

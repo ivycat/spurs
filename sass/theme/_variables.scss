@@ -21,33 +21,4 @@ $font-12: .75rem;
 // THEME FONTS
 $body-font: 'Lato', sans-serif;
 
-// BOOTSTRAP VARIABLES
-//$link-color: #444444;
-//$pagination-active-bg: $deep-blue;
-//$pagination-active-border-color: $charcoal;
-$paragraph-margin-bottom: 1.5rem;
-$spacer: 1.25rem;
-$spacers: (
-        0: 0,
-        1: ($spacer * .25),
-        2: ($spacer * .5),
-        3: $spacer,
-        4: ($spacer * 1.5),
-        5: ($spacer * 2),
-        6: ($spacer * 2.5),
-        7: ($spacer * 3),
-		8: ($spacer * 4)
-);
-
-$grid-breakpoints: (
-        xxs: 0,
-        xs: 480px,
-        sm: 600px,
-        md: 782px,
-        lg: 992px,
-        xl: 1136px,
-        xxl: 1456px,
-        xxxl: 1936px
-);
-
 $default_transition: all 0.3s ease-out;

@@ -37,22 +37,6 @@ if ( ! function_exists( 'spurs_components_jetpack_setup' ) ) {
 	}
 }
 
-/**
- * Custom render function for Infinite Scroll.
- */
-if ( ! function_exists( 'spurs_components_infinite_scroll_render' ) ) {
-	function spurs_components_infinite_scroll_render() {
-		while ( have_posts() ) {
-			the_post();
-			if ( is_search() ) {
-				get_template_part( 'templates/loop/content', 'search' );
-			} else {
-				get_template_part( 'templates/loop/content', get_post_format() );
-			}
-		}
-	}
-}
-
 if ( ! function_exists( 'spurs_components_social_menu' ) ) {
 	function spurs_components_social_menu() {
 		if ( ! function_exists( 'jetpack_social_menu' ) ) {

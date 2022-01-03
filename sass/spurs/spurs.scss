@@ -1,63 +1,33 @@
 // Some basic padding for all wrappers
-.wrapper {
-	padding: $grid-gutter-width 0;
-}
 
 // Reset hero wrapper padding to 0
 #wrapper-hero {
-	padding: 0 !important;
+  padding: 0 !important;
 }
 
 // Adding basic WordPress classes to pass the WordPress.org tests
 .sticky,
 .gallery-caption,
 .bypostauthor {
-	font-size: inherit;
-}
-
-// Separate sticky wrapper from main content
-.wrapper#wrapper-sticky {
-	border-bottom: 1px solid $gray-300;
-}
-
-// Adding some contrast background color to footer full widget
-#wrapper-footer-full,
-#wrapper-hero-static {
-	background-color: $gray-200;
+  font-size: inherit;
 }
 
 // Necessary WP classes
 .wp-caption {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 .wp-caption-text {
-	font-size: inherit;
+  font-size: inherit;
 }
 
 .screen-reader-text {
-	font-size: inherit;
-}
-
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-
-.alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-}
-
-.aligncenter {
-	margin: 0 auto;
+  font-size: inherit;
 }
 
 // Post design
 .entry-footer span {
-	padding-right: 10px;
+  padding-right: 10px;
 }
 
 // Limit featured image size to 100%
@@ -66,86 +36,31 @@ article img,
 figure,
 img,
 #secondary img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 // Skip to content link
 a.skip-link {
-	position: fixed;
-	z-index: 1000;
-	top: 0;
-	right: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
 }
 
 // Reset Jumbotron default margin
 .jumbotron {
-	margin-bottom: 0;
-}
-
-// Dropdown translation
-.navbar-nav {
-  .dropdown-menu {
-    .nav-link {
-      display: block;
-      width: 100%; // For `<button>`s
-      padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-      clear: both;
-      font-weight: $font-weight-normal;
-      color: $dropdown-link-color !important;
-      text-align: inherit; // For `<button>`s
-      white-space: nowrap; // prevent links from randomly breaking onto new lines
-      background: none; // For `<button>`s
-      border: 0; // For `<button>`s
-
-      @include hover-focus {
-        color: $dropdown-link-hover-color !important;
-        text-decoration: none;
-        background-color: $dropdown-link-hover-bg;
-      }
-
-      &.active,
-      &:active {
-        color: $dropdown-link-active-color !important;
-        text-decoration: none;
-        background-color: $dropdown-link-active-bg;
-      }
-
-      &.disabled,
-      &:disabled {
-        color: $dropdown-link-disabled-color !important;
-        background-color: transparent;
-        // Remove CSS gradients if they're enabled
-        @if $enable-gradients {
-          background-image: none;
-        }
-      }
-    }
-  }
-
-  @include media-breakpoint-up(xl) {
-    .dropdown:hover {
-      > .dropdown-menu {
-        display: block;
-      }
-    }
-  }
-}
-
-.carousel-inner .carousel-item img {
-	display: block;
-	border: 5px solid $primary;
-	margin: 0 auto;
+  margin-bottom: 0;
 }
 
 ul, ol {
-	li {
-		margin-bottom: 10px;
-	}
+  li {
+	margin-bottom: 10px;
+  }
 
-	&.list-without-spacing {
-		li {
-			margin-bottom: 0;
-		}
+  &.list-without-spacing {
+	li {
+	  margin-bottom: 0;
 	}
+  }
 }

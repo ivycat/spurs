@@ -4,8 +4,8 @@
   display: none;
   width: 100%;
   z-index: 99;
-  background-color: $white;
-  color: $black;
+  background-color: $spurs-white;
+  color: $spurs-black;
   box-shadow: 0 10px 25px -15px rgba(0, 0, 0, 0.15);
 
   .search-form {
@@ -22,17 +22,17 @@
 		font-weight: 400;
 		position: absolute;
 		top: 10px;
-		color: $black;
+		color: $spurs-black;
 		transform: rotate(90deg);
 
-		@include media-breakpoint-down(lg) {
+		/*@include media-breakpoint-down(lg) {
 		  top: 12px;
-		}
+		}*/
 	  }
 
 	  .search-input {
 		border: 0;
-		border-bottom: 2px solid $black;
+		border-bottom: 2px solid $spurs-black;
 		width: 100%;
 		padding: 1rem 1rem 1rem 3rem;
 		font-size: 24px;

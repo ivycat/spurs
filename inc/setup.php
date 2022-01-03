@@ -98,9 +98,6 @@ if ( ! function_exists( 'spurs_setup' ) ) {
 
 		// Add support for full width blocks.
 		add_theme_support( 'align-wide' );
-
-		// Check and setup theme default settings.
-		spurs_setup_theme_default_settings();
 	}
 } // spurs_setup.
 

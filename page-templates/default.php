@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: Left & right sidebars
+ * Template Name: Default Template
  *
- * This template can be used to override the default template and sidebar setup
+ * Template for displaying page content at default (slim) width.
  *
  * @package spurs
  */

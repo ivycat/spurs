@@ -59,13 +59,13 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 				<?php wp_nav_menu( //The WordPress Menu goes here
 					array(
 						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
+						//'container_class' => 'collapse navbar-collapse',
+						//'container_id'    => 'navbarNavDropdown',
+						//'menu_class'      => 'navbar-nav',
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
-						'depth'           => 2,
-						'walker'          => new Spurs_WP_Bootstrap_Navwalker(),
+						//'depth'           => 2,
+						//'walker'          => new Spurs_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
 				<?php if ( 'container' == $container ) : ?>

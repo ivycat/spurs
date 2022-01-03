@@ -9,24 +9,22 @@
 defined( 'ABSPATH' ) || exit;
 
 $spurs_includes = array(
-	'/custom-cpt.php',                      // Initialize theme default settings.
-	'/theme-settings.php',                  // Initialize theme default settings.
-	'/theme-wrapper.php',                   // Load theme wrapper.
-	'/setup.php',                           // Theme setup and custom theme supports.
-	'/widgets.php',                         // Register widget area.
-	'/enqueue.php',                         // Enqueue scripts and styles.
-	'/template-tags.php',                   // Custom template tags.
-	'/pagination.php',                      // Custom pagination.
-	'/load-more.php',                      // Custom Load More.
-	'/hooks.php',                           // Custom hooks.
-	'/extras.php',                          // Custom functions that act independently of the theme templates.
-	'/customizer.php',                      // Customizer additions.
-	'/custom-comments.php',                 // Custom comments.
-	'/jetpack.php',                         // Jetpack compatibility.
-	'/bootstrap-wp-navwalker.php',          // custom WordPress nav walker.
-	'/woocommerce.php',                     // WooCommerce functions.
-	'/editor.php',                          // Editor functions.
-	'/cleanup.php',                          // Editor functions.
+	'/cleanup.php',             // Editor functions.
+	'/custom-comments.php',     // Custom comments.
+	'/custom-cpt.php',          // Initialize theme default settings.
+	'/customizer.php',          // Customizer additions.
+	'/enqueue.php',             // Enqueue scripts and styles.
+	'/extras.php',              // Custom functions that act independently of the theme templates.
+	'/hooks.php',               // Custom hooks.
+	'/jetpack.php',             // Jetpack compatibility.
+	'/load-more.php',           // Custom Load More.
+	'/pagination.php',          // Custom pagination.
+	'/setup.php',               // Theme setup and custom theme supports.
+	'/template-tags.php',       // Custom template tags.
+	'/theme-wrapper.php',       // Load theme wrapper.
+	'/widgets.php',             // Register widget area.
+	'/woocommerce.php',         // WooCommerce functions.
+	'/wpcom.php',               // WooCommerce functions.
 );
 
 foreach ( $spurs_includes as $file ) {
