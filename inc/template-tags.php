@@ -140,56 +140,20 @@ if ( ! function_exists( 'spurs_category_transient_flusher' ) ) {
 }
 
 /**
- * Left sidebar loading logic
- */
-if ( ! function_exists( 'spurs_left_sidebar' ) ) {
-
-	function spurs_left_sidebar() {
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( ! is_page_template( 'page-templates/full-width.php' ) && ! is_page_template( 'page-templates/sidebar-right.php' ) ) {
-			if ( is_page_template( 'page-templates/sidebar-left.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) {
-				get_template_part( 'templates/sidebar/sidebar', 'left' );
-			}
-		}
-	}
-}
-
-/**
- * Right sidebar loading logic
- */
-if ( ! function_exists( 'spurs_right_sidebar' ) ) {
-
-	function spurs_right_sidebar() {
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( ! is_page_template( 'page-templates/full-width.php' ) || ! is_page_template( 'page-templates/sidebar-left.php' ) ) {
-			if ( is_page_template( 'page-templates/sidebar-right.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) ) {
-				get_template_part( 'templates/sidebar/sidebar', 'right' );
-			} elseif ( is_page_template( 'default' ) && ( 'right' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) ) {
-				get_template_part( 'templates/sidebar/sidebar', 'right' );
-			}
-		}
-	}
-
-}
-
-/**
  * Content classes loading logic
  */
 if ( ! function_exists( 'spurs_content_classes' ) ) {
 
 	/**
-	 * Prints classes for content area div depending on active sidebars.
+	 * Prints classes for content area div depending on active template.
 	 *
 	 * Usage add this function between the class quotes like so
 	 *      <div class="<?php spurs_content_classes(); ?>" id="primary">
 	 */
 	function spurs_content_classes() {
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		$html                   = '';
 
-		if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
+		/*if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
 			$html .= 'left-sidebar-template column-8 content-area';
 			echo $html; // WPCS: XSS OK.
 
@@ -197,110 +161,7 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 			$html .= 'right-sidebar-template column-8 container content-area';
 			echo $html; // WPCS: XSS OK.
 
-		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
-			$html .= 'both-sidebar-template column-6 content-area';
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( is_page_template( 'page-templates/full-width.php' ) ) {
-			$html .= 'full-width-template column-12 content-area';
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( is_page_template( array( 'page-templates/full-width-slim.php', 'page-templates/landing.php' ) ) ) {
-			$html .= 'full-width-slim-template column-8 off-2 content-area';
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( is_single() || is_search() || is_404() ) {
-			$html .= 'full-width-slim-template column-8 off-2 content-area';
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) {
-
-			if ( is_active_sidebar( 'sidebar-right' ) || is_active_sidebar( 'sidebar-left' ) ) {
-				$html .= 'column-8 content-area';
-			} else {
-				$html .= 'column-12 content-area';
-			}
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( is_active_sidebar( 'sidebar-right' ) && is_active_sidebar( 'sidebar-left' ) ) {
-			$html = '';
-			if ( 'both' === $spurs_sidebar_position ) {
-				$html .= 'column-6 content-area';
-			} else {
-				$html .= 'column-12 content-area';
-			}
-			echo $html; // WPCS: XSS OK.
-
-		} else {
-			echo 'column-12 content-area';
-		}
-		}
-	}
-
-/**
- * Content classes loading logic
- */
-if ( ! function_exists( 'spurs_column_classes' ) ) {
-
-	/**
-	 * Prints classes for content area div depending on active sidebars.
-	 *
-	 * Usage add this function between the class quotes like so
-	 *      <div class="<?php spurs_column_classes(); ?>" id="primary">
-	 */
-	function spurs_column_classes() {
-		$html                   = '';
-
-		if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'sidebar-left' ) ) {
-			$html .= 'col-md-8 left-sidebar-template';
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) {
-			$html .= 'col-md-8 right-sidebar-template';
-			echo $html; // WPCS: XSS OK.
-
-		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
-			$html .= 'both-sidebar-template col-md-6';
-			echo $html; // WPCS: XSS OK.
-
-		}
+		}*/
+		echo $html;
 	}
 }
-
-/**
- * Sidebar classes
- */
-if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
-
-	/**
-	 * Prints classes for sidebars area div depending on active sidebars.
-	 *
-	 * Add this function between the class quotes like so
-	 *      <div class="<?php spurs_sidebar_classes(); ?>">
-	 */
-	function spurs_sidebar_classes() {
-
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		$html                   = '';
-
-		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
-			$html .= 'col-md-3 widget-area';
-			echo $html; // WPCS: XSS OK.
-		} elseif ( ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'sidebar-left' ) ) ||
-		           ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) ) {
-			$html .= 'col-md-4 widget-area';
-			echo $html; // WPCS: XSS OK.
-		} elseif ( ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) || is_active_sidebar( 'sidebar-left' ) ) ) {
-			$html .= 'col-md-4 content-area';
-			echo $html; // WPCS: XSS OK.
-		} elseif ( ( 'both' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) && is_active_sidebar( 'sidebar-left' ) ) ) {
-			$html .= 'col-md-3 content-area';
-			echo $html; // WPCS: XSS OK.
-		} else {
-			$html .= 'col-12 widget-area';
-			echo $html; // WPCS: XSS OK.
-		}
-	}
-}
-
-

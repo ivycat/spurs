@@ -22,7 +22,6 @@ $spurs_includes = array(
 	'/setup.php',               // Theme setup and custom theme supports.
 	'/template-tags.php',       // Custom template tags.
 	'/theme-wrapper.php',       // Load theme wrapper.
-	'/widgets.php',             // Register widget area.
 	'/woocommerce.php',         // WooCommerce functions.
 	'/wpcom.php',               // WooCommerce functions.
 );

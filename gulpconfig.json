@@ -1,29 +1,29 @@
 {
-	"browserSyncOptions": {
-		"proxy": "https://mytestbed.lndo.site",
-		"notify": false,
-		"browser": [
-			"google chrome",
-			"firefox"
-		],
-		"reloadDelay": 2500
-	},
-	"browserSyncWatchFiles": [
-		"./css/*.min.css",
-		"./js/*.min.js",
-		"./**/*.php"
+  "browserSyncOptions": {
+	"proxy": "https://mytestbed.lndo.site",
+	"notify": false,
+	"browser": [
+	  "google chrome",
+	  "firefox"
 	],
-	"paths": {
-		"js": "./js",
-		"css": "./css",
-		"img": "./img",
-		"imgsrc": "./src/img",
-		"sass": "./sass",
-		"node": "./node_modules",
-		"bower": "./bower_components",
-		"dev": "./src",
-		"dist": "./dist",
-		"distprod": "./dist-product",
-		"vendor": ""
-	}
+	"reloadDelay": 2500
+  },
+  "browserSyncWatchFiles": [
+	"./css/*.min.css",
+	"./js/*.min.js",
+	"./**/*.php"
+  ],
+  "paths": {
+	"sass": "./src/sass",
+	"scripts": "./src/js",
+	"js": "./dist/js",
+	"css": "./dist/css",
+	"img": "./images",
+	"node": "./node_modules",
+	"bower": "./bower_components",
+	"src": "./src",
+	"dist": "./dist",
+	"distprod": "./dist-product",
+	"vendor": ""
+  }
 }

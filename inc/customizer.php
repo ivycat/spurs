@@ -34,18 +34,6 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 	 * @param WP_Customize_Manager $wp_customize Customizer reference.
 	 */
 	function spurs_theme_customize_register( $wp_customize ) {
-
-		// Theme layout settings.
-		$wp_customize->add_section(
-			'spurs_theme_layout_options',
-			array(
-				'title'       => __( 'Theme Layout Settings', 'spurs' ),
-				'capability'  => 'edit_theme_options',
-				'description' => __( 'Container width and sidebar defaults', 'spurs' ),
-				'priority'    => 160,
-			)
-		);
-
 		/**
 		 * Select sanitization function
 		 *

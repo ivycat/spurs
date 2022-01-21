@@ -1,7 +1,7 @@
 // Defining requirements
 var gulp = require('gulp');
 var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('node-sass'));
 var babel = require('gulp-babel');
 var postcss = require('gulp-postcss');
 var watch = require('gulp-watch');
@@ -24,7 +24,7 @@ var paths = cfg.paths;
 // Compiles SCSS files in CSS and merge into folder_name.css
 gulp.task('compile-sass', function(done) {
 	return gulp
-		.src( paths.sass + '/**/*.scss' )
+		.src( paths.sass + '/*.scss' )
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
@@ -36,19 +36,13 @@ gulp.task('compile-sass', function(done) {
 		.pipe(sourcemaps.init())
 		.pipe(sass({ errLogToConsole: true }))
 		.pipe(postcss([autoprefixer()]))
-		.pipe(concat('theme.css'))
+		.pipe(sourcemaps.mapSources(function(sourcePath, file) {
+			return './src/sass/' + sourcePath;
+		}))
 		.pipe(sourcemaps.write(undefined, { sourceRoot: './' }))
 		.pipe(gulp.dest(paths.css))
 		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(cleanCSS({compatibility: '*'}))
-		.pipe(
-			plumber({
-				errorHandler: function (err) {
-					console.log(err);
-					this.emit('end');
-				}
-			})
-		)
 		.pipe(rename({suffix: '.min'}))
 		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest(paths.css));
@@ -65,24 +59,12 @@ gulp.task('compile-fa', function() {
 				}
 			})
 		)
-		.pipe(sourcemaps.init())
 		.pipe(sass({ errLogToConsole: true }))
 		.pipe(postcss([autoprefixer()]))
 		.pipe(concat('fontawesome.css'))
-		.pipe(sourcemaps.write(undefined, { sourceRoot: './' }))
 		.pipe(gulp.dest(paths.css))
-		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(cleanCSS({compatibility: '*'}))
-		.pipe(
-			plumber({
-				errorHandler: function (err) {
-					console.log(err);
-					this.emit('end');
-				}
-			})
-		)
 		.pipe(rename({suffix: '.min'}))
-		.pipe(sourcemaps.write(''))
 		.pipe(gulp.dest(paths.css));
 });
 
@@ -93,7 +75,7 @@ gulp.task('watch', function() {
 	gulp.watch(`${paths.sass}/**/*.scss`, gulp.series('compile-sass'));
 	gulp.watch(
 		[
-			`${paths.dev}/js/**/*.js`,
+			`${paths.src}/js/**/*.js`,
 			'js/**/*.js',
 			'!js/theme.js',
 			'!js/theme.min.js'
@@ -137,16 +119,16 @@ gulp.task('browser-sync', function() {
 gulp.task('compile-scripts', function() {
 	var scripts = [
 		// Start - All BS4 stuff
-		`${paths.dev}/js/bootstrap4/bootstrap.bundle.js`,
+		`${paths.src}/js/bootstrap4/bootstrap.bundle.js`,
 
 		// End - All BS4 stuff
 
-		`${paths.dev}/js/skip-link-focus-fix.js`,
-		`${paths.dev}/js/loadmore.js`,
+		`${paths.src}/js/skip-link-focus-fix.js`,
+		`${paths.src}/js/loadmore.js`,
 
 		// Adding currently empty javascript file to add on for your own themes´ customizations
 		// Please add any customizations to this .js file only!
-		`${paths.dev}/js/custom-javascript.js`
+		`${paths.src}/js/custom-javascript.js`
 	];
 	gulp
 		.src(scripts, { allowEmpty: true })
@@ -168,7 +150,7 @@ gulp.task('compile-scripts', function() {
 
 // Deleting any file inside the /src folder
 gulp.task('clean-source', function() {
-	return del(['src/**/*']);
+	return del([ paths.src + '/**/*']);
 });
 
 // Run:
