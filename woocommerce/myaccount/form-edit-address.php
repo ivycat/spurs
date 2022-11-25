@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
 			<p>
 				<button type="submit" class="btn btn-outline-primary" name="save_address"
-				        value="<?php esc_attr_e( 'Save address', 'spurs' ); ?>"><?php esc_html_e( 'Save address', 'spurs' ); ?></button>
+						value="<?php esc_attr_e( 'Save address', 'spurs' ); ?>"><?php esc_html_e( 'Save address', 'spurs' ); ?></button>
 				<?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
 				<input type="hidden" name="action" value="edit_address"/>
 			</p>
@@ -54,4 +54,5 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_after_edit_account_address_form' );
+<?php
+do_action( 'woocommerce_after_edit_account_address_form' );

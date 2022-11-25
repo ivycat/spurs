@@ -1,18 +1,11 @@
 {
 	"browserSyncOptions": {
-		"proxy": "https://mytestbed.lndo.site",
+		"proxy": "http://spurs.local/",
 		"notify": false,
-		"browser": [
-			"google chrome",
-			"firefox"
-		],
+		"browser": ["google chrome", "firefox"],
 		"reloadDelay": 2500
 	},
-	"browserSyncWatchFiles": [
-		"./css/*.min.css",
-		"./js/*.min.js",
-		"./**/*.php"
-	],
+	"browserSyncWatchFiles": ["./css/*.min.css", "./js/*.min.js", "./**/*.php"],
 	"paths": {
 		"js": "./js",
 		"css": "./css",

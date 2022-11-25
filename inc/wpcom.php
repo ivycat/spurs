@@ -18,6 +18,11 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'after_setup_theme', 'spurs_wpcom_setup' );
 
 if ( ! function_exists( 'spurs_wpcom_setup' ) ) {
+	/**
+	 * WPCom setup
+	 *
+	 * @return void
+	 */
 	function spurs_wpcom_setup() {
 		global $themecolors;
 
@@ -44,6 +49,11 @@ if ( ! function_exists( 'spurs_wpcom_setup' ) ) {
 add_action( 'wp_enqueue_scripts', 'spurs_wpcom_styles' );
 
 if ( ! function_exists( 'spurs_wpcom_styles' ) ) {
+	/**
+	 * WPCom Styles
+	 *
+	 * @return void
+	 */
 	function spurs_wpcom_styles() {
 		wp_enqueue_style( 'spurs-wpcom', get_template_directory_uri() . '/inc/style-wpcom.css', array(), '20160411' );
 	}

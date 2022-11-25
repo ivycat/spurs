@@ -18,4 +18,5 @@ defined( 'ABSPATH' ) || exit;
 		?>
 	</div>
 
-<?php }
+	<?php
+}

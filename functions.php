@@ -32,7 +32,8 @@ $spurs_includes = array(
 foreach ( $spurs_includes as $file ) {
 	$filepath = locate_template( 'inc' . $file );
 	if ( ! $filepath ) {
-		trigger_error( sprintf( 'Error locating /inc%s for inclusion', $file ), E_USER_ERROR );
+		// trigger_error() found. Debug code should not normally be used in production.
+		trigger_error( sprintf( 'Error locating /inc%s for inclusion', $file ), E_USER_ERROR ); // phpcs:ignore
 	}
 	require_once $filepath;
 }

@@ -22,7 +22,7 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 
 		wp_enqueue_script( 'jquery' );
 
-		//wp_enqueue_script('google.maps.api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBzGRoIbHnQqqYWxOYuTpE58WYGx6RkAjo&v=3.exp', null, null, true);
+		// phpcs:ignore wp_enqueue_script('google.maps.api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBzGRoIbHnQqqYWxOYuTpE58WYGx6RkAjo&v=3.exp', null, null, true);
 
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
 		wp_enqueue_script( 'spurs-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
@@ -30,11 +30,16 @@ if ( ! function_exists( 'spurs_scripts' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-} // endif function_exists( 'spurs_scripts' ).
+} //phpcs:ignore endif function_exists( 'spurs_scripts' ).
 
 add_action( 'wp_enqueue_scripts', 'spurs_scripts' );
 
-add_action('admin_head', 'spurs_admin_inline_styles');
+add_action( 'admin_head', 'spurs_admin_inline_styles' );
+/**
+ * Spurs admin inline style
+ *
+ * @return void
+ */
 function spurs_admin_inline_styles() {
 	echo '<style>
     .wp-block{max-width: 1070px}

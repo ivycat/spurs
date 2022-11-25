@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit; ?>
 <header class="page-header author-header">
 
 	<?php
-	if ( isset( $_GET['author_name'] ) ) {
+	if ( isset( $_GET['author_name'] ) ) { // phpcs:ignore
 		$curauth = get_user_by( 'slug', $author_name );
 	} else {
 		$curauth = get_userdata( intval( $author ) );
@@ -22,9 +22,11 @@ defined( 'ABSPATH' ) || exit; ?>
 
 	<h1><?php esc_html_e( 'About:', 'spurs' ); ?><?php echo esc_html( $curauth->nickname ); ?></h1>
 
-	<?php if ( ! empty( $curauth->ID ) ) :
+	<?php
+	if ( ! empty( $curauth->ID ) ) :
 		echo get_avatar( $curauth->ID );
-	endif; ?>
+	endif;
+	?>
 	<?php if ( ! empty( $curauth->user_url ) || ! empty( $curauth->user_description ) ) : ?>
 		<dl>
 			<?php if ( ! empty( $curauth->user_url ) ) : ?>
@@ -36,7 +38,7 @@ defined( 'ABSPATH' ) || exit; ?>
 
 			<?php if ( ! empty( $curauth->user_description ) ) : ?>
 				<dt><?php esc_html_e( 'Profile', 'spurs' ); ?></dt>
-				<dd><?php echo esc_html_e( $curauth->user_description ); ?></dd>
+				<dd><?php echo esc_html( $curauth->user_description ); ?></dd>
 			<?php endif; ?>
 		</dl>
 	<?php endif; ?>
@@ -45,28 +47,33 @@ defined( 'ABSPATH' ) || exit; ?>
 </header><!-- .page-header -->
 
 <div class="page-content">
-    <ul>
-        <!-- The Loop -->
-        <?php if ( have_posts() ) :
-            while ( have_posts() ) : the_post(); ?>
-                <li>
-                    <?php
-                    printf(
-                        '<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
-                        esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
-                        esc_attr( __( 'Permanent Link:', 'spurs' ) ),
-                        the_title( '', '', false )
-                    );
-                    spurs_posted_on();
-                    esc_html_e( 'in', 'spurs' );
-                    the_category( '&' );
-                    ?>
-                </li>
-            <?php endwhile;
-        else :
-            get_template_part( 'templates/loop/content', 'none' );
-        endif; ?>
-        <!-- End Loop -->
-    </ul>
+	<ul>
+		<!-- The Loop -->
+		<?php
+		if ( have_posts() ) :
+			while ( have_posts() ) :
+				the_post();
+				?>
+				<li>
+					<?php
+					printf(
+						'<a rel="bookmark" href="%1$s" title="%2$s %3$s">%3$s</a>',
+						esc_url( apply_filters( 'the_permalink', get_permalink( $post ), $post ) ),
+						esc_attr( __( 'Permanent Link:', 'spurs' ) ),
+						the_title( '', '', false ) // phpcs:ignore
+					);
+					spurs_posted_on();
+					esc_html_e( 'in', 'spurs' );
+					the_category( '&' );
+					?>
+				</li>
+				<?php
+			endwhile;
+		else :
+			get_template_part( 'templates/loop/content', 'none' );
+		endif;
+		?>
+		<!-- End Loop -->
+	</ul>
 </div>
 

@@ -14,25 +14,37 @@ defined( 'ABSPATH' ) || exit;
  * Prints HTML with meta information for the current post-date/time and author.
  */
 if ( ! function_exists( 'spurs_posted_on' ) ) {
+	/**
+	 * Spurs posted on function
+	 *
+	 * @return void
+	 */
 	function spurs_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() )
 		);
 
+		$updated_time_string = '';
+
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$updated_time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		}
-		$updated_time_string = sprintf( $updated_time_string,
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
 
+		if ( isset( $updated_time_string ) ) :
+			$updated_time_string = sprintf(
+				$updated_time_string,
+				esc_attr( get_the_modified_date( 'c' ) ),
+				esc_html( get_the_modified_date() )
+			);
+		endif;
 
 		$posted_on = apply_filters(
-			'spurs_posted_on', sprintf(
+			'spurs_posted_on',
+			sprintf(
 				'<div class="posted-on">%1$s %2$s</a></div>',
 				esc_html_x( 'Posted', 'post date', 'spurs' ),
 				apply_filters( 'spurs_posted_on_time', $time_string )
@@ -40,27 +52,27 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 		);
 
 		$updated_on = apply_filters(
-			'spurs_posted_on', sprintf(
+			'spurs_posted_on',
+			sprintf(
 				'<div class="updated-on text-muted small">%1$s %2$s%3$s</div>',
 				esc_html_x( ' (Updated ', 'post date', 'spurs' ),
 				apply_filters( 'spurs_posted_on_time', $updated_time_string ),
 				esc_html_x( ')', 'post date', 'spurs' )
-
 			)
 		);
 
-
 		$byline = apply_filters(
-			'spurs_posted_by', sprintf(
+			'spurs_posted_by',
+			sprintf(
 				'<span class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></span>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'spurs' ) : esc_html_x( 'Posted by', 'post author', 'spurs' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				esc_html( get_the_author() )
 			)
 		);
-		echo $posted_on . $byline;
+		echo wp_kses_post( $posted_on . $byline );
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			echo $updated_on;// WPCS: XSS OK.
+			echo $updated_on;// phpcs:ignore
 		}
 	}
 }
@@ -69,20 +81,25 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
  * Prints HTML with meta information for the categories, tags and comments.
  */
 if ( ! function_exists( 'spurs_entry_footer' ) ) {
+	/**
+	 * Spurs single post content for after content
+	 *
+	 * @return void
+	 */
 	function spurs_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'sp' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'spurs' ) );
 			if ( $categories_list && spurs_categorized_blog() ) {
 				/* translators: %s: Categories of current post */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'sp' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %s', 'spurs' ) . '</span>', $categories_list ); // phpcs:ignore
 			}
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '<span class="badge badge-warning">', '</span> <span class="badge badge-warning">', '</span>' );
 			if ( $tags_list ) {
 				/* translators: %s: Tags of current post */
-				printf( '<div class="tags-links">' . esc_html__( 'Tagged %s', 'sp' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links">' . esc_html__( 'Tagged %s', 'sp' ) . '</div>', $tags_list ); // phpcs:ignore
 			}
 		}
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -99,16 +116,23 @@ if ( ! function_exists( 'spurs_entry_footer' ) ) {
  * @return bool
  */
 if ( ! function_exists( 'spurs_categorized_blog' ) ) {
-
+	/**
+	 * Spurs Categorized blog
+	 *
+	 * @return boolean
+	 */
 	function spurs_categorized_blog() {
-		if ( false === ( $all_the_cool_cats = get_transient( 'spurs_categories' ) ) ) {
+		$all_the_cool_cats = get_transient( 'spurs_categories' );
+		if ( false === $all_the_cool_cats ) {
 			// Create an array of all the categories that are attached to posts.
-			$all_the_cool_cats = get_categories( array(
-				'fields'     => 'ids',
-				'hide_empty' => 1,
-				// We only need to know if there is more than one category.
-				'number'     => 2,
-			) );
+			$all_the_cool_cats = get_categories(
+				array(
+					'fields'     => 'ids',
+					'hide_empty' => 1,
+					// We only need to know if there is more than one category.
+					'number'     => 2,
+				)
+			);
 			// Count the number of categories that are attached to the posts.
 			$all_the_cool_cats = count( $all_the_cool_cats );
 			set_transient( 'spurs_categories', $all_the_cool_cats );
@@ -129,6 +153,11 @@ if ( ! function_exists( 'spurs_categorized_blog' ) ) {
 add_action( 'edit_category', 'spurs_category_transient_flusher' );
 add_action( 'save_post', 'spurs_category_transient_flusher' );
 if ( ! function_exists( 'spurs_category_transient_flusher' ) ) {
+	/**
+	 * Spurs category transient flusher
+	 *
+	 * @return void
+	 */
 	function spurs_category_transient_flusher() {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
@@ -142,7 +171,11 @@ if ( ! function_exists( 'spurs_category_transient_flusher' ) ) {
  * Left sidebar loading logic
  */
 if ( ! function_exists( 'spurs_left_sidebar' ) ) {
-
+	/**
+	 * Spurs left sidebar
+	 *
+	 * @return void
+	 */
 	function spurs_left_sidebar() {
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
@@ -158,7 +191,11 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
  * Right sidebar loading logic
  */
 if ( ! function_exists( 'spurs_right_sidebar' ) ) {
-
+	/**
+	 * Spurs right sidebar
+	 *
+	 * @return void
+	 */
 	function spurs_right_sidebar() {
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
@@ -170,14 +207,12 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 			}
 		}
 	}
-
 }
 
 /**
  * Content classes loading logic
  */
 if ( ! function_exists( 'spurs_content_classes' ) ) {
-
 	/**
 	 * Prints classes for content area div depending on active sidebars.
 	 *
@@ -190,27 +225,27 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 
 		if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
 			$html .= 'left-sidebar-template column-8 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$html .= 'right-sidebar-template column-8 container content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'left-sidebar' ) ) && is_active_sidebar( 'right-sidebar' ) ) {
 			$html .= 'both-sidebar-template column-6 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_page_template( 'page-templates/full-width.php' ) ) {
 			$html .= 'full-width-template column-12 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_page_template( array( 'page-templates/full-width-slim.php', 'page-templates/landing.php' ) ) ) {
 			$html .= 'full-width-slim-template column-8 off-2 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_single() || is_search() || is_404() ) {
 			$html .= 'full-width-slim-template column-8 off-2 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) {
 
@@ -219,7 +254,7 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 			} else {
 				$html .= 'column-12 content-area';
 			}
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_active_sidebar( 'sidebar-right' ) && is_active_sidebar( 'sidebar-left' ) ) {
 			$html = '';
@@ -228,13 +263,13 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 			} else {
 				$html .= 'column-12 content-area';
 			}
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} else {
 			echo 'column-12 content-area';
 		}
-		}
 	}
+}
 
 /**
  * Content classes loading logic
@@ -248,19 +283,19 @@ if ( ! function_exists( 'spurs_column_classes' ) ) {
 	 *      <div class="<?php spurs_column_classes(); ?>" id="primary">
 	 */
 	function spurs_column_classes() {
-		$html                   = '';
+		$html = '';
 
 		if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'sidebar-left' ) ) {
 			$html .= 'col-md-8 left-sidebar-template';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'col-md-8 right-sidebar-template';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		} elseif ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'both-sidebar-template col-md-6';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 
 		}
 	}
@@ -284,20 +319,20 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 
 		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {
 			$html .= 'col-md-3 widget-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 		} elseif ( ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'sidebar-left' ) ) ||
-		           ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) ) {
+				( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) ) {
 			$html .= 'col-md-4 widget-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 		} elseif ( ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) || is_active_sidebar( 'sidebar-left' ) ) ) {
 			$html .= 'col-md-4 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 		} elseif ( ( 'both' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) && is_active_sidebar( 'sidebar-left' ) ) ) {
 			$html .= 'col-md-3 content-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 		} else {
 			$html .= 'col-12 widget-area';
-			echo $html; // WPCS: XSS OK.
+			echo $html; // phpcs:ignore
 		}
 	}
 }

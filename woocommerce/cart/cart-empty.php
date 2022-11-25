@@ -29,4 +29,5 @@ if ( wc_get_page_id( 'shop' ) > 0 ) { ?>
 			<?php _esc_html_e( 'Return to shop', 'spurs' ); ?>
 		</a>
 	</p>
-<?php }
+	<?php
+}

@@ -32,7 +32,8 @@ if ( is_active_sidebar( 'hero-slider' ) ) : ?>
 	</div>
 
 	<script>
-        jQuery(".carousel-item").first().addClass("active");
+		jQuery(".carousel-item").first().addClass("active");
 	</script>
 
-<?php endif;
+	<?php
+endif;

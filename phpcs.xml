@@ -22,6 +22,7 @@
 	<!-- Ignore the vendor directory -->
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/woocommerce/*</exclude-pattern>
 
 	<!-- Use the WordPress Ruleset -->
 	<rule ref="WordPress">
@@ -59,7 +60,7 @@
 	-->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="understrap"/>
+			<property name="text_domain" type="array" value="spurs"/>
 		</properties>
 	</rule>
 

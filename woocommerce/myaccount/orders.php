@@ -43,7 +43,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-<?php echo esc_attr( $order->get_status() ); ?> order">
 				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
 					<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>"
-					    data-title="<?php echo esc_attr( $column_name ); ?>">
+						data-title="<?php echo esc_attr( $column_name ); ?>">
 						<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
 							<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 
@@ -98,13 +98,16 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next btn btn-outline-primary"
 			   href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>"><?php _e( 'Next', 'spurs' ); ?></a>
 			<?php
-		endif; ?>
+		endif;
+		?>
 			</div>
 			<?php
-		endif; ?>
+		endif;
+	?>
 
 			<?php
-		else : ?>
+		else :
+			?>
 			<div
 				class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">
 				<a class="woocommerce-Button button"
@@ -114,6 +117,8 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 				<?php esc_html_e( 'No order has been made yet.', 'spurs' ); ?>
 			</div>
 			<?php
-		endif; ?>
+		endif;
+		?>
 
-			<?php do_action( 'woocommerce_after_account_orders', $has_orders );
+			<?php
+			do_action( 'woocommerce_after_account_orders', $has_orders );

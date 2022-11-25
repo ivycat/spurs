@@ -8,7 +8,8 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-while ( have_posts() ) : the_post();
+while ( have_posts() ) :
+	the_post();
 	get_template_part( 'templates/loop/content', 'single' );
 	spurs_post_nav();
 

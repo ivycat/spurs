@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-    <div class="page-content">
+	<div class="page-content">
 	<header class="entry-header">
 		<?php
 		the_title(
@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 		);
 		?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
+		<?php if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
 				<?php spurs_posted_on(); ?>
 			</div>
@@ -32,5 +32,5 @@ defined( 'ABSPATH' ) || exit;
 	<footer class="entry-footer">
 		<?php spurs_entry_footer(); ?>
 	</footer>
-    </div>
+	</div>
 </article>

@@ -105,13 +105,17 @@ do_action( 'woocommerce_before_cart' ); ?>
 						if ( $_product->is_sold_individually() ) {
 							$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
 						} else {
-							$product_quantity = woocommerce_quantity_input( array(
-								'input_name'   => "cart[{$cart_item_key}][qty]",
-								'input_value'  => $cart_item['quantity'],
-								'max_value'    => $_product->get_max_purchase_quantity(),
-								'min_value'    => '0',
-								'product_name' => $_product->get_name(),
-							), $_product, false );
+							$product_quantity = woocommerce_quantity_input(
+								array(
+									'input_name'   => "cart[{$cart_item_key}][qty]",
+									'input_value'  => $cart_item['quantity'],
+									'max_value'    => $_product->get_max_purchase_quantity(),
+									'min_value'    => '0',
+									'product_name' => $_product->get_name(),
+								),
+								$_product,
+								false
+							);
 						}
 
 						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
@@ -137,19 +141,19 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<?php if ( wc_coupons_enabled() ) { ?>
 					<div class="coupon">
 						<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'spurs' ); ?></label> <input type="text"
-						                                                                                   name="coupon_code"
-						                                                                                   class="input-text form-control"
-						                                                                                   id="coupon_code"
-						                                                                                   value=""
-						                                                                                   placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>"/>
+																										   name="coupon_code"
+																										   class="input-text form-control"
+																										   id="coupon_code"
+																										   value=""
+																										   placeholder="<?php esc_attr_e( 'Coupon code', 'spurs' ); ?>"/>
 						<button type="submit" class="btn btn-outline-primary" name="apply_coupon"
-						        value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_attr_e( 'Apply coupon', 'spurs' ); ?></button>
+								value="<?php esc_attr_e( 'Apply coupon', 'spurs' ); ?>"><?php esc_attr_e( 'Apply coupon', 'spurs' ); ?></button>
 						<?php do_action( 'woocommerce_cart_coupon' ); ?>
 					</div>
 				<?php } ?>
 
 				<button type="submit" class="btn btn-outline-primary" name="update_cart"
-				        value="<?php esc_attr_e( 'Update cart', 'spurs' ); ?>"><?php esc_html_e( 'Update cart', 'spurs' ); ?></button>
+						value="<?php esc_attr_e( 'Update cart', 'spurs' ); ?>"><?php esc_html_e( 'Update cart', 'spurs' ); ?></button>
 
 				<?php do_action( 'woocommerce_cart_actions' ); ?>
 
