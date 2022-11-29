@@ -9,8 +9,19 @@ figure.woocommerce-product-gallery__wrapper {
 }
 
 // Fix coupon code input width
-@media(min-width: 768px) {
+@media (min-width: 768px) {
 	#coupon_code.input-text {
 		width: 110px !important;
+	}
+}
+
+// accessibility
+.woocommerce {
+	button.button,
+	a.button {
+		&:focus {
+			// outline: solid 3px red;
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+		}
 	}
 }

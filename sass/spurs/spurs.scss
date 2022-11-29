@@ -119,6 +119,15 @@ a.skip-link {
 		}
 	}
 }
+.navbar-nav {
+	> li.menu-item-has-children {
+		&:focus-within {
+			> ul.dropdown-menu {
+				display: block;
+			}
+		}
+	}
+}
 
 .navbar-light .navbar-brand a {
 	color: $navbar-light-active-color;

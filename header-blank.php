@@ -24,7 +24,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'spurs' ); ?></a>
+
+<a class="skip-link screen-reader-text sr-only" href="#navbarNavDropdown"><?php esc_html_e( 'Skip to Menu', 'spurs' ); ?></a>
+<a class="skip-link screen-reader-text sr-only" href="#page-wrapper"><?php esc_html_e( 'Skip to Content', 'spurs' ); ?></a>
+<a class="skip-link screen-reader-text sr-only" href="#wrapper-footer"><?php esc_html_e( 'Skip to Footer', 'spurs' ); ?></a>
+
 <div class="hfeed site" id="page">
 
 	<div class="wrapper" id="page-wrapper"><!-- @todo create wrapper ID function -->
