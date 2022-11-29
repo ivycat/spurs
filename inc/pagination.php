@@ -47,7 +47,7 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 				foreach ( $links as $key => $link ) {
 					?>
 					<li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : ''; ?>">
-						<?php echo esc_html( str_replace( 'page-numbers', 'page-link', $link ) ); ?>
+						<?php echo wp_kses_post( str_replace( 'page-numbers', 'page-link', $link ) ); ?>
 					</li>
 					<?php
 				}
