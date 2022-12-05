@@ -1,0 +1,17 @@
+.pagination {
+  .page-item {
+	margin: 0;
+	.page-link {
+	  display: flex;
+	  width: 35px;
+	  height: 35px;
+	  justify-content: center;
+	  align-items: center;
+	  border: 1px solid #303030 !important;
+	  font-size: 20px;
+	  &:after {
+		content: none;
+	  }
+	}
+  }
+}

@@ -1,0 +1,60 @@
+.main-header {
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
+  box-shadow: 0 10px 25px -15px rgba(0, 0, 0, 0.15);
+  background: $white;
+
+  .main-header-wrapper {
+	padding: 20px 0;
+	transition: padding .3s ease-in-out;
+
+	.main-branding {
+	  flex-basis: 7%;
+	  z-index: 999;
+	}
+
+	.main-navigation {
+	  flex-basis: 75%;
+	  margin-top: 5px;
+
+	  .header-search {
+		display: flex;
+		align-items: center;
+		padding-right: 4rem;
+
+		.fa-search {
+		  transform: rotate(90deg);
+		  font-size: 20px;
+
+		  &:hover {
+			//color: $yellow;
+		  }
+		}
+	  }
+	}
+
+	.header-links {
+	  flex-basis: 20%;
+	  z-index: 999;
+	}
+  }
+
+  &.sticky-nav {
+	.main-header-wrapper {
+	  padding: 5px 0;
+
+	  .main-branding {
+		.navbar-brand {
+		  border-radius: 0;
+		  z-index: 1000;
+		}
+	  }
+	}
+  }
+
+  &.search-active {
+	box-shadow: none !important;
+  }
+}

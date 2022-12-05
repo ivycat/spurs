@@ -13,9 +13,23 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-if ( have_posts() ) :
-	while ( have_posts() ) :
-		the_post();
+
+$id = get_the_ID();
+
+if ( is_home() ) {
+	$id = get_option( 'page_for_posts' );
+}
+
+?>
+<header class="entry-header">
+    <h1 class="entry-title"><?php echo get_the_title( $id ); ?></h1>
+</header>
+
+<div class="entry-content pt-5">
+    <div class="latest-news-list">
+        <div class="card-group has-col-3">
+			<?php
+			if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 		/*
 		* Include the Post-Format-specific template for the content.

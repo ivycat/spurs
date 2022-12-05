@@ -186,14 +186,16 @@ if ( ! function_exists( 'bg' ) ) {
 	 */
 	function bg( $img, $size = '', $echo = true, $additional_style = '' ) {
 		if ( ! $img ) {
-			return;
-		}
-
-		if ( is_array( $img ) ) {
-			$url = $size ? $img['sizes'][ $size ] : $img['url'];
+		    /*$uploads = wp_get_upload_dir();
+		    $url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image*/
+			$url = get_template_directory_uri() . '/images/placeholder.jpeg';
 		} else {
-			$url = $img;
-		}
+            if ( is_array( $img ) ) {
+                $url = $size ? $img['sizes'][ $size ] : $img['url'];
+            } else {
+                $url = $img;
+            }
+        }
 
 		// @codingStandardsIgnoreStart
 		/*
@@ -216,7 +218,7 @@ if ( ! function_exists( 'bg' ) ) {
 		*/
 		// @codingStandardsIgnoreEnd
 
-		$string = 'style="background-image: url(' . $url . '); ' . $additional_style . '"';
+		$string = 'style="background: transparent url(' . esc_url( $url ) . ') no-repeat center/cover; ' . $additional_style . '"';
 
 		if ( $echo ) {
 			echo wp_kses_post( $string );
@@ -268,6 +270,90 @@ if ( ! function_exists( 'return_template' ) ) {
 }
 
 //phpcs:ignore add_action( 'init', 'spurs_register_cpt_taxonomies');
+
+/**
+ * Get the primary term of a post, by taxonomy.
+ * If Yoast Primary Term is used, return it,
+ * otherwise fallback to the first term.
+ *
+ * @param string $taxonomy The taxonomy to get the primary term from.
+ * @param int $post_id The post ID to check.
+ *
+ * @return   WP_Term|bool  The term object or false if no terms.
+ * @author   Mike Hemberger @JiveDig.
+ *
+ * @version  1.1.0
+ *
+ * @link     https://gist.github.com/JiveDig/5d1518f370b1605ae9c753f564b20b7f
+ * @link     https://gist.github.com/jawinn/1b44bf4e62e114dc341cd7d7cd8dce4c
+ */
+function spurs_get_primary_term( $taxonomy = 'category', $post_id = false ) {
+
+	// Bail if no taxonomy.
+	if ( ! $taxonomy ) {
+		return false;
+	}
+
+	// If no post ID, set it.
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	// If checking for WPSEO.
+	if ( class_exists( 'WPSEO_Primary_Term' ) ) {
+
+		// Get the primary term.
+		$wpseo_primary_term = new WPSEO_Primary_Term( $taxonomy, $post_id );
+		$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
+
+		// If we have one, return it.
+		if ( $wpseo_primary_term ) {
+			return get_term( $wpseo_primary_term );
+		}
+	}
+
+	// We don't have a primary, so let's get all the terms.
+	$terms = get_the_terms( $post_id, $taxonomy );
+
+	// Bail if no terms.
+	if ( ! $terms || is_wp_error( $terms ) ) {
+		return false;
+	}
+
+	// Return the first term.
+	return $terms[0];
+}
+
+function spurs_get_excerpt_by_post($id, $length = 70) {
+
+	$content = get_the_content($id);
+
+	if (null !== get_the_excerpt($id) && '' !== get_the_excerpt($id)) {
+		$content = get_the_excerpt($id);
+	}
+
+	$content = strip_tags($content, '<ul><li>');
+	$content = strip_shortcodes($content);
+	if ( strlen($content) > $length ) {
+		return substr($content, 0, $length) . '[..]';
+	} else {
+		return $content;
+	}
+}
+
+if ( ! function_exists( 'spurs_featured_image' ) ) {
+	function spurs_featured_image( $img_url, $return_url = false ) {
+
+		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/placeholder.jpeg';
+		if ( $return_url ) {
+		    return $img_url;
+        }
+		echo 'style="background-image: url('.$img_url.')"';
+	}
+}
+
+// Enables the confirmation anchor on all Gravity Forms.
+add_filter( 'gform_confirmation_anchor', '__return_true' );
 
 /**
  * Remove comment below in order to create CPTs and Taxonomies dynamically.
