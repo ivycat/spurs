@@ -128,53 +128,52 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 		);
 
 		// register_sidebar(
-		// 	array(
-		// 		'name'          => __( 'Hero Slider', 'spurs' ),
-		// 		'id'            => 'hero-slider',
-		// 		'description'   => 'Hero slider area. Place two or more widgets here and they will slide!',
-		// 		'before_widget' => '<div class="carousel-item">',
-		// 		'after_widget'  => '</div>',
-		// 		'before_title'  => '',
-		// 		'after_title'   => '',
-		// 	)
+		// array(
+		// 'name'          => __( 'Hero Slider', 'spurs' ),
+		// 'id'            => 'hero-slider',
+		// 'description'   => 'Hero slider area. Place two or more widgets here and they will slide!',
+		// 'before_widget' => '<div class="carousel-item">',
+		// 'after_widget'  => '</div>',
+		// 'before_title'  => '',
+		// 'after_title'   => '',
+		// )
 		// );
 
 		// register_sidebar(
-		// 	array(
-		// 		'name'          => __( 'Hero Canvas', 'spurs' ),
-		// 		'id'            => 'hero-canvas',
-		// 		'description'   => __( 'Full size canvas hero area for Bootstrap and other custom HTML markup', 'spurs' ),
-		// 		'before_widget' => '',
-		// 		'after_widget'  => '',
-		// 		'before_title'  => '',
-		// 		'after_title'   => '',
-		// 	)
+		// array(
+		// 'name'          => __( 'Hero Canvas', 'spurs' ),
+		// 'id'            => 'hero-canvas',
+		// 'description'   => __( 'Full size canvas hero area for Bootstrap and other custom HTML markup', 'spurs' ),
+		// 'before_widget' => '',
+		// 'after_widget'  => '',
+		// 'before_title'  => '',
+		// 'after_title'   => '',
+		// )
 		// );
 
 		// register_sidebar(
-		// 	array(
-		// 		'name'          => __( 'Top Full', 'spurs' ),
-		// 		'id'            => 'hero-static',
-		// 		'description'   => __( 'Full top widget with dynamic grid', 'spurs' ),
-		// 		'before_widget' => '<div id="%1$s" class="hero-static-widget %2$s dynamic-classes">',
-		// 		'after_widget'  => '</div>',
-		// 		'before_title'  => '<h3 class="widget-title">',
-		// 		'after_title'   => '</h3>',
-		// 	)
+		// array(
+		// 'name'          => __( 'Top Full', 'spurs' ),
+		// 'id'            => 'hero-static',
+		// 'description'   => __( 'Full top widget with dynamic grid', 'spurs' ),
+		// 'before_widget' => '<div id="%1$s" class="hero-static-widget %2$s dynamic-classes">',
+		// 'after_widget'  => '</div>',
+		// 'before_title'  => '<h3 class="widget-title">',
+		// 'after_title'   => '</h3>',
+		// )
 		// );
 
 		// register_sidebar(
-		// 	array(
-		// 		'name'          => __( 'Footer Full', 'spurs' ),
-		// 		'id'            => 'footer-full',
-		// 		'description'   => 'Widget area below main content and above footer',
-		// 		'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
-		// 		'after_widget'  => '</div>',
-		// 		'before_title'  => '<h3 class="widget-title">',
-		// 		'after_title'   => '</h3>',
-		// 	)
+		// array(
+		// 'name'          => __( 'Footer Full', 'spurs' ),
+		// 'id'            => 'footer-full',
+		// 'description'   => 'Widget area below main content and above footer',
+		// 'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
+		// 'after_widget'  => '</div>',
+		// 'before_title'  => '<h3 class="widget-title">',
+		// 'after_title'   => '</h3>',
+		// )
 		// );
-
 	}
 }
 // phpcs:ignore  endif function_exists( 'spurs_widgets_init' ).

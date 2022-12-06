@@ -121,13 +121,13 @@ a.skip-link {
 				}
 			}
 		}
-		.navbar-nav {
-			> li.menu-item-has-children {
-				&:focus-within {
-					> ul.dropdown-menu {
-						display: block;
-					}
-				}
+		// .navbar-nav {
+		// }
+	}
+	> li.menu-item-has-children {
+		&:focus-within {
+			> ul.dropdown-menu {
+				display: block;
 			}
 		}
 	}

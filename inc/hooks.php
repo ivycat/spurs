@@ -56,7 +56,6 @@ if ( ! function_exists( 'spurs_add_site_info' ) ) {
  *
  * Add default color palatte to ACF color picker for branding
  * Match these colors to colors in /functions.php & /assets/scss/partials/base/variables.scss
- *
  */
 add_action( 'acf/input/admin_footer', 'spurs_acf_color_palette' );
 function spurs_acf_color_palette() {

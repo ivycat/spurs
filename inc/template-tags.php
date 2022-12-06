@@ -33,28 +33,28 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$updated_time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-
-		if ( isset( $updated_time_string ) ) :
-			$updated_time_string = sprintf(
-				$updated_time_string,
-				esc_attr( get_the_modified_date( 'c' ) ),
-				esc_html( get_the_modified_date() )
-			);
+			if ( isset( $updated_time_string ) ) :
+				$updated_time_string = sprintf(
+					$updated_time_string,
+					esc_attr( get_the_modified_date( 'c' ) ),
+					esc_html( get_the_modified_date() )
+				);
 		endif;
 			$posted_on = apply_filters(
-				'spurs_posted_on', sprintf(
+				'spurs_posted_on',
+				sprintf(
 					'<div class="updated-on">%1$s %2$s%3$s</div>',
 					esc_html_x( ' Updated on', 'post date', 'spurs' ),
 					apply_filters( 'spurs_posted_on_time', $updated_time_string ),
 					esc_html_x( '', 'post date', 'spurs' )
-
 				)
 			);
 
 		} else {
 			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-			$time_string = sprintf( $time_string,
+			$time_string = sprintf(
+				$time_string,
 				esc_attr( get_the_date( 'c' ) ),
 				esc_html( get_the_date() )
 			);
@@ -63,7 +63,7 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 				'spurs_posted_on',
 				sprintf(
 					'<div class="posted-on">%1$s %2$s</a></div>',
-						esc_html_x( 'Posted on', 'post date', 'spurs' ),
+					esc_html_x( 'Posted on', 'post date', 'spurs' ),
 					apply_filters( 'spurs_posted_on_time', $time_string )
 				)
 			);
@@ -80,7 +80,8 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 		);
 
 		$byline = apply_filters(
-			'spurs_posted_by', sprintf(
+			'spurs_posted_by',
+			sprintf(
 				'<div class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></div>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'spurs' ) : esc_html_x( 'Posted by', 'post author', 'spurs' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),

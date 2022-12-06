@@ -186,16 +186,17 @@ if ( ! function_exists( 'bg' ) ) {
 	 */
 	function bg( $img, $size = '', $echo = true, $additional_style = '' ) {
 		if ( ! $img ) {
-		    /*$uploads = wp_get_upload_dir();
-		    $url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image*/
+			/*
+			$uploads = wp_get_upload_dir();
+			$url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image*/
 			$url = get_template_directory_uri() . '/images/placeholder.jpeg';
 		} else {
-            if ( is_array( $img ) ) {
-                $url = $size ? $img['sizes'][ $size ] : $img['url'];
-            } else {
-                $url = $img;
-            }
-        }
+			if ( is_array( $img ) ) {
+				$url = $size ? $img['sizes'][ $size ] : $img['url'];
+			} else {
+				$url = $img;
+			}
+		}
 
 		// @codingStandardsIgnoreStart
 		/*
@@ -277,7 +278,7 @@ if ( ! function_exists( 'return_template' ) ) {
  * otherwise fallback to the first term.
  *
  * @param string $taxonomy The taxonomy to get the primary term from.
- * @param int $post_id The post ID to check.
+ * @param int    $post_id The post ID to check.
  *
  * @return   WP_Term|bool  The term object or false if no terms.
  * @author   Mike Hemberger @JiveDig.
@@ -324,18 +325,18 @@ function spurs_get_primary_term( $taxonomy = 'category', $post_id = false ) {
 	return $terms[0];
 }
 
-function spurs_get_excerpt_by_post($id, $length = 70) {
+function spurs_get_excerpt_by_post( $id, $length = 70 ) {
 
-	$content = get_the_content($id);
+	$content = get_the_content( $id );
 
-	if (null !== get_the_excerpt($id) && '' !== get_the_excerpt($id)) {
-		$content = get_the_excerpt($id);
+	if ( null !== get_the_excerpt( $id ) && '' !== get_the_excerpt( $id ) ) {
+		$content = get_the_excerpt( $id );
 	}
 
-	$content = strip_tags($content, '<ul><li>');
-	$content = strip_shortcodes($content);
-	if ( strlen($content) > $length ) {
-		return substr($content, 0, $length) . '[..]';
+	$content = strip_tags( $content, '<ul><li>' );
+	$content = strip_shortcodes( $content );
+	if ( strlen( $content ) > $length ) {
+		return substr( $content, 0, $length ) . '[..]';
 	} else {
 		return $content;
 	}
@@ -346,9 +347,9 @@ if ( ! function_exists( 'spurs_featured_image' ) ) {
 
 		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/placeholder.jpeg';
 		if ( $return_url ) {
-		    return $img_url;
-        }
-		echo 'style="background-image: url('.$img_url.')"';
+			return $img_url;
+		}
+		echo 'style="background-image: url(' . $img_url . ')"';
 	}
 }
 
