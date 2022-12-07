@@ -26,7 +26,7 @@ if ( is_home() ) {
 </header>
 
 <div class="entry-content pt-5">
-	<div class="latest-news-list">
+	<div class="latest-posts-list">
 		<div class="card-group has-col-3">
 			<?php
 			if ( have_posts() ) :

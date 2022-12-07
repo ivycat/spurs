@@ -23,7 +23,7 @@ if ( have_posts() ) : ?>
 		?>
 	</header><!-- .page-header -->
 	<div class="page-content container">
-		<div class="latest-news-list">
+		<div class="latest-posts-list">
 			<div class="card-group has-col-3">
 	<?php
 	/* Start the Loop */
