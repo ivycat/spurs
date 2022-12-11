@@ -13,7 +13,7 @@ global $post;
 
 <article <?php post_class( 'card' ); ?> id="post-<?php the_ID(); ?>">
 	<div class="card-img-top img-wrapper">
-		<a class="no-uppercase no-underline" href="<?php echo get_the_permalink(); ?>">
+		<a class="no-uppercase no-underline" href="<?php echo esc_url( get_the_permalink() ); ?>">
 			<span class="bg-image" <?php bg( get_the_post_thumbnail_url(), false, true, 'height: 270px' ); ?>></span>
 		</a>
 	</div>
@@ -27,7 +27,7 @@ global $post;
 					if ( $category instanceof WP_Term ) {
 						printf(
 							'<a href="%1$s"><span class="category">%2$s</span></a>',
-							get_term_link( $category ),
+							esc_url( get_term_link( $category ) ),
 							esc_html( $category->name )
 						);
 					}
@@ -36,16 +36,16 @@ global $post;
 			</div>
 		<?php endif; ?>
 
-		<a href="<?php echo get_the_permalink(); ?>">
-			<h4><?php echo get_the_title(); ?></h4>
+		<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+			<h4><?php echo esc_html( get_the_title() ); ?></h4>
 		</a>
 		<?php if ( get_the_content() ) : ?>
-			<p><?php echo spurs_get_excerpt_by_post( $post->ID, 175 ); ?></p>
+			<p><?php echo esc_html( spurs_get_excerpt_by_post( $post->ID, 175 ) ); ?></p>
 		<?php endif; ?>
 	</div>
 	<div class="card-footer">
-		<a href="<?php echo get_the_permalink(); ?>">
-			<button>LEARN MORE</button>
+		<a href="<?php echo esc_html( get_the_permalink() ); ?>">
+			<button><?php esc_html_e( 'LEARN MORE', 'spurs' ); ?></button>
 		</a>
 	</div>
 </article>

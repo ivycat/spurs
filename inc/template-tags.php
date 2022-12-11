@@ -46,7 +46,7 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 					'<div class="updated-on">%1$s %2$s%3$s</div>',
 					esc_html_x( ' Updated on', 'post date', 'spurs' ),
 					apply_filters( 'spurs_posted_on_time', $updated_time_string ),
-					esc_html_x( '', 'post date', 'spurs' )
+					esc_html_x( '', 'post date', 'spurs' ) // phpcs:ignore
 				)
 			);
 

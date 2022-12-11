@@ -186,9 +186,11 @@ if ( ! function_exists( 'bg' ) ) {
 	 */
 	function bg( $img, $size = '', $echo = true, $additional_style = '' ) {
 		if ( ! $img ) {
-			/*
-			$uploads = wp_get_upload_dir();
-			$url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image*/
+			// @codingStandardsIgnoreStart
+			// $uploads = wp_get_upload_dir();
+			// $url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image
+			// @codingStandardsIgnoreEnd
+
 			$url = get_template_directory_uri() . '/images/placeholder.jpeg';
 		} else {
 			if ( is_array( $img ) ) {
@@ -324,7 +326,13 @@ function spurs_get_primary_term( $taxonomy = 'category', $post_id = false ) {
 	// Return the first term.
 	return $terms[0];
 }
-
+/**
+ * Get excerpt by post
+ *
+ * @param [type]  $id ID of post.
+ * @param integer $length Length of post.
+ * @return Text
+ */
 function spurs_get_excerpt_by_post( $id, $length = 70 ) {
 
 	$content = get_the_content( $id );
@@ -343,13 +351,20 @@ function spurs_get_excerpt_by_post( $id, $length = 70 ) {
 }
 
 if ( ! function_exists( 'spurs_featured_image' ) ) {
+	/**
+	 * Featured Image
+	 *
+	 * @param [type]  $img_url Featured Image URL.
+	 * @param boolean $return_url Wheather or not url need to be returned.
+	 * @return URL
+	 */
 	function spurs_featured_image( $img_url, $return_url = false ) {
 
 		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/placeholder.jpeg';
 		if ( $return_url ) {
 			return $img_url;
 		}
-		echo 'style="background-image: url(' . $img_url . ')"';
+		echo 'style="background-image: url(' . esc_url( $img_url ) . ')"';
 	}
 }
 

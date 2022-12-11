@@ -42,6 +42,9 @@ add_action( 'wp_enqueue_scripts', 'spurs_scripts' );
  * Enqueue a script in the WordPress admin.
  */
 function spurs_admin_styles() {
-	wp_enqueue_style( 'spurs-admin-styles', get_stylesheet_directory_uri() . '/css/custom-editor-style.css' );
+	$the_theme     = wp_get_theme();
+	$theme_version = $the_theme->get( 'Version' );
+	$css_version   = $theme_version . '.' . filemtime( get_template_directory() . '/css/theme.min.css' );
+	wp_enqueue_style( 'spurs-admin-styles', get_stylesheet_directory_uri() . '/css/custom-editor-style.css', array(), $css_version );
 }
 add_action( 'admin_enqueue_scripts', 'spurs_admin_styles' );

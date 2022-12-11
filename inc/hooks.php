@@ -58,6 +58,11 @@ if ( ! function_exists( 'spurs_add_site_info' ) ) {
  * Match these colors to colors in /functions.php & /assets/scss/partials/base/variables.scss
  */
 add_action( 'acf/input/admin_footer', 'spurs_acf_color_palette' );
+/**
+ * Spurs color palette
+ *
+ * @return void
+ */
 function spurs_acf_color_palette() {
 	?>
 	<script type="text/javascript">

@@ -126,7 +126,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 				'after_title'   => '</h3>',
 			)
 		);
-
+		// @codingStandardsIgnoreStart
 		// register_sidebar(
 		// array(
 		// 'name'          => __( 'Hero Slider', 'spurs' ),
@@ -174,6 +174,7 @@ if ( ! function_exists( 'spurs_widgets_init' ) ) {
 		// 'after_title'   => '</h3>',
 		// )
 		// );
+		//  @codingStandardsIgnoreEnd
 	}
 }
 // phpcs:ignore  endif function_exists( 'spurs_widgets_init' ).
