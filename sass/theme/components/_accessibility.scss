@@ -1,0 +1,41 @@
+:focus {
+	outline: solid 2px $accessibility-color;
+	box-shadow: 0 0 0 0.2rem $accessibility-color;
+}
+// header
+nav.navbar {
+	#navbarNavDropdown {
+		&:focus {
+			box-shadow: 0 0 0 0.2rem $accessibility-color;
+		}
+		.navbar-nav {
+			li {
+				a {
+					&:focus {
+						box-shadow: 0 0 0 0.2rem $accessibility-color;
+					}
+				}
+			}
+		}
+	}
+}
+// latest post
+.latest-posts-list {
+	.card-img-top {
+		a {
+			display: inline-block;
+			width: 100%;
+		}
+	}
+	.news-post-title {
+		display: inline-block;
+	}
+}
+// shop
+ul.products {
+	li.product {
+		a.add_to_cart_button {
+			border: solid 2px var(--bs-btn-color);
+		}
+	}
+}

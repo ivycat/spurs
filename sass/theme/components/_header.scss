@@ -58,3 +58,14 @@
 		box-shadow: none !important;
 	}
 }
+
+nav.navbar {
+	// header
+	#navbarNavDropdown {
+		.navbar-nav {
+			> li {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

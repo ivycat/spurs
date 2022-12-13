@@ -28,9 +28,9 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
-		<a class="skip-link screen-reader-text sr-only" href="#navbarNavDropdown"><?php esc_html_e( 'Skip to Menu', 'spurs' ); ?></a>
-		<a class="skip-link screen-reader-text sr-only" href="#page-wrapper"><?php esc_html_e( 'Skip to Content', 'spurs' ); ?></a>
-		<a class="skip-link screen-reader-text sr-only" href="#wrapper-footer"><?php esc_html_e( 'Skip to Footer', 'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#navbarNavDropdown"><?php esc_html_e( 'Skip to Menu', 'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#page-wrapper"><?php esc_html_e( 'Skip to Content', 'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#wrapper-footer"><?php esc_html_e( 'Skip to Footer', 'spurs' ); ?></a>
 
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -79,4 +79,4 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		</nav>
 	</div>
 
-	<div class="wrapper" id="page-wrapper">
+	<div class="wrapper" id="page-wrapper" tabindex="-1">

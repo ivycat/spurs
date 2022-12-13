@@ -36,7 +36,7 @@ global $post;
 			</div>
 		<?php endif; ?>
 
-		<a href="<?php echo esc_url( get_the_permalink() ); ?>">
+		<a class="news-post-title" href="<?php echo esc_url( get_the_permalink() ); ?>">
 			<h4><?php echo esc_html( get_the_title() ); ?></h4>
 		</a>
 		<?php if ( get_the_content() ) : ?>
@@ -44,8 +44,8 @@ global $post;
 		<?php endif; ?>
 	</div>
 	<div class="card-footer">
-		<a href="<?php echo esc_html( get_the_permalink() ); ?>">
-			<button><?php esc_html_e( 'LEARN MORE', 'spurs' ); ?></button>
+		<a href="<?php echo esc_html( get_the_permalink() ); ?>" role="button">
+			<?php esc_html_e( 'LEARN MORE', 'spurs' ); ?>
 		</a>
 	</div>
 </article>
