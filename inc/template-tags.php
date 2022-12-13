@@ -196,9 +196,23 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 	 */
 	function spurs_left_sidebar() {
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( ! is_page_template( 'page-templates/full-width.php' ) && ! is_page_template( 'page-templates/sidebar-right.php' ) ) {
-			if ( is_page_template( 'page-templates/sidebar-left.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) || 'left' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) {
+		/**
+		 * If only left sidebar choosen from page template
+		 */
+		if (
+			! is_page_template( 'page-templates/full-width.php' ) &&
+			! is_page_template( 'page-templates/sidebar-right.php' )
+		) {
+			/**
+			 * If left and both option choose from
+			 * either customizer or page template.
+			 */
+			if (
+				is_page_template( 'page-templates/sidebar-left.php' ) ||
+				is_page_template( 'page-templates/both-sidebars.php' ) ||
+				'left' === $spurs_sidebar_position ||
+				'both' === $spurs_sidebar_position
+			) {
 				get_template_part( 'templates/sidebar/sidebar', 'left' );
 			}
 		}
@@ -216,11 +230,28 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 	 */
 	function spurs_right_sidebar() {
 		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-
-		if ( ! is_page_template( 'page-templates/full-width.php' ) || ! is_page_template( 'page-templates/sidebar-left.php' ) ) {
-			if ( is_page_template( 'page-templates/sidebar-right.php' ) || is_page_template( 'page-templates/both-sidebars.php' ) ) {
+		/**
+		 * If only right sidbebar choose from page template
+		 */
+		if (
+			! is_page_template( 'page-templates/full-width.php' ) ||
+			! is_page_template( 'page-templates/sidebar-left.php' )
+		) {
+			/**
+			 * If either right sidebar and both sidebar choosen from page template.
+			 */
+			if (
+				is_page_template( 'page-templates/sidebar-right.php' ) ||
+				is_page_template( 'page-templates/both-sidebars.php' )
+			) {
 				get_template_part( 'templates/sidebar/sidebar', 'right' );
-			} elseif ( is_page_template( 'default' ) && ( 'right' === $spurs_sidebar_position || 'both' === $spurs_sidebar_position ) ) {
+			} elseif (
+				is_page_template( 'default' ) &&
+				(
+					'right' === $spurs_sidebar_position ||
+					'both' === $spurs_sidebar_position
+				)
+			) {
 				get_template_part( 'templates/sidebar/sidebar', 'right' );
 			}
 		}
