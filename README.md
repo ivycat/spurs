@@ -136,6 +136,7 @@ Below are the check lists if you start any project with Spurs
 10. For Sidebar check customizer theme settings panel and page template.
 11. Pagination options is also available inside customizer panel.
 12. If you wants to add any image in the theme, you can put that inside `images` folder in project root directory.
+13. To change the content width edit `theme.json` file in `layout` key. `contentSize` value is for default size of container and `wideSize` value is for wide width option.
 
 ## Installation
 
