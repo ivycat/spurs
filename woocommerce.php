@@ -16,8 +16,11 @@ $template_path = '';
 $default_path  = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '\woocommerce';
 
 if ( is_singular( 'product' ) ) {
-
-	woocommerce_content();
+	?>
+	<div class="container">
+		<?php woocommerce_content(); ?>
+	</div>
+	<?php
 
 	// Fetch the template override for ANY product archive, product taxonomy, product search, or /shop landing page.
 } elseif ( file_exists( $default_path . $template_name ) ) {
@@ -26,7 +29,7 @@ if ( is_singular( 'product' ) ) {
 	// If no archive-product.php template exists, default to catch-all.
 } else {
 	?>
-		<div class="eentry-content">
+		<div class="container">
 			<?php woocommerce_content(); ?>
 		</div>
 	<?php

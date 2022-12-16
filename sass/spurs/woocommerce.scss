@@ -24,4 +24,22 @@ figure.woocommerce-product-gallery__wrapper {
 			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 		}
 	}
+	a.single_add_to_cart_button {
+		padding: 5px 15px;
+	}
+	ul.products {
+		li.product {
+			> a.woocommerce-LoopProduct-link {
+				display: inline-block;
+			}
+		}
+	}
+	// shop
+	ul.products {
+		li.product {
+			a.single_add_to_cart_button {
+				border: solid 2px var(--bs-btn-color);
+			}
+		}
+	}
 }
