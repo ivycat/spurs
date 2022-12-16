@@ -95,43 +95,44 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 				)
 			)
 		);
+		// @codingStandardsIgnoreStart
+		// $wp_customize->add_setting(
+		// 	'spurs_sidebar_position',
+		// 	array(
+		// 		'default'           => 'none',
+		// 		'type'              => 'theme_mod',
+		// 		'sanitize_callback' => 'sanitize_text_field',
+		// 		'capability'        => 'edit_theme_options',
+		// 	)
+		// );
 
-		$wp_customize->add_setting(
-			'spurs_sidebar_position',
-			array(
-				'default'           => 'none',
-				'type'              => 'theme_mod',
-				'sanitize_callback' => 'sanitize_text_field',
-				'capability'        => 'edit_theme_options',
-			)
-		);
-
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				'spurs_sidebar_position',
-				array(
-					'label'             => __( 'Default Sidebar Position', 'spurs' ),
-					'description'       => __(
-						'<b>Applies to all pages and posts.</b> <br />
-												<b>Select:</b> right, left, both, or none. <br />
-												<b>Note:</b> you can override on individual pages.',
-						'spurs'
-					),
-					'section'           => 'spurs_theme_layout_options',
-					'settings'          => 'spurs_sidebar_position',
-					'type'              => 'select',
-					'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
-					'choices'           => array(
-						'none'  => __( 'No sidebar', 'spurs' ),
-						'left'  => __( 'Left sidebar', 'spurs' ),
-						'both'  => __( 'Left & Right sidebars', 'spurs' ),
-						'right' => __( 'Right sidebar', 'spurs' ),
-					),
-					'priority'          => '20',
-				)
-			)
-		);
+		// $wp_customize->add_control(
+		// 	new WP_Customize_Control(
+		// 		$wp_customize,
+		// 		'spurs_sidebar_position',
+		// 		array(
+		// 			'label'             => __( 'Default Sidebar Position', 'spurs' ),
+		// 			'description'       => __(
+		// 				'<b>Applies to all pages and posts.</b> <br />
+		// 										<b>Select:</b> right, left, both, or none. <br />
+		// 										<b>Note:</b> you can override on individual pages.',
+		// 				'spurs'
+		// 			),
+		// 			'section'           => 'spurs_theme_layout_options',
+		// 			'settings'          => 'spurs_sidebar_position',
+		// 			'type'              => 'select',
+		// 			'sanitize_callback' => 'spurs_theme_slug_sanitize_select',
+		// 			'choices'           => array(
+		// 				'none'  => __( 'No sidebar', 'spurs' ),
+		// 				'left'  => __( 'Left sidebar', 'spurs' ),
+		// 				'both'  => __( 'Left & Right sidebars', 'spurs' ),
+		// 				'right' => __( 'Right sidebar', 'spurs' ),
+		// 			),
+		// 			'priority'          => '20',
+		// 		)
+		// 	)
+		// );
+		// @codingStandardsIgnoreEnd
 
 		$wp_customize->add_setting(
 			'spurs_pagination',

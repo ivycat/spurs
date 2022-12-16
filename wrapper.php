@@ -33,23 +33,25 @@ if ( ! is_front_page() && function_exists( 'yoast_breadcrumb' ) ) {
 		 * you need to set option from both customizer and page template.
 		 * If both is selected, then container class will be added.
 		 */
-		if (
-			(
-				is_page_template( 'page-templates/sidebar-left.php' ) ||
-				is_page_template( 'page-templates/sidebar-right.php' ) ||
-				is_page_template( 'page-templates/both-sidebars.php' )
-			) && (
-				is_active_sidebar( 'sidebar-left' ) ||
-				is_active_sidebar( 'sidebar-right' )
-			)
-		) {
-			echo '<div class="container"><div class=row>';
-		}
+		// @codingStandardsIgnoreStart
+		// if (
+		// 	(
+		// 		is_page_template( 'page-templates/sidebar-left.php' ) ||
+		// 		is_page_template( 'page-templates/sidebar-right.php' ) ||
+		// 		is_page_template( 'page-templates/both-sidebars.php' )
+		// 	) && (
+		// 		is_active_sidebar( 'sidebar-left' ) ||
+		// 		is_active_sidebar( 'sidebar-right' )
+		// 	)
+		// ) {
+		// 	echo '<div class="container"><div class=row>';
+		// }
+		// @codingStandardsIgnoreEnd
 		?>
 
-		<?php spurs_left_sidebar(); ?>
+		<?php //phpcs:ignore spurs_left_sidebar(); ?>
 
-		<main class="site-main <?php spurs_column_classes(); ?>" id="main">
+		<main class="site-main <?php // phpcs:ignore spurs_column_classes(); ?>" id="main">
 			<?php require spurs_template_path(); ?>
 			<?php
 
@@ -63,27 +65,29 @@ if ( ! is_front_page() && function_exists( 'yoast_breadcrumb' ) ) {
 		</main>
 
 
-		<?php spurs_right_sidebar(); ?>
+		<?php //phpcs:ignore spurs_right_sidebar(); ?>
 
 		<?php
+		// @codingStandardsIgnoreStart
 		/**
 		 * Currently both option needs to selected.
 		 * for Example if you want to enable right sidebar then
 		 * you need to set option from both customizer and page template.
 		 * If both is selected, then container wrapper class will be added.
 		 */
-		if (
-			(
-				is_page_template( 'page-templates/sidebar-left.php' ) ||
-				is_page_template( 'page-templates/sidebar-right.php' ) ||
-				is_page_template( 'page-templates/both-sidebars.php' )
-			) && (
-				is_active_sidebar( 'sidebar-left' ) ||
-				is_active_sidebar( 'sidebar-right' )
-			)
-		) {
-			echo '</div></div>';
-		}
+		// if (
+		// 	(
+		// 		is_page_template( 'page-templates/sidebar-left.php' ) ||
+		// 		is_page_template( 'page-templates/sidebar-right.php' ) ||
+		// 		is_page_template( 'page-templates/both-sidebars.php' )
+		// 	) && (
+		// 		is_active_sidebar( 'sidebar-left' ) ||
+		// 		is_active_sidebar( 'sidebar-right' )
+		// 	)
+		// ) {
+		// 	echo '</div></div>';
+		// }
+		// codingStandardsIgnoreEnd
 		?>
 
 	</div>

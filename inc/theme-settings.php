@@ -25,11 +25,13 @@ if ( ! function_exists( 'spurs_setup_theme_default_settings' ) ) {
 			set_theme_mod( 'spurs_now_posts_look', 'default' );
 		}
 
+		// @codingStandardsIgnoreStart
 		// Sidebar position.
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
-		if ( '' === $spurs_sidebar_position ) {
-			set_theme_mod( 'spurs_sidebar_position', 'none' );
-		}
+		// $spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		// if ( '' === $spurs_sidebar_position ) {
+		// 	set_theme_mod( 'spurs_sidebar_position', 'none' );
+		// }
+		// @codingStandardsIgnoreEnd
 
 		// Container width.
 		$spurs_container_type = get_theme_mod( 'spurs_container_type' );

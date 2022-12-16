@@ -195,7 +195,8 @@ if ( ! function_exists( 'spurs_left_sidebar' ) ) {
 	 * @return void
 	 */
 	function spurs_left_sidebar() {
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		// phpcs:ignore $spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = '';
 		/**
 		 * If only left sidebar choosen from page template
 		 */
@@ -229,7 +230,8 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 	 * @return void
 	 */
 	function spurs_right_sidebar() {
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		// phpcs:ignore $spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = '';
 		/**
 		 * If only right sidbebar choose from page template
 		 */
@@ -269,7 +271,8 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 	 *      <div class="<?php spurs_content_classes(); ?>" id="primary">
 	 */
 	function spurs_content_classes() {
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		// phpcs:ignore $spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = '';
 		$html                   = '';
 
 		if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'left-sidebar' ) ) {
@@ -363,7 +366,8 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 	 */
 	function spurs_sidebar_classes() {
 
-		$spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		// phpcs:ignore $spurs_sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+		$spurs_sidebar_position = '';
 		$html                   = '';
 
 		if ( is_page_template( 'page-templates/both-sidebars.php' ) && ( is_active_sidebar( 'sidebar-left' ) ) && is_active_sidebar( 'sidebar-right' ) ) {

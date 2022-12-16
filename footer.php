@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 $the_theme        = wp_get_theme();
 $container        = get_theme_mod( 'spurs_container_type' );
-$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+//phpcs:ignore $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 
 </div><!-- / .wrapper -->

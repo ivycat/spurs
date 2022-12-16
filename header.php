@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $container        = get_theme_mod( 'spurs_container_type' );
-$sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
+//phpcs:ignore $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
