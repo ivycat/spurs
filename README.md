@@ -29,7 +29,7 @@ Spurs is a fork of [Understrap](https://understrap.com) with the goals of:
 ### Basic Theme Features
 
 - Combines Underscore’s PHP/JS files and Bootstrap’s HTML/CSS/JS.
-- Comes with Bootstrap (v4) Sass source files and additional .scss files.
+- Comes with Bootstrap (v5) Sass source files and additional .scss files.
 - Nicely sorted and ready to add your own variables and customize the Bootstrap variables
 - Use npm to install build tools like Gulp for compiling, linting, and BrowserSync.
 - Uses a single and minified CSS file for all the basic stuff
@@ -53,7 +53,7 @@ Here's how the Sass and CSS files that come with Spurs work:
 
   ```// Core files
      @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
-     @import "vendors/bootstrap4";    // <--- Load Bootstrap 5 (Do not tweak)*
+     @import "vendors/bootstrap5";    // <--- Load Bootstrap 5 (Do not tweak)*
      @import "spurs/spurs";          // <--- Loads Spurs defaults
 
      // Optional files - If you don't use the corresponding scripts/fonts comment them out
