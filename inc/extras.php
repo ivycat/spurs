@@ -48,7 +48,7 @@ if ( ! function_exists( 'spurs_adjust_body_class' ) ) {
 	function spurs_adjust_body_class( $classes ) {
 
 		foreach ( $classes as $key => $value ) {
-			if ( 'tag' == $value ) {
+			if ( 'tag' === $value ) {
 				unset( $classes[ $key ] );
 			}
 		}
@@ -84,7 +84,6 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 	 *
 	 * @return void
 	 * @since 1.0.0
-	 *
 	 */
 	function spurs_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
@@ -96,7 +95,7 @@ if ( ! function_exists( 'spurs_post_nav' ) ) {
 		}
 		?>
 		<nav class="container navigation post-navigation">
-			<h2 class="sr-only"><?php _e( 'Post navigation', 'spurs' ); ?></h2>
+			<h2 class="sr-only"><?php esc_html_e( 'Post navigation', 'spurs' ); ?></h2>
 			<div class="row nav-links justify-content-between">
 				<?php
 
@@ -141,22 +140,21 @@ add_action( 'wp_head', 'spurs_mobile_web_app_meta' );
 /**
  * Search/replace string to make everything lower case and convert spaces and underscores to dashes.
  *
- * @param $string
- *
+ * @param [type] $string url parameter as a string.
  * @return null|string|string[]
  */
 function spurs_tidy_url( $string ) {
-	// Convert everything to lower case
+	// Convert everything to lower case.
 	$string = strtolower( $string );
 
-	// Make everything alphanumeric (removes all other characters)
-	$string = preg_replace( "/[^a-z0-9_\s-]/", "", $string );
+	// Make everything alphanumeric (removes all other characters).
+	$string = preg_replace( '/[^a-z0-9_\s-]/', '', $string );
 
-	// Clean up multiple dashes or whitespace
-	$string = preg_replace( "/[\s-]+/", " ", $string );
+	// Clean up multiple dashes or whitespace.
+	$string = preg_replace( '/[\s-]+/', ' ', $string );
 
-	// Convert whitespace and underscore to dash
-	$string = preg_replace( "/[\s_]/", "-", $string );
+	// Convert whitespace and underscore to dash.
+	$string = preg_replace( '/[\s_]/', '-', $string );
 
 	return $string;
 }
@@ -165,33 +163,46 @@ function spurs_tidy_url( $string ) {
  * Set Google Maps API Key for Advanced Custom Fields
  */
 add_action( 'acf/init', 'rcn_acf_init' );
+/**
+ * ACF init
+ *
+ * @return void
+ */
 function rcn_acf_init() {
 	acf_update_setting( 'google_api_key', '' );
 }
 
-/**
- * Output background image style
- *
- * @param array|string $img Image array or url
- * @param string $size Image size to retrieve
- * @param bool $echo Whether to output the the style tag or return it.
- *
- * @return string|void String when retrieving.
- */
+
 if ( ! function_exists( 'bg' ) ) {
-
-	function bg($img, $size = '', $echo = true, $additional_style = '') {
+	/**
+	 * Output background image style
+	 *
+	 * @param array|string $img Image array or url.
+	 * @param string       $size Image size to retrieve.
+	 * @param bool         $echo Whether to output the the style tag or return it..
+	 * @param string       $additional_style Additional style to add.
+	 *
+	 * @return string|void String when retrieving.
+	 */
+	function bg( $img, $size = '', $echo = true, $additional_style = '' ) {
 		if ( ! $img ) {
-			return;
-		}
+			// @codingStandardsIgnoreStart
+			// $uploads = wp_get_upload_dir();
+			// $url = $uploads['baseurl'] . '/path_to_fallback_image.png'; // default placeholder image
+			// @codingStandardsIgnoreEnd
 
-		if ( is_array( $img ) ) {
-			$url = $size ? $img['sizes'][ $size ] : $img['url'];
+			$url = get_template_directory_uri() . '/images/placeholder.jpeg';
 		} else {
-			$url = $img;
+			if ( is_array( $img ) ) {
+				$url = $size ? $img['sizes'][ $size ] : $img['url'];
+			} else {
+				$url = $img;
+			}
 		}
 
-		/*if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
+		// @codingStandardsIgnoreStart
+		/*
+		if (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
 
 			$webp_suffix_url = $url . '.webp';
 			$headers = @get_headers($webp_suffix_url);
@@ -206,50 +217,52 @@ if ( ! function_exists( 'bg' ) ) {
 					$url = $webp_url;
 				}
 			}
-		}*/
+		}
+		*/
+		// @codingStandardsIgnoreEnd
 
-		$string = 'style="background-image: url(' . $url . '); ' . $additional_style . '"';
+		$string = 'style="background: transparent url(' . esc_url( $url ) . ') no-repeat center/cover; ' . $additional_style . '"';
 
 		if ( $echo ) {
-			echo $string;
+			echo wp_kses_post( $string );
 		} else {
 			return $string;
 		}
 	}
 }
 
-/**
- * Output HTML markup of template with passed args
- *
- * @param string $file File name without extension (.php)
- * @param array $args Array with args ($key=>$value)
- * @param string $default_folder Requested file folder
- *
- * */
 if ( ! function_exists( 'show_template' ) ) {
+	/**
+	 * Output HTML markup of template with passed args
+	 *
+	 * @param string $file File name without extension (.php).
+	 * @param array  $args Array with args ($key=>$value).
+	 * @param string $default_folder Requested file folder.
+	 * */
 	function show_template( $file, $args = null, $default_folder = 'parts' ) {
-		echo return_template( $file, $args, $default_folder );
+		echo return_template( $file, $args, $default_folder ); //phpcs:ignore
 	}
 }
 
-/**
- * Return HTML markup of template with passed args
- *
- * @param string $file File name without extension (.php)
- * @param array $args Array with args ($key=>$value)
- * @param string $default_folder Requested file folder
- *
- * @return string template HTML
- * */
 if ( ! function_exists( 'return_template' ) ) {
+	/**
+	 * Return HTML markup of template with passed args
+	 *
+	 * @param string $file File name without extension (.php).
+	 * @param array  $args Array with args ($key=>$value).
+	 * @param string $default_folder Requested file folder.
+	 *
+	 * @return string template HTML
+	 * */
 	function return_template( $file, $args = null, $default_folder = 'parts' ) {
 		$file = $default_folder . '/' . $file . '.php';
 		if ( $args ) {
-			extract( $args );
+			// extract() usage is highly discouraged, due to the complexity and unintended issues it might cause.
+			extract( $args ); // phpcs:ignore 
 		}
 		if ( locate_template( $file ) ) {
 			ob_start();
-			include( locate_template( $file ) ); //Theme Check free. Child themes support.
+			include locate_template( $file ); // Theme Check free. Child themes support.
 			$template_content = ob_get_clean();
 
 			return $template_content;
@@ -259,28 +272,131 @@ if ( ! function_exists( 'return_template' ) ) {
 	}
 }
 
+//phpcs:ignore add_action( 'init', 'spurs_register_cpt_taxonomies');
+
+/**
+ * Get the primary term of a post, by taxonomy.
+ * If Yoast Primary Term is used, return it,
+ * otherwise fallback to the first term.
+ *
+ * @param string $taxonomy The taxonomy to get the primary term from.
+ * @param int    $post_id The post ID to check.
+ *
+ * @return   WP_Term|bool  The term object or false if no terms.
+ * @author   Mike Hemberger @JiveDig.
+ *
+ * @version  1.1.0
+ *
+ * @link     https://gist.github.com/JiveDig/5d1518f370b1605ae9c753f564b20b7f
+ * @link     https://gist.github.com/jawinn/1b44bf4e62e114dc341cd7d7cd8dce4c
+ */
+function spurs_get_primary_term( $taxonomy = 'category', $post_id = false ) {
+
+	// Bail if no taxonomy.
+	if ( ! $taxonomy ) {
+		return false;
+	}
+
+	// If no post ID, set it.
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	// If checking for WPSEO.
+	if ( class_exists( 'WPSEO_Primary_Term' ) ) {
+
+		// Get the primary term.
+		$wpseo_primary_term = new WPSEO_Primary_Term( $taxonomy, $post_id );
+		$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
+
+		// If we have one, return it.
+		if ( $wpseo_primary_term ) {
+			return get_term( $wpseo_primary_term );
+		}
+	}
+
+	// We don't have a primary, so let's get all the terms.
+	$terms = get_the_terms( $post_id, $taxonomy );
+
+	// Bail if no terms.
+	if ( ! $terms || is_wp_error( $terms ) ) {
+		return false;
+	}
+
+	// Return the first term.
+	return $terms[0];
+}
+/**
+ * Get excerpt by post
+ *
+ * @param [type]  $id ID of post.
+ * @param integer $length Length of post.
+ * @return Text
+ */
+function spurs_get_excerpt_by_post( $id, $length = 70 ) {
+
+	$content = get_the_content( $id );
+
+	if ( null !== get_the_excerpt( $id ) && '' !== get_the_excerpt( $id ) ) {
+		$content = get_the_excerpt( $id );
+	}
+
+	$content = strip_tags( $content, '<ul><li>' );
+	$content = strip_shortcodes( $content );
+	if ( strlen( $content ) > $length ) {
+		return substr( $content, 0, $length ) . '[..]';
+	} else {
+		return $content;
+	}
+}
+
+if ( ! function_exists( 'spurs_featured_image' ) ) {
+	/**
+	 * Featured Image
+	 *
+	 * @param [type]  $img_url Featured Image URL.
+	 * @param boolean $return_url Wheather or not url need to be returned.
+	 * @return URL
+	 */
+	function spurs_featured_image( $img_url, $return_url = false ) {
+
+		$img_url = $img_url ? $img_url : get_template_directory_uri() . '/images/placeholder.jpeg';
+		if ( $return_url ) {
+			return $img_url;
+		}
+		echo 'style="background-image: url(' . esc_url( $img_url ) . ')"';
+	}
+}
+
+// Enables the confirmation anchor on all Gravity Forms.
+add_filter( 'gform_confirmation_anchor', '__return_true' );
+
 /**
  * Remove comment below in order to create CPTs and Taxonomies dynamically.
+ *
+ * @return void
  */
-
-//add_action( 'init', 'spurs_register_cpt_taxonomies');
-function spurs_register_cpt_taxonomies()
-{
+function spurs_register_cpt_taxonomies() {
 	spurs_register_cpts();
 	spurs_register_taxonomies();
 }
 
-function spurs_register_cpts(){
+/**
+ * Register custom post type
+ *
+ * @return void
+ */
+function spurs_register_cpts() {
 
-    $cpts[] = array(
+	$cpts[] = array(
 		'name'  => 'report',
 		'names' => array(
-			'singular'      => 'report',
-			'plural'        => 'reports',
-			'uc_singular'   => 'Report',
-			'uc_plural'     => 'Reports',
+			'singular'    => 'report',
+			'plural'      => 'reports',
+			'uc_singular' => 'Report',
+			'uc_plural'   => 'Reports',
 		),
-		'icon'  => 'analytics'
+		'icon'  => 'analytics',
 	);
 
 	if ( count( $cpts ) > 0 ) {
@@ -291,18 +407,23 @@ function spurs_register_cpts(){
 	}
 }
 
+/**
+ * Register taxonomy
+ *
+ * @return void
+ */
 function spurs_register_taxonomies() {
 
 	$taxonomies[] = array(
-		'name'      => 'report-type',
-		'post_type' => 'report',
-		'names'     => array(
-			'singular'      => 'report-type',
-			'plural'        => 'report-types',
-			'uc_singular'   => 'Report Type',
-			'uc_plural'     => 'Report Types',
+		'name'         => 'report-type',
+		'post_type'    => 'report',
+		'names'        => array(
+			'singular'    => 'report-type',
+			'plural'      => 'report-types',
+			'uc_singular' => 'Report Type',
+			'uc_plural'   => 'Report Types',
 		),
-		'hierarchical'  => true
+		'hierarchical' => true,
 	);
 
 	if ( count( $taxonomies ) > 0 ) {

@@ -4,22 +4,27 @@
  */
 
 // Font Files
-//@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
-// Vendors files
-@import "vendors/bootstrap4/bootstrap";
-@import "vendors/fontawesome/fontawesome";
-@import "vendors/underscores/galleries";
-
-@import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
-@import "spurs/full-width"; 	// Gutenberg group block
-@import "spurs/spurs";          // <--- Loads Spurs defaults
+@import "theme/variables"; // <--- Add your variables including overrides to Bootstrap or Spurs variables
+// @import "vendor-specific/bootstrap"; // <--- Load only necessary files instead all.
+@import "vendors/bootstrap5/bootstrap";
+@import "vendors/bootstrap5/mixins/hover"; // Enqueue deprecated hover mixin - used in spurs.scss
+@import "spurs/spurs"; // <--- Loads Spurs defaults
+@import "spurs/full-width"; // Gutenberg group block
 
 // Optional files - If you don't use the corresponding scripts/fonts comment them out
-@import "spurs/woocommerce";    // <-------- Loads WooCommerce style fixes.
+@import "spurs/woocommerce"; // <-------- Loads WooCommerce style fixes.
+//@import "vendors/fontawesome/fontawesome";
 
-//@import "theme/contact-form7"; // <---- Contact Form 7 - Bootstrap 4 support
+/* Add pro font styles (light, solid, etc.). */
+//@import "vendors/fontawesome/light";
+//@import "vendors/fontawesome/regular";
+//@import "vendors/fontawesome/solid";
+
+//@import "vendors/underscores/galleries";
+
+//@import "theme/contact-form7"; // Contact Form 7 - Bootstrap 4 support
 
 // Theme-specific and other imports
-@import "theme/theme"; // <------------ Your custom styles go here
-
+@import "theme/index"; // Your custom styles goes here

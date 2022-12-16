@@ -84,64 +84,78 @@ a.skip-link {
 }
 
 // Dropdown translation
-.navbar-dark .navbar-nav .dropdown-menu .nav-link {
-	display: block;
-	width: 100%; // For `<button>`s
-	padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-	clear: both;
-	font-weight: $font-weight-normal;
-	color: $dropdown-link-color !important;
-	text-align: inherit; // For `<button>`s
-	white-space: nowrap; // prevent links from randomly breaking onto new lines
-	background: none; // For `<button>`s
-	border: 0; // For `<button>`s
+.navbar-nav {
+	.dropdown-menu {
+		.nav-link {
+			display: block;
+			width: 100%; // For `<button>`s
+			padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+			clear: both;
+			font-weight: $font-weight-normal;
+			color: $dropdown-link-color !important;
+			text-align: inherit; // For `<button>`s
+			white-space: nowrap; // prevent links from randomly breaking onto new lines
+			background: none; // For `<button>`s
+			border: 0; // For `<button>`s
 
-	@include hover-focus {
-		color: $dropdown-link-hover-color !important;
-		text-decoration: none;
-		background-color: $dropdown-link-hover-bg;
+			@include hover-focus {
+				color: $dropdown-link-hover-color !important;
+				text-decoration: none;
+				background-color: $dropdown-link-hover-bg;
+			}
+
+			&.active,
+			&:active {
+				color: $dropdown-link-active-color !important;
+				text-decoration: none;
+				background-color: $dropdown-link-active-bg;
+			}
+
+			&.disabled,
+			&:disabled {
+				color: $dropdown-link-disabled-color !important;
+				background-color: transparent;
+				// Remove CSS gradients if they're enabled
+				@if $enable-gradients {
+					background-image: none;
+				}
+			}
+		}
+		// .navbar-nav {
+		// }
 	}
-
-	&.active,
-	&:active {
-		color: $dropdown-link-active-color !important;
-		text-decoration: none;
-		background-color: $dropdown-link-active-bg;
-	}
-
-	&.disabled,
-	&:disabled {
-		color: $dropdown-link-disabled-color !important;
-		background-color: transparent;
-		// Remove CSS gradients if they're enabled
-		@if $enable-gradients {
-			background-image: none;
+	> li.menu-item-has-children {
+		&:focus-within {
+			> ul.dropdown-menu {
+				display: block;
+			}
 		}
 	}
-}
 
-.navbar-light .navbar-brand a {
-	color: $navbar-light-active-color;
-
-	@include hover-focus {
-		color: $navbar-light-active-color;
+	@include media-breakpoint-up(xl) {
+		.dropdown:hover {
+			> .dropdown-menu {
+				display: block;
+			}
+		}
 	}
-}
-
-.navbar-dark .navbar-brand a {
-	color: $navbar-dark-active-color;
-
-	@include hover-focus {
-		color: $navbar-dark-active-color;
-	}
-}
-
-.navbar h1 {
-	font-weight: $font-weight-normal;
 }
 
 .carousel-inner .carousel-item img {
 	display: block;
 	border: 5px solid $primary;
 	margin: 0 auto;
+}
+
+ul,
+ol {
+	li {
+		margin-bottom: 10px;
+	}
+
+	&.list-without-spacing {
+		li {
+			margin-bottom: 0;
+		}
+	}
 }

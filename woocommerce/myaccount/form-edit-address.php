@@ -11,13 +11,13 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.6.1
+ * @package WooCommerce\Templates
+ * @version 7.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$page_title = ( 'billing' === $load_address ) ? __( 'Billing address', 'spurs' ) : __( 'Shipping address', 'spurs' );
+$page_title = ( 'billing' === $load_address ) ? esc_html__( 'Billing address', 'spurs' ) : esc_html__( 'Shipping address', 'spurs' );
 
 do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
@@ -43,10 +43,9 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
 			<p>
-				<button type="submit" class="btn btn-outline-primary" name="save_address"
-				        value="<?php esc_attr_e( 'Save address', 'spurs' ); ?>"><?php esc_html_e( 'Save address', 'spurs' ); ?></button>
+				<button type="submit" class="btn btn-outline-primary button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="save_address" value="<?php esc_attr_e( 'Save address', 'spurs' ); ?>"><?php esc_html_e( 'Save address', 'spurs' ); ?></button>
 				<?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
-				<input type="hidden" name="action" value="edit_address"/>
+				<input type="hidden" name="action" value="edit_address" />
 			</p>
 		</div>
 
@@ -54,4 +53,4 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_after_edit_account_address_form' );
+<?php do_action( 'woocommerce_after_edit_account_address_form' ); ?>

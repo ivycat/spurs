@@ -20,4 +20,5 @@ if ( is_active_sidebar( 'hero-static' ) ) : ?>
 		</div>
 	</div>
 
-<?php endif;
+	<?php
+endif;

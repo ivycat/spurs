@@ -23,4 +23,5 @@ if ( is_active_sidebar( 'footer-full' ) ) : ?>
 		</div>
 	</div>
 
-<?php endif;
+	<?php
+endif;

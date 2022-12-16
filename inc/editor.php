@@ -15,6 +15,11 @@ defined( 'ABSPATH' ) || exit;
 add_action( 'admin_init', 'spurs_wpdocs_theme_add_editor_styles' );
 
 if ( ! function_exists( 'spurs_wpdocs_theme_add_editor_styles' ) ) {
+	/**
+	 * Spurs custom style
+	 *
+	 * @return void
+	 */
 	function spurs_wpdocs_theme_add_editor_styles() {
 		add_editor_style( 'css/custom-editor-style.min.css' );
 	}
@@ -24,6 +29,12 @@ if ( ! function_exists( 'spurs_wpdocs_theme_add_editor_styles' ) ) {
 add_filter( 'mce_buttons_2', 'spurs_tiny_mce_style_formats' );
 
 if ( ! function_exists( 'spurs_tiny_mce_style_formats' ) ) {
+	/**
+	 * Spurs tiny mce style format
+	 *
+	 * @param [type] $styles Styles for tinymec.
+	 * @return text
+	 */
 	function spurs_tiny_mce_style_formats( $styles ) {
 
 		array_unshift( $styles, 'styleselect' );
@@ -35,6 +46,12 @@ if ( ! function_exists( 'spurs_tiny_mce_style_formats' ) ) {
 add_filter( 'tiny_mce_before_init', 'spurs_tiny_mce_before_init' );
 
 if ( ! function_exists( 'spurs_tiny_mce_before_init' ) ) {
+	/**
+	 * Spurs style formatter
+	 *
+	 * @param [type] $settings tinymce settings.
+	 * @return Array
+	 */
 	function spurs_tiny_mce_before_init( $settings ) {
 
 		$style_formats = array(
@@ -71,7 +88,7 @@ if ( ! function_exists( 'spurs_tiny_mce_before_init' ) ) {
 			$style_formats      = array_merge( $orig_style_formats, $style_formats );
 		}
 
-		$settings['style_formats'] = json_encode( $style_formats );
+		$settings['style_formats'] = wp_json_encode( $style_formats );
 
 		return $settings;
 	}

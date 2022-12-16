@@ -9,14 +9,21 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'spurs_pagination' ) ) {
-
-	function spurs_pagination( $args = [], $class = 'pagination' ) {
+	/**
+	 * Spurs Pagination
+	 *
+	 * @param array  $args Pagination arguments.
+	 * @param string $class classname needs to passed.
+	 * @return void
+	 */
+	function spurs_pagination( $args = array(), $class = 'pagination' ) {
 
 		if ( $GLOBALS['wp_query']->max_num_pages <= 1 ) {
 			return;
 		}
 
-		$args = wp_parse_args( $args,
+		$args = wp_parse_args(
+			$args,
 			array(
 				'mid_size'           => 2,
 				'prev_next'          => true,
@@ -32,22 +39,22 @@ if ( ! function_exists( 'spurs_pagination' ) ) {
 
 		?>
 
-		<nav aria-label="<?php echo $args['screen_reader_text']; ?>">
-            <div class="container">
-                <ul class="pagination justify-content-center mt-5">
+		<nav aria-label="<?php echo esc_attr( $args['screen_reader_text'] ); ?>">
+			<div class="container">
+				<ul class="pagination justify-content-center mt-5">
 
 				<?php
 				foreach ( $links as $key => $link ) {
 					?>
-					<li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : '' ?>">
-						<?php echo str_replace( 'page-numbers', 'page-link', $link ); ?>
+					<li class="page-item <?php echo strpos( $link, 'current' ) ? 'active' : ''; ?>">
+						<?php echo wp_kses_post( str_replace( 'page-numbers', 'page-link', $link ) ); ?>
 					</li>
 					<?php
 				}
 				?>
 
 			</ul>
-            </div>
+			</div>
 		</nav>
 
 		<?php

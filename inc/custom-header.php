@@ -5,15 +5,18 @@
  * @package spurs
  */
 
-
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 add_action( 'after_setup_theme', 'spurs_custom_header_setup' );
 
 if ( ! function_exists( 'spurs_custom_header_setup' ) ) {
+	/**
+	 * Spurs custom header setup
+	 *
+	 * @return void
+	 */
 	function spurs_custom_header_setup() {
-
 		/**
 		 * Filter spurs custom-header support arguments.
 		 *
@@ -42,7 +45,8 @@ if ( ! function_exists( 'spurs_custom_header_setup' ) ) {
 			)
 		);
 
-		register_default_headers( array(
+		register_default_headers(
+			array(
 				'default-image' => array(
 					'url'           => '%s/img/header.jpg',
 					'thumbnail_url' => '%s/img/header.jpg',

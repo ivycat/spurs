@@ -10,7 +10,8 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-while ( have_posts() ) : the_post();
+while ( have_posts() ) :
+	the_post();
 	get_template_part( 'templates/loop/content', 'page' );
 
 	// If comments are open or we have at least one comment, load up the comment template.

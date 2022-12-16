@@ -28,35 +28,39 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
-				'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#navbarNavDropdown"><?php esc_html_e( 'Skip to Menu', 'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#page-wrapper"><?php esc_html_e( 'Skip to Content', 'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#wrapper-footer"><?php esc_html_e( 'Skip to Footer', 'spurs' ); ?></a>
 
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-			<?php if ( 'container' == $container ) : ?>
+			<?php if ( 'container' === $container ) : ?>
 			<div class="container">
 				<?php endif; ?>
 
-				<?php if ( ! has_custom_logo() ) : // Your site title as branding in the menu ?>
+				<?php if ( ! has_custom_logo() ) : // Your site title as branding in the menu. ?>
 					<?php if ( is_front_page() && is_home() ) : ?>
 						<h1 class="navbar-brand mb-0">
 							<a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"
-							   title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+								title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 						</h1>
 					<?php else : ?>
 						<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>"
-						   title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-					<?php endif;
+							title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
+						<?php
+					endif;
 				else :
 					the_custom_logo();
-				endif; // end custom logo ?>
+				endif; // end custom logo.
+				?>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-				        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<?php wp_nav_menu( //The WordPress Menu goes here
+				<?php
+				wp_nav_menu( // The WordPress Menu goes here.
 					array(
 						'theme_location'  => 'primary',
 						'container_class' => 'collapse navbar-collapse',
@@ -67,11 +71,12 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 						'depth'           => 2,
 						'walker'          => new Spurs_WP_Bootstrap_Navwalker(),
 					)
-				); ?>
-				<?php if ( 'container' == $container ) : ?>
+				);
+				?>
+				<?php if ( 'container' === $container ) : ?>
 			</div>
-		<?php endif; ?>
+			<?php endif; ?>
 		</nav>
 	</div>
 
-	<div class="wrapper" id="page-wrapper">
+	<div class="wrapper" id="page-wrapper" tabindex="-1">

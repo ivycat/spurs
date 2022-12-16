@@ -1,39 +1,67 @@
 <?php
+// phpcs:ignoreFile
+/**
+ * Custom post type creating class
+ *
+ * @package spurs
+ */
 
-if ( ! class_exists('Spurs_CPT_Creator') ) {
-	class Spurs_CPT_Creator{
-
+if ( ! class_exists( 'Spurs_CPT_Creator' ) ) {
+	/**
+	 * Custom post type creator
+	 */
+	class Spurs_CPT_Creator {
+		/**
+		 * Register custom post type
+		 *
+		 * @param [type] $post_type Name of the post type for registration.
+		 * @param [type] $names Name to show in the menu.
+		 * @param [type] $icon Icon to show in the sidebar.
+		 * @return void
+		 */
 		public function register_cpt( $post_type, $names, $icon ) {
 
-			$args   = [
-				'labels'          => [
+			$args = array(
+				'labels'      => array(
 					'name'               => $names['uc_plural'],
 					'all_items'          => $names['uc_plural'],
-					'add_new'            => 'Add New ' . $names['uc_single'],
-					'add_new_item'       => 'Add New ' . $names['uc_single'],
+					'add_new'            => 'Add New ' . $names['uc_singular'],
+					'add_new_item'       => 'Add New ' . $names['uc_singular'],
 					'menu_name'          => $names['uc_plural'],
-					'singular_name'      => $names['uc_single'],
-					'edit_item'          => 'Edit ' . $names['uc_single'],
-					'new_item'           => 'New ' . $names['uc_single'],
-					'view_item'          => 'View ' . $names['uc_single'],
+					'singular_name'      => $names['uc_singular'],
+					'edit_item'          => 'Edit ' . $names['uc_singular'],
+					'new_item'           => 'New ' . $names['uc_singular'],
+					'view_item'          => 'View ' . $names['uc_singular'],
 					'items_archive'      => $names['uc_plural'],
 					'search_items'       => 'Search ' . $names['uc_plural'],
 					'not_found'          => 'None found',
 					'not_found_in_trash' => 'None found in trash',
-				],
-				'public'          => true,
-				'query_var'       => true,
-				'rewrite'         => array( 'slug' => $names['single'], 'with_front' => false ),
-				'menu_icon'			=> 'dashicons-'.$icon,
-				'has_archive'     => true,
-				'can_export'      => true,
-				'supports'        => [ 'title', 'editor', 'thumbnail', 'excerpt' ],
-			];
+				),
+				'public'      => true,
+				'query_var'   => true,
+				'rewrite'     => array(
+					'slug'       => $names['single'],
+					'with_front' => false,
+				),
+				'menu_icon'   => 'dashicons-' . $icon,
+				'has_archive' => true,
+				'can_export'  => true,
+				'supports'    => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+			);
 
 			register_post_type( $post_type, $args );
 		}
-
+		/**
+		 * Register Taxonomy
+		 *
+		 * @param [type] $taxonomy Taxonomy name to register.
+		 * @param [type] $post_type For which post type this taxonomy belongs to.
+		 * @param [type] $names Name to show in the sidebar.
+		 * @param [type] $hierarchical Hirarchy for custom post type.
+		 * @return void
+		 */
 		public function register_taxonomy( $taxonomy, $post_type, $names, $hierarchical ) {
+			// @codingStandardsIgnoreStart
 			$labels = array(
 				'name'                       => _x( $names['uc_plural'], 'Categories', 'spurs' ),
 				'singular_name'              => _x( $names['uc_singular'], 'Category', 'spurs' ),
@@ -52,14 +80,14 @@ if ( ! class_exists('Spurs_CPT_Creator') ) {
 				'not_found'                  => __( 'No ' . $names['plural'] . ' found.', 'spurs' ),
 				'menu_name'                  => __( $names['uc_plural'], 'spurs' ),
 			);
-
+			// @codingStandardsIgnoreEnd
 			$args = array(
-				'hierarchical'          => $hierarchical,
-				'labels'                => $labels,
-				'show_ui'               => true,
-				'show_admin_column'     => true,
-				'query_var'             => true,
-				'rewrite'               => array( 'slug' => $taxonomy ),
+				'hierarchical'      => $hierarchical,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => $taxonomy ),
 			);
 
 			register_taxonomy( $taxonomy, $post_type, $args );

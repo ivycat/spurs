@@ -9,12 +9,11 @@
  *
  * @package spurs
  */
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-if ( is_front_page() ) :
-	get_template_part( 'templates/global/hero' );
-endif;
 
-while ( have_posts() ) : the_post();
+while ( have_posts() ) :
+	the_post();
 	get_template_part( 'templates/loop/content', 'page' );
 endwhile; // end of the loop.

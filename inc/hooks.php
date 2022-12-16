@@ -31,18 +31,47 @@ if ( ! function_exists( 'spurs_add_site_info' ) ) {
 			esc_url( __( 'http://wordpress.org/', 'spurs' ) ),
 			sprintf(
 			/* translators:*/
-				esc_html__( 'Proudly powered by %s', 'spurs' ), 'WordPress'
+				esc_html__( 'Proudly powered by %s', 'spurs' ),
+				'WordPress'
 			),
 			sprintf( // WPCS: XSS ok.
 			/* translators:*/
-				esc_html__( 'Theme: %1$s by %2$s.', 'spurs' ), $the_theme->get( 'Name' ), '<a href="' . esc_url( __( 'http://ivycat.com', 'spurs' ) ) . '">ivycat</a>'
+				esc_html__( 'Theme: %1$s by %2$s.', 'spurs' ),
+				$the_theme->get( 'Name' ),
+				'<a href="' . esc_url( __( 'http://ivycat.com', 'spurs' ) ) . '">ivycat</a>'
 			),
 			sprintf( // WPCS: XSS ok.
 			/* translators:*/
-				esc_html__( 'Version: %1$s', 'spurs' ), $the_theme->get( 'Version' )
+				esc_html__( 'Version: %1$s', 'spurs' ),
+				$the_theme->get( 'Version' )
 			)
 		);
 
-		echo apply_filters( 'spurs_site_info_content', $site_info ); // WPCS: XSS ok.
+		echo apply_filters( 'spurs_site_info_content', $site_info ); // phpcs:ignore
 	}
+}
+
+/**
+ * ACF Color Palette
+ *
+ * Add default color palatte to ACF color picker for branding
+ * Match these colors to colors in /functions.php & /assets/scss/partials/base/variables.scss
+ */
+add_action( 'acf/input/admin_footer', 'spurs_acf_color_palette' );
+/**
+ * Spurs color palette
+ *
+ * @return void
+ */
+function spurs_acf_color_palette() {
+	?>
+	<script type="text/javascript">
+			(function($) {
+				acf.add_filter('color_picker_args', function (args, field) {
+					args.palettes = [ '#000000', '#FFFFFF' ];
+					return args;
+				});
+			})(jQuery);
+	</script>
+	<?php
 }

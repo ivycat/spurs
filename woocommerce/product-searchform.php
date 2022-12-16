@@ -11,9 +11,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
- * @package WooCommerce/Templates
- * @version 3.6.1
+ * @package WooCommerce\Templates
+ * @version 7.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,16 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<div class="input-group">
-		<label class="sr-only"
-		       for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'spurs' ); ?></label>
-		<input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"
-		       class="search-field field form-control"
-		       placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'spurs' ); ?>"
-		       value="<?php echo get_search_query(); ?>" name="s"/>
-		<input type="hidden" name="post_type" value="product"/>
-		<span class="input-group-append">
-			<button class="submit btn btn-primary" type="submit"
-			        value="<?php echo esc_attr_x( 'Search', 'submit button', 'spurs' ); ?>"><?php echo esc_html_x( 'Search', 'submit button', 'spurs' ); ?></button>
-		</span>
+	<label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'spurs' ); ?></label>
+	<input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>" class="search-field field form-control" placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'spurs' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+	<input type="hidden" name="post_type" value="product" />
+	<span class="input-group-append">
+	<button type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'spurs' ); ?>" class="submit btn btn-primary <?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ); ?>"><?php echo esc_html_x( 'Search', 'submit button', 'spurs' ); ?></button>
+	</span>
 	</div>
 </form>

@@ -49,20 +49,20 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		/**
 		 * Select sanitization function
 		 *
-		 * @param string $input Slug to sanitize.
+		 * @param string               $input Slug to sanitize.
 		 * @param WP_Customize_Setting $setting Setting instance.
 		 *
 		 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 		 */
 		function spurs_theme_slug_sanitize_select( $input, $setting ) {
 
-			// input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
+			// input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only.
 			$input = sanitize_key( $input );
 
-			// get the list of possible select options
+			// get the list of possible select options.
 			$choices = $setting->manager->get_control( $setting->id )->choices;
 
-			// return input if valid or return default option
+			// return input if valid or return default option.
 			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 
 		}
@@ -80,7 +80,8 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'spurs_container_type', array(
+				'spurs_container_type',
+				array(
 					'label'       => __( 'Container Width', 'spurs' ),
 					'description' => __( 'Use Bootstrap fixed or fluid container?', 'spurs' ),
 					'section'     => 'spurs_theme_layout_options',
@@ -92,7 +93,8 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 					),
 					'priority'    => '10',
 				)
-			) );
+			)
+		);
 
 		$wp_customize->add_setting(
 			'spurs_sidebar_position',
@@ -107,12 +109,15 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'spurs_sidebar_position', array(
+				'spurs_sidebar_position',
+				array(
 					'label'             => __( 'Default Sidebar Position', 'spurs' ),
-					'description'       => __( '<b>Applies to all pages and posts.</b> <br />
+					'description'       => __(
+						'<b>Applies to all pages and posts.</b> <br />
 												<b>Select:</b> right, left, both, or none. <br />
 												<b>Note:</b> you can override on individual pages.',
-						'spurs' ),
+						'spurs'
+					),
 					'section'           => 'spurs_theme_layout_options',
 					'settings'          => 'spurs_sidebar_position',
 					'type'              => 'select',
@@ -125,7 +130,8 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 					),
 					'priority'          => '20',
 				)
-			) );
+			)
+		);
 
 		$wp_customize->add_setting(
 			'spurs_pagination',
@@ -140,22 +146,23 @@ if ( ! function_exists( 'spurs_theme_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'spurs_pagination', array(
+				'spurs_pagination',
+				array(
 					'label'       => __( 'Pagination / Load More', 'spurs' ),
 					'description' => __( 'Pagination or Load More for post listing.', 'spurs' ),
 					'section'     => 'spurs_theme_layout_options',
 					'settings'    => 'spurs_pagination',
 					'type'        => 'select',
 					'choices'     => array(
-						'pagination'       => __( 'Pagination', 'spurs' ),
-						'loadmore' => __( 'Load More', 'spurs' ),
+						'pagination' => __( 'Pagination', 'spurs' ),
+						'loadmore'   => __( 'Load More', 'spurs' ),
 					),
 					'priority'    => '30',
 				)
-			) 
+			)
 		);
 	}
-} // endif function_exists( 'spurs_theme_customize_register' ).
+}
 add_action( 'customize_register', 'spurs_theme_customize_register' );
 
 /**

@@ -19,11 +19,11 @@ if ( is_singular( 'product' ) ) {
 
 	woocommerce_content();
 
-	// Fetch the template override for ANY product archive, product taxonomy, product search, or /shop landing page
+	// Fetch the template override for ANY product archive, product taxonomy, product search, or /shop landing page.
 } elseif ( file_exists( $default_path . $template_name ) ) {
 	wc_get_template( $template_name, $args, $template_path, $default_path );
 
-	// If no archive-product.php template exists, default to catch-all
+	// If no archive-product.php template exists, default to catch-all.
 } else {
 	woocommerce_content();
 };

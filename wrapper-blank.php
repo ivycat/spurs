@@ -16,7 +16,7 @@
 get_header( spurs_template_base() ); ?>
 
 	<main class="site-main" id="main">
-		<?php include spurs_template_path(); ?>
+		<?php require spurs_template_path(); ?>
 	</main>
 
 <?php
