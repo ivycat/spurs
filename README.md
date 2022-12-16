@@ -16,7 +16,7 @@ Bootstrap, Sass, npm, and Gulp.
 The \_s theme is a good starting point to develop a WordPress theme. But it is “just” a raw starter theme; it outputs
 solid basic markup and WordPress functions without any layout or design.
 
-Bootstrap 4 provides a well known and supported layout framework providing a solid, clean and responsive foundation.
+Bootstrap 5 provides a well known and supported layout framework providing a solid, clean and responsive foundation.
 
 Spurs is a fork of [Understrap](https://understrap.com) with the goals of:
 
@@ -47,20 +47,20 @@ Spurs is a fork of [Understrap](https://understrap.com) with the goals of:
 
 Here's how the Sass and CSS files that come with Spurs work:
 
-- The theme's `/style.css` file identifies the theme inside of WordPress but it isn't loaded by the theme and shouldn't include any styles.
-- The `/css/theme.css` file and its lighter weight little brother `/css/theme.min.css` provide _all_ of the theme's styles. Just one of these files is loaded in the WordPress theme, depending on your settings.
+- The theme's `./style.css` file identifies the theme inside of WordPress but it isn't loaded by the theme and shouldn't include any styles.
+- The `./css/theme.css` file and its lighter weight little brother `./css/theme.min.css` provide _all_ of the theme's styles. Just one of these files is loaded in the WordPress theme, depending on your settings.
 - These theme files are composed of several different SCSS sets in `/spurs/sass/` loaded through `/spurs/sass/theme.scss`.
 
   ```// Core files
      @import "theme/variables";      // <--- Add your variables including overrides to Bootstrap or Spurs variables
-     @import "assets/bootstrap4";    // <--- Load Bootstrap 4 (Do not tweak)*
+     @import "vendors/bootstrap4";    // <--- Load Bootstrap 5 (Do not tweak)*
      @import "spurs/spurs";          // <--- Loads Spurs defaults
 
      // Optional files - If you don't use the corresponding scripts/fonts comment them out
      @import "spurs/woocommerce";    // <--- Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
-     @import "assets/font-awesome";  // <--- Font Awesome Icon font (Do not tweak)*
-     @import "assets/underscores";   // <--- _s media styles
-     @import "theme/contact-form7"; // <-- Contact Form 7 - Bootstrap 4 support
+     @import "vendors/font-awesome";  // <--- Font Awesome Icon font (Do not tweak)*
+     @import "vendors/underscores";   // <--- _s media styles
+     @import "theme/contact-form7"; // <-- Contact Form 7 - Bootstrap 5 support
 
      // Theme-specific and other imports
      @import "theme/theme"; // <------------ Your custom styles go here
@@ -68,11 +68,11 @@ Here's how the Sass and CSS files that come with Spurs work:
 
 \*Don’t edit or tweak these files or you won’t be able to update Bootstrap or Font Awesome without overwriting your own work!
 
-Your design customizations go into: `/sass/theme`.
-Add your styles to the `/sass/theme/_theme.scss` file and your variables to
-`/sass/theme/_variables.scss`.
+Your design customizations go into: `./sass/theme`.
+Add your styles to the `./sass/theme/_theme.scss` file and your variables to
+`./sass/theme/_variables.scss`.
 
-You can remove or comment out files or SCSS sets you don't need. Or @import additional .scss files as needed into a file in `/sass/theme/`.
+You can remove or comment out files or SCSS sets you don't need. Or @import additional .scss files as needed into a file in `./sass/theme/`.
 
 ### Google Fonts
 
