@@ -77,18 +77,18 @@ You can remove or comment out files or SCSS sets you don't need. Or @import addi
 ### Google Fonts
 
 You can add google fonts url inside `sass/theme.scss` file directly.
-At the top of the files you can your google fonts url like below.
+At the top of the files you need to add google fonts url like below.
 `@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");`
 
 ### JavaScript / jQuery
 
-Inside `src/js/` directory, there is a file named `custom-javascript.js` . You need to write all of your JavaScript in this file. Gulp watcher automatcally watch this file when you write any code inside this file.
+Inside `src/js/` directory, there is a file named `custom-javascript.js` . You need to write all of your JavaScript code in this file. Gulp watcher automatcally watch this file when you write any code inside this file.
 
 If you need any other file for JavaScript, you can put that file here in this directory. In that case, you need to add that file name in the `gulpfile.js` inside `script` function. Then gulp will automatically watch this file.
 
-In this way, gulp will concat all the files into a one file and minify that file. In this case it will create `theme.min.js` and `theme.js` inside `js` folder of root directory.
+Gulp will concat all the files inside `src/js/` into a one file and minify. In this case it will create `theme.min.js` and `theme.js` inside `js` folder of root directory.
 
-If you don't want to compile and minify your another JavaScript file into a one file, you can simply put your another JavaScript file inside `js` directory and enqueue it directly inside `enqueue.php` file in `inc` folder.
+If you don't want to compile and minify your another JavaScript file into a one file, you can simply put that JavaScript file inside `js` directory and enqueue it directly inside `inc/enqueue.php` file.
 
 ### Page Templates
 
@@ -110,16 +110,15 @@ Page templates are located in `spurs/page-templates/`.
 
 ## Start a project with Spurs
 
-Below are the check lists if you start any project with Spurs
+Below are the check lists if you start any project with Spurs.
 
-1.  Rename the folder name to your theme or site name
-2.  Search and replace for spurs to your theme name.
-3.  Rename spurs folder name from sass folder and file name inside this folder to your theme name or whatever your add to replace spurs. Also make sure same name is there in theme.scss file
-4.  To create any custom post type check `inc/extra.php` and add your custom post details inside `spurs_register_cpts()` function.
-5.  If Gutenberg needed to be activated for custom post type - open `inc/custom-cut.php` file. Then add `"show_in_rest" => true` for both post type and taxonomy array.
-6.  In order to stop parent menu automatically convert into has link, edit your nav walker.
-    Go to inc/bootstrap-wp-navwalker.php and search for `// If item has_children add atts to <a>`.
-    Then update href like below.
+1.  Clone spurs repo into the project theme directory. Then extract and rename folder name to project name.
+2.  Search for `spurs` and replace to the project name.
+3.  Rename folder and file name in `./sass` folder from `spurs to project name` and make sure same name is there in `./sass/theme.scss` file.
+4.  To create any custom post type check `./inc/extra.php` and add custom post details inside `spurs_register_cpts()` function.
+5.  If Gutenberg needed to be activated for custom post type, open `./inc/custom-cut.php` file. Then add `"show_in_rest" => true` for both post type and taxonomy array.
+6.  To stop parent menu automatically convert into has link, edit nav walker.Go to `./inc/bootstrap-wp-navwalker.php` and search for `// If item has_children add atts to <a>`.
+    Then update `href` like below.
 
     ```
     // old
@@ -129,14 +128,19 @@ Below are the check lists if you start any project with Spurs
     $atts['href'] = ! empty( $item->url ) ? $item->url : '';
     ```
 
-7.  In order to parent menu clickable add below code into your javascript.
-    `$(".navbar .dropdown > a").click(function () { location.href = this.href; });`
-8.  For the single post class of wrapper check `template-tags.php` file.
-9.  For Page structure - look into `wrapper.php` and `inc/theme-wrapper.php`
-10. For Sidebar check customizer theme settings panel and page template.
-11. Pagination options is also available inside customizer panel.
-12. If you wants to add any image in the theme, you can put that inside `images` folder in project root directory.
-13. To change the content width edit `theme.json` file in `layout` key. `contentSize` value is for default size of container and `wideSize` value is for wide width option.
+7.  By default parent menu is not clickable. To make it clickable add below code into `./src/js/custom-javascript.js` file.
+
+    ```
+    $(".navbar .dropdown > a").click(function () { location.href = this.href; });
+    ```
+
+8.  `spurs_content_classes()` is responsible for the single post classes. You can find this function in `./inc/template-tags.php` file.
+9.  `./wrapper.php` file is responsible for page structure.
+10. `./inc/theme-wrapper.php` file is responsible for templating.
+11. Sidebar settings option is available in `customizer -> theme settings panel`. Page template also responsible for the same. Both options needs to be same to work.
+12. Pagination options is also available inside `customizer -> theme settings panel`.
+13. Image can be kept inside `./images/` folder. You can add image reference in your code from this folder.
+14. To change the content width edit `./theme.json` file in `layout` key. `contentSize` value is for default size of container and `wideSize` value is for wide width option.
 
 ## Installation
 
