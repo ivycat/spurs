@@ -28,10 +28,10 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 
 	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
 
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content',
-				'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text sr-only" href="#main"><?php esc_html_e( 'Skip to content', 'spurs' ); ?></a>
+		<a class="skip-link screen-reader-text sr-only" href="#navbar"><?php esc_html_e( 'Skip to navigation', 'spurs' ); ?></a>
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar">
 
 			<?php if ( 'container' == $container ) : ?>
 			<div class="container">

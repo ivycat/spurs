@@ -14,55 +14,65 @@ defined( 'ABSPATH' ) || exit;
  * Prints HTML with meta information for the current post-date/time and author.
  */
 if ( ! function_exists( 'spurs_posted_on' ) ) {
+	/**
+	 * Function to display posts publish date, modified date, and author. 
+	 *
+	 * @return void
+	 */
 	function spurs_posted_on() {
 
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$updated_time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-		$updated_time_string = sprintf( $updated_time_string,
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
+			$updated_time_string = sprintf(
+				$updated_time_string,
+				esc_attr( get_the_modified_date( 'c' ) ),
+				esc_html( get_the_modified_date() )
+			);
 
 			$posted_on = apply_filters(
-				'spurs_posted_on', sprintf(
+				'spurs_posted_on',
+				sprintf(
 					'<div class="updated-on">%1$s %2$s%3$s</div>',
 					esc_html_x( ' Updated on', 'post date', 'spurs' ),
 					apply_filters( 'spurs_posted_on_time', $updated_time_string ),
-					esc_html_x( '', 'post date', 'spurs' )
-
+					esc_html( '' )
 				)
 			);
 
 		} else {
 			$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
-			$time_string = sprintf( $time_string,
+			$time_string = sprintf(
+				$time_string,
 				esc_attr( get_the_date( 'c' ) ),
 				esc_html( get_the_date() )
 			);
 
-		$posted_on = apply_filters(
-			'spurs_posted_on', sprintf(
-				'<div class="posted-on">%1$s %2$s</a></div>',
+			$posted_on = apply_filters(
+				'spurs_posted_on',
+				sprintf(
+					'<div class="posted-on">%1$s %2$s</div>',
 					esc_html_x( 'Posted on', 'post date', 'spurs' ),
-				apply_filters( 'spurs_posted_on_time', $time_string )
-			)
-		);
+					apply_filters( 'spurs_posted_on_time', $time_string )
+				)
+			);
 		}
 
 		$byline = apply_filters(
-			'spurs_posted_by', sprintf(
-				'<div class="byline"> %1$s<span class="author vcard"><a class="url fn n" href="%2$s"> %3$s</a></span></div>',
+			'spurs_posted_by',
+			sprintf(
+				'<div class="byline"> %1$s&nbsp<span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span></div>',
 				$posted_on ? esc_html_x( 'by', 'post author', 'spurs' ) : esc_html_x( 'Posted by', 'post author', 'spurs' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				esc_html( get_the_author() )
 			)
 		);
 		echo $posted_on . $byline;
-		/*if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			echo $updated_on;// WPCS: XSS OK.
-		}*/
+		
+		// if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		// echo $updated_on;// WPCS: XSS OK.
+		// }.
 	}
 }
 
@@ -104,12 +114,14 @@ if ( ! function_exists( 'spurs_categorized_blog' ) ) {
 	function spurs_categorized_blog() {
 		if ( false === ( $all_the_cool_cats = get_transient( 'spurs_categories' ) ) ) {
 			// Create an array of all the categories that are attached to posts.
-			$all_the_cool_cats = get_categories( array(
-				'fields'     => 'ids',
-				'hide_empty' => 1,
-				// We only need to know if there is more than one category.
-				'number'     => 2,
-			) );
+			$all_the_cool_cats = get_categories(
+				array(
+					'fields'     => 'ids',
+					'hide_empty' => 1,
+					// We only need to know if there is more than one category.
+					'number'     => 2,
+				) 
+			);
 			// Count the number of categories that are attached to the posts.
 			$all_the_cool_cats = count( $all_the_cool_cats );
 			set_transient( 'spurs_categories', $all_the_cool_cats );
@@ -171,7 +183,6 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 			}
 		}
 	}
-
 }
 
 /**
@@ -234,8 +245,8 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 		} else {
 			echo 'column-12 content-area';
 		}
-		}
 	}
+}
 
 /**
  * Content classes loading logic
@@ -249,7 +260,7 @@ if ( ! function_exists( 'spurs_column_classes' ) ) {
 	 *      <div class="<?php spurs_column_classes(); ?>" id="primary">
 	 */
 	function spurs_column_classes() {
-		$html                   = '';
+		$html = '';
 
 		if ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'sidebar-left' ) ) {
 			$html .= 'col-md-8 left-sidebar-template';
@@ -287,7 +298,7 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 			$html .= 'col-md-3 widget-area';
 			echo $html; // WPCS: XSS OK.
 		} elseif ( ( is_page_template( 'page-templates/sidebar-left.php' ) && is_active_sidebar( 'sidebar-left' ) ) ||
-		           ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) ) {
+				   ( is_page_template( 'page-templates/sidebar-right.php' ) && is_active_sidebar( 'sidebar-right' ) ) ) {
 			$html .= 'col-md-4 widget-area';
 			echo $html; // WPCS: XSS OK.
 		} elseif ( ( 'right' === $spurs_sidebar_position || 'left' === $spurs_sidebar_position ) && ( is_active_sidebar( 'sidebar-right' ) || is_active_sidebar( 'sidebar-left' ) ) ) {

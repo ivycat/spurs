@@ -1,13 +1,46 @@
-ul.dropdown-menu li.dropdown > a.dropdown-item {
-    &::after {
-        display: inline-block;
-        margin-left: 1rem;
-        vertical-align: 0.1em;
-        content: "";
-        border-top: 0.3em solid transparent;
-        border-right: 0;
-        border-bottom: 0.3em solid transparent;
-        border-left: 0.3em solid;
+ul#main-menu {
+    li.dropdown {
+        a.dropdown-toggle {
+            display: inline-flex;
+        }
+
+        button.dropdown-toggle {
+            display: inline-flex;
+            background-color: transparent;
+            padding: 5px;
+            margin-right: 0.255em;
+            vertical-align: 0.2em;
+            border: none;
+
+            div {
+                
+                border-top: 0.3em solid #ffffff8c;
+                border-right: 0.3em solid transparent;
+                border-left: 0.3em solid transparent;
+                border-bottom: 0;
+            }
+        }
+    }
+}
+
+ul.dropdown-menu {
+    li.dropdown {
+
+        > a.dropdown-item {
+            display: inline-block;
+            width: 80%;
+        }
+
+        button.dropdown-toggle {
+            margin-left: 3px;
+
+            div {
+                border-top: 0.3em solid transparent !important;
+                border-right: 0;
+                border-left: 0.3em solid #000000 !important;
+                border-bottom: 0.3em solid transparent !important;
+            }
+        }
     }
 
     // &:hover::after {
