@@ -86,16 +86,22 @@ $(document).ready(function () {
     navbar.toggleClass("search-active");
     adjust_search_box();
   });
+
+  /**
+   * Click on hash link
+   * Scroll to the top of the page.
+   */
   $(document).on("click", 'a[href^="#"]', function (event) {
     var target = $(this.hash),
       scroll_val = 15;
+    var hrefValue = $(this).attr("href");
     if (admin_bar.length > 0) {
       scroll_val += admin_bar.outerHeight();
     }
     if (navbar.length > 0) {
       scroll_val += navbar.outerHeight();
     }
-    if ("" !== target && null !== target) {
+    if ("" !== target && null !== target && "#" === hrefValue) {
       // event.preventDefault();
       $("html, body").animate({
         scrollTop: target.offset().top - scroll_val
@@ -110,12 +116,16 @@ $(document).ready(function () {
 
   // Adjust search bar position
   adjust_search_box();
-  $(document).on("facetwp-loaded", function () {
-    $("html, body").animate({
-      scrollTop: $("#main").offset().top - 200
-    }, 1000);
-  });
+
+  /**
+   * For facetwp
+   * Go to top of the page
+   */
+  // $(document).on("facetwp-loaded", function () {
+  // 	$("html, body").animate({ scrollTop: $("#main").offset().top - 200 }, 1000);
+  // });
 });
+
 $(window).on("scroll", function () {
   var scroll_top = $(window).scrollTop();
   if (scroll_top < 10) {
