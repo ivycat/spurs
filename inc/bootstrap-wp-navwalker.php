@@ -54,6 +54,10 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) {
 			$indent = str_repeat( $t, $depth );
 			// Default class to add to the file.
 			$classes = array( 'dropdown-menu' );
+			if ( $depth > 0 ) {
+				array_push( $classes, 'dropdown-submenu' );
+			}
+			
 			/**
 			 * Filters the CSS class(es) applied to a menu list element.
 			 *
@@ -183,7 +187,7 @@ if ( ! class_exists( 'Spurs_WP_Bootstrap_Navwalker' ) ) {
 			}
 
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
-			if ( '_blank' === $item->target && empty( $item->xfn ) ) { // Thanks to LukaszJaro, see https://github.com/understrap/understrap/issues/973
+			if ( '_blank' === $item->target && empty( $item->xfn ) ) { // Thanks to LukaszJaro, see https://github.com/understrap/understrap/issues/973 .
 				$atts['rel'] = 'noopener noreferrer';
 			} else {
 				$atts['rel'] = $item->xfn;
