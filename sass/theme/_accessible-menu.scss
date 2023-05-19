@@ -1,22 +1,22 @@
 ul.dropdown-menu li.dropdown > a.dropdown-item {
-    &::after {
-        display: inline-block;
-        margin-left: 1rem;
-        vertical-align: 0.1em;
-        content: "";
-        border-top: 0.3em solid transparent;
-        border-right: 0;
-        border-bottom: 0.3em solid transparent;
-        border-left: 0.3em solid;
-    }
+	&::after {
+		display: inline-block;
+		margin-left: 1rem;
+		vertical-align: 0.1em;
+		content: "";
+		border-top: 0.3em solid transparent;
+		border-right: 0;
+		border-bottom: 0.3em solid transparent;
+		border-left: 0.3em solid;
+	}
 
-    // &:hover::after {
-    //     border-right: 0.3em solid !important;
-    //     border-left: 0 !important;
-    // }
+	// &:hover::after {
+	// 	border-right: 0.3em solid !important;
+	// 	border-left: 0 !important;
+	// }
 }
 
 ul.dropdown-submenu {
-    left: 150px;
-    top: 20px;
+	left: 150px;
+	top: 20px;
 }
