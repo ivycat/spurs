@@ -32,7 +32,7 @@ $sidebar_position = get_theme_mod( 'spurs_sidebar_position' );
 		<a class="skip-link screen-reader-text" href="#page-wrapper"><?php esc_html_e( 'Skip to Content', 'spurs' ); ?></a>
 		<a class="skip-link screen-reader-text" href="#wrapper-footer"><?php esc_html_e( 'Skip to Footer', 'spurs' ); ?></a>
 
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navbar">
 
 			<?php if ( 'container' === $container ) : ?>
 			<div class="container">

@@ -66,6 +66,11 @@ input[type="submit"] {
 	}
 }
 
+:focus {
+	// outline: none !important;
+	box-shadow: none !important;
+}
+
 .wrapper {
 	&.remove-padding {
 		&--top {

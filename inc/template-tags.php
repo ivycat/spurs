@@ -15,10 +15,12 @@ defined( 'ABSPATH' ) || exit;
  */
 if ( ! function_exists( 'spurs_posted_on' ) ) {
 	/**
+	 * Function to display posts publish date, modified date, and author. 
 	 * Spurs posted on function
 	 *
 	 * @return void
 	 */
+	/**
 	function spurs_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -256,6 +258,7 @@ if ( ! function_exists( 'spurs_right_sidebar' ) ) {
 			}
 		}
 	}
+
 }
 
 /**
@@ -317,8 +320,8 @@ if ( ! function_exists( 'spurs_content_classes' ) ) {
 		} else {
 			echo 'column-12 content-area';
 		}
+		}
 	}
-}
 
 /**
  * Content classes loading logic
