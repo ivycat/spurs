@@ -127,7 +127,7 @@ a.skip-link {
 	> li.menu-item-has-children {
 		&:focus-within {
 			> ul.dropdown-menu {
-				display: block;
+				// display: block;
 			}
 		}
 	}
