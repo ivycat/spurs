@@ -125,6 +125,8 @@ a.skip-link {
 		// }
 	}
 	> li.menu-item-has-children {
+		// commenting for accessible issue.
+		// dropdown menu will be visiable on hover not within focus for accessibility.
 		&:focus-within {
 			> ul.dropdown-menu {
 				// display: block;

@@ -94,6 +94,7 @@ jQuery(function ($) {
     if (["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "Enter"].indexOf(e.key) == -1) {
       return;
     }
+    console.log("keboard key = ", e.key);
     switch (e.key) {
       case "ArrowDown":
         // down key
@@ -112,6 +113,9 @@ jQuery(function ($) {
       case "ArrowLeft":
         // left key
         e.preventDefault();
+        /**
+         * Check 2nd sub menu
+         */
         if ($(this).closest("ul.dropdown-menu.dropdown-submenu.show").length > 0) {
           console.log("Inside 2nd Submenu");
           if ($(this).parent("li.menu-item:first-child").length > 0) {
@@ -127,28 +131,84 @@ jQuery(function ($) {
           console.log("On left button exsist");
         } else if ($(this).parent("li").prev("li.menu-item").children("a").length > 0) {
           $(this).parent("li").prev("li.menu-item").children("a").focus();
+          console.log("left key main menu");
           console.log("Button does not exist on left, going for previous Anchor element");
+          /**
+           * Close open dropdown class
+           */
+          /**
+           * Select active parent menu item
+           */
+          // var activeDropdownItem = $(
+          // 	"#main-menu .menu-item-has-children.dropdown.active.show"
+          // );
+          /**
+           * Remove show class from the dropdown menu.
+           * update aria-expande attribute to false for a.
+           * update aria-expande attribute to false for button.
+           * Remove show class from the parent dropdown menu.
+           */
+          // activeDropdownItem
+          // 	.find("ul.dropdown-menu.show")
+          // 	.removeClass("show");
+          // activeDropdownItem.find("a").attr("aria-expanded", "false");
+          // activeDropdownItem.find("button").attr("aria-expanded", "false");
+          // activeDropdownItem.removeClass("show");
         }
+
         break;
       case "ArrowRight":
         // right key
+        /**
+         * Check 2nd sub menu
+         */
         if ($(this).closest("ul.dropdown-menu.dropdown-submenu").length > 0) {
           console.log("2nd submenu");
           return;
         } else if ($(this).closest("ul.dropdown-menu").length > 0) {
           console.log("1st submenu");
+          /**
+           * Check 1st sub menu
+           */
           if ($(this).next("button.dropdown-toggle").length > 0) {
             console.log("1st submenu button exists on right, added focus");
             $(this).next("button.dropdown-toggle").focus();
           }
         } else {
           console.log("main menu");
+          /**
+           * In the main menu
+           */
           if ($(this).next("button.dropdown-toggle").length > 0) {
             console.log("on right button exsist");
+            /**
+             * On the arrow
+             */
             $(this).next("button.dropdown-toggle").focus();
-          } else if ($(this).parent("li").next("li.menu-item").children("a").length > 0) {
+          } else if (
+          /**
+           * Check for next item
+           */
+          $(this).parent("li").next("li.menu-item").children("a").length > 0) {
             console.log("button does not exist on right, going for next Anchor element");
             $(this).parent("li").next("li.menu-item").children("a").focus();
+            /**
+             * Close open dropdown class
+             */
+            /**
+             * Select active parent menu item
+             */
+            var activeDropdownItem = $("#main-menu .menu-item-has-children.dropdown.active.show");
+            /**
+             * Remove show class from the dropdown menu.
+             * update aria-expande attribute to false for a.
+             * update aria-expande attribute to false for button.
+             * Remove show class from the parent dropdown menu.
+             */
+            activeDropdownItem.find("ul.dropdown-menu.show").removeClass("show");
+            activeDropdownItem.find("a").attr("aria-expanded", "false");
+            activeDropdownItem.find("button").attr("aria-expanded", "false");
+            activeDropdownItem.removeClass("show");
           }
         }
         if ($(this).next("ul.dropdown-menu.dropdown-submenu.show")) {
@@ -202,6 +262,31 @@ jQuery(function ($) {
           }
         }
         break;
+    }
+  });
+  /**
+   * For accessibility
+   * hide all dropdown when focus any main menu item
+   */
+  $("#main-menu>.menu-item>a").focusin(function () {
+    /**
+     * Close open dropdown class
+     */
+    /**
+     * Select active parent menu item
+     */
+    var activeDropdownItem = $("#main-menu .menu-item-has-children.dropdown.active.show");
+    if (activeDropdownItem.length > 0) {
+      /**
+       * Remove show class from the dropdown menu.
+       * update aria-expande attribute to false for a.
+       * update aria-expande attribute to false for button.
+       * Remove show class from the parent dropdown menu.
+       */
+      activeDropdownItem.find("ul.dropdown-menu.show").removeClass("show");
+      activeDropdownItem.find("a").attr("aria-expanded", "false");
+      activeDropdownItem.find("button").attr("aria-expanded", "false");
+      activeDropdownItem.removeClass("show");
     }
   });
 })(jQuery);
