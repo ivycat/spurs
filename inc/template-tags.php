@@ -20,7 +20,6 @@ if ( ! function_exists( 'spurs_posted_on' ) ) {
 	 *
 	 * @return void
 	 */
-	/**
 	function spurs_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
@@ -388,5 +387,3 @@ if ( ! function_exists( 'spurs_sidebar_classes' ) ) {
 		}
 	}
 }
-
-

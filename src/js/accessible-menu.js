@@ -1,7 +1,3 @@
-/**
- * An accessible menu for WordPress
- */
-
 (function ($) {
 	// Skip to content focuses on first anchor tag inside #main upon click.
 	$(".skip-link.screen-reader-text").on("click", function (e) {
