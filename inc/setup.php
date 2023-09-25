@@ -205,3 +205,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	);
 
 }
+
+/**
+ * Add pattern menu ( Reusuable block )
+ * under appearance menu
+ */
+function spurs_reusable_blocks_admin_menu() {
+	add_submenu_page( 'themes.php', 'Patterns', 'Patterns', 'edit_posts', 'edit.php?post_type=wp_block', '' );
+}
+add_action( 'admin_menu', 'spurs_reusable_blocks_admin_menu' );
