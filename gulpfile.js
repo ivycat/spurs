@@ -275,7 +275,8 @@ gulp.task("copy-assets", function (callback) {
 	// Copy all JS files
 	gulp
 		.src(`${paths.node}/bootstrap/dist/js/**/*.js`)
-		.pipe(gulp.dest(`${paths.sass}/vendors/bootstrap5`));
+		.pipe(gulp.dest(`${paths.dev}/js/bootstrap5`));
+	// .pipe(gulp.dest(`${paths.sass}/vendors/bootstrap5`));
 
 	// Copy all Bootstrap SCSS files
 	gulp
