@@ -167,7 +167,7 @@
 							 * Select active parent menu item
 							 */
 							var activeDropdownItem = $(
-								"#main-menu .menu-item-has-children.dropdown.active.show"
+								"#main-menu .menu-item-has-children.dropdown.show"
 							);
 							/**
 							 * Remove show class from the dropdown menu.
