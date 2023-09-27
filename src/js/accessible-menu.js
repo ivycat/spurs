@@ -255,6 +255,17 @@
 		}
 	);
 	/**
+	 * For mobile dropdown
+	 */
+	$("button.dropdown-toggle").on("click", function () {
+		$(this).parent().toggleClass("show");
+		$(this)
+			.parent()
+			.find("ul.dropdown-menu")
+			.first()
+			.toggleClass("show-childmenu");
+	});
+	/**
 	 * For accessibility
 	 * hide all dropdown when focus any main menu item
 	 */
