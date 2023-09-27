@@ -67,5 +67,30 @@ nav.navbar {
 				margin-bottom: 0;
 			}
 		}
+
+		li.menu-item-has-children.dropdown {
+			@media screen and (max-width: 768px) {
+				> button.dropdown-toggle {
+					float: right;
+					margin-top: 14px;
+				}
+				li.menu-item-has-children.dropdown {
+					> button.dropdown-toggle {
+						float: right;
+						margin-top: 7px;
+					}
+				}
+			}
+		}
+		li.menu-item-has-children.dropdown.show {
+			@media screen and (max-width: 768px) {
+				> ul.dropdown-menu {
+					display: none;
+				}
+				> ul.dropdown-menu.show-childmenu {
+					display: block;
+				}
+			}
+		}
 	}
 }
