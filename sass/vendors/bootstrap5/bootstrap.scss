@@ -5,7 +5,7 @@
 // Configuration
 @import "functions";
 @import "variables";
-@import "maps";
+// @import "maps";
 @import "mixins";
 @import "utilities";
 
@@ -16,8 +16,8 @@
 @import "images";
 @import "containers";
 @import "grid";
-@import "tables";
-@import "forms";
+// @import "tables";
+// @import "forms";
 @import "buttons";
 @import "transitions";
 @import "dropdown";
@@ -29,10 +29,10 @@
 // @import "breadcrumb"; // https://getbootstrap.com/docs/5.0/components/breadcrumb/
 @import "pagination";
 // @import "badge"; // https://getbootstrap.com/docs/5.0/components/badge/
-@import "alert";
+// @import "alert";
 // @import "progress"; // https://getbootstrap.com/docs/5.0/components/progress/
-@import "list-group";
-@import "close";
+// @import "list-group";
+// @import "close";
 // @import "toasts"; // https://getbootstrap.com/docs/5.0/components/toasts/
 // @import "modal";
 // @import "tooltip"; // https://getbootstrap.com/docs/5.0/components/tooltips/
@@ -40,7 +40,7 @@
 // @import "carousel"; // https://getbootstrap.com/docs/5.0/components/carousel/
 // @import "spinners"; // https://getbootstrap.com/docs/5.0/components/spinners/
 // @import "offcanvas"; // https://getbootstrap.com/docs/5.0/components/offcanvas/
-@import "placeholders";
+// @import "placeholders";
 
 // Helpers
 @import "helpers";
