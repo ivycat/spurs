@@ -6172,13 +6172,15 @@ jQuery(function ($) {
    * hide all dropdown when focus any main menu item
    */
   $("#main-menu>.menu-item>a").focusin(function () {
+    console.warn("focus in parent menu");
     /**
      * Close open dropdown class
      */
     /**
      * Select active parent menu item
      */
-    var activeDropdownItem = $("#main-menu .menu-item-has-children.dropdown.active.show");
+    var activeDropdownItem = $("#main-menu .menu-item-has-children.dropdown.active");
+    console.log("activeDropdownItem", activeDropdownItem.length);
     if (activeDropdownItem.length > 0) {
       /**
        * Remove show class from the dropdown menu.
