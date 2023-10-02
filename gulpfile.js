@@ -227,7 +227,7 @@ gulp.task("browser-sync", function () {
 gulp.task("scripts", function () {
 	var scripts = [
 		// Start - All BS5 stuff
-		`${paths.dev}/js/bootstrap5/bootstrap.bundle.js`,
+		`${paths.dev}/vendors/js/bootstrap5/bootstrap.bundle.js`,
 
 		// End - All BS5 stuff
 
@@ -275,8 +275,8 @@ gulp.task("copy-assets", function (callback) {
 	// Copy all JS files
 	gulp
 		.src(`${paths.node}/bootstrap/dist/js/**/*.js`)
-		.pipe(gulp.dest(`${paths.dev}/js/bootstrap5`));
-	// .pipe(gulp.dest(`${paths.sass}/vendors/bootstrap5`));
+		.pipe(gulp.dest(`${paths.dev}/vendors/js/bootstrap5`));
+	// .pipe(gulp.dest(`${paths.dev}/js/bootstrap5`));
 
 	// Copy all Bootstrap SCSS files
 	gulp
@@ -294,6 +294,7 @@ gulp.task("copy-assets", function (callback) {
 		if (result) {
 			fa_dir = "fontawesome-pro";
 		}
+		console.warn("fa-dir", fa_dir);
 		// Copy all Font Awesome Fonts
 		gulp
 			.src(
